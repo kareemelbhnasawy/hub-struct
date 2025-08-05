@@ -1,23 +1,27 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { getLocales } from 'react-native-localize';
+import { getString } from '../utilities/storage';
+import { STORAGE_KEYS } from '../constants/storageKeys';
+import { I18nManager } from 'react-native';
 
 import enCommon from './common/en.json';
 import arCommon from './common/ar.json';
 import enAuth from './auth/en.json';
 import arAuth from './auth/ar.json';
-import { getString } from '../utilities/storage';
-import { STORAGE_KEYS } from '../constants/storageKeys';
-import { I18nManager } from 'react-native';
+import enInputs from './inputs/en.json';
+import arInputs from './inputs/ar.json';
 
 export const resources = {
   en: {
     common: enCommon,
     auth: enAuth,
+    inputs: enInputs,
   },
   ar: {
     common: arCommon,
     auth: arAuth,
+    inputs: arInputs,
   },
 };
 

@@ -1,5 +1,5 @@
 {
-  "welcome": "Welcomeeeee {{name}} beeh",
+  "welcome": "Welcome {{name}}",
   "beeh": "beeh",
   "description": "This is your app.",
   "obj": {

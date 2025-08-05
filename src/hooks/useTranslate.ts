@@ -35,8 +35,6 @@ export function useTranslate() {
       } else {
         const [namespace, ...rest] = str.split('.');
         const key = rest.join('.');
-        console.log(namespace);
-        console.log(key);
         if (!Object.keys(resources.en).includes(namespace)) {
           res.push(str);
         } else {

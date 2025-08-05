@@ -4,6 +4,7 @@ import BaseTextProps from './base-text.props';
 import { useTranslate } from '../../../hooks/useTranslate';
 
 function BaseText({
+  text,
   isTranslated = true,
   textProps,
   children,
@@ -15,7 +16,8 @@ function BaseText({
   return <Text
         {...props}
       >
-        {isTranslated && children ?translate(children?.toString(),textProps):children}
+        {isTranslated ?translate(text,textProps):text}
+        {children}
       </Text>
 }
 
