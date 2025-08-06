@@ -15,7 +15,7 @@ function App() {
       <BaseText
         text="common.welcome"
         textProps={{ name: 'hamada' }}
-        className="text-alpha-green-50 dark:text-primary-25"
+        className="text-alpha-green-50 dark:text-primary-25 paragraph-spacing-text-xl"
       >
         {' '}
         <BaseText
@@ -29,9 +29,11 @@ function App() {
       </BaseText>
       <Pressable
         onPress={toggleTheme}
-        className="mt-3 py-2 bg-primary-600 dark:bg-gray-700 rounded"
+        className="mt-3 py-2 bg-primary-600 dark:bg-gray-700 rounded "
       >
-        <Text className="text-yellow-300 dark:text-white">Toggle Theme</Text>
+        <Text className="text-light-text dark:text-white line-heights-text-xs">
+          Toggle Theme
+        </Text>
       </Pressable>
       <Icon
         name="bolt-circle"
