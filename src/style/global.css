@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* Basic Backgrounds */
+  .background-white {
+    @apply bg-white dark:bg-neutral-900;
+  }
+
+  .background-body {
+    @apply bg-neutral-25 dark:bg-neutral-900;
+  }
+
+  .background-menu {
+    @apply bg-white dark:bg-neutral-800;
+  }
+
+  .background-card {
+    @apply bg-white dark:bg-neutral-800;
+  }
+
+  /* Surface Colors */
+  .surface-oncolor {
+    @apply bg-white dark:bg-white;
+  }
+
+  /* Basic Colors */
+  .background-black {
+    @apply bg-black dark:bg-white;
+  }
+
+  /* Neutral Scale */
+  .background-neutral-800 {
+    @apply bg-neutral-800 dark:bg-neutral-600;
+  }
+
+  .background-neutral-400 {
+    @apply bg-neutral-400;
+  }
+
+  .background-neutral-200 {
+    @apply bg-neutral-200 dark:bg-neutral-600;
+  }
+
+  .background-neutral-100 {
+    @apply bg-neutral-100 dark:bg-neutral-800;
+  }
+
+  .background-neutral-50 {
+    @apply bg-neutral-25 dark:bg-neutral-900;
+  }
+
+  .background-neutral-25 {
+    @apply bg-neutral-25 dark:bg-neutral-950;
+  }
+
+  /* Primary Colors */
+  .background-primary {
+    @apply bg-secondary-yellow-600 dark:bg-secondary-yellow-600;
+  }
+
+  .background-primary-400 {
+    @apply bg-secondary-yellow-400 dark:bg-secondary-yellow-400;
+  }
+
+  .background-primary-200 {
+    @apply bg-secondary-yellow-200 dark:bg-neutral-700;
+  }
+
+  .background-primary-50 {
+    @apply bg-secondary-yellow-25 dark:bg-alpha-600-primary-10;
+  }
+
+  .background-primary-25 {
+    @apply bg-primary-golden-ember-25 dark:bg-primary-golden-ember-950;
+  }
+
+  /* Secondary Colors */
+  .background-secondary {
+    @apply bg-secondary-green-25 dark:bg-neutral-800;
+  }
+}
