@@ -219,7 +219,7 @@ Yup.setLocale({
 Yup.addMethod(
   Yup.object,
   'rangeMinMax',
-  function (localeKey?: string, localeProps?: any) {
+  function (localeKey?: string, localeProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-from-to',
       message: localeKey
@@ -248,7 +248,7 @@ Yup.addMethod(
     fromKey: string,
     toKey: string,
     localeKey?: string,
-    localeProps?: any,
+    localeProps?: { [x: string]: string },
   ) {
     return this.test({
       name: 'test-from-to-spread',
@@ -278,7 +278,11 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'startsWith',
-  function (str: string[], localeKey?: string, localeProps?: any) {
+  function (
+    str: string[],
+    localeKey?: string,
+    localeProps?: { [x: string]: string },
+  ) {
     return this.test({
       name: 'test-starts-with',
       message: {
@@ -290,7 +294,7 @@ Yup.addMethod(
         if (
           value &&
           value?.length > 0 &&
-          !str.some(prefix => value.startsWith(prefix))
+          !str.some((prefix) => value.startsWith(prefix))
         ) {
           return createError({
             path,
@@ -311,7 +315,7 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'digitsOnly',
-  function (localeKey?: string, localeProps?: any) {
+  function (localeKey?: string, localeProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-digits-only',
       message: {
@@ -338,7 +342,11 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'parseMoreThan',
-  function (more: number, localeKey?: string, localeProps?: any) {
+  function (
+    more: number,
+    localeKey?: string,
+    localeProps?: { [x: string]: string },
+  ) {
     return this.test({
       name: 'test-parse-more',
       message: {
@@ -367,7 +375,11 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'parseLessThan',
-  function (less: number, localeKey?: string, localeProps?: any) {
+  function (
+    less: number,
+    localeKey?: string,
+    localeProps?: { [x: string]: string },
+  ) {
     return this.test({
       name: 'test-parse-less',
       message: {

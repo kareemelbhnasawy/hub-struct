@@ -6,7 +6,7 @@ import { I18nManager } from 'react-native';
 import { getString, setString } from '../utilities/storage';
 import RNRestart from 'react-native-restart';
 
-export function useTranslate() {
+export const useTranslate = () => {
   const { t } = useTranslation();
   const [locale, setLocale] = useState(i18n.language);
 
@@ -26,10 +26,10 @@ export function useTranslate() {
     RNRestart.Restart();
   };
 
-  const translate = (string: string, options?: any) => {
+  const translate = (string: string, options?: {[string]: string}) => {
     const spaceSplitStr = string.split(' ');
-    let res: string[] = [];
-    spaceSplitStr.forEach(str => {
+    const res: string[] = [];
+    spaceSplitStr.forEach((str) => {
       if (!str.includes('.')) {
         res.push(str);
       } else {
@@ -38,12 +38,16 @@ export function useTranslate() {
         if (!Object.keys(resources.en).includes(namespace)) {
           res.push(str);
         } else {
-          let translated = t(key, { ns: namespace, ...options });
-          res.push(translated.toString());
+          const translated = t(key, { ns: namespace, ...options });
+          if (typeof translated === 'string') res.push(translated.toString());
+          else {
+            console.error(`Invalid translation for ${key} in namespace: ${namespace}`);
+            res.push('Invalid Translation');
+          } // if (rarely) translated is not a string, then we at least have a key to know where it failed
         }
       }
     });
     return res.join(' ');
   };
   return { translate, isRTL: locale === 'ar', changeLanguage, locale };
-}
+};
