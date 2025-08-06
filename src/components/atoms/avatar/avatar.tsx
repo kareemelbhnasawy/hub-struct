@@ -1,8 +1,9 @@
 import AvatarProps from './avatar.props';
-import { avatarSizes, getRelativeAvatarSizes } from './avatar.logic';
+import { getRelativeAvatarSizes } from './avatar.logic';
 import { getInitialsFromName } from './avatar.logic';
-import { View, Image, Text } from 'react-native';
+import { View } from 'react-native';
 import BaseText from '../base-text/base-text.component';
+import BaseImage from '../base-image/base-image';
 
 function Avatar({ size, name, image }: AvatarProps) {
   const [relativeSize, typoSize] = getRelativeAvatarSizes(size);
@@ -12,14 +13,10 @@ function Avatar({ size, name, image }: AvatarProps) {
       className={`flex items-center justify-center bg-secondary-teal-500 rounded-full ${relativeSize} `}
     >
       {image ? (
-        <Image
-          className="rounded-full"
+        <BaseImage
+          isCircular
           source={{ uri: image }}
-          style={{
-            width: '100%',
-            height: '100%',
-            resizeMode: 'cover',
-          }}
+          size= {relativeSize}
         />
       ) : (
         <BaseText
