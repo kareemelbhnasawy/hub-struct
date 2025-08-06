@@ -1424,38 +1424,39 @@
     @apply leading-18 md:leading-14 lg:leading-14;
   }
 
+  
   /* Paragraph Spacing – Display */
-  .paragraph-spacing-display-2xl {
-    @apply mb-16 md:mb-12 lg:mb-14;
-  }
-  .paragraph-spacing-display-xl {
-    @apply mb-15 md:mb-14 lg:mb-12;
-  }
-  .paragraph-spacing-display-lg {
-    @apply mb-12 md:mb-10 lg:mb-9;
-  }
-  .paragraph-spacing-display-md {
-    @apply mb-9 md:mb-8 lg:mb-7;
+  .paragraph-spacing-display-xs {
+    @apply mb-6 md:mb-6 lg:mb-5;
   }
   .paragraph-spacing-display-sm {
     @apply mb-7 md:mb-7 lg:mb-6;
   }
-  .paragraph-spacing-display-xs {
-    @apply mb-6 md:mb-6 lg:mb-5;
+  .paragraph-spacing-display-md {
+    @apply mb-9 md:mb-8 lg:mb-7;
+  }
+  .paragraph-spacing-display-lg {
+    @apply mb-12 md:mb-10 lg:mb-9;
+  }
+  .paragraph-spacing-display-xl {
+    @apply mb-14 md:mb-14 lg:mb-12;
+  }
+  .paragraph-spacing-display-2xl {
+    @apply mb-16 md:mb-12 lg:mb-14;
   }
 
-  /* Paragraph Spacing – Text */
+    /* Paragraph Spacing – Text */
   .paragraph-spacing-text-xl {
-    @apply mb-5 md:mb-4 lg:mb-4;
+    @apply mb-7 md:mb-4 lg:mb-4;
   }
   .paragraph-spacing-text-lg {
-    @apply mb-4 md:mb-4 lg:mb-3;
+    @apply mb-6 md:mb-4 lg:mb-3;
   }
   .paragraph-spacing-text-md {
-    @apply mb-4 md:mb-3 lg:mb-3;
+    @apply mb-5 md:mb-3 lg:mb-3;
   }
   .paragraph-spacing-text-sm {
-    @apply mb-3 md:mb-3 lg:mb-3;
+    @apply mb-4 md:mb-3 lg:mb-3;
   }
   .paragraph-spacing-text-xs {
     @apply mb-3 md:mb-2 lg:mb-2;
