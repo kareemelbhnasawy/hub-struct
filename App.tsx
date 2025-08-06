@@ -4,12 +4,16 @@ import { Pressable, Text, View } from 'react-native';
 import { useTheme } from './src/hooks/useTheme';
 import BaseText from './src/components/atoms/base-text/base-text.component';
 import { useTranslate } from './src/hooks/useTranslate';
-
+import Avatar from './src/components/atoms/avatar/avatar';
 function App() {
   const { toggleTheme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
   return (
     <View className="mt-96 bg-white dark:bg-black">
+      <Avatar
+        size="xl"
+        name="Kareem Gamal"         
+      />
       <BaseText
         text="common.welcome"
         textProps={{ name: 'hamada' }}
