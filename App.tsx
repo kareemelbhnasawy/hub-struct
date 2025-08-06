@@ -1,17 +1,17 @@
 import './src/style/global.css';
-import './src/localization';
 import { Pressable, Text, View } from 'react-native';
 import { useTheme } from './src/hooks/useTheme';
 import BaseText from './src/components/atoms/base-text/base-text.component';
 import { useTranslate } from './src/hooks/useTranslate';
 import Icon from './src/components/atoms/icon/icon.component';
 import { COLORS } from './src/constants/colors.constant';
+import Spacer from './src/components/atoms/spacer/spacer.component';
 
 function App() {
   const { toggleTheme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
   return (
-    <View className="mt-96 bg-white dark:bg-black">
+    <View className="mt-40 bg-white dark:bg-black">
       <BaseText
         text="common.welcome"
         textProps={{ name: 'hamada' }}
@@ -35,6 +35,7 @@ function App() {
           Toggle Theme
         </Text>
       </Pressable>
+      <Spacer space={'3xl'} divider />
       <Icon
         name="bolt-circle"
         size={300}

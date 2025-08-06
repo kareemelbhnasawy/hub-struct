@@ -1464,4 +1464,54 @@
   .paragraph-spacing-text-2xs {
     @apply mb-2 md:mb-2 lg:mb-2;
   }
+
+  /* Spacing */
+  .spacing-2xs {
+    @apply h-0.5 md:h-0.5 lg:h-0.5;
+  }
+  .spacing-xs {
+    @apply h-1 md:h-1 lg:h-1;
+  }
+  .spacing-sm {
+    @apply h-1.5 md:h-1.5 lg:h-1.5;
+  }
+  .spacing-md {
+    @apply h-2 md:h-2 lg:h-2;
+  }
+  .spacing-lg {
+    @apply h-3 md:h-3 lg:h-3;
+  }
+  .spacing-xl {
+    @apply h-4 md:h-4 lg:h-4;
+  }
+  .spacing-2xl {
+    @apply h-5 md:h-5 lg:h-5;
+  }
+  .spacing-3xl {
+    @apply h-6 md:h-6 lg:h-6;
+  }
+  .spacing-4xl {
+    @apply h-8 md:h-8 lg:h-8;
+  }
+  .spacing-5xl {
+    @apply h-10 md:h-10 lg:h-10;
+  }
+  .spacing-6xl {
+    @apply h-12 md:h-12 lg:h-12;
+  }
+  .spacing-7xl {
+    @apply h-16 md:h-16 lg:h-16;
+  }
+  .spacing-8xl {
+    @apply h-20 md:h-20 lg:h-20;
+  }
+  .spacing-9xl {
+    @apply h-24 md:h-24 lg:h-24;
+  }
+  .spacing-10xl {
+    @apply h-32 md:h-32 lg:h-32;
+  }
+  .spacing-11xl {
+    @apply h-40 md:h-40 lg:h-40;
+  }
 }
