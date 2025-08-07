@@ -35,11 +35,13 @@ function BrandToggle({
         ios_backgroundColor="toggle-default-background"
       />
       <View className="flex-1 ms-4">
-        <BaseText
-          text={title}
-          textProps={titleProps}
-          className="text-toggle-title typo-size-text-md font-medium"
-        />
+        {title && (
+          <BaseText
+            text={title}
+            textProps={titleProps}
+            className="text-toggle-title typo-size-text-md font-medium"
+          />
+        )}
         {description && (
           <BaseText
             text={description}
