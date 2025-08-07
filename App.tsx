@@ -6,6 +6,7 @@ import BaseText from './src/components/atoms/base-text/base-text.component';
 import { useTranslate } from './src/hooks/useTranslate';
 import MultiColorIcon from './src/components/atoms/multi-color-icon';
 import { COLORS } from './src/constants/colors.constant';
+import LucideIcon from './src/components/atoms/lucide-icon';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -33,9 +34,14 @@ const App = () => {
       </Pressable>
       <MultiColorIcon
         name="bolt-circle"
-        size={300}
+        size={100}
         primaryColor={COLORS['secondary-yellow-300']}
         secondaryColor={COLORS['secondary-yellow-800']}
+      />
+      <LucideIcon
+        name="AArrowDown"
+        size={100}
+        color={COLORS['secondary-orange-900']}
       />
       <Pressable
         onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}
