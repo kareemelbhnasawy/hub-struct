@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text } from 'react-native';
+import { Text } from 'react-native';
 import BaseTextProps from './base-text.props';
 import { useTranslate } from '../../../hooks/useTranslate';
 
@@ -10,15 +10,14 @@ function BaseText({
   children,
   ...props
 }: BaseTextProps) {
- const {translate} = useTranslate()
+  const { translate } = useTranslate();
 
-
-  return <Text
-        {...props}
-      >
-        {isTranslated ?translate(text,textProps):text}
-        {children}
-      </Text>
+  return (
+    <Text {...props}>
+      {isTranslated ? translate(text, textProps) : text}
+      {children}
+    </Text>
+  );
 }
 
 export default BaseText;
