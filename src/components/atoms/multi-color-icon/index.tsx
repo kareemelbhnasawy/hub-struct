@@ -1,10 +1,11 @@
 import React from 'react';
 import { SvgXml } from 'react-native-svg';
-import IconProps from './icon.props';
-import { getIconFnByName } from './icon-switcher.util';
+import MultiColorIconProps from './interface';
+import { getMultiColorIconFnByName } from './icon-switcher.util';
 import { scale } from 'react-native-size-matters';
+import { COLORS } from '../../../constants/colors.constant';
 
-const Icon = ({
+const MultiColorIcon = ({
   name,
   primaryColor,
   secondaryColor,
@@ -12,13 +13,15 @@ const Icon = ({
   size = 24,
   outline = false,
   ...props
-}: IconProps) => {
+}: MultiColorIconProps) => {
   const getXml = () => {
-    const sourceFn = getIconFnByName(name);
+    const sourceFn = getMultiColorIconFnByName(name);
     if (outline) {
-      return sourceFn?.('#00000000', '#00000000', primaryColor) || '';
+      return (
+        sourceFn?.(COLORS.transparent, COLORS.transparent, primaryColor) || ''
+      );
     }
-    const strokeColor = stroke || '#00000000';
+    const strokeColor = stroke || COLORS.transparent;
     if (secondaryColor) {
       return sourceFn?.(primaryColor, secondaryColor, strokeColor) || '';
     }
@@ -31,4 +34,4 @@ const Icon = ({
   );
 };
 
-export default Icon;
+export default MultiColorIcon;

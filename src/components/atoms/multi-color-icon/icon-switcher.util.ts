@@ -1,7 +1,7 @@
 import { iconDictionary } from '../../../assets/icons/icon-dictionary.constant';
-import { IconName } from './icon.props';
+import { MultiColorIconName } from './interface';
 
-export const getIconFnByName = (name: IconName) => {
+export const getMultiColorIconFnByName = (name: MultiColorIconName) => {
   const iconFn = iconDictionary[name];
   return iconFn;
 };

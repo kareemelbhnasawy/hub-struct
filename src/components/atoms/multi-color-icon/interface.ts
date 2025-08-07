@@ -1,9 +1,9 @@
 import { iconDictionary } from '../../../assets/icons/icon-dictionary.constant';
 
-export type IconName = keyof typeof iconDictionary;
+export type MultiColorIconName = keyof typeof iconDictionary;
 
-interface IconProps extends SVGElement {
-  name: IconName;
+interface MultiColorIconProps extends SVGElement {
+  name: MultiColorIconName;
   primaryColor: string;
   secondaryColor?: string;
   stroke?: string;
@@ -11,4 +11,4 @@ interface IconProps extends SVGElement {
   outline?: boolean;
 }
 
-export default IconProps;
+export default MultiColorIconProps;
