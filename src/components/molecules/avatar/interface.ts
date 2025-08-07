@@ -1,4 +1,4 @@
-import { TextProps } from 'react-native';
+import { ImageSourcePropType, TextProps } from 'react-native';
 import { avatarSizes } from './utils';
 
 type AvatarPropsBase = TextProps & {
@@ -7,12 +7,12 @@ type AvatarPropsBase = TextProps & {
 
 type AvatarWithName = AvatarPropsBase & {
   name: string;
-  image?: string;
+  image?: string | ImageSourcePropType;
 };
 
 type AvatarWithImage = AvatarPropsBase & {
   name?: string;
-  image: string;
+  image: string | ImageSourcePropType;
 };
 
 type AvatarProps = AvatarWithName | AvatarWithImage;

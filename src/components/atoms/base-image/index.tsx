@@ -10,9 +10,7 @@ function BaseImage({
   isCircular = false,
   ...imageProps
 }: BaseImageProps) {
-  console.log('BaseImage props:', {
-    image,
-  });
+  
   return (
     <Image
       className={`${size} ${isCircular ? 'rounded-full' : ''}`}
