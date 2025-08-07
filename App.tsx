@@ -7,7 +7,7 @@ import { useTranslate } from './src/hooks/useTranslate';
 import Icon from './src/components/atoms/icon/icon.component';
 import { COLORS } from './src/constants/colors.constant';
 
-function App() {
+const App = () => {
   const { toggleTheme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
   return (
@@ -15,22 +15,15 @@ function App() {
       <BaseText
         text="common.welcome"
         textProps={{ name: 'hamada' }}
-        className="text-alpha-green-50 dark:text-primary-25 paragraph-spacing-text-xl"
-      >
-        {' '}
+        className="text-alpha-green-50 dark:text-primary-25 paragraph-spacing-text-xl">
         <BaseText
           text="common.welcome common.obj.obj1"
           textProps={{ name: 'hamada' }}
-          className="underline"
-        >
-          {' '}
-          salwa
-        </BaseText>
+          className="underline"></BaseText>
       </BaseText>
       <Pressable
         onPress={toggleTheme}
-        className="mt-3 py-2 bg-primary-600 dark:bg-gray-700 rounded "
-      >
+        className="mt-3 py-2 bg-primary-600 dark:bg-gray-700 rounded ">
         <Text className="text-light-text dark:text-white line-heights-text-xs">
           Toggle Theme
         </Text>
@@ -43,14 +36,13 @@ function App() {
       />
       <Pressable
         onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}
-        className="mt-4 ml-2 mr-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-8 border-al"
-      >
+        className="mt-4 ml-2 mr-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-8 border-al">
         <Text className="text-light-text dark:text-white text-20 font-regular background-white">
           Toggle Lang
         </Text>
       </Pressable>
     </View>
   );
-}
+};
 
 export default App;
