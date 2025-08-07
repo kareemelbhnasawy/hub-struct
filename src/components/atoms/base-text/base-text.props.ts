@@ -3,7 +3,7 @@ import { TextProps } from 'react-native';
 interface BaseTextProps extends TextProps {
   text: string;
   isTranslated?: boolean;
-  textProps?: {[x: string]: string};
+  textProps?: { [x: string]: string };
 }
 
 export default BaseTextProps;

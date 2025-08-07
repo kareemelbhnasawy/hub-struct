@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import BaseImageProps from './interface';
 
-function BaseImage({
+const BaseImage = ({
   testID,
   size,
   image,
@@ -10,8 +10,7 @@ function BaseImage({
   resizeMode = roundedImageSize ? 'cover' : undefined,
   isCircular = false,
   ...imageProps
-}: BaseImageProps) {
-  
+}: BaseImageProps) => {
   return (
     <Image
       testID={`${testID}-image`}
@@ -21,6 +20,6 @@ function BaseImage({
       {...imageProps}
     />
   );
-}
+};
 
 export default BaseImage;

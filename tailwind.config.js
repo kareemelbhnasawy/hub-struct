@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 import { COLORS } from './src/constants/colors.constant';
+import nativewindPreset from 'nativewind/preset';
 
 const borderRadius = {
   0: '0px',
@@ -66,6 +67,7 @@ const fontWeight = {
 };
 
 module.exports = {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   presets: [require('nativewind/preset')],
   content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
