@@ -10,7 +10,7 @@ function Avatar({ testId, size, name, image }: AvatarProps) {
 
   return (
     <View
-      testID={`${testId}-toggle`}
+      testID={`${testId}-avatar`}
       className={`flex items-center justify-center bg-secondary-teal-500 rounded-full ${relativeSize} `}
     >
       {image ? (
