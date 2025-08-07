@@ -21,6 +21,7 @@ function Avatar({ testId, size, name, image }: AvatarProps) {
           size={relativeSize}
         />
       ) : (
+        // TODO: Change base Text to Text Component
         <BaseText
           text={getInitialsFromName(name ?? '')}
           className={`text-primary-25 dark:text-primary-25 font- typo-size-text-${typoSize}`}
