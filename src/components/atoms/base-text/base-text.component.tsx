@@ -3,13 +3,13 @@ import { Text } from 'react-native';
 import BaseTextProps from './base-text.props';
 import { useTranslate } from '../../../hooks/useTranslate';
 
-function BaseText({
+const BaseText = ({
   text,
   isTranslated = true,
   textProps,
   children,
   ...props
-}: BaseTextProps) {
+}: BaseTextProps) => {
   const { translate } = useTranslate();
 
   return (
@@ -18,6 +18,6 @@ function BaseText({
       {children}
     </Text>
   );
-}
+};
 
 export default BaseText;

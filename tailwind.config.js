@@ -66,7 +66,7 @@ const fontWeight = {
 };
 
 module.exports = {
-  presets: [require('nativewind/preset')],
+  presets: [import('nativewind/preset')],
   content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: { colors: COLORS, borderRadius, fontSize, lineHeight, fontWeight },
