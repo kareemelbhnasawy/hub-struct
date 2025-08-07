@@ -17,8 +17,7 @@ const App = () => {
         <BaseText
           text="common.welcome common.obj.obj1"
           textProps={{ name: 'hamada' }}
-          className="underline">
-        </BaseText>
+          className="underline"></BaseText>
       </BaseText>
       <Pressable
         onPress={toggleTheme}

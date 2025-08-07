@@ -40,6 +40,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     '@typescript-eslint/no-unsafe-assignment': 'off',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',
