@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgXml } from 'react-native-svg';
 import MultiColorIconProps from './interface';
-import { getMultiColorIconFnByName } from './icon-switcher.util';
+import { getMultiColorIconFnByName } from './utils';
 import { scale } from 'react-native-size-matters';
 import { COLORS } from '../../../constants/colors.constant';
 
