@@ -6,12 +6,12 @@ interface AvatarPropsBase extends TextProps {
   size: keyof typeof avatarSizes;
 };
 
-type AvatarWithName = AvatarPropsBase & {
+interface AvatarWithName extends AvatarPropsBase {
   name: string;
   image?: string;
 };
 
-type AvatarWithImage = AvatarPropsBase & {
+interface AvatarWithImage extends AvatarPropsBase {
   name?: string;
   image: string;
 };
