@@ -1,7 +1,8 @@
 import { TextProps } from 'react-native';
 import { avatarSizes } from './utils';
 
-type AvatarPropsBase = TextProps & {
+interface AvatarPropsBase extends TextProps {
+  testId: string;
   size: keyof typeof avatarSizes;
 };
 

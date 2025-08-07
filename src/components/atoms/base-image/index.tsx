@@ -3,6 +3,7 @@ import { Image } from 'react-native';
 import BaseImageProps from './interface';
 
 function BaseImage({
+  testID,
   size,
   image,
   roundedImageSize = 0,
@@ -15,6 +16,7 @@ function BaseImage({
   });
   return (
     <Image
+      testID={`${testID}-image`}
       className={`${size} ${isCircular ? 'rounded-full' : ''}`}
       resizeMode={resizeMode}
       source={typeof image === 'string' ? { uri: image } : image}
