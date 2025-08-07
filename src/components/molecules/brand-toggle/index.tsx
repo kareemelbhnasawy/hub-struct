@@ -34,6 +34,7 @@ function BrandToggle({
         }
         ios_backgroundColor="toggle-default-background"
       />
+      {/* TODO: Change base Text to Text Component */}
       <View className="flex-1 ms-4">
         {title && (
           <BaseText
