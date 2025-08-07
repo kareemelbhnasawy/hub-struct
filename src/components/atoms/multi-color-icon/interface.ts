@@ -1,4 +1,4 @@
-import { iconDictionary } from '../../../assets/icons/icon-dictionary.constant';
+import { iconDictionary } from '@/assets';
 
 export type MultiColorIconName = keyof typeof iconDictionary;
 

@@ -19,4 +19,4 @@ const useTheme = () => {
   return { theme, toggleTheme };
 };
 
-export { useTheme };
+export default useTheme;
