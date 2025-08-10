@@ -62,6 +62,6 @@ const SHADOWS = {
     elevation: scale(7),
     boxShadow: `0 ${verticalScale(32)}px ${scale(64)}px ${scale(-12)}px ${getThemeColor('shadow3xl')}`,
   },
-} as const;
+};
 
 export default SHADOWS;
