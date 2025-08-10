@@ -9,6 +9,7 @@ import { COLORS } from '@/constants';
 import { useTheme, useTranslate } from '@/hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import Display from '@/components/atoms/typography/headline';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -115,6 +116,12 @@ const App = () => {
           textProps={{ name: 'hamada' }}
         ></BaseText>
       </BaseText>
+      <Display
+        weight="Bold"
+        size="xl"
+        text="common.welcome"
+        textProps={{ name: 'hamada' }}
+      />
       <Pressable onPress={toggleTheme}>
         <Text>Toggle Theme</Text>
       </Pressable>
