@@ -19,7 +19,11 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
         />
       ) : (
         // TODO: Change base Text to Text Component
-        <Paragraph size={typoSize} text={getInitialsFromName(name ?? '')} />
+        <Paragraph
+          size={typoSize}
+          weight="Bold"
+          text={getInitialsFromName(name ?? '')}
+        />
       )}
     </View>
   );
