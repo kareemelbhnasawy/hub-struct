@@ -1,4 +1,4 @@
-import { getThemeColor } from '@/theme/theme-colors';
+import { getThemeColor } from '@/theme';
 import { scale, verticalScale } from 'react-native-size-matters';
 
 /**

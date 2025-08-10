@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { BaseToggle, BaseText } from '@/components/atoms';
 import BrandToggleProps from './interface';
-import { getThemeColor } from '@/theme/theme-colors';
+import { getThemeColor } from '@/theme';
 import { styles } from './styles';
 
 const BrandToggle = ({

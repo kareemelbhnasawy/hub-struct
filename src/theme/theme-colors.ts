@@ -1,4 +1,4 @@
-import { COLORS } from '../style/colors.constant';
+import { COLORS } from '@/style';
 import { STORAGE_KEYS } from '../constants/storageKeys';
 import { getString } from '../utilities/storage';
 

@@ -3,7 +3,7 @@ import { SvgXml } from 'react-native-svg';
 import MultiColorIconProps from './interface';
 import { getMultiColorIconFnByName } from './utils';
 import { scale } from 'react-native-size-matters';
-import { COLORS } from '../../../style/colors.constant';
+import { COLORS } from '@/style';
 
 const MultiColorIcon = ({
   name,

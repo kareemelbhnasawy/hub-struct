@@ -6,7 +6,6 @@
  * - Button radius: Radius.MD (8px)
  */
 export enum Radius {
-  NONE = 0, // radius-none, Radius/radius-0
   XS = 2, // radius-xs, Radius/radius-2
   SM = 4, // radius-sm, Radius/radius-4
   MD = 8, // radius-md, Radius/radius-8
