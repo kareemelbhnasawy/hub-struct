@@ -1,8 +1,9 @@
 import React from 'react';
-import { Dimensions, Text, ImageBackground, I18nManager } from 'react-native';
+import { Dimensions, ImageBackground, I18nManager } from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import Svg, { Path } from 'react-native-svg';
 import CurvedHeroProps from './interface';
+import DefaultBannerImage from '@/assets/images/riyadh.png';
 const { width: screenWidth } = Dimensions.get('window');
 
 const CurvedHeroImage = ({ source, children, ...props }: CurvedHeroProps) => {
@@ -28,7 +29,7 @@ const CurvedHeroImage = ({ source, children, ...props }: CurvedHeroProps) => {
       {...props}
     >
       <ImageBackground
-        source={source || require('../../../assets/images/riyadh.png')}
+        source={source || DefaultBannerImage}
         style={{
           width: screenWidth,
           height: imageHeight,
