@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import BaseTextProps from './base-text.props';
+import BaseTextProps from './interface';
 import { useTranslate } from '@/hooks';
 
 const BaseText = ({
