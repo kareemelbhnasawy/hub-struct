@@ -10,6 +10,7 @@ import { COLORS } from '@/constants';
 import { useTheme, useTranslate } from '@/hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import { Avatar } from '@/components/molecules';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -106,6 +107,11 @@ const App = () => {
           <Text style={{ color: 'white' }}>Samya</Text>
         </View>
       </CurvedHeroImage>
+      <Avatar
+        testId="avatar"
+        size="lg"
+        image='https://picsum.photos/200'
+      />
       <BaseText
         style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"

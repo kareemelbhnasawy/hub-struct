@@ -1,29 +1,32 @@
+import React from 'react';
 import AvatarProps from './interface';
 import { getRelativeAvatarSizes } from './utils';
 import { getInitialsFromName } from './utils';
 import { View } from 'react-native';
 import BaseText from '../../atoms/base-text/base-text.component';
 import BaseImage from '../../atoms/base-image';
-
+import { styles } from './styles';
 const Avatar = ({ testId, size, name, image }: AvatarProps) => {
-  const [relativeSize, typoSize] = getRelativeAvatarSizes(size);
+  const [relativeSize, fontSize] = getRelativeAvatarSizes(size);
 
   return (
     <View
       testID={`${testId}-avatar`}
-      className={`flex items-center justify-center bg-secondary-teal-500 rounded-full ${relativeSize} `}>
+      style={[
+        styles.flex,
+        styles.itemsCenter,
+        styles.justifyCenter,
+        styles.roundedFull,
+        styles.bgIconBackgroundDefault,
+        styles[relativeSize as keyof typeof styles],
+      ]}>
       {image ? (
-        <BaseImage
-          testId={testId}
-          isCircular
-          image={image}
-          size={relativeSize}
-        />
+        <BaseImage testId={testId} isCircular image={image} />
       ) : (
         // TODO: Change base Text to Text Component
         <BaseText
           text={getInitialsFromName(name ?? '')}
-          className={`text-primary-25 dark:text-primary-25 font- typo-size-text-${typoSize}`}
+          style={[styles.textWhite, styles[fontSize as keyof typeof styles]]}
         />
       )}
     </View>
