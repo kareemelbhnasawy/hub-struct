@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { I18nManager, Pressable, Text, View } from 'react-native';
 import {
   LucideIcon,
@@ -5,7 +6,7 @@ import {
   MultiColorIcon,
   CurvedHeroImage,
 } from '@/components/atoms';
-import { COLORS } from '@/constants';
+import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
@@ -91,8 +92,7 @@ const App = () => {
               height: 20,
               backgroundColor: item.color,
               marginStart: 10,
-            }}
-          >
+            }}>
             <Text style={{ color: 'white', textAlign: 'center' }}>
               {index + 1}
             </Text>
@@ -101,20 +101,17 @@ const App = () => {
       />
       <CurvedHeroImage>
         <View
-          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
-        >
+          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
           <Text style={{ color: 'white' }}>Samya</Text>
         </View>
       </CurvedHeroImage>
       <BaseText
         style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"
-        textProps={{ name: 'hamada' }}
-      >
+        textProps={{ name: 'hamada' }}>
         <BaseText
           text="common.welcome common.obj.obj1"
-          textProps={{ name: 'hamada' }}
-        ></BaseText>
+          textProps={{ name: 'hamada' }}></BaseText>
       </BaseText>
       <Display
         weight="Bold"
