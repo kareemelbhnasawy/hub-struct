@@ -1,58 +1,65 @@
 import React from 'react';
 import { View } from 'react-native';
-import BaseText from '../../atoms/base-text/base-text.component';
-import BaseToggle from '../../atoms/base-toggle';
+import { BaseToggle, BaseText } from '@/components/atoms';
 import BrandToggleProps from './interface';
+import { getThemeColor } from '@/theme/themeColors';
+import { styles } from './styles';
 
-function BrandToggle({
+const BrandToggle = ({
   testId,
   title,
   description,
   titleProps,
   descriptionProps,
   ...toggleProps
-}: BrandToggleProps) {
+}: BrandToggleProps) => {
+  // Get track color based on state
+  const getTrackColor = () => ({
+    false: getThemeColor(
+      toggleProps.disabled
+        ? 'toggleDisabledBackground'
+        : 'toggleDefaultBackground',
+    ),
+    true: getThemeColor(
+      toggleProps.disabled
+        ? 'toggleDisabledBackground'
+        : 'toggleSelectedBackground',
+    ),
+  });
+
+  // Get thumb color based on state
+  const getThumbColor = () =>
+    getThemeColor(
+      toggleProps.disabled
+        ? 'toggleDisabledKnob'
+        : toggleProps.value
+          ? 'toggleSelectedKnob'
+          : 'toggleDefaultKnob',
+    );
+
   return (
-    <View className="flex-row items-start py-4">
+    <View style={styles.container}>
       <BaseToggle
         testId={testId}
         {...toggleProps}
-        trackColor={{
-          false: toggleProps.disabled
-            ? 'toggle-disabled-background'
-            : 'toggle-default-background',
-          true: toggleProps.disabled
-            ? 'toggle-disabled-background'
-            : 'toggle-selected-background',
-        }}
-        thumbColor={
-          toggleProps.disabled
-            ? 'toggle-disabled-knob'
-            : toggleProps.value
-              ? 'toggle-selected-knob'
-              : 'toggle-default-knob'
-        }
-        ios_backgroundColor="toggle-default-background"
+        trackColor={getTrackColor()}
+        thumbColor={getThumbColor()}
+        ios_backgroundColor={getThemeColor('toggleDefaultBackground')}
       />
-      {/* TODO: Change base Text to Text Component */}
-      <View className="flex-1 ms-4">
+      <View style={styles.contentContainer}>
         {title && (
-          <BaseText
-            text={title}
-            textProps={titleProps}
-            className="text-toggle-title typo-size-text-md font-medium"
-          />
+          <BaseText text={title} textProps={titleProps} style={styles.title} />
         )}
         {description && (
           <BaseText
             text={description}
             textProps={descriptionProps}
-            className="text-toggle-subtitle typo-size-text-sm mt-1"
+            style={styles.description}
           />
         )}
       </View>
     </View>
   );
-}
+};
 
 export default BrandToggle;

@@ -1,11 +1,16 @@
-import './src/style/global.css';
-import './src/localization';
-import { Pressable, Text, View } from 'react-native';
-import { LucideIcon, BaseText, MultiColorIcon } from '@/components/atoms';
+import { I18nManager, Pressable, Text, View } from 'react-native';
+import {
+  LucideIcon,
+  BaseText,
+  MultiColorIcon,
+  CurvedHeroImage,
+} from '@/components/atoms';
 import { COLORS } from '@/constants';
 import { useTheme, useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useEffect } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { FlashList } from '@shopify/flash-list';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -17,23 +22,106 @@ const App = () => {
     if (crashlytics) crashlytics.log('App mounted.');
   }, [crashlytics]);
 
+  const DATA = [
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+    {
+      color: '#FF0000',
+    },
+    {
+      color: '#00FF00',
+    },
+    {
+      color: '#0000FF',
+    },
+  ];
   return (
-    <View className="mt-96 bg-white dark:bg-black">
+    <SafeAreaProvider style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
+      <FlashList
+        data={DATA}
+        horizontal
+        renderItem={({ item, index }) => (
+          <View
+            style={{
+              width: 20,
+              height: 20,
+              backgroundColor: item.color,
+              marginStart: 10,
+            }}>
+            <Text style={{ color: 'white', textAlign: 'center' }}>
+              {index + 1}
+            </Text>
+          </View>
+        )}
+      />
+      <CurvedHeroImage>
+        <View
+          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Text style={{ color: 'white' }}>Samya</Text>
+        </View>
+      </CurvedHeroImage>
       <BaseText
+        style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"
-        textProps={{ name: 'hamada' }}
-        className="text-alpha-green-50 dark:text-primary-25 paragraph-spacing-text-xl">
+        textProps={{ name: 'hamada' }}>
         <BaseText
           text="common.welcome common.obj.obj1"
-          textProps={{ name: 'hamada' }}
-          className="underline"></BaseText>
+          textProps={{ name: 'hamada' }}></BaseText>
       </BaseText>
-      <Pressable
-        onPress={toggleTheme}
-        className="mt-3 py-2 bg-primary-600 dark:bg-gray-700 rounded ">
-        <Text className="text-light-text dark:text-white line-heights-text-xs">
-          Toggle Theme
-        </Text>
+      <Pressable onPress={toggleTheme}>
+        <Text>Toggle Theme</Text>
       </Pressable>
       <MultiColorIcon
         name="bolt-circle"
@@ -46,21 +134,13 @@ const App = () => {
         size={100}
         color={COLORS['secondary-orange-900']}
       />
-      <Pressable
-        onPress={() => crash(crashlytics)}
-        className="mt-4 ml-2 mr-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-8 border-al">
-        <Text className="text-center text-light-text dark:text-white text-20 font-regular background-white">
-          CRASH MY APP
-        </Text>
+      <Pressable onPress={() => crash(crashlytics)}>
+        <Text>CRASH MY APP</Text>
       </Pressable>
-      <Pressable
-        onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}
-        className="mt-4 ml-2 mr-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-8 border-al">
-        <Text className="text-light-text dark:text-white text-20 font-regular background-white">
-          Toggle Lang
-        </Text>
+      <Pressable onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
+        <Text>Toggle Lang</Text>
       </Pressable>
-    </View>
+    </SafeAreaProvider>
   );
 };
 

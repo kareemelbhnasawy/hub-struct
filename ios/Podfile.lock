@@ -2302,14 +2302,6 @@ PODS:
     - React-perflogger (= 0.80.1)
     - React-utils (= 0.80.1)
     - SocketRocket
-  - RNFBApp (22.4.0):
-    - Firebase/CoreOnly (= 11.15.0)
-    - React-Core
-  - RNFBCrashlytics (22.4.0):
-    - Firebase/Crashlytics (= 11.15.0)
-    - FirebaseCoreExtension
-    - React-Core
-    - RNFBApp
   - RNLocalize (3.5.1):
     - boost
     - DoubleConversion
@@ -2626,8 +2618,6 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
-  - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -2801,10 +2791,6 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  RNFBApp:
-    :path: "../node_modules/@react-native-firebase/app"
-  RNFBCrashlytics:
-    :path: "../node_modules/@react-native-firebase/crashlytics"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
@@ -2900,13 +2886,11 @@ SPEC CHECKSUMS:
   React-timing: 0925379eb80fe9fcc11fa45f1099d99df8d62a7b
   React-utils: 0320c136efb6bdf9fa95f2ff3582ede1daf3dbbf
   ReactAppDependencyProvider: ba631a31783569c13056dd57ff39e19764abdd6f
-  ReactCodegen: 3c43e79aa0aa13c1a6456a956b23419878213e8d
-  ReactCommon: 0148a0eeec41961cfcf43621379bb6140a78caa6
-  RNFBApp: 2c88b4fc4bcecf25ff9077abde08f4b1cbaff4c6
-  RNFBCrashlytics: 409549adeef1eec4fd132e9ae6df341f031a65e4
-  RNLocalize: f9796910037d3ffb51a4bbdeadbc11b9d0f29d11
-  RNReanimated: f0b3fbd5eb856a0c9df7f9cbcf7c7d12ba3d10f2
-  RNSVG: 15b549eab93d3c7f1de4f7ab612a88132ebc1bca
+  ReactCodegen: b16d00d43b4e9dc44af53be171b17d93b4b20267
+  ReactCommon: 96684b90b235d6ae340d126141edd4563b7a446a
+  RNLocalize: 04178cdebf7d24821d25bc894343c6d2dd98374e
+  RNReanimated: 2010262133feb53009f16faaa404042eed7da018
+  RNSVG: 432ca012e24410cab11449afef353ce20573a59f
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 9dbb7d2f8c0f76a3c3405f4f3e1c8f1fc66df02f
 

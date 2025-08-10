@@ -4,8 +4,8 @@ interface BrandToggleProps extends Omit<SwitchProps, 'testID'> {
   testId: string;
   title?: string;
   description?: string;
-  titleProps?: any;
-  descriptionProps?: any;
+  titleProps?: { [x: string]: string };
+  descriptionProps?: { [x: string]: string };
 }
 
 export default BrandToggleProps;
