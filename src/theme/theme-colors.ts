@@ -1304,6 +1304,36 @@ export const themeColors = {
     light: COLORS['neutral-400'],
     dark: COLORS['neutral-400'],
   },
+
+  // Shadow Colors
+  shadowXs: {
+    light: COLORS['shadow-xs-light'],
+    dark: COLORS['shadow-xs-dark'],
+  },
+  shadowSm: {
+    light: COLORS['shadow-sm-light'],
+    dark: COLORS['shadow-sm-dark'],
+  },
+  shadowMd: {
+    light: COLORS['shadow-md-light'],
+    dark: COLORS['shadow-md-dark'],
+  },
+  shadowLg: {
+    light: COLORS['shadow-lg-light'],
+    dark: COLORS['shadow-lg-dark'],
+  },
+  shadowXl: {
+    light: COLORS['shadow-xl-light'],
+    dark: COLORS['shadow-xl-dark'],
+  },
+  shadow2xl: {
+    light: COLORS['shadow-2xl-light'],
+    dark: COLORS['shadow-2xl-dark'],
+  },
+  shadow3xl: {
+    light: COLORS['shadow-3xl-light'],
+    dark: COLORS['shadow-3xl-dark'],
+  },
 } as const;
 
 export type ThemeColorKey = keyof typeof themeColors;
