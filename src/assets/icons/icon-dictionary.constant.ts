@@ -1,5 +1,7 @@
 import BoltCircleIcon from './bolt-circle';
 
-export const iconDictionary = {
+const iconDictionary = {
   'bolt-circle': BoltCircleIcon,
 } as const;
+
+export default iconDictionary;

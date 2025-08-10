@@ -1,4 +1,4 @@
-import { iconDictionary } from '../../../assets/icons/icon-dictionary.constant';
+import { iconDictionary } from '@/assets';
 import { MultiColorIconName } from './interface';
 
 export const getMultiColorIconFnByName = (name: MultiColorIconName) => {

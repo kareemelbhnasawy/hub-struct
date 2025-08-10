@@ -1,13 +1,14 @@
-import { I18nManager, Pressable, ScrollView, Text, View } from 'react-native';
-import { useTheme } from './src/hooks/useTheme';
-import BaseText from './src/components/atoms/base-text/base-text.component';
-import { useTranslate } from './src/hooks/useTranslate';
-import MultiColorIcon from './src/components/atoms/multi-color-icon';
-import { COLORS } from './src/constants/colors.constant';
-import LucideIcon from './src/components/atoms/lucide-icon';
-import { FlashList } from '@shopify/flash-list';
-import CurvedHeroImage from './src/components/atoms/curved-hero-banner';
+import { I18nManager, Pressable, Text, View } from 'react-native';
+import {
+  LucideIcon,
+  BaseText,
+  MultiColorIcon,
+  CurvedHeroImage,
+} from '@/components/atoms';
+import { COLORS } from '@/constants';
+import { useTheme, useTranslate } from '@/hooks';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { FlashList } from '@shopify/flash-list';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -108,12 +109,12 @@ const App = () => {
         style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"
         textProps={{ name: 'hamada' }}
-      />
-      <BaseText
-        style={{ marginStart: 10, textAlign: 'left' }}
-        text="يتيتيتيتيتيت"
-        textProps={{ name: 'hamada' }}
-      />
+      >
+        <BaseText
+          text="common.welcome common.obj.obj1"
+          textProps={{ name: 'hamada' }}
+        ></BaseText>
+      </BaseText>
       <Pressable onPress={toggleTheme}>
         <Text>Toggle Theme</Text>
       </Pressable>
