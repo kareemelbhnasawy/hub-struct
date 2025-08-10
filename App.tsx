@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { I18nManager, Pressable, Text, View } from 'react-native';
 import {
   LucideIcon,
