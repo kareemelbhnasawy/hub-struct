@@ -1,2 +1,7 @@
 export { getThemeColor } from './theme-colors';
-export { s, vs, ms, responsiveHandler } from './theme-responsive';
+export {
+  scale,
+  verticalScale,
+  moderateScale,
+  responsiveHandler,
+} from './theme-responsive';

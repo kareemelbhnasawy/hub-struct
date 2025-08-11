@@ -1,11 +1,11 @@
 import { View } from 'react-native';
 import SpacerProps, { SpacingValue } from './interface';
 import { styles } from './style';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { verticalScale, scale } from '@/theme';
 
 const Spacer = ({
   space = 'md',
-  divider = false,
+  isDivider = false,
   spaceTop,
   spaceBottom,
 }: SpacerProps) => {
@@ -24,7 +24,7 @@ const Spacer = ({
     );
   };
 
-  return divider ? (
+  return isDivider ? (
     <>
       {generateSpacerView(spaceTop)}
       <View style={styles.divider} />

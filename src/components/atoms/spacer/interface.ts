@@ -19,7 +19,7 @@ export type SpacingValue =
 
 interface SpacerProps {
   space?: SpacingValue;
-  divider?: boolean;
+  isDivider?: boolean;
   spaceTop?: SpacingValue;
   spaceBottom?: SpacingValue;
 }
