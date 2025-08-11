@@ -144,6 +144,10 @@ export const themeColors = {
     light: COLORS['warning-700'],
     dark: COLORS['warning-700'],
   },
+  borderIcon: {
+    light: COLORS['neutral-150'],
+    dark: COLORS['neutral-150'],
+  },
 
   // Button Primary States
   buttonPrimaryDefaultBackground: {

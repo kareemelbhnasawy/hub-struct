@@ -1,11 +1,33 @@
 import { icons } from 'lucide-react-native';
-import { scale } from 'react-native-size-matters';
 import LucideIconProps from './interface';
+import { styles } from './styles';
+import { View } from 'react-native';
+import { s } from '@/theme';
 
-const LucideIcon = ({ name, size = 24, ...props }: LucideIconProps) => {
+const LucideIcon = ({
+  name,
+  size = 24,
+  isOutline,
+  isCircle,
+  hasWrapper = false,
+  ...props
+}: LucideIconProps) => {
   const LIcon = icons[name];
 
-  return <LIcon size={scale(size)} {...props} />;
+  const appliedStyles = [
+    styles(size)['wrapper-base'],
+    styles(size)['wrapper'],
+    isCircle ? styles()['circle-bg'] : null,
+    isOutline ? styles()['outline'] : null,
+  ];
+
+  if (hasWrapper || isCircle || isOutline)
+    return (
+      <View style={appliedStyles}>
+        <LIcon size={s(size)} {...props} />
+      </View>
+    );
+  return <LIcon size={s(size)} {...props} />;
 };
 
 export default LucideIcon;
