@@ -8,6 +8,8 @@ def node_require(script)
      )", __dir__]).strip
  end
 
+ node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
@@ -71,5 +73,3 @@ $RNFirebaseAsStaticFramework = true
 end
 
 
-node_require('react-native/scripts/react_native_pods.rb')
-node_require('react-native-permissions/scripts/setup.rb')
