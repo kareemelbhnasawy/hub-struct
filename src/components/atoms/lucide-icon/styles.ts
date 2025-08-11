@@ -1,7 +1,8 @@
 import { responsiveHandler, s } from '@/theme';
 import { StyleSheet } from 'react-native';
+import { DEFAULT_ICON_SIZE } from './constants';
 
-export const styles = (size: number = 24) =>
+export const styles = (size: number = DEFAULT_ICON_SIZE) =>
   StyleSheet.create({
     'wrapper-base': {
       width: s(size) + 24,

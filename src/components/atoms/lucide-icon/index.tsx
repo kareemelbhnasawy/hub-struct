@@ -3,10 +3,11 @@ import LucideIconProps from './interface';
 import { styles } from './styles';
 import { View } from 'react-native';
 import { s } from '@/theme';
+import { DEFAULT_ICON_SIZE } from './constants';
 
 const LucideIcon = ({
   name,
-  size = 24,
+  size = DEFAULT_ICON_SIZE,
   isOutline,
   isCircle,
   hasWrapper = false,
