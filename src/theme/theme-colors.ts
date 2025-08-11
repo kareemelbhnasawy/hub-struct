@@ -170,9 +170,17 @@ export const themeColors = {
     light: COLORS['primary-800'],
     dark: COLORS['primary-800'],
   },
+  buttonPrimaryPressedBorder: {
+    light: COLORS['primary-500'],
+    dark: COLORS['primary-500'],
+  },
   buttonPrimaryDisabledBackground: {
     light: COLORS['neutral-200'],
     dark: COLORS['neutral-200'],
+  },
+  buttonPrimaryDisabledBorder: {
+    light: COLORS['secondary-dark-gray-400'],
+    dark: COLORS['secondary-dark-gray-400'],
   },
   buttonPrimaryDisabledLabel: {
     light: COLORS.white,
@@ -189,6 +197,10 @@ export const themeColors = {
   buttonPrimaryErrorBackground: {
     light: COLORS['error-600'],
     dark: COLORS['error-600'],
+  },
+  buttonPrimaryErrorLabel: {
+    light: COLORS.white,
+    dark: COLORS.white,
   },
 
   // Button Secondary States
