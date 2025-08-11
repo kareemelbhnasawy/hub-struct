@@ -48,11 +48,27 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       lineHeight: 20,
     },
+    tablet: {
+      fontSize: 14,
+      lineHeight: 20,
+    },
+    mobile: {
+      fontSize: 12,
+      lineHeight: 18,
+    },
   }),
   lg: responsiveHandler({
     base: {
       fontSize: 14,
       lineHeight: 18,
+    },
+    tablet: {
+      fontSize: 12,
+      lineHeight: 16,
+    },
+    mobile: {
+      fontSize: 11,
+      lineHeight: 14,
     },
   }),
   md: responsiveHandler({
@@ -60,11 +76,27 @@ export const styles = StyleSheet.create({
       fontSize: 12,
       lineHeight: 16,
     },
+    tablet: {
+      fontSize: 11,
+      lineHeight: 14,
+    },
+    mobile: {
+      fontSize: 10,
+      lineHeight: 12,
+    },
   }),
   sm: responsiveHandler({
     base: {
       fontSize: 11,
       lineHeight: 12,
+    },
+    tablet: {
+      fontSize: 11,
+      lineHeight: 12,
+    },
+    mobile: {
+      fontSize: 11,
+      lineHeight: 10,
     },
   }),
 });
