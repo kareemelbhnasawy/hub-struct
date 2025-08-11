@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { UseCustomQueryProps } from './use-custom-query.interface';
 
-const useCustomQuery = ({
+const useCustomQuery = <TData = unknown, TError = unknown>({
   onSuccess,
   onError,
   queryKey,
   ...queryOptions
-}: UseCustomQueryProps) => {
+}: UseCustomQueryProps<TData, TError>) => {
   const {
     data,
     error,
@@ -25,13 +25,13 @@ const useCustomQuery = ({
 
   useEffect(() => {
     if (isSuccess) {
-      onSuccess?.(data as object | undefined);
+      onSuccess?.(data as TData | undefined);
     }
   }, [isSuccess, data, onSuccess]);
 
   useEffect(() => {
     if (isError) {
-      onError?.(error);
+      onError?.(error as TError);
     }
   }, [isError, error, onError]);
 

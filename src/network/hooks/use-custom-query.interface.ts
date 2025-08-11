@@ -1,8 +1,8 @@
 import { QueryOptions } from '@tanstack/react-query';
 
-export interface UseCustomQueryProps extends QueryOptions {
-  onSuccess?: (data?: object) => void;
-  onError?: (error?: object) => void;
+export interface UseCustomQueryProps<TData, TError> extends QueryOptions {
+  onSuccess?: (data?: TData) => void;
+  onError?: (error?: TError) => void;
   queryKey: unknown[];
-  queryFn: () => Promise<unknown>;
+  queryFn: () => Promise<TData>;
 }
