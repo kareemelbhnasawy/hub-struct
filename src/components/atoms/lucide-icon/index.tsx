@@ -17,8 +17,8 @@ const LucideIcon = ({
   const appliedStyles = [
     styles(size)['wrapper-base'],
     styles(size)['wrapper'],
-    isCircle ? styles()['circle-bg'] : null,
-    isOutline ? styles()['outline'] : null,
+    isCircle ? styles(size)['circle-bg'] : null,
+    isOutline ? styles(size)['outline'] : null,
   ];
 
   if (hasWrapper || isCircle || isOutline)
