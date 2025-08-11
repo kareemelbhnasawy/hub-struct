@@ -31,7 +31,7 @@ const useCustomQuery = <TData = unknown, TError = unknown>({
 
   useEffect(() => {
     if (isError) {
-      onError?.(error as TError);
+      onError?.(error);
     }
   }, [isError, error, onError]);
 
@@ -43,7 +43,7 @@ const useCustomQuery = <TData = unknown, TError = unknown>({
     status,
     fetchStatus,
     isFetched,
-    ...useQueryParams
+    ...useQueryParams,
   };
 };
 

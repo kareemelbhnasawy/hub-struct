@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { UseCustomMutationProps } from './use-custom-mutation-query.interface';
+import { UseCustomMutationProps } from './use-custom-mutation.interface';
 
 const useCustomMutation = <
   TVariables = unknown,
