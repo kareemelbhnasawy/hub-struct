@@ -8,10 +8,12 @@ import {
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
-import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
+import { crash, getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import { checkPermissions } from '@/utilities/permissions';
+import { requestNotifications } from 'react-native-permissions';
 import Display from '@/components/atoms/typography/headline';
 
 const App = () => {
@@ -21,7 +23,10 @@ const App = () => {
   const crashlytics = getCrashlytics();
 
   useEffect(() => {
-    if (crashlytics) crashlytics.log('App mounted.');
+    if (crashlytics) log(crashlytics, 'App mounted.');
+    checkPermissions();
+
+    requestNotifications();
   }, [crashlytics]);
 
   const DATA = [
