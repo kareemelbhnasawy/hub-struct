@@ -5,6 +5,7 @@ import {
   BaseText,
   MultiColorIcon,
   CurvedHeroImage,
+  Spacer,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
@@ -101,7 +102,8 @@ const App = () => {
               height: 20,
               backgroundColor: item.color,
               marginStart: 10,
-            }}>
+            }}
+          >
             <Text style={{ color: 'white', textAlign: 'center' }}>
               {index + 1}
             </Text>
@@ -110,17 +112,20 @@ const App = () => {
       />
       <CurvedHeroImage>
         <View
-          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
+        >
           <Text style={{ color: 'white' }}>Samya</Text>
         </View>
       </CurvedHeroImage>
       <BaseText
         style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"
-        textProps={{ name: 'hamada' }}>
+        textProps={{ name: 'hamada' }}
+      >
         <BaseText
           text="common.welcome common.obj.obj1"
-          textProps={{ name: 'hamada' }}></BaseText>
+          textProps={{ name: 'hamada' }}
+        ></BaseText>
       </BaseText>
       <Display
         weight="Bold"
@@ -137,6 +142,7 @@ const App = () => {
         primaryColor={COLORS['secondary-yellow-300']}
         secondaryColor={COLORS['secondary-yellow-800']}
       />
+      <Spacer />
       <LucideIcon
         name="AArrowDown"
         size={100}
