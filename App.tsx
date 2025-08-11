@@ -5,6 +5,7 @@ import {
   BaseText,
   MultiColorIcon,
   CurvedHeroImage,
+  Headline,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
@@ -142,17 +143,26 @@ const App = () => {
         primaryColor={COLORS['secondary-yellow-300']}
         secondaryColor={COLORS['secondary-yellow-800']}
       />
-      <LucideIcon
-        name="AArrowDown"
-        size={100}
-        color={COLORS['secondary-orange-900']}
-      />
       <Pressable onPress={() => crash(crashlytics)}>
         <Text>CRASH MY APP</Text>
       </Pressable>
       <Pressable onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
         <Text>Toggle Lang</Text>
       </Pressable>
+      <View
+        style={{ alignContent: 'center', alignItems: 'flex-start', rowGap: 5 }}>
+        <Headline text="ICONS" />
+        <LucideIcon
+          name="AArrowDown"
+          size={100}
+          color={COLORS['secondary-orange-900']}
+          isCircle
+        />
+        <LucideIcon name="UserCheck" isCircle />
+        <LucideIcon name="UserCheck" isOutline />
+        <LucideIcon name="UserCheck" hasWrapper />
+        <LucideIcon name="UserCheck" />
+      </View>
     </SafeAreaProvider>
   );
 };
