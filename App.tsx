@@ -5,6 +5,7 @@ import {
   BaseText,
   MultiColorIcon,
   CurvedHeroImage,
+  Spacer,
   Headline,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
@@ -142,6 +143,12 @@ const App = () => {
         size={100}
         primaryColor={COLORS['secondary-yellow-300']}
         secondaryColor={COLORS['secondary-yellow-800']}
+      />
+      <Spacer />
+      <LucideIcon
+        name="AArrowDown"
+        size={100}
+        color={COLORS['secondary-orange-900']}
       />
       <Pressable onPress={() => crash(crashlytics)}>
         <Text>CRASH MY APP</Text>
