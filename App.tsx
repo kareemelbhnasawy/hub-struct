@@ -8,6 +8,8 @@ import {
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
+import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
+import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import Display from '@/components/atoms/typography/headline';
@@ -15,6 +17,13 @@ import Display from '@/components/atoms/typography/headline';
 const App = () => {
   const { toggleTheme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
+
+  const crashlytics = getCrashlytics();
+
+  useEffect(() => {
+    if (crashlytics) crashlytics.log('App mounted.');
+  }, [crashlytics]);
+
   const DATA = [
     {
       color: '#FF0000',
@@ -133,6 +142,9 @@ const App = () => {
         size={100}
         color={COLORS['secondary-orange-900']}
       />
+      <Pressable onPress={() => crash(crashlytics)}>
+        <Text>CRASH MY APP</Text>
+      </Pressable>
       <Pressable onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
         <Text>Toggle Lang</Text>
       </Pressable>
