@@ -6,7 +6,7 @@ import {
   MultiColorIcon,
   CurvedHeroImage,
 } from '@/components/atoms';
-import { COLORS } from '@/constants';
+import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
 import { crash, getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useEffect } from 'react';
@@ -14,6 +14,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { checkPermissions } from '@/utilities/permissions';
 import { requestNotifications } from 'react-native-permissions';
+import Display from '@/components/atoms/typography/headline';
 
 const App = () => {
   const { toggleTheme } = useTheme();
@@ -126,6 +127,12 @@ const App = () => {
           text="common.welcome common.obj.obj1"
           textProps={{ name: 'hamada' }}></BaseText>
       </BaseText>
+      <Display
+        weight="Bold"
+        size="xl"
+        text="common.welcome"
+        textProps={{ name: 'hamada' }}
+      />
       <Pressable onPress={toggleTheme}>
         <Text>Toggle Theme</Text>
       </Pressable>
