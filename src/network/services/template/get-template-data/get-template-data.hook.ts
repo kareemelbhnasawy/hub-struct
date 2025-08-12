@@ -16,7 +16,7 @@ const useGetTemplateData = (paramId?: string) =>
     // retry: 2, // Number of retry attempts
     // refetchOnMount: true,
     // refetchOnWindowFocus: true,
-    // enabled: !!paramId, // Only run query if paramId is provided
+    // enabled: !!paramId, // you can disable/enable the query based on params
   });
 
 export default useGetTemplateData;
