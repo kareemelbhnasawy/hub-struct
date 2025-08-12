@@ -15,7 +15,7 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
           testID={testId}
           isCircular
           image={image}
-          size={relativeSize}
+          style={relativeSize}
         />
       ) : (
         // TODO: Change base Text to Text Component
