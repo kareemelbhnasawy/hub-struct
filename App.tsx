@@ -176,11 +176,12 @@ const App = () => {
         <Headline text="TAB BAR" />
         <TabBar
           items={[
-            { id: 'news', icon: 'AlignRight', isSelected: true },
+            { id: 'news', icon: 'AlignRight' },
             { id: 'orders', icon: 'ClipboardCheck' },
             { id: 'service', icon: 'LayoutGrid' },
             { id: 'home', icon: 'Home' },
           ]}
+          selectedTabId="news"
           onTabPress={(tabId) => console.log('Tab pressed:', tabId)}
         />
       </View>
