@@ -7,40 +7,115 @@ export const getBadgeStylesForVariant = (
   color: BadgeColor,
   rtl: boolean,
 ) => {
-  const baseStyles = [styles.badge, styles[variant]];
+  // Container styles
+  const containerStyles = [styles.badgeContainer];
 
-  // Add color styles - handle gray difference for numbers vs labels
-  if (color === 'gray' && variant === 'number') {
-    baseStyles.push(styles.grayNumber);
+  // Add variant-specific container styles
+  if (variant === 'number') {
+    containerStyles.push(styles.containerNumber);
   } else {
-    baseStyles.push(styles[color]);
+    containerStyles.push(styles.containerLabel);
+
+    // Add size-specific border radius for labels
+    switch (size) {
+      case 'sm':
+        containerStyles.push(styles.containerLabelSm);
+        break;
+      case 'md':
+        containerStyles.push(styles.containerLabelMd);
+        break;
+      case 'lg':
+        containerStyles.push(styles.containerLabelLg);
+        break;
+    }
   }
 
-  // Add size-specific styles
+  // Add background color styles
+  switch (color) {
+    case 'brand':
+      containerStyles.push(styles.backgroundBrand);
+      break;
+    case 'success':
+      containerStyles.push(styles.backgroundSuccess);
+      break;
+    case 'warning':
+      containerStyles.push(styles.backgroundWarning);
+      break;
+    case 'error':
+      containerStyles.push(styles.backgroundError);
+      break;
+    case 'gray':
+      containerStyles.push(styles.backgroundGray);
+      break;
+  }
+
+  // Text styles
+  const textStyles = [styles.text];
+
+  // Add variant-specific text styles
+  if (variant === 'number') {
+    textStyles.push(styles.textNumber);
+  } else {
+    textStyles.push(styles.textLabel);
+  }
+
+  // Add size-specific text styles
   if (variant === 'number') {
     switch (size) {
       case 'sm':
-        baseStyles.push(styles.numberSm);
+        textStyles.push(styles.textNumberSm);
         break;
       case 'md':
-        baseStyles.push(styles.numberMd);
+        textStyles.push(styles.textNumberMd);
         break;
       case 'lg':
-        baseStyles.push(styles.numberLg);
+        textStyles.push(styles.textNumberLg);
         break;
     }
   } else {
-    baseStyles.push(styles[size]);
+    switch (size) {
+      case 'sm':
+        textStyles.push(styles.textSm);
+        break;
+      case 'md':
+        textStyles.push(styles.textMd);
+        break;
+      case 'lg':
+        textStyles.push(styles.textLg);
+        break;
+    }
   }
 
-  // Add RTL/LTR styles
+  // Add RTL/LTR text styles
   if (rtl) {
-    baseStyles.push(styles.rtl);
+    textStyles.push(styles.textRtl);
   } else {
-    baseStyles.push(styles.ltr);
+    textStyles.push(styles.textLtr);
   }
 
-  return baseStyles;
+  // Add text color styles
+  switch (color) {
+    case 'brand':
+      textStyles.push(styles.textColorBrand);
+      break;
+    case 'success':
+      textStyles.push(styles.textColorSuccess);
+      break;
+    case 'warning':
+      textStyles.push(styles.textColorWarning);
+      break;
+    case 'error':
+      textStyles.push(styles.textColorError);
+      break;
+    case 'gray':
+      textStyles.push(styles.textColorGray);
+      break;
+  }
+
+  return {
+    containerStyle: containerStyles,
+    textStyle: textStyles,
+  };
 };
 
 export const getAccessibilityLabel = (
