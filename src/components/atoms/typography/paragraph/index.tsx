@@ -13,8 +13,8 @@ const Paragraph = ({
 }: ParagraphProps) => {
   return (
     <BaseText
-      style={[styles.paragraph, styles[size], styles[weight]]}
       {...props}
+      style={[styles.paragraph, styles[size], styles[weight], props.style]} // add style here to allow for appending styles without breaking previous ones
     />
   );
 };

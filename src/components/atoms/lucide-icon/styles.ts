@@ -22,7 +22,7 @@ export const styles = (size: number = DEFAULT_ICON_SIZE) =>
     }),
     outline: responsiveHandler({
       base: {
-        borderColor: 'borderIcon',
+        borderColor: 'borderCircle',
         borderStyle: 'solid',
         borderWidth: 1,
       },
