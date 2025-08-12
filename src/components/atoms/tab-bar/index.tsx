@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { LucideIcon } from '@/components/atoms';
-import { COLORS } from '@/style';
+import { View } from 'react-native';
+import { TabButton } from '@/components/atoms';
 import TabBarProps from './interface';
 import { styles } from './styles';
 
@@ -12,43 +11,24 @@ const TabBar = ({ items, selectedTabId, onTabPress, style }: TabBarProps) => {
   return (
     <View style={[styles.container, style]}>
       {selectedItem && (
-        <View style={styles.selectedTabContainer}>
-          <View style={styles.glassMorphBackground} />
-          <TouchableOpacity
-            style={styles.selectedTabButton}
-            onPress={() => onTabPress(selectedItem.id)}
-            activeOpacity={0.8}
-          >
-            <View style={styles.iconContainer}>
-              <LucideIcon
-                name={selectedItem.icon}
-                size={32}
-                color={COLORS['secondary-green-500']}
-                strokeWidth={1.5}
-              />
-            </View>
-          </TouchableOpacity>
-        </View>
+        <TabButton
+          id={selectedItem.id}
+          icon={selectedItem.icon}
+          isSelected={true}
+          onPress={onTabPress}
+        />
       )}
 
       <View style={styles.tabBarButtonsContainer}>
         <View style={styles.tabBarGlassBackground} />
         {defaultItems.map((item) => (
-          <TouchableOpacity
+          <TabButton
             key={item.id}
-            style={styles.defaultTabButton}
-            onPress={() => onTabPress(item.id)}
-            activeOpacity={0.8}
-          >
-            <View style={styles.iconContainer}>
-              <LucideIcon
-                name={item.icon}
-                size={32}
-                color={COLORS['primary-700']}
-                strokeWidth={1.5}
-              />
-            </View>
-          </TouchableOpacity>
+            id={item.id}
+            icon={item.icon}
+            isSelected={false}
+            onPress={onTabPress}
+          />
         ))}
       </View>
     </View>
