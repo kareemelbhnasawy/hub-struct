@@ -81,27 +81,27 @@ export const styles = StyleSheet.create({
   // Color styles - matching Figma design colors
   brand: responsiveHandler({
     base: {
-      color: '#0F3144', // Primary-600 from Figma
+      color: COLORS['primary-600'], // #0F3144 from Figma
     },
   }),
   success: responsiveHandler({
     base: {
-      color: '#067647', // Success-700 from Figma
+      color: COLORS['success-700'], // #067647 from Figma
     },
   }),
   warning: responsiveHandler({
     base: {
-      color: '#B54708', // Warning-700 from Figma
+      color: COLORS['warning-700'], // #B54708 from Figma
     },
   }),
   error: responsiveHandler({
     base: {
-      color: '#D92D20', // Error-600 from Figma
+      color: COLORS['error-600'], // #D92D20 from Figma
     },
   }),
   gray: responsiveHandler({
     base: {
-      color: '#384250', // Neutral-700 from Figma for labels, #575757 for numbers
+      color: COLORS['neutral-700'], // #384250 from Figma for labels
     },
   }),
 });
