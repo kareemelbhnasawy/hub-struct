@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import { I18nManager, Pressable, Text, View } from 'react-native';
 import {
@@ -5,23 +6,31 @@ import {
   BaseText,
   MultiColorIcon,
   CurvedHeroImage,
+  Spacer,
+  Headline,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
-import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
+import { crash, getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import { checkPermissions } from '@/utilities/permissions';
+import { requestNotifications } from 'react-native-permissions';
 import Display from '@/components/atoms/typography/headline';
+import { DescriptiveIcon } from '@/components/molecules';
 
 const App = () => {
-  const { toggleTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
 
   const crashlytics = getCrashlytics();
 
   useEffect(() => {
-    if (crashlytics) crashlytics.log('App mounted.');
+    if (crashlytics) log(crashlytics, 'App mounted.');
+    checkPermissions();
+
+    requestNotifications();
   }, [crashlytics]);
 
   const DATA = [
@@ -128,7 +137,10 @@ const App = () => {
         text="common.welcome"
         textProps={{ name: 'hamada' }}
       />
-      <Pressable onPress={toggleTheme}>
+      <Pressable
+        onPress={() => {
+          toggleTheme();
+        }}>
         <Text>Toggle Theme</Text>
       </Pressable>
       <MultiColorIcon
@@ -137,6 +149,7 @@ const App = () => {
         primaryColor={COLORS['secondary-yellow-300']}
         secondaryColor={COLORS['secondary-yellow-800']}
       />
+      <Spacer />
       <LucideIcon
         name="AArrowDown"
         size={100}
@@ -148,6 +161,59 @@ const App = () => {
       <Pressable onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
         <Text>Toggle Lang</Text>
       </Pressable>
+      <View
+        style={{ alignContent: 'center', alignItems: 'flex-start', rowGap: 5 }}>
+        <Headline text="ICONS" />
+        <LucideIcon
+          name="AArrowDown"
+          size={100}
+          color={COLORS['secondary-orange-900']}
+          isCircle
+        />
+        <View style={{ flexDirection: 'row' }}>
+          <DescriptiveIcon
+            iconProps={{
+              name: 'AArrowUp',
+              color: COLORS['primary-500'],
+              isCircle: true,
+            }}
+            textProps={{ text: 'Adel Asaad Sarofiem Yohanna' }}
+          />
+          <DescriptiveIcon
+            iconProps={{
+              name: 'Backpack',
+              color: COLORS['secondary-dark-gray-100'],
+              isOutline: true,
+            }}
+            textProps={{ text: 'Kareem Gamal Mustafa Abdelfattah' }}
+          />
+          <DescriptiveIcon
+            iconProps={{
+              name: 'CableCar',
+              color: COLORS['alpha-600-primary-90'],
+              hasWrapper: true,
+              isOutline: false,
+            }}
+            textProps={{ text: 'Daniel Qaldes Malak' }}
+          />
+          <DescriptiveIcon
+            iconProps={{
+              name: 'DatabaseZap',
+              color: COLORS['success-400'],
+              hasWrapper: true,
+            }}
+            textProps={{ text: 'Mohamed Mustafa Alafty' }}
+          />
+          <DescriptiveIcon
+            iconProps={{ name: 'EarOff', color: COLORS['warning-500'] }}
+            textProps={{ text: 'Eyad El-Sayyed' }}
+          />
+        </View>
+        <LucideIcon name="UserCheck" isCircle />
+        <LucideIcon name="UserCheck" isOutline />
+        <LucideIcon name="UserCheck" hasWrapper />
+        <LucideIcon name="UserCheck" />
+      </View>
     </SafeAreaProvider>
   );
 };

@@ -1,7 +1,11 @@
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { s, vs, ms } from 'react-native-size-matters';
 import { getThemeColor, ThemeColorKey, themeColors } from './theme-colors';
 import { screenType } from '@/utilities/device-selector';
+
+export const scale = s;
+export const verticalScale = vs;
+export const moderateScale = ms;
 
 const verticalProps = [
   'marginVertical',
@@ -105,7 +109,3 @@ export const responsiveHandler = (style: {
   }
   return autoScaleStyle(merged);
 };
-
-export const s = scale;
-export const vs = verticalScale;
-export const ms = moderateScale;
