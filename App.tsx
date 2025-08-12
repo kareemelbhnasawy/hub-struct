@@ -101,7 +101,7 @@ const App = () => {
       <FlashList
         data={DATA}
         horizontal
-        renderItem={({ item, index }) => (
+        renderItem={({ item, index }: { item: { color: string }; index: number }) => (
           <View
             style={{
               width: 20,
