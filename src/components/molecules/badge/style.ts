@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { responsiveHandler } from '@/theme/theme-responsive';
 import { fontWeights } from '@/theme/theme-fonts';
-import { getThemeColor } from '@/theme/theme-colors';
+import { COLORS } from '@/style';
 
 export const styles = StyleSheet.create({
   badge: responsiveHandler({
