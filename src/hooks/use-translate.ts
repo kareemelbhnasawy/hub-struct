@@ -26,7 +26,7 @@ const useTranslate = () => {
     RNRestart.Restart();
   };
 
-  const translate = (string: string, options?: { [string]: string }) => {
+  const translate = (string: string, options?: { [key: string]: string }) => {
     const spaceSplitStr = string.split(' ');
     const res: string[] = [];
     spaceSplitStr.forEach((str) => {
