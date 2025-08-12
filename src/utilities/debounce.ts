@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 const debounce = <T extends (...args: any[]) => any>(func: T, delay: number) => {
-    let timeoutId: NodeJS.Timeout | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
     return (...args: Parameters<T>) => {
         if (timeoutId) {
             clearTimeout(timeoutId);
