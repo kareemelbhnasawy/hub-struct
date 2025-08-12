@@ -12,7 +12,7 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
     <View testID={`${testId}-avatar`}>
       {image ? (
         <BaseImage
-          testId={testId}
+          testID={testId}
           isCircular
           image={image}
           size={relativeSize}
