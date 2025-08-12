@@ -157,12 +157,50 @@ The component automatically uses the project's theme colors through the `COLORS`
 
 ```
 src/components/atoms/tab-bar/
-├── index.tsx          # Main component
+├── index.tsx          # Main TabBar component
 ├── interface.ts       # TypeScript interfaces
-├── styles.ts          # StyleSheet definitions
+├── styles.ts          # Container StyleSheet definitions
 ├── example.tsx        # Usage example
 └── README.md          # This documentation
+
+src/components/atoms/tab-button/
+├── index.tsx          # Individual TabButton component
+├── interface.ts       # TabButton TypeScript interfaces
+├── styles.ts          # TabButton StyleSheet definitions
+└── example.tsx        # TabButton usage example
 ```
+
+## Component Architecture
+
+The TabBar component is built using atomic design principles:
+
+- **TabButton** (Atom): Individual tab button with selected/default states
+- **TabBar** (Molecule): Container that orchestrates multiple TabButton components
+
+## TabButton Component
+
+The TabBar internally uses the `TabButton` component, which can also be used independently:
+
+```tsx
+import { TabButton } from '@/components/atoms';
+
+<TabButton
+  id="home"
+  icon="Home"
+  isSelected={true}
+  onPress={(id) => console.log('Button pressed:', id)}
+/>
+```
+
+### TabButton Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | `string` | ✅ | Unique identifier for the button |
+| `icon` | `keyof typeof icons` | ✅ | Lucide icon name to display |
+| `isSelected` | `boolean` | ❌ | Whether the button is in selected state |
+| `onPress` | `(id: string) => void` | ✅ | Callback function when button is pressed |
+| `style` | `ViewStyle` | ❌ | Additional styling for the button |
 
 ## Dependencies
 
@@ -170,3 +208,4 @@ src/components/atoms/tab-bar/
 - `lucide-react-native` - Icon library
 - `react-native-size-matters` - Responsive scaling
 - Project's theme system (`@/theme`, `@/style`)
+- `TabButton` component (internal dependency)
