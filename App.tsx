@@ -7,8 +7,8 @@ import {
   CurvedHeroImage,
   Spacer,
   Headline,
-  TabBar,
 } from '@/components/atoms';
+import { TabBar } from '@/components/molecules';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
 import { crash, getCrashlytics, log } from '@react-native-firebase/crashlytics';
