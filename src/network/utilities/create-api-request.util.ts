@@ -28,10 +28,9 @@ const createAPIRequest = async ({
     };
   }
   try {
-    const res: Promise<AxiosResponse<unknown, unknown>> =
-      await APIMethod(APIConfig);
-    onFulFill?.(res);
-    return await res;
+    const res: AxiosResponse<unknown, unknown> = await APIMethod(APIConfig);
+    onFulFill?.(Promise.resolve(res));
+    return res;
   } catch (error: unknown) {
     onReject?.(error);
     throw error;
