@@ -210,6 +210,10 @@ export const themeColors = {
     light: COLORS.white,
     dark: COLORS.white,
   },
+  buttonPrimaryErrorIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
 
   // Button Secondary States
   buttonSecondaryDefaultBackground: {
