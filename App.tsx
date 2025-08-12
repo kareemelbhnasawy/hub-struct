@@ -172,7 +172,13 @@ const App = () => {
         <LucideIcon name="UserCheck" />
       </View>
 
-      <View style={{ marginTop: 40, backgroundColor: '#F2F2F2', borderRadius: 20, padding: 20 }}>
+      <View
+        style={{
+          marginTop: 40,
+          backgroundColor: '#F2F2F2',
+          borderRadius: 20,
+          padding: 20,
+        }}>
         <Headline text="TAB BAR" />
         <TabBar
           items={[

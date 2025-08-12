@@ -62,7 +62,9 @@ import { View } from 'react-native';
 import { TabButton } from '@/components/atoms';
 
 const MultiButtonExample = () => {
-  const [selectedButtons, setSelectedButtons] = useState<Set<string>>(new Set());
+  const [selectedButtons, setSelectedButtons] = useState<Set<string>>(
+    new Set(),
+  );
 
   const handleButtonPress = (id: string) => {
     const newSelected = new Set(selectedButtons);
@@ -80,7 +82,15 @@ const MultiButtonExample = () => {
         <TabButton
           key={id}
           id={id}
-          icon={id === 'home' ? 'Home' : id === 'search' ? 'Search' : id === 'heart' ? 'Heart' : 'User'}
+          icon={
+            id === 'home'
+              ? 'Home'
+              : id === 'search'
+                ? 'Search'
+                : id === 'heart'
+                  ? 'Heart'
+                  : 'User'
+          }
           isSelected={selectedButtons.has(id)}
           onPress={handleButtonPress}
         />
@@ -94,23 +104,25 @@ const MultiButtonExample = () => {
 
 ### TabButtonProps
 
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `id` | `string` | ✅ | - | Unique identifier for the button |
-| `icon` | `keyof typeof icons` | ✅ | - | Lucide icon name to display |
-| `isSelected` | `boolean` | ❌ | `false` | Whether the button is in selected state |
-| `onPress` | `(id: string) => void` | ✅ | - | Callback function when button is pressed |
-| `style` | `ViewStyle` | ❌ | - | Additional styling for the button container |
+| Prop         | Type                   | Required | Default | Description                                 |
+| ------------ | ---------------------- | -------- | ------- | ------------------------------------------- |
+| `id`         | `string`               | ✅       | -       | Unique identifier for the button            |
+| `icon`       | `keyof typeof icons`   | ✅       | -       | Lucide icon name to display                 |
+| `isSelected` | `boolean`              | ❌       | `false` | Whether the button is in selected state     |
+| `onPress`    | `(id: string) => void` | ✅       | -       | Callback function when button is pressed    |
+| `style`      | `ViewStyle`            | ❌       | -       | Additional styling for the button container |
 
 ## States
 
 ### Selected State
+
 - **Glass Background**: 62x62 pts glass morphism background with shadow
 - **Button**: 54x54 pts circular button with light gray background
 - **Icon**: Green accent color (`#55C490`) with 1.5pt stroke width
 - **Positioning**: Glass background offset by -4pts on left/top
 
 ### Default State
+
 - **Button**: 96x45 pts rounded rectangle button
 - **Icon**: Dark gray color (`#0E2D3E`) with 1.5pt stroke width
 - **Layout**: Centered icon with padding
@@ -118,6 +130,7 @@ const MultiButtonExample = () => {
 ## Design Specifications
 
 ### Dimensions
+
 - **Selected button**: 54x54 pts
 - **Selected glass background**: 62x62 pts
 - **Default button**: 96x45 pts
@@ -125,12 +138,14 @@ const MultiButtonExample = () => {
 - **Icon container**: 32x32 pts
 
 ### Colors
+
 - **Selected icon**: `#55C490` (secondary-green-500)
 - **Selected button background**: `#F2F2F2`
 - **Selected glass background**: `#F7F7F7` with shadow
 - **Default icon**: `#0E2D3E` (primary-700)
 
 ### Effects
+
 - **Shadow**: Color `#000`, offset (0,2), opacity 0.1, radius 8
 - **Elevation**: 4 (Android)
 - **Border radius**: 1000 (perfect circles), 100 (rounded rectangles)
@@ -176,6 +191,7 @@ This component is used internally by the `TabBar` molecule component:
 ### Theme Integration
 
 The component automatically uses:
+
 - Project's color constants via `COLORS`
 - Responsive scaling via `responsiveHandler`
 - Proper scaling functions from `@/theme`

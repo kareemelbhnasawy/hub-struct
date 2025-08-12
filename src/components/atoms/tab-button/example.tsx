@@ -12,15 +12,16 @@ const TabButtonExample = () => {
   };
 
   return (
-    <View style={{ 
-      backgroundColor: '#F2F2F2', 
-      borderRadius: 20, 
-      padding: 20,
-      margin: 20,
-      gap: 20 
-    }}>
+    <View
+      style={{
+        backgroundColor: '#F2F2F2',
+        borderRadius: 20,
+        padding: 20,
+        margin: 20,
+        gap: 20,
+      }}>
       <Headline text="TAB BUTTONS" />
-      
+
       <View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap' }}>
         <TabButton
           id="home"
@@ -28,21 +29,21 @@ const TabButtonExample = () => {
           isSelected={selectedButton === 'home'}
           onPress={handleButtonPress}
         />
-        
+
         <TabButton
           id="search"
           icon="Search"
           isSelected={selectedButton === 'search'}
           onPress={handleButtonPress}
         />
-        
+
         <TabButton
           id="heart"
           icon="Heart"
           isSelected={selectedButton === 'heart'}
           onPress={handleButtonPress}
         />
-        
+
         <TabButton
           id="user"
           icon="User"

@@ -78,19 +78,19 @@ const NavigationTabBar = () => {
 
 ### TabBarProps
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `items` | `TabBarItem[]` | ✅ | Array of tab items to display |
-| `selectedTabId` | `string` | ✅ | ID of the currently selected tab |
-| `onTabPress` | `(tabId: string) => void` | ✅ | Callback function when a tab is pressed |
-| `style` | `ViewStyle` | ❌ | Additional styling for the container |
+| Prop            | Type                      | Required | Description                             |
+| --------------- | ------------------------- | -------- | --------------------------------------- |
+| `items`         | `TabBarItem[]`            | ✅       | Array of tab items to display           |
+| `selectedTabId` | `string`                  | ✅       | ID of the currently selected tab        |
+| `onTabPress`    | `(tabId: string) => void` | ✅       | Callback function when a tab is pressed |
+| `style`         | `ViewStyle`               | ❌       | Additional styling for the container    |
 
 ### TabBarItem
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `id` | `string` | ✅ | Unique identifier for the tab |
-| `icon` | `keyof typeof icons` | ✅ | Lucide icon name to display |
+| Prop   | Type                 | Required | Description                   |
+| ------ | -------------------- | -------- | ----------------------------- |
+| `id`   | `string`             | ✅       | Unique identifier for the tab |
+| `icon` | `keyof typeof icons` | ✅       | Lucide icon name to display   |
 
 ## Available Icons
 
@@ -110,16 +110,19 @@ The component supports all Lucide React Native icons. Here are some commonly use
 ## Design Details
 
 ### Glass Morphism Effect
+
 - Semi-transparent backgrounds with blur effects
 - Subtle shadows for depth
 - Rounded corners (border radius 1000 for perfect circles)
 
 ### Color Scheme
+
 - Selected tab: Green accent (`#55C490`) with light gray background (`#F2F2F2`)
 - Default tabs: Dark gray icons (`#0E2D3E`) on glass background
 - Glass background: Light gray (`#F7F7F7`) with shadow effects
 
 ### Dimensions
+
 - Selected tab button: 54x54 pts with 62x62 pts glass background
 - Default tab buttons: 96x45 pts
 - Icons: 32x32 pts with 1.5pt stroke width
@@ -128,6 +131,7 @@ The component supports all Lucide React Native icons. Here are some commonly use
 ## Accessibility
 
 The component includes:
+
 - Touch feedback with `activeOpacity={0.8}`
 - Proper touch target sizes (minimum 44pt recommended)
 - Clear visual distinction between selected and unselected states
@@ -189,18 +193,18 @@ import { TabButton } from '@/components/atoms';
   icon="Home"
   isSelected={true}
   onPress={(id) => console.log('Button pressed:', id)}
-/>
+/>;
 ```
 
 ### TabButton Props
 
-| Prop | Type | Required | Description |
-|------|------|----------|-------------|
-| `id` | `string` | ✅ | Unique identifier for the button |
-| `icon` | `keyof typeof icons` | ✅ | Lucide icon name to display |
-| `isSelected` | `boolean` | ❌ | Whether the button is in selected state |
-| `onPress` | `(id: string) => void` | ✅ | Callback function when button is pressed |
-| `style` | `ViewStyle` | ❌ | Additional styling for the button |
+| Prop         | Type                   | Required | Description                              |
+| ------------ | ---------------------- | -------- | ---------------------------------------- |
+| `id`         | `string`               | ✅       | Unique identifier for the button         |
+| `icon`       | `keyof typeof icons`   | ✅       | Lucide icon name to display              |
+| `isSelected` | `boolean`              | ❌       | Whether the button is in selected state  |
+| `onPress`    | `(id: string) => void` | ✅       | Callback function when button is pressed |
+| `style`      | `ViewStyle`            | ❌       | Additional styling for the button        |
 
 ## Dependencies
 

@@ -5,7 +5,13 @@ import { COLORS } from '@/style';
 import TabButtonProps from './interface';
 import { styles } from './styles';
 
-const TabButton = ({ id, icon, isSelected = false, onPress, style }: TabButtonProps) => {
+const TabButton = ({
+  id,
+  icon,
+  isSelected = false,
+  onPress,
+  style,
+}: TabButtonProps) => {
   if (isSelected) {
     return (
       <View style={[styles.selectedContainer, style]}>
@@ -13,8 +19,7 @@ const TabButton = ({ id, icon, isSelected = false, onPress, style }: TabButtonPr
         <TouchableOpacity
           style={styles.selectedButton}
           onPress={() => onPress(id)}
-          activeOpacity={0.8}
-        >
+          activeOpacity={0.8}>
           <View style={styles.iconContainer}>
             <LucideIcon
               name={icon}
@@ -32,8 +37,7 @@ const TabButton = ({ id, icon, isSelected = false, onPress, style }: TabButtonPr
     <TouchableOpacity
       style={[styles.defaultButton, style]}
       onPress={() => onPress(id)}
-      activeOpacity={0.8}
-    >
+      activeOpacity={0.8}>
       <View style={styles.iconContainer}>
         <LucideIcon
           name={icon}
