@@ -7,6 +7,7 @@ import {
   CurvedHeroImage,
   Spacer,
   Headline,
+  TabBar,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTheme, useTranslate } from '@/hooks';
@@ -169,6 +170,19 @@ const App = () => {
         <LucideIcon name="UserCheck" isOutline />
         <LucideIcon name="UserCheck" hasWrapper />
         <LucideIcon name="UserCheck" />
+      </View>
+
+      <View style={{ marginTop: 40, backgroundColor: '#F2F2F2', borderRadius: 20, padding: 20 }}>
+        <Headline text="TAB BAR" />
+        <TabBar
+          items={[
+            { id: 'news', icon: 'AlignRight', isSelected: true },
+            { id: 'orders', icon: 'ClipboardCheck' },
+            { id: 'service', icon: 'LayoutGrid' },
+            { id: 'home', icon: 'Home' },
+          ]}
+          onTabPress={(tabId) => console.log('Tab pressed:', tabId)}
+        />
       </View>
     </SafeAreaProvider>
   );
