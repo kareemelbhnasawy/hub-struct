@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { NavigationTabProps } from './interface';
 import { styles } from './styles';
 import { findRelevantStyle } from './utils';
+import { LucideIcon } from '@/components/atoms';
+import { getThemeColor } from '@/theme';
 
 const NavigationTab: React.FC<NavigationTabProps> = ({
   icon,
@@ -23,9 +25,7 @@ const NavigationTab: React.FC<NavigationTabProps> = ({
         findRelevantStyle(isActive, isNews),
         isMiddleTab && styles.centerTab,
       ]}>
-      <Text style={[styles.text, isNews ? styles.whiteIcon : styles.blueIcon]}>
-        {icon}
-      </Text>
+      <LucideIcon name={icon} color={getThemeColor('iconBorderDefault')} />
     </TouchableOpacity>
   );
 };

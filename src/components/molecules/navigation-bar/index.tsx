@@ -16,7 +16,7 @@ const NavigationBar: React.FC = () => {
         start={{ x: 1, y: 1 }} // top-left
         end={{ x: 1, y: 0 }} // bottom-right
         style={styles.circle}>
-        <NavigationTab icon={'N'} isNews />
+        <NavigationTab icon={'AlignRight'} isNews />
       </LinearGradient>
       <LinearGradient
         colors={[
@@ -26,9 +26,9 @@ const NavigationBar: React.FC = () => {
         start={{ x: 1, y: 1 }} // top-left
         end={{ x: 1, y: 0 }} // bottom-right
         style={styles.capsule}>
-        <NavigationTab icon={'H'} />
-        <NavigationTab icon={'S'} isMiddleTab />
-        <NavigationTab icon={'A'} />
+        <NavigationTab icon={'ClipboardCheck'} />
+        <NavigationTab icon={'Search'} isMiddleTab />
+        <NavigationTab icon={'House'} />
       </LinearGradient>
     </View>
   );
