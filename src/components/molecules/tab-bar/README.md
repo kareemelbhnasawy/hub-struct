@@ -1,6 +1,6 @@
-# TabBar Component
+# TabBar Component (Molecule)
 
-A beautiful glass morphism tab bar component that follows atomic design principles. This component recreates the design from the provided Figma mockup with a selected tab having a distinct glass morphism background and green accent color.
+A beautiful glass morphism tab bar component that follows atomic design principles. This molecule component recreates the design from the provided Figma mockup with a selected tab having a distinct glass morphism background and green accent color. It's composed of multiple TabButton atoms.
 
 ## Features
 
@@ -17,7 +17,7 @@ A beautiful glass morphism tab bar component that follows atomic design principl
 
 ```tsx
 import React, { useState } from 'react';
-import { TabBar } from '@/components/atoms';
+import { TabBar } from '@/components/molecules';
 
 const MyComponent = () => {
   const [selectedTab, setSelectedTab] = useState('home');
@@ -42,8 +42,8 @@ const MyComponent = () => {
 ```tsx
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { TabBar } from '@/components/atoms';
-import { TabBarItem } from '@/components/atoms/tab-bar/interface';
+import { TabBar } from '@/components/molecules';
+import { TabBarItem } from '@/components/molecules/tab-bar/interface';
 
 const NavigationTabBar = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -156,15 +156,15 @@ The component automatically uses the project's theme colors through the `COLORS`
 ## File Structure
 
 ```
-src/components/atoms/tab-bar/
-├── index.tsx          # Main TabBar component
+src/components/molecules/tab-bar/
+├── index.tsx          # Main TabBar component (Molecule)
 ├── interface.ts       # TypeScript interfaces
 ├── styles.ts          # Container StyleSheet definitions
 ├── example.tsx        # Usage example
 └── README.md          # This documentation
 
 src/components/atoms/tab-button/
-├── index.tsx          # Individual TabButton component
+├── index.tsx          # Individual TabButton component (Atom)
 ├── interface.ts       # TabButton TypeScript interfaces
 ├── styles.ts          # TabButton StyleSheet definitions
 └── example.tsx        # TabButton usage example
@@ -172,10 +172,10 @@ src/components/atoms/tab-button/
 
 ## Component Architecture
 
-The TabBar component is built using atomic design principles:
+The TabBar component follows atomic design principles:
 
 - **TabButton** (Atom): Individual tab button with selected/default states
-- **TabBar** (Molecule): Container that orchestrates multiple TabButton components
+- **TabBar** (Molecule): Composition of multiple TabButton atoms with container logic
 
 ## TabButton Component
 
