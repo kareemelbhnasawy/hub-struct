@@ -14,7 +14,12 @@ const Badge = ({
   style,
   ...props
 }: BadgeProps) => {
-  const { containerStyle, textStyle } = getBadgeStylesForVariant(variant, size, color, rtl);
+  const { containerStyle, textStyle } = getBadgeStylesForVariant(
+    variant,
+    size,
+    color,
+    rtl,
+  );
   const accessibilityLabel = getAccessibilityLabel(variant, text, color);
 
   return (
@@ -22,14 +27,8 @@ const Badge = ({
       testID={`${testId}-badge-${variant}-${color}-${size}`}
       style={[containerStyle, style]}
       accessibilityLabel={accessibilityLabel}
-      accessibilityRole="text"
-    >
-      <BaseText
-        {...props}
-        text={text}
-        style={textStyle}
-        isTranslated={false}
-      />
+      accessibilityRole="text">
+      <BaseText {...props} text={text} style={textStyle} isTranslated={false} />
     </View>
   );
 };

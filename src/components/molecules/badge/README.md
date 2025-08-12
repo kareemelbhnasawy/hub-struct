@@ -123,12 +123,14 @@ The component automatically provides:
 ## Design Specifications
 
 ### Container & Border Radius
+
 - **Number badges**: Fixed border radius of 12px for all sizes (circular appearance)
 - **Label badges**: Variable border radius based on size (4px, 6px, 8px for sm, md, lg)
 - **Background colors**: Uses theme-based background colors with proper contrast
 - **Padding**: Responsive padding based on variant and size
 
 ### Typography
+
 - **Font Family**: HRSD Gov (as specified in Figma)
 - **Number variant**: Bold weight (700) for emphasis
 - **Label variant**: Medium weight (500) for readability
