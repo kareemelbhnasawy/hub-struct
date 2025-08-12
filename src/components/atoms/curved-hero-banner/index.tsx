@@ -29,7 +29,7 @@ const CurvedHeroImage = ({ source, children, ...props }: CurvedHeroProps) => {
       {...props}
     >
       <ImageBackground
-        source={source || DefaultBannerImage}
+        source={source || RiyadhImage}
         style={{
           width: screenWidth,
           height: imageHeight,
