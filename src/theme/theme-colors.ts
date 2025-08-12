@@ -998,39 +998,39 @@ export const themeColors = {
   // Link Colors
   linkPrimaryDefaultLabel: {
     light: COLORS['primary-600'],
-    dark: COLORS['secondary-yellow-400'],
+    dark: COLORS.white,
   },
   linkPrimaryDefaultIcon: {
     light: COLORS['primary-600'],
-    dark: COLORS['secondary-yellow-400'],
+    dark: COLORS.white,
   },
   linkPrimaryHoverLabel: {
     light: COLORS['primary-500'],
-    dark: COLORS['secondary-yellow-300'],
+    dark: COLORS.white,
   },
   linkPrimaryHoverIcon: {
     light: COLORS['primary-500'],
-    dark: COLORS['secondary-yellow-300'],
+    dark: COLORS.white,
   },
   linkPrimaryFocusedLabel: {
-    light: COLORS['primary-400'],
-    dark: COLORS['secondary-yellow-200'],
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
   },
   linkPrimaryFocusedIcon: {
-    light: COLORS['primary-400'],
-    dark: COLORS['secondary-yellow-200'],
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
   },
   linkPrimaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
+    light: COLORS['primary-900'],
+    dark: COLORS.white,
   },
   linkPrimaryPressedLabel: {
     light: COLORS['primary-800'],
-    dark: COLORS['secondary-yellow-500'],
+    dark: COLORS.white,
   },
   linkPrimaryPressedIcon: {
     light: COLORS['primary-800'],
-    dark: COLORS['secondary-yellow-500'],
+    dark: COLORS.white,
   },
   linkPrimaryDisabledLabel: {
     light: COLORS['neutral-400'],

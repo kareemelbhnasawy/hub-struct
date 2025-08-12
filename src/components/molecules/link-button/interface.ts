@@ -1,6 +1,6 @@
 import { PressableProps } from 'react-native';
-import BaseTextProps from '../base-text/interface';
-import LucideIconProps from '../lucide-icon/interface';
+import BaseTextProps from '../../atoms/base-text/interface';
+import LucideIconProps from '../../atoms/lucide-icon/interface';
 
 type LinkButtonVariant = 'link';
 
@@ -12,6 +12,7 @@ interface LinkButtonProps extends PressableProps {
   error?: boolean;
   loading?: boolean;
   variant?: LinkButtonVariant;
+  isOutline?: boolean;
 }
 
 export default LinkButtonProps;
