@@ -5,9 +5,9 @@ import { COLORS } from '@/style';
 import TabBarProps from './interface';
 import { styles } from './styles';
 
-const TabBar = ({ items, onTabPress, style }: TabBarProps) => {
-  const selectedItem = items.find(item => item.isSelected);
-  const defaultItems = items.filter(item => !item.isSelected);
+const TabBar = ({ items, selectedTabId, onTabPress, style }: TabBarProps) => {
+  const selectedItem = items.find(item => item.id === selectedTabId);
+  const defaultItems = items.filter(item => item.id !== selectedTabId);
 
   return (
     <View style={[styles.container, style]}>
