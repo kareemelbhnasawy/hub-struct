@@ -1,8 +1,8 @@
 export const avatarSizes = {
-  sm: ['size-6', 'sm' as const],
-  md: ['size-8', 'md' as const],
-  lg: ['size-12', 'lg' as const],
-  xl: ['w-[72px] h-[72px]', 'xl' as const],
+  sm: [{ width: 24, height: 24 }, 'sm' as const],
+  md: [{ width: 32, height: 32 }, 'md' as const],
+  lg: [{ width: 48, height: 48 }, 'lg' as const],
+  xl: [{ width: 72, height: 72 }, 'xl' as const],
 };
 
 export const getInitialsFromName = (name: string): string => {
