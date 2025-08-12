@@ -28,6 +28,14 @@ export const styles = StyleSheet.create({
       left: -4,
       top: -4,
       zIndex: 0,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+      elevation: 4,
     },
   }),
   selectedTabButton: responsiveHandler({
@@ -60,6 +68,14 @@ export const styles = StyleSheet.create({
       left: -52,
       bottom: -4.5,
       zIndex: 0,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+      elevation: 4,
     },
   }),
   defaultTabButton: responsiveHandler({
