@@ -78,30 +78,30 @@ export const styles = StyleSheet.create({
     },
   }),
 
-  // Color styles
+  // Color styles - matching Figma design colors
   brand: responsiveHandler({
     base: {
-      color: getThemeColor('textPrimary'),
+      color: '#0F3144', // Primary-600 from Figma
     },
   }),
   success: responsiveHandler({
     base: {
-      color: getThemeColor('textSuccess'),
+      color: '#067647', // Success-700 from Figma
     },
   }),
   warning: responsiveHandler({
     base: {
-      color: getThemeColor('textWarning'),
+      color: '#B54708', // Warning-700 from Figma
     },
   }),
   error: responsiveHandler({
     base: {
-      color: getThemeColor('textError'),
+      color: '#D92D20', // Error-600 from Figma
     },
   }),
   gray: responsiveHandler({
     base: {
-      color: getThemeColor('textDisplay'),
+      color: '#384250', // Neutral-700 from Figma for labels, #575757 for numbers
     },
   }),
 });
