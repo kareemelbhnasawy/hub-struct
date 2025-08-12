@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { responsiveHandler } from '@/theme/theme-responsive';
-import { fontWeights } from '@/theme/theme-fonts';
 
 export const styles = StyleSheet.create({
   // Container styles
@@ -21,13 +20,6 @@ export const styles = StyleSheet.create({
       borderRadius: 12, // Same radius for all number sizes
       minWidth: 20,
       minHeight: 20,
-    },
-  }),
-  containerLabel: responsiveHandler({
-    base: {
-      borderRadius: 6, // Different radius for labels
-      paddingHorizontal: 8,
-      paddingVertical: 4,
     },
   }),
 
@@ -54,63 +46,10 @@ export const styles = StyleSheet.create({
     },
   }),
 
-  // Text styles
-  text: responsiveHandler({
-    base: {
-      fontWeight: '500',
-    },
-  }),
-
   // Variant text styles
   textNumber: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Bold,
       textAlign: 'center',
-    },
-  }),
-  textLabel: responsiveHandler({
-    base: {
-      fontWeight: fontWeights.Medium,
-    },
-  }),
-
-  // Text size styles
-  textSm: responsiveHandler({
-    base: {
-      fontSize: 11,
-      lineHeight: 12,
-    },
-  }),
-  textMd: responsiveHandler({
-    base: {
-      fontSize: 12,
-      lineHeight: 16,
-    },
-  }),
-  textLg: responsiveHandler({
-    base: {
-      fontSize: 14,
-      lineHeight: 18,
-    },
-  }),
-
-  // Number specific text sizes
-  textNumberSm: responsiveHandler({
-    base: {
-      fontSize: 14,
-      lineHeight: 18,
-    },
-  }),
-  textNumberMd: responsiveHandler({
-    base: {
-      fontSize: 16,
-      lineHeight: 20,
-    },
-  }),
-  textNumberLg: responsiveHandler({
-    base: {
-      fontSize: 18,
-      lineHeight: 22,
     },
   }),
 

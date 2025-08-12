@@ -81,21 +81,9 @@ The colors match the Figma design exactly:
 | `size`    | `'sm' \| 'md' \| 'lg'`                                   | `'md'`    | Badge size                           |
 | `style`   | `StyleProp<TextStyle>`                                   | -         | Additional custom styles             |
 
-## Typography Specifications
+## Typography
 
-### Label Variant
-
-- **Font Weight**: Medium (500)
-- **Size SM**: 11px / 12px line-height
-- **Size MD**: 12px / 16px line-height
-- **Size LG**: 14px / 18px line-height
-
-### Number Variant
-
-- **Font Weight**: Bold (700)
-- **Size SM**: 14px / 18px line-height
-- **Size MD**: 16px / 20px line-height
-- **Size LG**: 18px / 22px line-height
+Text size and weight are now handled by the `Paragraph` component. The badge only applies color and variant-based text styles. To customize size or weight, use the `size` and `weight` props on `Paragraph` via the badge props.
 
 ## Accessibility
 
@@ -117,8 +105,8 @@ The component automatically provides:
 ### Typography
 
 - **Font Family**: HRSD Gov (as specified in Figma)
-- **Number variant**: Bold weight (700) for emphasis
-- **Label variant**: Medium weight (500) for readability
+- **Text size and weight**: Controlled by `Paragraph` props (`size`, `weight`)
+- **Text color**: Controlled by badge color and variant
 
 ## Implementation Details
 

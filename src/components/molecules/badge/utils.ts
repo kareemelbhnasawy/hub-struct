@@ -3,8 +3,8 @@ import { styles } from './style';
 
 export const getBadgeStylesForVariant = (
   variant: BadgeVariant,
-  size: BadgeSize,
-  color: BadgeColor,
+  size: BadgeSize = 'md',
+  color: BadgeColor = 'brand',
 ) => {
   // Container styles
   const containerStyles = [styles.badgeContainer];
@@ -13,8 +13,6 @@ export const getBadgeStylesForVariant = (
   if (variant === 'number') {
     containerStyles.push(styles.containerNumber);
   } else {
-    containerStyles.push(styles.containerLabel);
-
     // Add size-specific border radius for labels
     switch (size) {
       case 'sm':
@@ -49,41 +47,14 @@ export const getBadgeStylesForVariant = (
   }
 
   // Text styles
-  const textStyles = [styles.text];
+  const textStyles = [];
 
   // Add variant-specific text styles
   if (variant === 'number') {
     textStyles.push(styles.textNumber);
-  } else {
-    textStyles.push(styles.textLabel);
   }
 
-  // Add size-specific text styles
-  if (variant === 'number') {
-    switch (size) {
-      case 'sm':
-        textStyles.push(styles.textNumberSm);
-        break;
-      case 'md':
-        textStyles.push(styles.textNumberMd);
-        break;
-      case 'lg':
-        textStyles.push(styles.textNumberLg);
-        break;
-    }
-  } else {
-    switch (size) {
-      case 'sm':
-        textStyles.push(styles.textSm);
-        break;
-      case 'md':
-        textStyles.push(styles.textMd);
-        break;
-      case 'lg':
-        textStyles.push(styles.textLg);
-        break;
-    }
-  }
+  // Removed size-specific text styles (handled by Paragraph)
 
   // Add text color styles
   switch (color) {

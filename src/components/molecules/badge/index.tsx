@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import BaseText from '../../atoms/base-text';
 import BadgeProps from './interface';
 import { getBadgeStylesForVariant, getAccessibilityLabel } from './utils';
 import { Paragraph } from '@/components/atoms';
@@ -27,7 +26,13 @@ const Badge = ({
       style={[containerStyle, style]}
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="text">
-      <Paragraph {...props} text={text} style={textStyle} />
+      <Paragraph
+        {...props}
+        text={text}
+        style={textStyle}
+        size={size}
+        weight={'Medium'}
+      />
     </View>
   );
 };
