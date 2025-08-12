@@ -1,6 +1,6 @@
 # Badge Component
 
-A flexible badge component that supports both text labels and numbers with multiple color variants and sizes, following the Figma design specifications.
+A flexible badge component with background containers that supports both text labels and numbers with multiple color variants and sizes, following the Figma design specifications.
 
 ## Features
 
@@ -8,6 +8,8 @@ A flexible badge component that supports both text labels and numbers with multi
 - **Multiple Colors**: `brand`, `success`, `warning`, `gray`, `error`
 - **Three Sizes**: `sm`, `md`, `lg`
 - **RTL Support**: Configurable text direction
+- **Background Containers**: Proper background colors and border radius
+- **Responsive Border Radius**: Different radius for number vs label variants
 - **Accessibility**: Built-in accessibility labels and roles
 
 ## Color Specifications
