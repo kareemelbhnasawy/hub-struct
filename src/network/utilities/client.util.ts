@@ -2,9 +2,6 @@ import axios from 'axios';
 import Config from 'react-native-config';
 import { API_HEADER_ACCEPT_LANGUAGE, API_HEADER_DEVICE } from '../constants';
 import {
-  abortRequestInterceptor,
-  authInterceptor,
-  connectionInterceptor,
   onRequestFulfilled,
   onRequestReject,
   onResponseFulfilled,
@@ -24,9 +21,6 @@ const client = axios.create({
 });
 
 // request interceptors
-client.interceptors.request.use(abortRequestInterceptor);
-client.interceptors.request.use(authInterceptor);
-client.interceptors.request.use(connectionInterceptor);
 client.interceptors.request.use(onRequestFulfilled, onRequestReject);
 
 // response interceptor

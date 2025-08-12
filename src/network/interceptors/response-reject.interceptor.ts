@@ -1,5 +1,6 @@
 import { API_UNAUTHORIZED_STATUS } from '../constants';
 
+// the returned type is onRejected?: ((error: any) => any) | null): number
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const onResponseReject = (error: any): any => {
   if (
