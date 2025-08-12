@@ -1,6 +1,9 @@
 import React from 'react';
 import { Image } from 'react-native';
 import BaseImageProps from './interface';
+import { styled } from 'nativewind';
+
+const StyledImage = styled(Image);
 
 const BaseImage = ({
   testID,
@@ -12,7 +15,7 @@ const BaseImage = ({
   ...imageProps
 }: BaseImageProps) => {
   return (
-    <Image
+    <StyledImage
       testID={`${testID}-image`}
       className={`${size} ${isCircular ? 'rounded-full' : ''}`}
       resizeMode={resizeMode}
