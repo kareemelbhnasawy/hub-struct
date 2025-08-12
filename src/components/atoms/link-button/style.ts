@@ -8,7 +8,7 @@ export const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'transparent',
+        backgroundColor: 'surfaceOncolor',
         borderWidth: 0,
       },
     }),
@@ -51,50 +51,50 @@ export const styles = {
   link: StyleSheet.create({
     default: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkDefaultLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'textPrimary',
       },
     }),
     hover: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkHoverLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'textTitle',
       },
     }),
     focused: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkFocusedLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'textTitle',
       },
     }),
     pressed: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkPressedLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'textSecondary',
       },
     }),
     disabled: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkDisabledLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'textDefault',
       },
     }),
     loading: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
       },
     }),
     error: responsiveHandler({
       base: {
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        color: 'buttonLinkDefaultLabel',
+        backgroundColor: 'surfaceOncolor',
+        borderColor: 'surfaceOncolor',
+        color: 'backgroundError',
       },
     }),
   }),
