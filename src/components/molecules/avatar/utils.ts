@@ -24,5 +24,8 @@ export const getInitialsFromName = (name: string): string => {
 export const getRelativeAvatarSizes = (
   size: keyof typeof avatarSizes,
 ): [{ width: number; height: number }, 'xl' | 'lg' | 'md' | 'sm'] => {
-  return avatarSizes[size] as [{ width: number; height: number }, 'xl' | 'lg' | 'md' | 'sm'];
+  return avatarSizes[size] as [
+    { width: number; height: number },
+    'xl' | 'lg' | 'md' | 'sm',
+  ];
 };

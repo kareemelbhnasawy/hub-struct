@@ -101,14 +101,21 @@ const App = () => {
       <FlashList
         data={DATA}
         horizontal
-        renderItem={({ item, index }: { item: { color: string }; index: number }) => (
+        renderItem={({
+          item,
+          index,
+        }: {
+          item: { color: string };
+          index: number;
+        }) => (
           <View
             style={{
               width: 20,
               height: 20,
               backgroundColor: item.color,
               marginStart: 10,
-            }}>
+            }}
+          >
             <Text style={{ color: 'white', textAlign: 'center' }}>
               {index + 1}
             </Text>
@@ -117,17 +124,20 @@ const App = () => {
       />
       <CurvedHeroImage>
         <View
-          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}
+        >
           <Text style={{ color: 'white' }}>Samya</Text>
         </View>
       </CurvedHeroImage>
       <BaseText
         style={{ marginStart: 10, textAlign: 'left' }}
         text="common.welcome"
-        textProps={{ name: 'hamada' }}>
+        textProps={{ name: 'hamada' }}
+      >
         <BaseText
           text="common.welcome common.obj.obj1"
-          textProps={{ name: 'hamada' }}></BaseText>
+          textProps={{ name: 'hamada' }}
+        ></BaseText>
       </BaseText>
       <Display
         weight="Bold"
@@ -157,7 +167,8 @@ const App = () => {
         <Text>Toggle Lang</Text>
       </Pressable>
       <View
-        style={{ alignContent: 'center', alignItems: 'flex-start', rowGap: 5 }}>
+        style={{ alignContent: 'center', alignItems: 'flex-start', rowGap: 5 }}
+      >
         <Headline text="ICONS" />
         <LucideIcon
           name="AArrowDown"

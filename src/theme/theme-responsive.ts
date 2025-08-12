@@ -63,7 +63,9 @@ interface StyleWithThemeColors
   borderColor?: ThemeColorKey;
 }
 
-const autoScaleStyle = (style: StyleWithThemeColors): Record<string, string | number> => {
+const autoScaleStyle = (
+  style: StyleWithThemeColors,
+): Record<string, string | number> => {
   const scaled: Record<string, string | number> = {};
   for (const key in style) {
     const value = (style as any)[key];
