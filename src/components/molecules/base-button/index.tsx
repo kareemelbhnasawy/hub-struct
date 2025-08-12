@@ -1,89 +1,36 @@
-import { useState } from 'react';
-import {
-  ActivityIndicator,
-  Pressable,
-  NativeSyntheticEvent,
-  NativeMouseEvent,
-  TargetedEvent,
-  GestureResponderEvent,
-} from 'react-native';
+import { ActivityIndicator, Pressable } from 'react-native';
 import BaseButtonProps from './interface';
 import { styles } from './style';
 import { getThemeColor } from '@/theme/theme-colors';
-import Paragraph from '../../atoms/typography/paragraph';
-import LucideIcon from '../../atoms/lucide-icon';
+import { Headline, LucideIcon, Paragraph } from '@/components/atoms';
+import useBaseButton from './hook';
+import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 
-type ButtonState =
-  | 'default'
-  | 'hover'
-  | 'focused'
-  | 'pressed'
-  | 'disabled'
-  | 'loading'
-  | 'error';
+const BaseButton = (props: BaseButtonProps) => {
+  const {
+    textProps,
+    size = 'md',
+    disabled,
+    loading,
+    leftIcon,
+    rightIcon,
+    variant = 'primary',
+    ...restProps
+  } = props;
+  const {
+    onBlurFn,
+    onFocusFn,
+    onHoverInFn,
+    onHoverOutFn,
+    onPressInFn,
+    onPressOutFn,
+    state,
+    textType,
+    textSize,
+  } = useBaseButton(props);
 
-const BaseButton = ({
-  textProps,
-  size = 'md',
-  disabled,
-  loading,
-  error,
-  onHoverIn,
-  onHoverOut,
-  onFocus,
-  onBlur,
-  onPressIn,
-  onPressOut,
-  leftIcon,
-  rightIcon,
-  variant = 'primary',
-  ...props
-}: BaseButtonProps) => {
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const [pressed, setPressed] = useState(false);
+  const TextComponent = textType === 'paragraph' ? Paragraph : Headline;
 
-  const getState = (): ButtonState => {
-    if (disabled) return 'disabled';
-    if (loading) return 'loading';
-    if (error) return 'error';
-    if (pressed) return 'pressed';
-    if (hovered) return 'hover';
-    if (focused) return 'focused';
-    return 'default';
-  };
-
-  const onHoverInFn = (e: NativeSyntheticEvent<NativeMouseEvent>) => {
-    setHovered(true);
-    if (onHoverIn) onHoverIn(e);
-  };
-
-  const onHoverOutFn = (e: NativeSyntheticEvent<NativeMouseEvent>) => {
-    setHovered(false);
-    if (onHoverOut) onHoverOut(e);
-  };
-
-  const onFocusFn = (e: NativeSyntheticEvent<TargetedEvent>) => {
-    setFocused(true);
-    if (onFocus) onFocus(e);
-  };
-
-  const onBlurFn = (e: NativeSyntheticEvent<TargetedEvent>) => {
-    setFocused(false);
-    if (onBlur) onBlur(e);
-  };
-
-  const onPressInFn = (e: GestureResponderEvent) => {
-    setPressed(true);
-    if (onPressIn) onPressIn(e);
-  };
-
-  const onPressOutFn = (e: GestureResponderEvent) => {
-    setPressed(false);
-    if (onPressOut) onPressOut(e);
-  };
-
-  const state = getState();
   return (
     <Pressable
       disabled={disabled || loading}
@@ -98,17 +45,21 @@ const BaseButton = ({
         styles[variant][state].wrapper,
         styles.base[size],
       ]}
-      {...props}>
+      {...restProps}>
       {loading ? (
-        <ActivityIndicator color={getThemeColor('alphaWhite40')} />
+        <ActivityIndicator
+          color={getThemeColor(
+            variant === 'primary' ? 'alphaWhite30' : 'alphaBlack60',
+          )}
+        />
       ) : (
         <>
           {leftIcon ? (
             <LucideIcon {...leftIcon} style={styles[variant][state].icon} />
           ) : null}
-          <Paragraph
+          <TextComponent
             weight="Medium"
-            size="sm"
+            size={textSize as ParagraphProps['size']}
             style={styles[variant][state].text}
             {...textProps}
           />

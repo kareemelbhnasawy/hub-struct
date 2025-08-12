@@ -4,8 +4,10 @@ import LucideIconProps from '../../atoms/lucide-icon/interface';
 
 type ButtonVariant = 'primary' | 'secondary';
 
+export type ButtonSizes = 'xxl' | 'xl' | 'lg' | 'md' | 'sm';
+
 interface BaseButtonProps extends PressableProps {
-  size?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm';
+  size?: ButtonSizes;
   leftIcon?: LucideIconProps;
   rightIcon?: LucideIconProps;
   textProps: BaseTextProps;

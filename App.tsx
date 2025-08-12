@@ -165,23 +165,124 @@ const App = () => {
         </Pressable>
         <View
           style={{ alignContent: 'center', alignItems: 'center', rowGap: 5 }}>
-          <BaseButton textProps={{ text: 'I am a primary button ' }} />
           <BaseButton
+            variant="primary"
+            size="sm"
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <BaseButton
+            variant="primary"
+            size="md"
+            textProps={{ text: 'I am a primary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+          />
+          <BaseButton
+            variant="primary"
+            size="lg"
+            textProps={{ text: 'I am a primary button ' }}
+            rightIcon={{ name: 'ArrowRight' }}
+          />
+          <BaseButton
+            variant="primary"
+            size="xl"
+            textProps={{ text: 'I am a primary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+          />
+          <BaseButton
+            variant="primary"
+            size="xxl"
+            textProps={{ text: 'I am a primary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+          />
+          <BaseButton
+            variant="primary"
             leftIcon={{ name: 'ArrowLeft' }}
             textProps={{ text: 'I am a primary button ' }}
           />
           <BaseButton
+            variant="primary"
             rightIcon={{ name: 'ArrowRight' }}
             textProps={{ text: 'I am a primary button ' }}
           />
           <BaseButton
+            variant="primary"
             leftIcon={{ name: 'ArrowLeft' }}
             rightIcon={{ name: 'ArrowRight' }}
             textProps={{ text: 'I am a primary button ' }}
           />
           <BaseButton
+            variant="primary"
+            disabled
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <BaseButton
+            variant="primary"
+            loading
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <BaseButton
+            variant="primary"
+            error
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <BaseButton
+            variant="primary"
+            focusable
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <BaseButton
+            variant="primary"
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a primary button ' }}
+          />
+          <Spacer space={40} />
+          {/* 
+
+                  SPACE SO I DON'T LOSE MY MENTAL HEALTH
+
+          */}
+          <Spacer space={40} />
+          <BaseButton
             variant="secondary"
+            size="sm"
             textProps={{ text: 'I am a secondary button ' }}
+          />
+          <BaseButton
+            variant="secondary"
+            size="md"
+            textProps={{ text: 'I am a secondary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+          />
+          <BaseButton
+            variant="secondary"
+            size="lg"
+            textProps={{ text: 'I am a secondary button ' }}
+            rightIcon={{ name: 'ArrowRight' }}
+          />
+          <BaseButton
+            variant="secondary"
+            size="xl"
+            textProps={{ text: 'I am a secondary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+          />
+          <BaseButton
+            variant="secondary"
+            size="xxl"
+            textProps={{ text: 'I am a secondary button ' }}
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
           />
           <BaseButton
             variant="secondary"
@@ -199,6 +300,47 @@ const App = () => {
             rightIcon={{ name: 'ArrowRight' }}
             textProps={{ text: 'I am a secondary button ' }}
           />
+          <BaseButton
+            variant="secondary"
+            disabled
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a secondary button ' }}
+          />
+          <BaseButton
+            variant="secondary"
+            loading
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a secondary button ' }}
+          />
+          <BaseButton
+            variant="secondary"
+            error
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a secondary button ' }}
+          />
+          <BaseButton
+            variant="secondary"
+            focusable
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a secondary button ' }}
+          />
+          <BaseButton
+            variant="secondary"
+            leftIcon={{ name: 'ArrowLeft' }}
+            rightIcon={{ name: 'ArrowRight' }}
+            textProps={{ text: 'I am a secondary button ' }}
+          />
+          <Spacer space={40} />
+          {/* 
+
+                  SPACE SO I DON'T LOSE MY MENTAL HEALTH
+
+          */}
+          <Spacer space={40} />
         </View>
       </ScrollView>
     </SafeAreaProvider>

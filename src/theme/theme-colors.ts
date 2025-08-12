@@ -156,7 +156,7 @@ export const themeColors = {
   // Button Primary States
   buttonPrimaryDefaultBackground: {
     light: COLORS['primary-600'],
-    dark: COLORS['primary-600'],
+    dark: COLORS.white,
   },
   buttonPrimaryDefaultLabel: {
     light: COLORS.white,
@@ -168,27 +168,31 @@ export const themeColors = {
   },
   buttonPrimaryHoverBackground: {
     light: COLORS['primary-500'],
-    dark: COLORS['primary-500'],
+    dark: COLORS.white,
   },
   buttonPrimaryFocusedBackground: {
-    light: COLORS['primary-400'],
-    dark: COLORS['primary-400'],
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonPrimaryFocusedBorder: {
+    light: COLORS['secondary-dark-gray-400'],
+    dark: COLORS.white,
   },
   buttonPrimaryPressedBackground: {
     light: COLORS['primary-800'],
-    dark: COLORS['primary-800'],
+    dark: COLORS.white,
   },
   buttonPrimaryPressedBorder: {
     light: COLORS['primary-500'],
-    dark: COLORS['primary-500'],
+    dark: COLORS.white,
   },
   buttonPrimaryDisabledBackground: {
-    light: COLORS['neutral-200'],
-    dark: COLORS['neutral-200'],
+    light: COLORS['secondary-dark-gray-300'],
+    dark: COLORS.white,
   },
   buttonPrimaryDisabledBorder: {
     light: COLORS['secondary-dark-gray-400'],
-    dark: COLORS['secondary-dark-gray-400'],
+    dark: COLORS.white,
   },
   buttonPrimaryDisabledLabel: {
     light: COLORS.white,
@@ -199,12 +203,12 @@ export const themeColors = {
     dark: COLORS.white,
   },
   buttonPrimaryLoadingBackground: {
-    light: COLORS['primary-300'],
-    dark: COLORS['primary-300'],
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
   },
   buttonPrimaryErrorBackground: {
     light: COLORS['error-600'],
-    dark: COLORS['error-600'],
+    dark: COLORS.white,
   },
   buttonPrimaryErrorLabel: {
     light: COLORS.white,
@@ -1331,10 +1335,6 @@ export const themeColors = {
   buttonPrimaryFocusedIcon: {
     light: COLORS.white,
     dark: COLORS.white,
-  },
-  buttonPrimaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
   },
   buttonPrimaryPressedLabel: {
     light: COLORS.white,
