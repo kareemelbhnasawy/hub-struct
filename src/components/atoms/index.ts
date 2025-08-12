@@ -8,3 +8,4 @@ export { default as Headline } from './typography/headline';
 export { default as Paragraph } from './typography/paragraph';
 export { default as Spacer } from './spacer';
 export { default as TabBar } from './tab-bar';
+export { default as TabButton } from './tab-button';
