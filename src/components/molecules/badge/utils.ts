@@ -49,7 +49,7 @@ export const getAccessibilityLabel = (
   color: BadgeColor,
 ): string => {
   const colorLabel = color === 'brand' ? 'primary' : color;
-  
+
   if (variant === 'number') {
     return `${colorLabel} badge with number ${text}`;
   } else {

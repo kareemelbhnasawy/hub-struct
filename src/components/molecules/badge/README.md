@@ -13,6 +13,7 @@ A flexible badge component that supports both text labels and numbers with multi
 ## Color Specifications
 
 The colors match the Figma design exactly:
+
 - **Brand**: #0F3144 (Primary-600)
 - **Success**: #067647 (Success-700)
 - **Warning**: #B54708 (Warning-700)
@@ -22,19 +23,15 @@ The colors match the Figma design exactly:
 ## Usage Examples
 
 ### Basic Label Badge
+
 ```tsx
-<Badge 
-  testId="my-badge"
-  variant="label"
-  text="Label"
-  color="brand"
-  size="md"
-/>
+<Badge testId="my-badge" variant="label" text="Label" color="brand" size="md" />
 ```
 
 ### Number Badge
+
 ```tsx
-<Badge 
+<Badge
   testId="notification-count"
   variant="number"
   text="9"
@@ -44,8 +41,9 @@ The colors match the Figma design exactly:
 ```
 
 ### RTL Support
+
 ```tsx
-<Badge 
+<Badge
   testId="arabic-badge"
   variant="label"
   text="عنوان"
@@ -56,18 +54,26 @@ The colors match the Figma design exactly:
 ```
 
 ### All Size Variants
+
 ```tsx
-{/* Small */}
-<Badge testId="badge" variant="label" text="Small" size="sm" />
+{
+  /* Small */
+}
+<Badge testId="badge" variant="label" text="Small" size="sm" />;
 
-{/* Medium */}
-<Badge testId="badge" variant="label" text="Medium" size="md" />
+{
+  /* Medium */
+}
+<Badge testId="badge" variant="label" text="Medium" size="md" />;
 
-{/* Large */}
-<Badge testId="badge" variant="label" text="Large" size="lg" />
+{
+  /* Large */
+}
+<Badge testId="badge" variant="label" text="Large" size="lg" />;
 ```
 
 ### All Color Variants
+
 ```tsx
 <Badge testId="badge" variant="label" text="Brand" color="brand" />
 <Badge testId="badge" variant="label" text="Success" color="success" />
@@ -78,25 +84,27 @@ The colors match the Figma design exactly:
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `testId` | `string` | - | Required test identifier for testing |
-| `variant` | `'number' \| 'label'` | - | Badge content type |
-| `text` | `string` | - | Text content to display |
-| `color` | `'brand' \| 'success' \| 'warning' \| 'gray' \| 'error'` | `'brand'` | Badge color theme |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Badge size |
-| `rtl` | `boolean` | `false` | Right-to-left text direction |
-| `style` | `StyleProp<TextStyle>` | - | Additional custom styles |
+| Prop      | Type                                                     | Default   | Description                          |
+| --------- | -------------------------------------------------------- | --------- | ------------------------------------ |
+| `testId`  | `string`                                                 | -         | Required test identifier for testing |
+| `variant` | `'number' \| 'label'`                                    | -         | Badge content type                   |
+| `text`    | `string`                                                 | -         | Text content to display              |
+| `color`   | `'brand' \| 'success' \| 'warning' \| 'gray' \| 'error'` | `'brand'` | Badge color theme                    |
+| `size`    | `'sm' \| 'md' \| 'lg'`                                   | `'md'`    | Badge size                           |
+| `rtl`     | `boolean`                                                | `false`   | Right-to-left text direction         |
+| `style`   | `StyleProp<TextStyle>`                                   | -         | Additional custom styles             |
 
 ## Typography Specifications
 
 ### Label Variant
+
 - **Font Weight**: Medium (500)
 - **Size SM**: 11px / 12px line-height
-- **Size MD**: 12px / 16px line-height  
+- **Size MD**: 12px / 16px line-height
 - **Size LG**: 14px / 18px line-height
 
 ### Number Variant
+
 - **Font Weight**: Bold (700)
 - **Size SM**: 14px / 18px line-height
 - **Size MD**: 16px / 20px line-height
@@ -105,6 +113,7 @@ The colors match the Figma design exactly:
 ## Accessibility
 
 The component automatically provides:
+
 - Appropriate `accessibilityRole="text"`
 - Descriptive `accessibilityLabel` based on variant, color, and content
 - Proper text contrast ratios
