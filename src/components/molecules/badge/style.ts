@@ -1,112 +1,183 @@
 import { StyleSheet } from 'react-native';
 import { responsiveHandler } from '@/theme/theme-responsive';
 import { fontWeights } from '@/theme/theme-fonts';
+import { getThemeColor } from '@/theme/theme-colors';
 import { COLORS } from '@/style';
 
 export const styles = StyleSheet.create({
-  badge: responsiveHandler({
+  // Container styles
+  badgeContainer: responsiveHandler({
     base: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      paddingHorizontal: 8,
+      paddingVertical: 2,
+    },
+  }),
+
+  // Container variant styles
+  containerNumber: responsiveHandler({
+    base: {
+      borderRadius: 12, // Same radius for all number sizes
+      minWidth: 20,
+      minHeight: 20,
+    },
+  }),
+  containerLabel: responsiveHandler({
+    base: {
+      borderRadius: 6, // Different radius for labels
+      paddingHorizontal: 8,
+      paddingVertical: 4,
+    },
+  }),
+
+  // Container size styles for labels (numbers use same border radius)
+  containerLabelSm: responsiveHandler({
+    base: {
+      borderRadius: 4,
+      paddingHorizontal: 6,
+      paddingVertical: 2,
+    },
+  }),
+  containerLabelMd: responsiveHandler({
+    base: {
+      borderRadius: 6,
+      paddingHorizontal: 8,
+      paddingVertical: 4,
+    },
+  }),
+  containerLabelLg: responsiveHandler({
+    base: {
+      borderRadius: 8,
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+    },
+  }),
+
+  // Text styles
+  text: responsiveHandler({
+    base: {
       fontFamily: 'HRSD Gov',
     },
   }),
 
-  // Variant styles
-  number: responsiveHandler({
+  // Variant text styles
+  textNumber: responsiveHandler({
     base: {
       fontWeight: fontWeights.Bold,
       textAlign: 'center',
     },
   }),
-  label: responsiveHandler({
+  textLabel: responsiveHandler({
     base: {
       fontWeight: fontWeights.Medium,
     },
   }),
 
-  // RTL styles
-  rtl: responsiveHandler({
+  // RTL text styles
+  textRtl: responsiveHandler({
     base: {
       textAlign: 'right',
     },
   }),
-  ltr: responsiveHandler({
+  textLtr: responsiveHandler({
     base: {
       textAlign: 'left',
     },
   }),
 
-  // Size styles
-  sm: responsiveHandler({
+  // Text size styles
+  textSm: responsiveHandler({
     base: {
       fontSize: 11,
       lineHeight: 12,
     },
   }),
-  md: responsiveHandler({
+  textMd: responsiveHandler({
     base: {
       fontSize: 12,
       lineHeight: 16,
     },
   }),
-  lg: responsiveHandler({
+  textLg: responsiveHandler({
     base: {
       fontSize: 14,
       lineHeight: 18,
     },
   }),
 
-  // Number specific sizes
-  numberSm: responsiveHandler({
+  // Number specific text sizes
+  textNumberSm: responsiveHandler({
     base: {
       fontSize: 14,
       lineHeight: 18,
     },
   }),
-  numberMd: responsiveHandler({
+  textNumberMd: responsiveHandler({
     base: {
       fontSize: 16,
       lineHeight: 20,
     },
   }),
-  numberLg: responsiveHandler({
+  textNumberLg: responsiveHandler({
     base: {
       fontSize: 18,
       lineHeight: 22,
     },
   }),
 
-  // Color styles - matching Figma design colors
-  brand: responsiveHandler({
+  // Background color styles using theme colors
+  backgroundBrand: responsiveHandler({
     base: {
-      color: COLORS['primary-600'], // #0F3144 from Figma
+      backgroundColor: getThemeColor('backgroundPrimary25'), // Light brand background
     },
   }),
-  success: responsiveHandler({
+  backgroundSuccess: responsiveHandler({
     base: {
-      color: COLORS['success-700'], // #067647 from Figma
+      backgroundColor: getThemeColor('badgeSuccessBackground'),
     },
   }),
-  warning: responsiveHandler({
+  backgroundWarning: responsiveHandler({
     base: {
-      color: COLORS['warning-700'], // #B54708 from Figma
+      backgroundColor: getThemeColor('badgeWarningBackground'),
     },
   }),
-  error: responsiveHandler({
+  backgroundError: responsiveHandler({
     base: {
-      color: COLORS['error-600'], // #D92D20 from Figma
+      backgroundColor: getThemeColor('badgeErrorBackground'),
     },
   }),
-  gray: responsiveHandler({
+  backgroundGray: responsiveHandler({
     base: {
-      color: COLORS['neutral-700'], // #384250 from Figma for labels
+      backgroundColor: getThemeColor('badgeDefaultBackground'),
     },
   }),
-  grayNumber: responsiveHandler({
+
+  // Text color styles using theme colors
+  textColorBrand: responsiveHandler({
     base: {
-      color: COLORS['secondary-dark-gray-800'], // #575757 from Figma for numbers
+      color: getThemeColor('textPrimary'),
+    },
+  }),
+  textColorSuccess: responsiveHandler({
+    base: {
+      color: getThemeColor('badgeSuccessText'),
+    },
+  }),
+  textColorWarning: responsiveHandler({
+    base: {
+      color: getThemeColor('badgeWarningText'),
+    },
+  }),
+  textColorError: responsiveHandler({
+    base: {
+      color: getThemeColor('badgeErrorText'),
+    },
+  }),
+  textColorGray: responsiveHandler({
+    base: {
+      color: getThemeColor('badgeDefaultText'),
     },
   }),
 });
