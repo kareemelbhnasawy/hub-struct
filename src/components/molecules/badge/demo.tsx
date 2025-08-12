@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#f8f9fa',
   },
   title: {
     marginBottom: 30,
@@ -221,6 +221,17 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 30,
+    backgroundColor: '#fff',
+    padding: 15,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
   },
   sectionTitle: {
     marginBottom: 15,
@@ -231,6 +242,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginBottom: 15,
     paddingHorizontal: 10,
+    flexWrap: 'wrap',
   },
 });
 
