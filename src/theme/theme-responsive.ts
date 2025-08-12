@@ -92,7 +92,7 @@ export const responsiveHandler = (style: {
   mobile?: StyleWithThemeColors;
   tablet?: StyleWithThemeColors;
   desktop?: StyleWithThemeColors;
-}): StyleWithThemeColors => {
+}): Record<string, string | number> => {
   let merged: StyleWithThemeColors;
   switch (screenType) {
     case 'mobile':
