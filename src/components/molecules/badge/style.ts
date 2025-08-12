@@ -104,4 +104,9 @@ export const styles = StyleSheet.create({
       color: COLORS['neutral-700'], // #384250 from Figma for labels
     },
   }),
+  grayNumber: responsiveHandler({
+    base: {
+      color: COLORS['secondary-dark-gray-800'], // #575757 from Figma for numbers
+    },
+  }),
 });
