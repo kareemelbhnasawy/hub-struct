@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import BaseText from '../../atoms/base-text';
 import BadgeProps from './interface';
 import { getBadgeStylesForVariant, getAccessibilityLabel } from './utils';
@@ -13,18 +14,23 @@ const Badge = ({
   style,
   ...props
 }: BadgeProps) => {
-  const badgeStyles = getBadgeStylesForVariant(variant, size, color, rtl);
+  const { containerStyle, textStyle } = getBadgeStylesForVariant(variant, size, color, rtl);
   const accessibilityLabel = getAccessibilityLabel(variant, text, color);
 
   return (
-    <BaseText
-      {...props}
+    <View
       testID={`${testId}-badge-${variant}-${color}-${size}`}
-      text={text}
-      style={[...badgeStyles, style]}
+      style={[containerStyle, style]}
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="text"
-    />
+    >
+      <BaseText
+        {...props}
+        text={text}
+        style={textStyle}
+        isTranslated={false}
+      />
+    </View>
   );
 };
 
