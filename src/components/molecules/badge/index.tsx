@@ -3,13 +3,13 @@ import { View } from 'react-native';
 import BaseText from '../../atoms/base-text';
 import BadgeProps from './interface';
 import { getBadgeStylesForVariant, getAccessibilityLabel } from './utils';
+import { Paragraph } from '@/components/atoms';
 
 const Badge = ({
   testId,
   variant,
   color = 'brand',
   size = 'md',
-  rtl = false,
   text,
   style,
   ...props
@@ -18,7 +18,6 @@ const Badge = ({
     variant,
     size,
     color,
-    rtl,
   );
   const accessibilityLabel = getAccessibilityLabel(variant, text, color);
 
@@ -28,7 +27,7 @@ const Badge = ({
       style={[containerStyle, style]}
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="text">
-      <BaseText {...props} text={text} style={textStyle} isTranslated={false} />
+      <Paragraph {...props} text={text} style={textStyle} />
     </View>
   );
 };

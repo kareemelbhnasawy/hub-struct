@@ -7,7 +7,6 @@ A flexible badge component with background containers that supports both text la
 - **Two Variants**: `number` and `label`
 - **Multiple Colors**: `brand`, `success`, `warning`, `gray`, `error`
 - **Three Sizes**: `sm`, `md`, `lg`
-- **RTL Support**: Configurable text direction
 - **Background Containers**: Proper background colors and border radius
 - **Responsive Border Radius**: Different radius for number vs label variants
 - **Accessibility**: Built-in accessibility labels and roles
@@ -39,19 +38,6 @@ The colors match the Figma design exactly:
   text="9"
   color="error"
   size="sm"
-/>
-```
-
-### RTL Support
-
-```tsx
-<Badge
-  testId="arabic-badge"
-  variant="label"
-  text="عنوان"
-  color="success"
-  size="lg"
-  rtl={true}
 />
 ```
 
@@ -93,7 +79,6 @@ The colors match the Figma design exactly:
 | `text`    | `string`                                                 | -         | Text content to display              |
 | `color`   | `'brand' \| 'success' \| 'warning' \| 'gray' \| 'error'` | `'brand'` | Badge color theme                    |
 | `size`    | `'sm' \| 'md' \| 'lg'`                                   | `'md'`    | Badge size                           |
-| `rtl`     | `boolean`                                                | `false`   | Right-to-left text direction         |
 | `style`   | `StyleProp<TextStyle>`                                   | -         | Additional custom styles             |
 
 ## Typography Specifications

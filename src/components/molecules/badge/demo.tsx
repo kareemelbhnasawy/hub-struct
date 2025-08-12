@@ -32,7 +32,6 @@ const BadgeDemo = () => {
             color="brand"
             size="sm"
             text="عنوان"
-            rtl
           />
           <Badge
             testId="demo"
@@ -40,7 +39,6 @@ const BadgeDemo = () => {
             color="brand"
             size="md"
             text="عنوان"
-            rtl
           />
           <Badge
             testId="demo"
@@ -48,7 +46,6 @@ const BadgeDemo = () => {
             color="brand"
             size="lg"
             text="عنوان"
-            rtl
           />
         </View>
 

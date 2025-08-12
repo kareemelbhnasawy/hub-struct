@@ -12,7 +12,6 @@ interface BadgeProps
   variant: BadgeVariant;
   color?: BadgeColor;
   size?: BadgeSize;
-  rtl?: boolean;
   text: string;
   style?: ViewProps['style'];
 }

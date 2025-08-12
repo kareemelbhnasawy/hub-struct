@@ -5,7 +5,6 @@ export const getBadgeStylesForVariant = (
   variant: BadgeVariant,
   size: BadgeSize,
   color: BadgeColor,
-  rtl: boolean,
 ) => {
   // Container styles
   const containerStyles = [styles.badgeContainer];
@@ -84,13 +83,6 @@ export const getBadgeStylesForVariant = (
         textStyles.push(styles.textLg);
         break;
     }
-  }
-
-  // Add RTL/LTR text styles
-  if (rtl) {
-    textStyles.push(styles.textRtl);
-  } else {
-    textStyles.push(styles.textLtr);
   }
 
   // Add text color styles
