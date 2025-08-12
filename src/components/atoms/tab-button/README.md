@@ -144,7 +144,7 @@ const MultiButtonExample = () => {
 
 ## Integration with TabBar
 
-This component is used internally by the `TabBar` component:
+This component is used internally by the `TabBar` molecule component:
 
 ```tsx
 // Internal usage in TabBar
@@ -201,5 +201,5 @@ src/components/atoms/tab-button/
 
 ## Related Components
 
-- **TabBar**: Uses multiple TabButton components
+- **TabBar** (Molecule): Composition that uses multiple TabButton components
 - **LucideIcon**: Used internally for icon rendering
