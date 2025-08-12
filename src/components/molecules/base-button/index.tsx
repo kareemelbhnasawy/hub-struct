@@ -10,8 +10,8 @@ import {
 import BaseButtonProps from './interface';
 import { styles } from './style';
 import { getThemeColor } from '@/theme/theme-colors';
-import Paragraph from '../typography/paragraph';
-import LucideIcon from '../lucide-icon';
+import Paragraph from '../../atoms/typography/paragraph';
+import LucideIcon from '../../atoms/lucide-icon';
 
 type ButtonState =
   | 'default'
@@ -93,20 +93,28 @@ const BaseButton = ({
       onBlur={onBlurFn}
       onPressIn={onPressInFn}
       onPressOut={onPressOutFn}
-      style={[styles.base.button, styles[variant][state], styles.base[size]]}
+      style={[
+        styles.base.button,
+        styles[variant][state].wrapper,
+        styles.base[size],
+      ]}
       {...props}>
       {loading ? (
         <ActivityIndicator color={getThemeColor('alphaWhite40')} />
       ) : (
         <>
-          {leftIcon ? <LucideIcon {...leftIcon} /> : null}
+          {leftIcon ? (
+            <LucideIcon {...leftIcon} style={styles[variant][state].icon} />
+          ) : null}
           <Paragraph
             weight="Medium"
             size="sm"
-            style={styles[variant][state]}
+            style={styles[variant][state].text}
             {...textProps}
           />
-          {rightIcon ? <LucideIcon {...rightIcon} /> : null}
+          {rightIcon ? (
+            <LucideIcon {...rightIcon} style={styles[variant][state].icon} />
+          ) : null}
         </>
       )}
     </Pressable>

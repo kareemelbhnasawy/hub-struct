@@ -1,8 +1,8 @@
 import { PressableProps } from 'react-native';
-import BaseTextProps from '../base-text/interface';
-import LucideIconProps from '../lucide-icon/interface';
+import BaseTextProps from '../../atoms/base-text/interface';
+import LucideIconProps from '../../atoms/lucide-icon/interface';
 
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+type ButtonVariant = 'primary' | 'secondary';
 
 interface BaseButtonProps extends PressableProps {
   size?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm';
