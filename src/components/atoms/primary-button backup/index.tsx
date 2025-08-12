@@ -7,7 +7,7 @@ import {
   TargetedEvent,
   GestureResponderEvent,
 } from 'react-native';
-import BaseButtonProps from './interface';
+import PrimaryButtonProps from './interface';
 import { styles } from './style';
 import { getThemeColor } from '@/theme/theme-colors';
 import Paragraph from '../typography/paragraph';
@@ -22,7 +22,7 @@ type ButtonState =
   | 'loading'
   | 'error';
 
-const BaseButton = ({
+const PrimaryButton = ({
   textProps,
   size = 'md',
   disabled,
@@ -36,9 +36,8 @@ const BaseButton = ({
   onPressOut,
   leftIcon,
   rightIcon,
-  variant = 'primary',
   ...props
-}: BaseButtonProps) => {
+}: PrimaryButtonProps) => {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -93,24 +92,25 @@ const BaseButton = ({
       onBlur={onBlurFn}
       onPressIn={onPressInFn}
       onPressOut={onPressOutFn}
-      style={[styles.base.button, styles[variant][state], styles.base[size]]}
-      {...props}>
+      style={[styles.button, styles[state], styles[size]]}
+      {...props}
+    >
       {loading ? (
         <ActivityIndicator color={getThemeColor('alphaWhite40')} />
       ) : (
         <>
-          {leftIcon ? <LucideIcon {...leftIcon} /> : null}
+          {leftIcon ? <LucideIcon {...leftIcon} /> : <></>}
           <Paragraph
             weight="Medium"
             size="sm"
-            style={styles[variant][state]}
+            style={styles[state]}
             {...textProps}
           />
-          {rightIcon ? <LucideIcon {...rightIcon} /> : null}
+          {rightIcon ? <LucideIcon {...rightIcon} /> : <></>}
         </>
       )}
     </Pressable>
   );
 };
 
-export default BaseButton;
+export default PrimaryButton;

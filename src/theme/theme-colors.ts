@@ -214,59 +214,117 @@ export const themeColors = {
   // Button Secondary States
   buttonSecondaryDefaultBackground: {
     light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    dark: COLORS.white,
   },
   buttonSecondaryDefaultLabel: {
-    light: COLORS['neutral-900'],
+    light: COLORS['primary-600'],
     dark: COLORS.white,
   },
   buttonSecondaryDefaultIcon: {
-    light: COLORS['neutral-900'],
+    light: COLORS['primary-600'],
     dark: COLORS.white,
   },
   buttonSecondaryDefaultBorder: {
     light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+    dark: COLORS.white,
   },
   buttonSecondaryHoverBackground: {
-    light: COLORS['neutral-100'],
-    dark: COLORS['neutral-700'],
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonSecondaryHoverLabel: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryHoverIcon: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryHoverBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS.white,
   },
   buttonSecondaryFocusedBackground: {
     light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryFocusedLabel: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryFocusedIcon: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryFocusedBorder: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
   },
   buttonSecondaryPressedBackground: {
     light: COLORS['neutral-200'],
-    dark: COLORS['neutral-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryPressedLabel: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryPressedIcon: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryPressedBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS.white,
   },
   buttonSecondaryDisabledBackground: {
-    light: COLORS['neutral-100'],
-    dark: COLORS['neutral-700'],
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonSecondaryDisabledLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryDisabledBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS.white,
   },
   buttonSecondaryLoadingBackground: {
     light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    dark: COLORS.white,
   },
+  // SHOULDN'T BE USED ASLAN
   buttonSecondaryLoadingLabel: {
     light: COLORS['neutral-300'],
     dark: COLORS['neutral-500'],
   },
+  // SHOULDN'T BE USED ASLAN
   buttonSecondaryLoadingIcon: {
     light: COLORS['neutral-300'],
     dark: COLORS['neutral-500'],
   },
   buttonSecondaryLoadingBorder: {
     light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+    dark: COLORS.white,
   },
   buttonSecondaryErrorBackground: {
     light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    dark: COLORS.white,
   },
   buttonSecondaryErrorLabel: {
     light: COLORS['error-600'],
-    dark: COLORS['error-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryErrorIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryErrorBorder: {
+    light: COLORS['error-400'],
+    dark: COLORS.white,
   },
 
   // Icon Colors
@@ -1281,18 +1339,6 @@ export const themeColors = {
   buttonPrimaryPressedIcon: {
     light: COLORS.white,
     dark: COLORS.white,
-  },
-  buttonSecondaryHoverBorder: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
-  },
-  buttonSecondaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
-  },
-  buttonSecondaryPressedBorder: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
   },
 
   // Additional Card Icons
