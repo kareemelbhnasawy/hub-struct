@@ -1,9 +1,8 @@
 import React from 'react';
 import { Image } from 'react-native';
 import BaseImageProps from './interface';
-import { styled } from 'nativewind';
 
-const StyledImage = styled(Image);
+const StyledImage = Image;
 
 const BaseImage = ({
   testID,
