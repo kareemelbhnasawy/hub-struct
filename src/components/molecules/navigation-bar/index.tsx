@@ -2,16 +2,34 @@ import React from 'react';
 import { styles } from './styles';
 import { View } from 'react-native';
 import NavigationTab from '../navigation-tab';
+import LinearGradient from 'react-native-linear-gradient';
+import { getThemeColor } from '@/theme';
 
 const NavigationBar: React.FC = () => {
   return (
     <View style={styles.wrapper}>
-      <NavigationTab icon={'N'} isNews={true} />
-      <View style={styles.capsule}>
-        <NavigationTab icon={'H'} isNews={false} />
-        <NavigationTab icon={'S'} isNews={false} />
-        <NavigationTab icon={'A'} isNews={false} />
-      </View>
+      <LinearGradient
+        colors={[
+          getThemeColor('backgroundWhite'),
+          getThemeColor('backgroundNeutral200'),
+        ]} // start → end colors
+        start={{ x: 1, y: 1 }} // top-left
+        end={{ x: 1, y: 0 }} // bottom-right
+        style={styles.circle}>
+        <NavigationTab icon={'N'} isNews />
+      </LinearGradient>
+      <LinearGradient
+        colors={[
+          getThemeColor('backgroundWhite'),
+          getThemeColor('backgroundNeutral200'),
+        ]} // start → end colors
+        start={{ x: 1, y: 1 }} // top-left
+        end={{ x: 1, y: 0 }} // bottom-right
+        style={styles.capsule}>
+        <NavigationTab icon={'H'} />
+        <NavigationTab icon={'S'} isMiddleTab />
+        <NavigationTab icon={'A'} />
+      </LinearGradient>
     </View>
   );
 };

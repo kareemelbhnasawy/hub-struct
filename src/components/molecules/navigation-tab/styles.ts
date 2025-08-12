@@ -6,9 +6,15 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        width: 50,
-        height: 50,
         borderRadius: 99999,
+    },
+    tab: {
+        width: 95,
+        height: 45,
+    },
+    newsTab: {
+        width: 45,
+        height: 45
     },
     transparent: {
         backgroundColor: 'transparent',
@@ -30,7 +36,10 @@ export const styles = StyleSheet.create({
     },
     whiteIcon: {
         color: getThemeColor('backgroundWhite'),
-    }
+    },
+    centerTab: {
+        marginInline: -10
+    },
 });
 
 
