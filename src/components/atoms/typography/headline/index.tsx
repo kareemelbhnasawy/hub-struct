@@ -13,8 +13,8 @@ const Headline = ({
 }: HeadlineProps) => {
   return (
     <BaseText
-      style={[styles.headline, styles[size], styles[weight]]}
       {...props}
+      style={[styles.headline, styles[size], styles[weight], props.style]} // add style here to allow for appending styles without breaking previous ones
     />
   );
 };

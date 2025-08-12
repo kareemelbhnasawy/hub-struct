@@ -86,6 +86,10 @@ export const themeColors = {
     light: COLORS.black,
     dark: COLORS.white,
   },
+  textTitle: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
   textPrimary: {
     light: COLORS['primary-600'],
     dark: COLORS['secondary-yellow-400'],
@@ -144,9 +148,9 @@ export const themeColors = {
     light: COLORS['warning-700'],
     dark: COLORS['warning-700'],
   },
-  borderIcon: {
-    light: COLORS['neutral-150'],
-    dark: COLORS['neutral-150'],
+  borderCircle: {
+    light: COLORS['neutral-200'],
+    dark: COLORS.white,
   },
 
   // Button Primary States
