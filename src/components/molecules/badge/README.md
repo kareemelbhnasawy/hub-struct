@@ -120,9 +120,23 @@ The component automatically provides:
 - Descriptive `accessibilityLabel` based on variant, color, and content
 - Proper text contrast ratios
 
+## Design Specifications
+
+### Container & Border Radius
+- **Number badges**: Fixed border radius of 12px for all sizes (circular appearance)
+- **Label badges**: Variable border radius based on size (4px, 6px, 8px for sm, md, lg)
+- **Background colors**: Uses theme-based background colors with proper contrast
+- **Padding**: Responsive padding based on variant and size
+
+### Typography
+- **Font Family**: HRSD Gov (as specified in Figma)
+- **Number variant**: Bold weight (700) for emphasis
+- **Label variant**: Medium weight (500) for readability
+
 ## Implementation Details
 
-- Built on top of `BaseText` component for consistent text handling
-- Uses the project's theming system and responsive handler
+- Built with `View` container and `BaseText` for proper styling separation
+- Uses the project's theming system (`getThemeColor`) for background/text colors
+- Responsive handlers for consistent cross-platform behavior
 - Follows the established component structure (interface, utils, styles)
 - Maintains consistency with existing atoms and molecules patterns
