@@ -7,8 +7,15 @@ export const getBadgeStylesForVariant = (
   color: BadgeColor,
   rtl: boolean,
 ) => {
-  const baseStyles = [styles.badge, styles[variant], styles[color]];
-  
+  const baseStyles = [styles.badge, styles[variant]];
+
+  // Add color styles - handle gray difference for numbers vs labels
+  if (color === 'gray' && variant === 'number') {
+    baseStyles.push(styles.grayNumber);
+  } else {
+    baseStyles.push(styles[color]);
+  }
+
   // Add size-specific styles
   if (variant === 'number') {
     switch (size) {
