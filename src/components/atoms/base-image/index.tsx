@@ -1,8 +1,6 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import BaseImageProps from './interface';
-
-const StyledImage = Image;
 
 const BaseImage = ({
   testID,
@@ -11,17 +9,30 @@ const BaseImage = ({
   roundedImageSize = 0,
   resizeMode = roundedImageSize ? 'cover' : undefined,
   isCircular = false,
+  style,
   ...imageProps
 }: BaseImageProps) => {
+  const imageStyle = [
+    style,
+    isCircular && styles.circular,
+    roundedImageSize && { borderRadius: roundedImageSize },
+  ];
+
   return (
-    <StyledImage
+    <Image
       testID={`${testID}-image`}
-      className={`${size} ${isCircular ? 'rounded-full' : ''}`}
+      style={imageStyle}
       resizeMode={resizeMode}
       source={typeof image === 'string' ? { uri: image } : image}
       {...imageProps}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  circular: {
+    borderRadius: 9999,
+  },
+});
 
 export default BaseImage;
