@@ -7,10 +7,10 @@ const TabBarExample = () => {
   const [selectedTab, setSelectedTab] = useState('news');
 
   const tabItems: TabBarItem[] = [
-    { id: 'news', icon: 'AlignRight', isSelected: selectedTab === 'news' },
-    { id: 'orders', icon: 'ClipboardCheck', isSelected: selectedTab === 'orders' },
-    { id: 'service', icon: 'LayoutGrid', isSelected: selectedTab === 'service' },
-    { id: 'home', icon: 'Home', isSelected: selectedTab === 'home' },
+    { id: 'news', icon: 'AlignRight' },
+    { id: 'orders', icon: 'ClipboardCheck' },
+    { id: 'service', icon: 'LayoutGrid' },
+    { id: 'home', icon: 'Home' },
   ];
 
   const handleTabPress = (tabId: string) => {
@@ -27,6 +27,7 @@ const TabBarExample = () => {
     }}>
       <TabBar
         items={tabItems}
+        selectedTabId={selectedTab}
         onTabPress={handleTabPress}
       />
     </View>
