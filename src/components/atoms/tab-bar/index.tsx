@@ -24,6 +24,7 @@ const TabBar = ({ items, onTabPress, style }: TabBarProps) => {
                 name={selectedItem.icon}
                 size={32}
                 color={COLORS['secondary-green-500']}
+                strokeWidth={1.5}
               />
             </View>
           </TouchableOpacity>
@@ -44,6 +45,7 @@ const TabBar = ({ items, onTabPress, style }: TabBarProps) => {
                 name={item.icon}
                 size={32}
                 color={COLORS['primary-700']}
+                strokeWidth={1.5}
               />
             </View>
           </TouchableOpacity>
