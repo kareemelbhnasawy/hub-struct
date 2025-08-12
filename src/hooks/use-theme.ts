@@ -1,20 +1,21 @@
 import { useColorScheme } from 'react-native';
 import { useState, useEffect } from 'react';
-import { useColorScheme as useNativewindColorScheme } from 'nativewind';
+import { setString } from '@/utilities/storage';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
 
-export function useTheme() {
+const useTheme = () => {
   const systemScheme = useColorScheme();
   const [theme, setTheme] = useState<'light' | 'dark'>(systemScheme || 'light');
 
-  const { setColorScheme } = useNativewindColorScheme();
-
   useEffect(() => {
-    setColorScheme(theme);
-  }, [theme, setColorScheme]);
+    setString(STORAGE_KEYS.COLOR_SCHEME, theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return { theme, toggleTheme };
-}
+};
+
+export default useTheme;

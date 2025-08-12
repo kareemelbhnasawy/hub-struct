@@ -1,0 +1,17 @@
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+branch_name_pattern="^(main|develop|feature\/hub-[0-9]+-[a-z0-9-]+|release\/hub-[0-9]+(-[a-z0-9-]+)*|hotfix\/hub-[0-9]+(-[a-z0-9-]+)*|hub-[0-9]+-[a-z0-9-]+\/(story|bug|task)+\/hub-[0-9]+-[a-z0-9-]+)$"
+
+if ! echo "$branch_name" | grep -E "$branch_name_pattern" > /dev/null; then
+    echo "Invalid branch name: $branch_name"
+    echo echo "The provided regular expression pattern is designed to match branch names with the following criteria:
+                    - main
+                    - develop
+                    - feature/hub-[0-9]-[a-z0-9-]
+                    - release/hub-[0-9]-[a-z0-9-]
+                    - hotfix/hub-[0-9]-[a-z0-9-]
+                    - hub-[0-9]-[a-z0-9-]/(story|bug|task)/hub-[0-9]-[a-z0-9-]"
+    exit 1
+fi
+
+npx --no-install lint-staged
+# npm test

@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+export const COLORS = {
+  transparent: '#00000000',
 
-const colors = {
   white: '#FFFFFF',
   black: '#161616',
 
@@ -85,6 +85,7 @@ const colors = {
   'neutral-25': '#FCFCFD',
   'neutral-50': '#F9FAFB',
   'neutral-100': '#F3F4F6',
+  'neutral-150': '#E9EAEB',
   'neutral-200': '#E5E7EB',
   'neutral-300': '#D2D6DB',
   'neutral-400': '#9DA4AE',
@@ -223,76 +224,22 @@ const colors = {
   'alpha-green-70': '#079455B3',
   'alpha-green-80': '#079455CC',
   'alpha-green-90': '#079455E6',
-};
 
-const borderRadius = {
-  0: '0px',
-  2: '2px',
-  4: '4px',
-  8: '8px',
-  12: '12px',
-  16: '16px',
-  24: '24px',
-  9999: '9999px',
-};
+  // Shadow colors for light mode
+  'shadow-xs-light': '#1018280D', // rgba(16, 24, 40, 0.05)
+  'shadow-sm-light': '#1018280D', // rgba(16, 24, 40, 0.05)
+  'shadow-md-light': '#1018281A', // rgba(16, 24, 40, 0.1)
+  'shadow-lg-light': '#10182814', // rgba(16, 24, 40, 0.08)
+  'shadow-xl-light': '#10182814', // rgba(16, 24, 40, 0.08)
+  'shadow-2xl-light': '#1018282E', // rgba(16, 24, 40, 0.18)
+  'shadow-3xl-light': '#10182824', // rgba(16, 24, 40, 0.14)
 
-const fontSize = {
-  8: '8px',
-  10: '10px',
-  12: '12px',
-  14: '14px',
-  16: '16px',
-  18: '18px',
-  20: '20px',
-  24: '24px',
-  30: '30px',
-  32: '32px',
-  36: '36px',
-  40: '40px',
-  48: '48px',
-  56: '56px',
-  60: '60px',
-  72: '72px',
-};
-
-const lineHeight = {
-  10: '10px',
-  12: '12px',
-  14: '14px',
-  16: '16px',
-  18: '18px',
-  20: '20px',
-  22: '22px',
-  24: '24px',
-  26: '26px',
-  28: '28px',
-  30: '30px',
-  32: '32px',
-  38: '38px',
-  40: '40px',
-  44: '44px',
-  48: '48px',
-  56: '56px',
-  60: '60px',
-  64: '64px',
-  72: '72px',
-  90: '90px',
-};
-
-const fontWeight = {
-  thin: '100',
-  light: '200',
-  regular: '300',
-  medium: '500',
-  semibold: '600',
-  bold: '800',
-};
-
-module.exports = {
-  presets: [require('nativewind/preset')],
-  content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: { colors, borderRadius, fontSize, lineHeight, fontWeight },
-  },
-  plugins: [],
+  // Shadow colors for dark mode
+  'shadow-xs-dark': '#00000026', // rgba(0, 0, 0, 0.15)
+  'shadow-sm-dark': '#00000026', // rgba(0, 0, 0, 0.15)
+  'shadow-md-dark': '#00000033', // rgba(0, 0, 0, 0.2)
+  'shadow-lg-dark': '#0000002E', // rgba(0, 0, 0, 0.18)
+  'shadow-xl-dark': '#0000002E', // rgba(0, 0, 0, 0.18)
+  'shadow-2xl-dark': '#00000040', // rgba(0, 0, 0, 0.25)
+  'shadow-3xl-dark': '#00000038', // rgba(0, 0, 0, 0.22)
 };
