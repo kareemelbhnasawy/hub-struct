@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
   // Background color styles using theme colors
   backgroundBrand: responsiveHandler({
     base: {
-      backgroundColor: getThemeColor('backgroundPrimary25'), // Light brand background
+      backgroundColor: getThemeColor('backgroundPrimary50'), // Light brand background
     },
   }),
   backgroundSuccess: responsiveHandler({
