@@ -4,7 +4,6 @@ import BaseImageProps from './interface';
 
 const BaseImage = ({
   testID,
-  size,
   image,
   roundedImageSize = 0,
   resizeMode = roundedImageSize ? 'cover' : undefined,
@@ -14,9 +13,9 @@ const BaseImage = ({
 }: BaseImageProps) => {
   const imageStyle = [
     style,
-    isCircular && styles.circular,
-    roundedImageSize && { borderRadius: roundedImageSize },
-  ];
+    isCircular ? styles.circular : null,
+    roundedImageSize ? { borderRadius: roundedImageSize } : null,
+  ].filter(Boolean);
 
   return (
     <Image
