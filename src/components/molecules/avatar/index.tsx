@@ -3,9 +3,9 @@ import AvatarProps from './interface';
 import { getRelativeAvatarSizes } from './utils';
 import { getInitialsFromName } from './utils';
 import { View } from 'react-native';
-import BaseText from '../../atoms/base-text/base-text.component';
 import BaseImage from '../../atoms/base-image';
 import { styles } from './styles';
+import { Paragraph } from '@/components/atoms';
 const Avatar = ({ testId, size, name, image }: AvatarProps) => {
   const [relativeSize, fontSize] = getRelativeAvatarSizes(size);
 
@@ -24,7 +24,9 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
         <BaseImage testId={testId} isCircular image={image} />
       ) : (
         // TODO: Change base Text to Text Component
-        <BaseText
+        <Paragraph
+          size={typoSize}
+          weight="Bold"
           text={getInitialsFromName(name ?? '')}
           style={[styles.textWhite, styles[fontSize as keyof typeof styles]]}
         />

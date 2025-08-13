@@ -1,4 +1,4 @@
-import { COLORS } from '../constants/colors.constant';
+import { COLORS } from '@/style';
 import { STORAGE_KEYS } from '../constants/storageKeys';
 import { getString } from '../utilities/storage';
 
@@ -86,6 +86,10 @@ export const themeColors = {
     light: COLORS.black,
     dark: COLORS.white,
   },
+  textTitle: {
+    light: COLORS['primary-600'],
+    dark: COLORS.white,
+  },
   textPrimary: {
     light: COLORS['primary-600'],
     dark: COLORS['secondary-yellow-400'],
@@ -143,6 +147,10 @@ export const themeColors = {
   borderWarning: {
     light: COLORS['warning-700'],
     dark: COLORS['warning-700'],
+  },
+  borderCircle: {
+    light: COLORS['neutral-200'],
+    dark: COLORS.white,
   },
 
   // Button Primary States
@@ -1303,6 +1311,36 @@ export const themeColors = {
   borderDisabled: {
     light: COLORS['neutral-400'],
     dark: COLORS['neutral-400'],
+  },
+
+  // Shadow Colors
+  shadowXs: {
+    light: COLORS['shadow-xs-light'],
+    dark: COLORS['shadow-xs-dark'],
+  },
+  shadowSm: {
+    light: COLORS['shadow-sm-light'],
+    dark: COLORS['shadow-sm-dark'],
+  },
+  shadowMd: {
+    light: COLORS['shadow-md-light'],
+    dark: COLORS['shadow-md-dark'],
+  },
+  shadowLg: {
+    light: COLORS['shadow-lg-light'],
+    dark: COLORS['shadow-lg-dark'],
+  },
+  shadowXl: {
+    light: COLORS['shadow-xl-light'],
+    dark: COLORS['shadow-xl-dark'],
+  },
+  shadow2xl: {
+    light: COLORS['shadow-2xl-light'],
+    dark: COLORS['shadow-2xl-dark'],
+  },
+  shadow3xl: {
+    light: COLORS['shadow-3xl-light'],
+    dark: COLORS['shadow-3xl-dark'],
   },
 } as const;
 

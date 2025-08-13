@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840319866003",
+    "project_id": "hub-draft",
+    "storage_bucket": "hub-draft.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840319866003:android:fb74186b3f1fa205ffe966",
+        "android_client_info": {
+          "package_name": "com.structure"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB062NGmVj0fMAaEIhlWYrT-DvdfBYb6Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
