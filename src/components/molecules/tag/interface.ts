@@ -3,7 +3,7 @@ import { ViewStyle, StyleProp } from 'react-native';
 
 interface TagProps {
     testId: string,
-    size: 'small' | 'medium' | 'large';
+    size: 'sm' | 'md' | 'lg';
     label: string;
     icon?: keyof typeof icons;
     value?: string;

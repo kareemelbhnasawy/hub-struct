@@ -1,25 +1,12 @@
-export const getIconSize = (size: 'small' | 'medium' | 'large') => {
+export const getIconSize = (size: 'sm' | 'md' | 'lg') => {
   switch (size) {
-    case 'small':
+    case 'sm':
       return 12;
-    case 'medium':
+    case 'md':
       return 16;
-    case 'large':
+    case 'lg':
       return 20;
     default:
       return 16;
-  }
-};
-
-export const getAbbreviatedSize = (size: 'small' | 'medium' | 'large') => {
-  switch (size) {
-    case 'small':
-      return 'sm';
-    case 'medium':
-      return 'md';
-    case 'large':
-      return 'lg';
-    default:
-      return 'sm';
   }
 };

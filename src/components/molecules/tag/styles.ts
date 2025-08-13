@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
             borderRadius: 10,
         }
     }),
-    small: responsiveHandler({
+    sm: responsiveHandler({
         base: {
             height: 23,
             borderRadius: 6,
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
             paddingHorizontal: 15,
         },
     }),
-    medium: responsiveHandler({
+    md: responsiveHandler({
         base: {
             height: 28,
             borderRadius: 8,
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
             paddingHorizontal: 17
         },
     }),
-    large: responsiveHandler({
+    lg: responsiveHandler({
         base: {
             height: 36,
             borderRadius: 10,
