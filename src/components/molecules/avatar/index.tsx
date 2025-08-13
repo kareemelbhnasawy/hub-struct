@@ -6,7 +6,7 @@ import BaseImage from '../../atoms/base-image';
 import { styles } from './styles';
 import { Paragraph } from '@/components/atoms';
 
-const Avatar = ({ testId, size, name, image }: AvatarProps) => {
+const Avatar = ({ testId, size, name, image, containerStyle }: AvatarProps) => {
 
   return (
     <View
@@ -18,6 +18,7 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
         styles.roundedFull,
         styles.bgIconBackgroundDefault,
         styles[size],
+        containerStyle
       ]}>
       {image ? (
         <BaseImage

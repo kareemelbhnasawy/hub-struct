@@ -1,4 +1,4 @@
-import { responsiveHandler } from '@/theme';
+import { responsiveHandler, scale } from '@/theme';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -27,30 +27,22 @@ export const styles = StyleSheet.create({
       borderRadius: 9999,
     },
   }),
-  lg: responsiveHandler({
-    base: {
-      height: 48,
-      width: 48
-    }
-  }),
-  md: responsiveHandler({
-    base: {
-      height: 32,
-      width: 32
-    }
-  }),
-  sm: responsiveHandler({
-    base: {
-      height: 24,
-      width: 24
-    }
-  }),
-  xl: responsiveHandler({
-    base: {
-      height: 72,
-      width: 72
-    }
-  }),
+  lg: {
+    height: scale(48),
+    width: scale(48)
+  },
+  md: {
+    height: scale(32),
+    width: scale(32)
+  },
+  sm: {
+    height: scale(24),
+    width: scale(24)
+  },
+  xl: {
+    height: scale(72),
+    width: scale(72)
+  },
   textWhite: responsiveHandler({
     base: {
       color: 'textOncolorPrimary',
