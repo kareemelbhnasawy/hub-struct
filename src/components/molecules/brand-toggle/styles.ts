@@ -1,31 +1,30 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import { getThemedStyleInputType } from '@/store/theme/interface';
 
-export const styles = StyleSheet.create({
-  container: responsiveHandler({
+export const styles: getThemedStyleInputType = {
+  container: {
     base: {
       alignItems: 'flex-start',
       flexDirection: 'row',
       paddingVertical: 16,
     },
-  }),
-  contentContainer: responsiveHandler({
+  },
+  contentContainer: {
     base: {
       flex: 1,
       marginStart: 16,
     },
-  }),
-  description: responsiveHandler({
+  },
+  description: {
     base: {
       color: 'textToggleTitle',
       fontSize: 12,
       marginTop: 4,
     },
-  }),
-  title: responsiveHandler({
+  },
+  title: {
     base: {
       color: 'textToggleTitle',
       fontSize: 14,
     },
-  }),
-});
+  },
+};

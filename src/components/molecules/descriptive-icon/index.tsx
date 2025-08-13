@@ -3,9 +3,12 @@ import React from 'react';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import DescriptiveIconProps from './interface';
 import styles from './styles';
+import { useThemeStore } from '@/store/theme';
 
 const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
-  const wrapperAppliedStyles = [styles['wrapper']];
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+  const wrapperAppliedStyles = [themedStyles['wrapper']];
 
   //
 
@@ -28,12 +31,12 @@ const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
   return (
     <View style={wrapperAppliedStyles}>
       <LucideIcon isOutline={_isOutline} {...iconProps} />
-      <View style={styles['text-wrapper']}>
+      <View style={themedStyles['text-wrapper']}>
         <Paragraph
           {...textProps}
           size="sm"
           weight="Medium"
-          style={styles['icon-text']}
+          style={themedStyles['icon-text']}
         />
       </View>
     </View>

@@ -20,22 +20,18 @@ const CurvedHeroImage = ({ source, children, ...props }: CurvedHeroProps) => {
         <Svg
           width={screenWidth}
           height={imageHeight}
-          viewBox={`0 0 ${screenWidth} ${imageHeight}`}
-          fill="red"
-        >
+          viewBox={`0 0 ${screenWidth} ${imageHeight}`}>
           <Path fill={'#000'} d={I18nManager.isRTL ? rtlPath : ltrPath} />
         </Svg>
       }
-      {...props}
-    >
+      {...props}>
       <ImageBackground
         source={source || DefaultBannerImage}
         style={{
           width: screenWidth,
           height: imageHeight,
         }}
-        resizeMode="cover"
-      >
+        resizeMode="cover">
         {children}
       </ImageBackground>
     </MaskedView>

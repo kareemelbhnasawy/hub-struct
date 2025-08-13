@@ -1,94 +1,107 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import { getThemedStyleInputType } from '@/store/theme/interface';
 import { fontWeights } from '@/theme/theme-fonts';
 
-export const styles = StyleSheet.create({
-  headline: responsiveHandler({
+export const styles: getThemedStyleInputType = {
+  headline: {
     base: {
       color: 'textPrimary',
     },
-  }),
-  Thin: responsiveHandler({
+  },
+  Thin: {
     base: {
       fontWeight: fontWeights.Thin,
     },
-  }),
-  Light: responsiveHandler({
+  },
+  Light: {
     base: {
       fontWeight: fontWeights.Light,
     },
-  }),
-  Regular: responsiveHandler({
+  },
+  Regular: {
     base: {
       fontWeight: fontWeights.Regular,
     },
-  }),
-  Medium: responsiveHandler({
+  },
+  Medium: {
     base: {
       fontWeight: fontWeights.Medium,
     },
-  }),
-  Semibold: responsiveHandler({
+  },
+  Semibold: {
     base: {
       fontWeight: fontWeights.Semibold,
     },
-  }),
-  Bold: responsiveHandler({
+  },
+  Bold: {
     base: {
       fontWeight: fontWeights.Bold,
     },
-  }),
-  Title: responsiveHandler({
+  },
+  Title: {
     base: {
       fontWeight: fontWeights.Title,
     },
-  }),
-  '2xl': responsiveHandler({
+  },
+  '2xl': {
     base: {
       fontSize: 48,
       lineHeight: 52,
     },
     tablet: {
       fontSize: 36,
-      lineHeight: 48,
+      lineHeight: 72,
     },
     mobile: {
       fontSize: 32,
-      lineHeight: 40,
+      lineHeight: 64,
     },
-  }),
-  xl: responsiveHandler({
+  },
+  xl: {
     base: {
       fontSize: 36,
       lineHeight: 40,
     },
     tablet: {
       fontSize: 30,
-      lineHeight: 40,
+      lineHeight: 64,
     },
     mobile: {
       fontSize: 24,
-      lineHeight: 32,
+      lineHeight: 52,
     },
-  }),
-  lg: responsiveHandler({
+  },
+  lg: {
     base: {
       fontSize: 32,
       lineHeight: 36,
     },
     tablet: {
       fontSize: 32,
-      lineHeight: 32,
+      lineHeight: 48,
     },
     mobile: {
       fontSize: 32,
-      lineHeight: 28,
+      lineHeight: 40,
     },
-  }),
-  md: responsiveHandler({
+  },
+  md: {
+    base: {
+      fontSize: 28,
+      lineHeight: 32,
+    },
+    tablet: {
+      fontSize: 24,
+      lineHeight: 40,
+    },
+    mobile: {
+      fontSize: 20,
+      lineHeight: 32,
+    },
+  },
+  sm: {
     base: {
       fontSize: 24,
-      lineHeight: 28,
+      lineHeight: 24,
     },
     tablet: {
       fontSize: 20,
@@ -98,33 +111,33 @@ export const styles = StyleSheet.create({
       fontSize: 18,
       lineHeight: 24,
     },
-  }),
-  sm: responsiveHandler({
+  },
+  xs: {
     base: {
       fontSize: 20,
       lineHeight: 24,
     },
     tablet: {
-      fontSize: 18,
-      lineHeight: 26,
+      fontSize: 20,
+      lineHeight: 28,
     },
     mobile: {
-      fontSize: 16,
+      fontSize: 18,
       lineHeight: 24,
     },
-  }),
-  xs: responsiveHandler({
+  },
+  '2xs': {
     base: {
       fontSize: 18,
       lineHeight: 22,
     },
     tablet: {
-      fontSize: 16,
-      lineHeight: 24,
+      fontSize: 20,
+      lineHeight: 28,
     },
     mobile: {
-      fontSize: 14,
-      lineHeight: 20,
+      fontSize: 18,
+      lineHeight: 24,
     },
-  }),
-});
+  },
+};

@@ -2,8 +2,9 @@ import { icons } from 'lucide-react-native';
 import LucideIconProps from './interface';
 import { styles } from './styles';
 import { View } from 'react-native';
-import { scale } from '@/theme';
 import { DEFAULT_ICON_SIZE } from './constants';
+import { scale } from '@/store/theme/utils';
+import { useThemeStore } from '@/store/theme';
 
 const LucideIcon = ({
   name,
@@ -15,11 +16,15 @@ const LucideIcon = ({
 }: LucideIconProps) => {
   const LIcon = icons[name];
 
+  const { getThemedStyles } = useThemeStore();
+
+  const themedStyle = getThemedStyles(styles(size));
+
   const appliedStyles = [
-    styles(size)['wrapper-base'],
-    styles(size)['wrapper'],
-    isCircle ? styles(size)['circle-bg'] : null,
-    isOutline ? styles(size)['outline'] : null,
+    themedStyle['wrapper-base'],
+    themedStyle['wrapper'],
+    isCircle ? themedStyle['circle-bg'] : null,
+    isOutline ? themedStyle['outline'] : null,
   ];
 
   if (hasWrapper || isCircle || isOutline)

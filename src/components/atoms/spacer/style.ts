@@ -1,92 +1,91 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import { getThemedStyleInputType } from '@/store/theme/interface';
 
-export const styles = StyleSheet.create({
-  divider: responsiveHandler({
+export const styles: getThemedStyleInputType = {
+  divider: {
     base: {
       backgroundColor: 'iconNeutral',
       height: 1,
       width: '100%',
     },
-  }),
-  xxs: responsiveHandler({
+  },
+  xxs: {
     base: {
       height: 2,
     },
-  }),
-  xs: responsiveHandler({
+  },
+  xs: {
     base: {
       height: 4,
     },
-  }),
-  sm: responsiveHandler({
+  },
+  sm: {
     base: {
       height: 6,
     },
-  }),
-  md: responsiveHandler({
+  },
+  md: {
     base: {
       height: 8,
     },
-  }),
-  lg: responsiveHandler({
+  },
+  lg: {
     base: {
       height: 12,
     },
-  }),
-  xl: responsiveHandler({
+  },
+  xl: {
     base: {
       height: 16,
     },
-  }),
-  '2xl': responsiveHandler({
+  },
+  '2xl': {
     base: {
       height: 20,
     },
-  }),
-  '3xl': responsiveHandler({
+  },
+  '3xl': {
     base: {
       height: 24,
     },
-  }),
-  '4xl': responsiveHandler({
+  },
+  '4xl': {
     base: {
       height: 32,
     },
-  }),
-  '5xl': responsiveHandler({
+  },
+  '5xl': {
     base: {
       height: 40,
     },
-  }),
-  '6xl': responsiveHandler({
+  },
+  '6xl': {
     base: {
       height: 48,
     },
-  }),
-  '7xl': responsiveHandler({
+  },
+  '7xl': {
     base: {
       height: 64,
     },
-  }),
-  '8xl': responsiveHandler({
+  },
+  '8xl': {
     base: {
       height: 80,
     },
-  }),
-  '9xl': responsiveHandler({
+  },
+  '9xl': {
     base: {
       height: 96,
     },
-  }),
-  '10xl': responsiveHandler({
+  },
+  '10xl': {
     base: {
       height: 128,
     },
-  }),
-  '11xl': responsiveHandler({
+  },
+  '11xl': {
     base: {
       height: 160,
     },
-  }),
-});
+  },
+};

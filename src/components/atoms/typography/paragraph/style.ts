@@ -1,54 +1,81 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import { getThemedStyleInputType } from '@/store/theme/interface';
 import { fontWeights } from '@/theme/theme-fonts';
 
-export const styles = StyleSheet.create({
-  paragraph: responsiveHandler({
+export const styles: getThemedStyleInputType = {
+  paragraph: {
     base: {
       color: 'textPrimary',
     },
-  }),
-  Thin: responsiveHandler({
+  },
+  Thin: {
     base: {
       fontWeight: fontWeights.Thin,
     },
-  }),
-  Light: responsiveHandler({
+  },
+  Light: {
     base: {
       fontWeight: fontWeights.Light,
     },
-  }),
-  Regular: responsiveHandler({
+  },
+  Regular: {
     base: {
       fontWeight: fontWeights.Regular,
     },
-  }),
-  Medium: responsiveHandler({
+  },
+  Medium: {
     base: {
       fontWeight: fontWeights.Medium,
     },
-  }),
-  Semibold: responsiveHandler({
+  },
+  Semibold: {
     base: {
       fontWeight: fontWeights.Semibold,
     },
-  }),
-  Bold: responsiveHandler({
+  },
+  Bold: {
     base: {
       fontWeight: fontWeights.Bold,
     },
-  }),
-  Title: responsiveHandler({
+  },
+  Title: {
     base: {
       fontWeight: fontWeights.Title,
     },
-  }),
-  xl: responsiveHandler({
+  },
+  xl: {
     base: {
       fontSize: 16,
       lineHeight: 20,
     },
     tablet: {
+      fontSize: 18,
+      lineHeight: 26,
+    },
+    mobile: {
+      fontSize: 16,
+      lineHeight: 24,
+    },
+  },
+  lg: {
+    base: {
+      fontSize: 14,
+      lineHeight: 18,
+    },
+    tablet: {
+      fontSize: 16,
+      lineHeight: 24,
+    },
+    mobile: {
+      fontSize: 14,
+      lineHeight: 20,
+    },
+  },
+  md: {
+    base: {
+      fontSize: 12,
+      lineHeight: 16,
+    },
+    tablet: {
       fontSize: 14,
       lineHeight: 20,
     },
@@ -56,11 +83,11 @@ export const styles = StyleSheet.create({
       fontSize: 12,
       lineHeight: 18,
     },
-  }),
-  lg: responsiveHandler({
+  },
+  sm: {
     base: {
-      fontSize: 14,
-      lineHeight: 18,
+      fontSize: 11,
+      lineHeight: 15,
     },
     tablet: {
       fontSize: 12,
@@ -70,33 +97,5 @@ export const styles = StyleSheet.create({
       fontSize: 11,
       lineHeight: 14,
     },
-  }),
-  md: responsiveHandler({
-    base: {
-      fontSize: 12,
-      lineHeight: 16,
-    },
-    tablet: {
-      fontSize: 11,
-      lineHeight: 14,
-    },
-    mobile: {
-      fontSize: 10,
-      lineHeight: 12,
-    },
-  }),
-  sm: responsiveHandler({
-    base: {
-      fontSize: 11,
-      lineHeight: 12,
-    },
-    tablet: {
-      fontSize: 11,
-      lineHeight: 12,
-    },
-    mobile: {
-      fontSize: 11,
-      lineHeight: 10,
-    },
-  }),
-});
+  },
+};

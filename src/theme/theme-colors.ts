@@ -1,6 +1,4 @@
 import { COLORS } from '@/style';
-import { STORAGE_KEYS } from '../constants/storageKeys';
-import { getString } from '../utilities/storage';
 
 export const themeColors = {
   // Basic Backgrounds
@@ -1589,18 +1587,6 @@ export const themeColors = {
     light: COLORS['shadow-3xl-light'],
     dark: COLORS['shadow-3xl-dark'],
   },
-} as const;
+};
 
 export type ThemeColorKey = keyof typeof themeColors;
-
-/**
- * Get color value based on theme
- * @param colorKey - Key from themeColors
- * @returns string - The color value for the current theme
- */
-export const getThemeColor = (colorKey: ThemeColorKey): string => {
-  const theme = (getString(STORAGE_KEYS.COLOR_SCHEME) || 'light') as
-    | 'light'
-    | 'dark';
-  return themeColors[colorKey][theme];
-};

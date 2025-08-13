@@ -3,8 +3,8 @@ import { View } from 'react-native';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';
 import { styles } from './styles';
-import { getThemeColor } from '@/theme';
 import { getIconSize } from './utils';
+import { useThemeStore } from '@/store/theme';
 
 const Tag = ({
   testId,
@@ -16,27 +16,35 @@ const Tag = ({
   onPress,
   containerStyle,
 }: TagProps) => {
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+
+  const themedStyles = getThemedStyles(styles);
   return (
     <View
       testID={`${testId}-tag`}
-      style={[styles.wrapper, styles[size], styles.hasGap, containerStyle]}>
+      style={[
+        themedStyles.wrapper,
+        themedStyles[size],
+        themedStyles.hasGap,
+        containerStyle,
+      ]}>
       <Paragraph
         size="sm"
         testID={`${testId}-tag-label`}
         {...labelProps}
-        style={[styles.text, labelProps.style]}
+        style={[themedStyles.text, labelProps.style]}
       />
       {valueProps && (
         <Paragraph
           testID={`${testId}-tag-value`}
           size="sm"
           {...valueProps}
-          style={[styles.text, valueProps.style]}
+          style={[themedStyles.text, valueProps.style]}
         />
       )}
       {hasIcon && (
         <LucideIcon
-        //TODO: wrap the icon add the onPress to the wrapper
+          //TODO: wrap the icon add the onPress to the wrapper
           onPress={onPress}
           name={icon}
           color={getThemeColor('tagIcon')}

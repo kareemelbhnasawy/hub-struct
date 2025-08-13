@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import BadgeProps from './interface';
-import { getBadgeStylesForVariant, getAccessibilityLabel } from './utils';
 import { Paragraph } from '@/components/atoms';
+import { useThemeStore } from '@/store/theme';
+import { styles } from './style';
 
 const Badge = ({
   testId,
@@ -13,23 +14,36 @@ const Badge = ({
   style,
   ...props
 }: BadgeProps) => {
-  const { containerStyle, textStyle } = getBadgeStylesForVariant(
-    variant,
-    size,
-    color,
-  );
-  const accessibilityLabel = getAccessibilityLabel(variant, text, color);
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
 
   return (
     <View
       testID={`${testId}-badge-${variant}-${color}-${size}`}
-      style={[containerStyle, style]}
-      accessibilityLabel={accessibilityLabel}
+      style={
+        variant == 'number'
+          ? [
+              themedStyles.badgeContainer,
+              themedStyles.containerNumber,
+              themedStyles[color],
+              style,
+            ]
+          : [
+              themedStyles.badgeContainer,
+              themedStyles[size],
+              themedStyles[color],
+              style,
+            ]
+      }
       accessibilityRole="text">
       <Paragraph
         {...props}
         text={text}
-        style={textStyle}
+        style={
+          variant == 'number'
+            ? [themedStyles.textNumber, themedStyles[color]]
+            : [themedStyles[color]]
+        }
         size={size}
         weight={'Medium'}
       />
