@@ -11,6 +11,7 @@ const Tag = ({
   label,
   icon,
   value,
+  onPress,
   containerStyle,
 }: TagProps) => {
   const hasValueOrIcon = value || icon;
@@ -34,6 +35,7 @@ const Tag = ({
       )}
       {icon && (
         <LucideIcon
+          onPress={onPress}
           name={icon}
           color={getThemeColor('tagIcon')}
           size={getIconSize(size)}

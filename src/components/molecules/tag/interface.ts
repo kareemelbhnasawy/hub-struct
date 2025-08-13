@@ -7,6 +7,7 @@ interface TagProps {
     label: string;
     icon?: keyof typeof icons;
     value?: string;
+    onPress?: () => void;
     containerStyle?: StyleProp<ViewStyle>;
 }
 
