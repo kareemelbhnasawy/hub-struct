@@ -1,51 +1,59 @@
-import { getThemeColor, themeColors } from '@/theme/themeColors';
+import { responsiveHandler } from '@/theme';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  bgIconBackgroundDefault: {
-    backgroundColor: getThemeColor('iconBackgroundDefault'),
-  },
-  flex: {
-    display: 'flex',
-  },
-  fontSize_lg: {
-    fontSize: 16
-  },
-  fontSize_md: {
-    fontSize: 14
-  },
-  fontSize_sm: {
-    fontSize: 10
-  },
-  fontSize_xl: {
-    fontSize: 20
-  },
-  itemsCenter: {
-    alignItems: 'center',
-  },
-  justifyCenter: {
-    justifyContent: 'center',
-  },
-  roundedFull: {
-    borderRadius: 9999,
-  },
-  size_lg: {
-    height: 48,
-    width: 48
-  },
-  size_md: {
-    height: 32,
-    width: 32
-  },
-  size_sm: {
-    height:24,
-    width: 24
-  },
-  size_xl: {
-    height: 72,
-    width: 72
-  },
-  textWhite: {
-    color: themeColors.textDefault.dark,
-  }
+  bgIconBackgroundDefault: responsiveHandler({
+    base: {
+      backgroundColor: 'iconBackgroundDefault',
+    }
+  }),
+  flex: responsiveHandler({
+    base: {
+      display: 'flex',
+    }
+  }),
+  itemsCenter: responsiveHandler({
+    base: {
+      alignItems: 'center',
+    }
+  }),
+  justifyCenter: responsiveHandler({
+    base: {
+      justifyContent: 'center',
+    }
+  }),
+  roundedFull: responsiveHandler({
+    base: {
+      borderRadius: 9999,
+    },
+  }),
+  lg: responsiveHandler({
+    base: {
+      height: 48,
+      width: 48
+    }
+  }),
+  md: responsiveHandler({
+    base: {
+      height: 32,
+      width: 32
+    }
+  }),
+  sm: responsiveHandler({
+    base: {
+      height: 24,
+      width: 24
+    }
+  }),
+  xl: responsiveHandler({
+    base: {
+      height: 72,
+      width: 72
+    }
+  }),
+  textWhite: responsiveHandler({
+    base: {
+      color: 'textOncolorPrimary',
+    }
+  })
 });

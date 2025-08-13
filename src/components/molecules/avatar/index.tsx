@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import BaseImage from '../../atoms/base-image';
 import { styles } from './styles';
 import { Paragraph } from '@/components/atoms';
+
 const Avatar = ({ testId, size, name, image }: AvatarProps) => {
 
   return (
@@ -16,7 +17,7 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
         styles.justifyCenter,
         styles.roundedFull,
         styles.bgIconBackgroundDefault,
-        styles[relativeSize as keyof typeof styles],
+        styles[size],
       ]}>
       {image ? (
         <BaseImage
@@ -26,12 +27,11 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
           size={size}
         />
       ) : (
-        // TODO: Change base Text to Text Component
         <Paragraph
           size={size}
           weight="Bold"
           text={getInitialsFromName(name ?? '')}
-          style={[styles.textWhite, styles[fontSize as keyof typeof styles]]}
+          style={styles.textWhite}
         />
       )}
     </View>
