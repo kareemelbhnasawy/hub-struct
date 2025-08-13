@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable */
 import { I18nManager, Pressable, Text, View } from 'react-native';
 import {
   LucideIcon,
@@ -10,7 +9,7 @@ import {
   Headline,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
-import { useTheme, useTranslate } from '@/hooks';
+import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -19,11 +18,11 @@ import { checkPermissions } from '@/utilities/permissions';
 import { requestNotifications } from 'react-native-permissions';
 import Display from '@/components/atoms/typography/headline';
 import { DescriptiveIcon } from '@/components/molecules';
+import { useThemeStore } from '@/store/theme';
 
 const App = () => {
-  const { toggleTheme, theme } = useTheme();
   const { changeLanguage, locale } = useTranslate();
-
+  const { toggleTheme, theme } = useThemeStore();
   const crashlytics = getCrashlytics();
 
   useEffect(() => {
@@ -32,6 +31,10 @@ const App = () => {
 
     requestNotifications();
   }, [crashlytics]);
+
+  useEffect(() => {
+    console.log('Theme is: ', theme);
+  }, [theme]);
 
   const DATA = [
     {

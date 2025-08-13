@@ -6,3 +6,5 @@ export type {
   LocationAccuracy,
   LocationAccuracyOptions,
 } from './permissions';
+
+export type { default as ThemeType } from './themes';
