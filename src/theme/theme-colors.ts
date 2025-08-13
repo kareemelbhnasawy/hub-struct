@@ -152,6 +152,30 @@ export const themeColors = {
     light: COLORS['neutral-200'],
     dark: COLORS.white,
   },
+  borderDivider: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-800'],
+  },
+  borderSuccessLight: {
+    light: COLORS['success-200'],
+    dark: COLORS['success-200'],
+  },
+  borderInfoLight: {
+    light: COLORS['info-200'],
+    dark: COLORS['info-200'],
+  },
+  borderWarningLight: {
+    light: COLORS['warning-200'],
+    dark: COLORS['warning-200'],
+  },
+  borderErrorLight: {
+    light: COLORS['error-200'],
+    dark: COLORS['error-200'],
+  },
+  borderDisabled: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-500'],
+  },
 
   // Button Primary States
   buttonPrimaryDefaultBackground: {
@@ -171,16 +195,16 @@ export const themeColors = {
     dark: COLORS['primary-500'],
   },
   buttonPrimaryFocusedBackground: {
-    light: COLORS['primary-400'],
-    dark: COLORS['primary-400'],
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonPrimaryPressedBackground: {
     light: COLORS['primary-800'],
     dark: COLORS['primary-800'],
   },
   buttonPrimaryDisabledBackground: {
-    light: COLORS['neutral-200'],
-    dark: COLORS['neutral-200'],
+    light: COLORS['secondary-dark-gray-300'],
+    dark: COLORS['secondary-dark-gray-300'],
   },
   buttonPrimaryDisabledLabel: {
     light: COLORS.white,
@@ -220,17 +244,53 @@ export const themeColors = {
     light: COLORS['neutral-100'],
     dark: COLORS['neutral-700'],
   },
+  buttonSecondaryHoverLabel: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryHoverIcon: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
+  },
   buttonSecondaryFocusedBackground: {
     light: COLORS.white,
     dark: COLORS['neutral-800'],
+  },
+  buttonSecondaryFocusedLabel: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryFocusedIcon: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
   },
   buttonSecondaryPressedBackground: {
     light: COLORS['neutral-200'],
     dark: COLORS['neutral-600'],
   },
-  buttonSecondaryDisabledBackground: {
-    light: COLORS['neutral-100'],
-    dark: COLORS['neutral-700'],
+  buttonSecondaryPressedLabel: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryPressedIcon: {
+    light: COLORS['neutral-900'],
+    dark: COLORS.white,
+  },
+  buttonSecondaryErrorIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonSecondaryDisabledLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDisabledBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-500'],
   },
   buttonSecondaryLoadingBackground: {
     light: COLORS.white,
@@ -249,12 +309,54 @@ export const themeColors = {
     dark: COLORS['neutral-500'],
   },
   buttonSecondaryErrorBackground: {
-    light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    light: COLORS['error-600'],
+    dark: COLORS.white,
   },
   buttonSecondaryErrorLabel: {
-    light: COLORS['error-600'],
-    dark: COLORS['error-600'],
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+
+  // Button Link States
+  buttonLinkDefaultLabel: {
+    light: COLORS['primary-600'],
+    dark: COLORS['secondary-yellow-400'],
+  },
+  buttonLinkDefaultIcon: {
+    light: COLORS['primary-600'],
+    dark: COLORS['secondary-yellow-400'],
+  },
+  buttonLinkHoverLabel: {
+    light: COLORS['primary-500'],
+    dark: COLORS['secondary-yellow-300'],
+  },
+  buttonLinkHoverIcon: {
+    light: COLORS['primary-500'],
+    dark: COLORS['secondary-yellow-300'],
+  },
+  buttonLinkFocusedLabel: {
+    light: COLORS['primary-400'],
+    dark: COLORS['secondary-yellow-200'],
+  },
+  buttonLinkFocusedIcon: {
+    light: COLORS['primary-400'],
+    dark: COLORS['secondary-yellow-200'],
+  },
+  buttonLinkPressedLabel: {
+    light: COLORS['primary-800'],
+    dark: COLORS['secondary-yellow-500'],
+  },
+  buttonLinkPressedIcon: {
+    light: COLORS['primary-800'],
+    dark: COLORS['secondary-yellow-500'],
+  },
+  buttonLinkDisabledLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonLinkDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
   },
 
   // Icon Colors
@@ -278,31 +380,58 @@ export const themeColors = {
     light: COLORS['secondary-yellow-600'],
     dark: COLORS['secondary-yellow-400'],
   },
-  iconPrimaryLight: {
-    light: COLORS['primary-300'],
-    dark: COLORS['primary-300'],
+  iconSecondaryYellow: {
+    light: COLORS['secondary-yellow-600'],
+    dark: COLORS['secondary-yellow-400'],
   },
-  iconPrimary400: {
+  iconSecondaryYellow400: {
     light: COLORS['secondary-yellow-400'],
     dark: COLORS['secondary-yellow-400'],
   },
-  iconSuccess: {
-    light: COLORS['success-700'],
-    dark: COLORS['success-400'],
+  iconSecondaryGreen: {
+    light: COLORS['secondary-green-600'],
+    dark: COLORS['secondary-green-400'],
   },
-  iconError: {
-    light: COLORS['error-700'],
-    dark: COLORS['error-400'],
+  iconTertiary: {
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
-  iconWarning: {
-    light: COLORS['warning-700'],
-    dark: COLORS['warning-400'],
+  iconNeutral: {
+    light: COLORS['neutral-700'],
+    dark: COLORS['neutral-100'],
   },
-  iconInfo: {
-    light: COLORS['info-700'],
-    dark: COLORS['info-400'],
+  iconNeutralLight: {
+    light: COLORS['neutral-25'],
+    dark: COLORS['neutral-950'],
   },
-
+  iconNeutralRing: {
+    light: COLORS['neutral-100'],
+    dark: COLORS['neutral-900'],
+  },
+  backgroundWarningLight: {
+    light: COLORS['warning-50'],
+    dark: COLORS['alpha-red-10'],
+  },
+  backgroundErrorLight: {
+    light: COLORS['error-50'],
+    dark: COLORS['alpha-red-10'],
+  },
+  backgroundBrandLight: {
+    light: COLORS['secondary-yellow-25'],
+    dark: COLORS['alpha-600-primary-10'],
+  },
+  backgroundInfoLight: {
+    light: COLORS['info-50'],
+    dark: COLORS['info-50'],
+  },
+  backgroundSuccessLight: {
+    light: COLORS['success-50'],
+    dark: COLORS['alpha-green-10'],
+  },
+  unselectedTabIcon: {
+    light: COLORS['neutral-700'],
+    dark: COLORS['neutral-100'],
+  },
   // Tag Colors
   tagBackground: {
     light: COLORS['primary-50'],
@@ -326,6 +455,10 @@ export const themeColors = {
     light: COLORS['neutral-200'],
     dark: COLORS['neutral-700'],
   },
+  toggleDefault: {
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-700'],
+  },
   toggleDefaultKnob: {
     light: COLORS.white,
     dark: COLORS['neutral-400'],
@@ -345,6 +478,18 @@ export const themeColors = {
   toggleDisabledKnob: {
     light: COLORS['neutral-400'],
     dark: COLORS['neutral-600'],
+  },
+  toggleDusable: {
+    light: COLORS['neutral-100'],
+    dark: COLORS.white,
+  },
+  toggleDusable2: {
+    light: COLORS['neutral-100'],
+    dark: COLORS.white,
+  },
+  toggleDusable3: {
+    light: COLORS['neutral-100'],
+    dark: COLORS.white,
   },
 
   // Badge Colors
@@ -385,8 +530,28 @@ export const themeColors = {
     dark: COLORS['error-900'],
   },
   badgeErrorText: {
-    light: COLORS['error-700'],
+    light: COLORS['error-600'],
     dark: COLORS['error-300'],
+  },
+  badgeBorderBrand: {
+    light: COLORS['secondary-yellow-600'],
+    dark: COLORS['secondary-yellow-300'],
+  },
+  badgeBorderSuccess: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-400'],
+  },
+  badgeBorderInfo: {
+    light: COLORS['info-600'],
+    dark: COLORS['info-400'],
+  },
+  badgeBorderWarning: {
+    light: COLORS['warning-600'],
+    dark: COLORS['warning-400'],
+  },
+  badgeBorderError: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-400'],
   },
 
   // Alpha Colors
@@ -516,29 +681,13 @@ export const themeColors = {
     light: COLORS['primary-600'],
     dark: COLORS.white,
   },
-  buttonTertiaryHoverLabel: {
-    light: COLORS['primary-500'],
-    dark: COLORS['neutral-200'],
+  buttonTertiaryLoadingLabel: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-500'],
   },
-  buttonTertiaryHoverIcon: {
-    light: COLORS['primary-500'],
-    dark: COLORS['neutral-200'],
-  },
-  buttonTertiaryFocusedLabel: {
-    light: COLORS['primary-400'],
-    dark: COLORS['neutral-300'],
-  },
-  buttonTertiaryFocusedIcon: {
-    light: COLORS['primary-400'],
-    dark: COLORS['neutral-300'],
-  },
-  buttonTertiaryPressedLabel: {
-    light: COLORS['primary-800'],
-    dark: COLORS['neutral-100'],
-  },
-  buttonTertiaryPressedIcon: {
-    light: COLORS['primary-800'],
-    dark: COLORS['neutral-100'],
+  buttonTertiaryLoadingIcon: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-500'],
   },
   buttonTertiaryDisabledLabel: {
     light: COLORS['neutral-400'],
@@ -548,13 +697,13 @@ export const themeColors = {
     light: COLORS['neutral-400'],
     dark: COLORS['neutral-400'],
   },
-  buttonTertiaryLoadingLabel: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+  buttonTertiaryErrorLabel: {
+    light: COLORS['error-600'],
+    dark: COLORS.white,
   },
-  buttonTertiaryLoadingIcon: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+  buttonTertiaryErrorIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS.white,
   },
 
   // Stepper Colors
@@ -601,16 +750,20 @@ export const themeColors = {
 
   // Card Colors - Vacation
   cardVacationUserName: {
-    light: COLORS['neutral-900'],
+    light: COLORS['neutral-500'],
     dark: COLORS.white,
   },
   cardVacationLeaveType: {
-    light: COLORS['neutral-600'],
+    light: COLORS.black,
     dark: COLORS['neutral-300'],
   },
   cardVacationDate: {
     light: COLORS['neutral-500'],
     dark: COLORS['neutral-400'],
+  },
+  cardVacationLeadingIcon: {
+    light: COLORS['neutral-500'],
+    dark: COLORS.white,
   },
   cardVacationBorder: {
     light: COLORS['neutral-200'],
@@ -625,18 +778,26 @@ export const themeColors = {
     dark: COLORS['neutral-700'],
   },
   cardVacationPressedBg: {
-    light: COLORS['neutral-100'],
+    light: COLORS['neutral-50'],
     dark: COLORS['neutral-600'],
   },
 
   // Card Colors - Meeting
   cardMeetingTitle: {
-    light: COLORS['neutral-900'],
+    light: COLORS['primary-600'],
     dark: COLORS.white,
   },
   cardMeetingDescription: {
-    light: COLORS['neutral-600'],
+    light: COLORS['neutral-500'],
     dark: COLORS['neutral-300'],
+  },
+  cardMeetingFrom: {
+    light: COLORS['neutral-700'],
+    dark: COLORS['neutral-400'],
+  },
+  cardMeetingTo: {
+    light: COLORS['neutral-500'],
+    dark: COLORS['neutral-400'],
   },
   cardMeetingTime: {
     light: COLORS['neutral-500'],
@@ -661,19 +822,35 @@ export const themeColors = {
 
   // Card Colors - Task
   cardTaskTitle: {
-    light: COLORS['neutral-900'],
+    light: COLORS.black,
     dark: COLORS.white,
   },
   cardTaskSubtitle: {
-    light: COLORS['neutral-600'],
+    light: COLORS['neutral-500'],
     dark: COLORS['neutral-300'],
   },
+  cardTaskIconTrailing: {
+    light: COLORS['neutral-500'],
+    dark: COLORS['neutral-700'],
+  },
+  cardTaskIconLeading: {
+    light: COLORS['neutral-700'],
+    dark: COLORS['neutral-700'],
+  },
   cardTaskBorder: {
-    light: COLORS['neutral-200'],
+    light: COLORS['neutral-100'],
     dark: COLORS['neutral-700'],
   },
   cardTaskDefaultBg: {
     light: COLORS.white,
+    dark: COLORS['neutral-800'],
+  },
+  cardTaskBgCard: {
+    light: COLORS.white,
+    dark: COLORS['neutral-800'],
+  },
+  cardTaskBgIcon: {
+    light: COLORS['secondary-green-100'],
     dark: COLORS['neutral-800'],
   },
   cardTaskHoverBg: {
@@ -681,18 +858,30 @@ export const themeColors = {
     dark: COLORS['neutral-700'],
   },
   cardTaskPressedBg: {
-    light: COLORS['neutral-100'],
+    light: COLORS['neutral-50'],
     dark: COLORS['neutral-600'],
   },
 
   // Card Colors - Order
   cardOrderTitle: {
-    light: COLORS['neutral-900'],
+    light: COLORS.black,
     dark: COLORS.white,
   },
   cardOrderSubtitle: {
     light: COLORS['neutral-600'],
     dark: COLORS['neutral-300'],
+  },
+  cardOrderSubtitle2: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-300'],
+  },
+  cardOrderIconTrailing: {
+    light: COLORS['neutral-500'],
+    dark: COLORS['neutral-700'],
+  },
+  cardOrderIconLeading: {
+    light: COLORS['neutral-600'],
+    dark: COLORS['neutral-700'],
   },
   cardOrderMetadata: {
     light: COLORS['neutral-500'],
@@ -717,8 +906,24 @@ export const themeColors = {
 
   // Card Colors - Team
   cardTeamTitle: {
-    light: COLORS['neutral-900'],
+    light: COLORS['neutral-500'],
     dark: COLORS.white,
+  },
+  cardTeamDescription: {
+    light: COLORS.black,
+    dark: COLORS.white,
+  },
+  cardTeamDate: {
+    light: COLORS['neutral-600'],
+    dark: COLORS.white,
+  },
+  cardTeamIconLeading: {
+    light: COLORS.black,
+    dark: COLORS['neutral-700'],
+  },
+  cardTeamIconBackground: {
+    light: COLORS['secondary-orange-100'],
+    dark: COLORS['neutral-700'],
   },
   cardTeamSubtitle: {
     light: COLORS['neutral-600'],
@@ -740,6 +945,23 @@ export const themeColors = {
     light: COLORS['neutral-100'],
     dark: COLORS['neutral-600'],
   },
+  cardTeamPressedBg3: {
+    light: COLORS['warning-50'],
+    dark: COLORS['neutral-600'],
+  },
+  cardTeamHoverBorder: {
+    light: COLORS['secondary-yellow-300'],
+    dark: COLORS['neutral-600'],
+  },
+
+  cardTeamHoverBg2: {
+    light: COLORS['neutral-50'],
+    dark: COLORS['neutral-600'],
+  },
+  cardTeamPressedBg2: {
+    light: COLORS['neutral-50'],
+    dark: COLORS['neutral-600'],
+  },
   cardTeamCount: {
     light: COLORS['neutral-500'],
     dark: COLORS['neutral-400'],
@@ -747,21 +969,21 @@ export const themeColors = {
 
   // Notification Card
   notificationBody: {
-    light: COLORS['neutral-600'],
+    light: COLORS.black,
     dark: COLORS['neutral-300'],
   },
   notificationBorder: {
-    light: COLORS['neutral-200'],
+    light: COLORS['secondary-green-200'],
     dark: COLORS['neutral-700'],
   },
   notificationBg: {
-    light: COLORS.white,
+    light: COLORS['secondary-green-50'],
     dark: COLORS['neutral-800'],
   },
 
   // Progress Bar
   progressBarNeutral: {
-    light: COLORS['neutral-200'],
+    light: COLORS['neutral-700'],
     dark: COLORS['neutral-700'],
   },
   progressBarIndicator: {
@@ -783,7 +1005,7 @@ export const themeColors = {
 
   // Glass Button States
   buttonGlassDefaultBackground: {
-    light: COLORS['alpha-white-20'],
+    light: COLORS['alpha-white-5'],
     dark: COLORS['alpha-white-20'],
   },
   buttonGlassDefaultLabel: {
@@ -795,7 +1017,7 @@ export const themeColors = {
     dark: COLORS.white,
   },
   buttonGlassHoverBackground: {
-    light: COLORS['alpha-white-30'],
+    light: COLORS['alpha-white-10'],
     dark: COLORS['alpha-white-30'],
   },
   buttonGlassHoverLabel: {
@@ -807,7 +1029,7 @@ export const themeColors = {
     dark: COLORS.white,
   },
   buttonGlassPressedBackground: {
-    light: COLORS['alpha-white-10'],
+    light: COLORS['alpha-white-5'],
     dark: COLORS['alpha-white-10'],
   },
   buttonGlassPressedLabel: {
@@ -824,6 +1046,10 @@ export const themeColors = {
     light: COLORS['primary-500'],
     dark: COLORS['primary-500'],
   },
+  iconBorderTertiary800: {
+    light: COLORS['primary-800'],
+    dark: COLORS['primary-800'],
+  },
   iconBorderTertiary300: {
     light: COLORS['primary-300'],
     dark: COLORS['primary-300'],
@@ -833,8 +1059,32 @@ export const themeColors = {
     dark: COLORS['primary-700'],
   },
   iconBorderSelected: {
+    light: COLORS['primary-500'],
+    dark: COLORS['primary-500'],
+  },
+  iconSelected: {
     light: COLORS['secondary-green-500'],
     dark: COLORS['secondary-green-500'],
+  },
+  backgroundCircle: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  borderSecondaryYellow: {
+    light: COLORS['secondary-yellow-600'],
+    dark: COLORS['secondary-yellow-300'],
+  },
+  borderSecondaryGreen: {
+    light: COLORS['secondary-green-600'],
+    dark: COLORS['secondary-green-400'],
+  },
+  borderSecondaryTeal: {
+    light: COLORS['secondary-teal-600'],
+    dark: COLORS['secondary-teal-400'],
+  },
+  borderPrimaryIcon: {
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
 
   // Icon Background Utilities
@@ -868,18 +1118,6 @@ export const themeColors = {
   },
 
   // Icon Additional Colors
-  iconNeutral: {
-    light: COLORS['neutral-700'],
-    dark: COLORS['neutral-100'],
-  },
-  iconNeutralLight: {
-    light: COLORS['neutral-25'],
-    dark: COLORS['neutral-950'],
-  },
-  iconNeutralRing: {
-    light: COLORS['neutral-100'],
-    dark: COLORS['neutral-900'],
-  },
   iconSecondaryLight: {
     light: COLORS['secondary-green-25'],
     dark: COLORS['secondary-green-900'],
@@ -896,6 +1134,10 @@ export const themeColors = {
     light: COLORS['secondary-yellow-600'],
     dark: COLORS['alpha-green-10'],
   },
+  iconInfo: {
+    light: COLORS['info-700'],
+    dark: COLORS['info-400'],
+  },
   iconInfoLight: {
     light: COLORS['info-50'],
     dark: COLORS['info-50'],
@@ -904,6 +1146,10 @@ export const themeColors = {
     light: COLORS['info-100'],
     dark: COLORS['alpha-blue-10'],
   },
+  iconWarning: {
+    light: COLORS['warning-700'],
+    dark: COLORS['warning-400'],
+  },
   iconWarningLight: {
     light: COLORS['warning-25'],
     dark: COLORS['warning-25'],
@@ -911,6 +1157,10 @@ export const themeColors = {
   iconWarningRing: {
     light: COLORS['warning-100'],
     dark: COLORS['alpha-yellow-10'],
+  },
+  iconError: {
+    light: COLORS['error-700'],
+    dark: COLORS['error-400'],
   },
   iconErrorLight: {
     light: COLORS['error-25'],
@@ -946,10 +1196,6 @@ export const themeColors = {
     light: COLORS['primary-400'],
     dark: COLORS['secondary-yellow-200'],
   },
-  linkPrimaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
-  },
   linkPrimaryPressedLabel: {
     light: COLORS['primary-800'],
     dark: COLORS['secondary-yellow-500'],
@@ -977,11 +1223,15 @@ export const themeColors = {
     dark: COLORS['neutral-400'],
   },
   tabSelectedText: {
-    light: COLORS['neutral-900'],
+    light: COLORS['primary-600'],
     dark: COLORS.white,
   },
   tabSelectedIcon: {
-    light: COLORS['neutral-900'],
+    light: COLORS['neutral-600'],
+    dark: COLORS.white,
+  },
+  tabSelectedUnderLine: {
+    light: COLORS['primary-600'],
     dark: COLORS.white,
   },
   tabSelectedBorder: {
@@ -1142,22 +1392,6 @@ export const themeColors = {
     light: COLORS['alpha-white-30'],
     dark: COLORS['alpha-white-30'],
   },
-  borderSuccessLight: {
-    light: COLORS['success-700'],
-    dark: COLORS['success-700'],
-  },
-  borderInfoLight: {
-    light: COLORS['info-200'],
-    dark: COLORS['info-200'],
-  },
-  borderWarningLight: {
-    light: COLORS['warning-200'],
-    dark: COLORS['warning-200'],
-  },
-  borderErrorLight: {
-    light: COLORS['error-200'],
-    dark: COLORS['error-200'],
-  },
 
   // Status Background Colors
   backgroundWarning25: {
@@ -1196,15 +1430,15 @@ export const themeColors = {
   },
   stepperLineCurrent: {
     light: COLORS['secondary-yellow-600'],
-    dark: COLORS['success-600'],
+    dark: COLORS['neutral-700'],
   },
   stepperLineUpcoming: {
     light: COLORS['neutral-300'],
-    dark: COLORS['neutral-600'],
+    dark: COLORS['neutral-700'],
   },
   stepperLineUpcomingHovered: {
     light: COLORS['neutral-400'],
-    dark: COLORS['neutral-600'],
+    dark: COLORS['neutral-700'],
   },
 
   // Additional Colors from global.css
@@ -1259,8 +1493,8 @@ export const themeColors = {
     dark: COLORS.white,
   },
   buttonPrimaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
+    light: COLORS['secondary-dark-gray-400'],
+    dark: COLORS['secondary-dark-gray-400'],
   },
   buttonPrimaryPressedLabel: {
     light: COLORS.white,
@@ -1284,10 +1518,6 @@ export const themeColors = {
   },
 
   // Additional Card Icons
-  cardVacationLeadingIcon: {
-    light: COLORS['neutral-500'],
-    dark: COLORS['neutral-500'],
-  },
   cardMeetingLeadingIcon: {
     light: COLORS['neutral-700'],
     dark: COLORS['neutral-100'],
@@ -1307,10 +1537,27 @@ export const themeColors = {
     dark: COLORS.white,
   },
 
-  // Additional Border Utilities
-  borderDisabled: {
-    light: COLORS['neutral-400'],
-    dark: COLORS['neutral-400'],
+  // Tab Bar Colors
+
+  tabBarBackground: {
+    light: COLORS['secondary-dark-gray-100'],
+    dark: COLORS.white,
+  },
+  color: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  color2: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  color3: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  color4: {
+    light: COLORS.white,
+    dark: COLORS.white,
   },
 
   // Shadow Colors
