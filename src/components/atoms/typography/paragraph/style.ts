@@ -10,37 +10,37 @@ export const styles = StyleSheet.create({
   }),
   Thin: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Thin,
+      fontFamily: fontWeights.Thin,
     },
   }),
   Light: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Light,
+      fontFamily: fontWeights.Light,
     },
   }),
   Regular: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Regular,
+      fontFamily: fontWeights.Regular,
     },
   }),
   Medium: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Medium,
+      fontFamily: fontWeights.Medium,
     },
   }),
   Semibold: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Semibold,
+      fontFamily: fontWeights.Semibold,
     },
   }),
   Bold: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Bold,
+      fontFamily: fontWeights.Bold,
     },
   }),
   Title: responsiveHandler({
     base: {
-      fontWeight: fontWeights.Title,
+      fontFamily: fontWeights.Title,
     },
   }),
   xl: responsiveHandler({

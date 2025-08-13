@@ -7,6 +7,7 @@ import {
   CurvedHeroImage,
   Spacer,
   Headline,
+  Paragraph,
 } from '@/components/atoms';
 import { COLORS } from '@/style';
 import { useTranslate } from '@/hooks';
@@ -146,6 +147,9 @@ const App = () => {
         }}>
         <Text>Toggle Theme</Text>
       </Pressable>
+      <Paragraph text="Adel" weight="Bold" />
+      <Paragraph text="Adel" weight="Medium" />
+      <Paragraph text="Adel" weight="Thin" />
       <MultiColorIcon
         name="bolt-circle"
         size={100}

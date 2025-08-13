@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/hrsdgov_bold.ttf",
+      "sha1": "7600e1cae2d9ce94f1cec877494d0fcf53b1cda3"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_light.ttf",
+      "sha1": "1e6da70b5c3b93a88d8d3b7932f4c777df56ec0b"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_medium.ttf",
+      "sha1": "a6702a8aa7233f26c82d7b32d073d2fc6ced8947"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_regular.ttf",
+      "sha1": "4c0df6905b30f017bcffa4fc34a3755db234e17b"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_semibold.ttf",
+      "sha1": "2dd4322712d83a5f6bc2a67737a9d1b8c6b6fc8a"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_thin.ttf",
+      "sha1": "f7fc8c322c904defa8391223332dae5a286c9abd"
+    },
+    {
+      "path": "src/assets/fonts/hrsdgov_title.ttf",
+      "sha1": "3dd0f5b2a3acdbca4aa195654e8cc31cb017a459"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 export enum fontWeights {
-  Thin = '100',
-  Light = '300',
-  Regular = '400',
-  Medium = '500',
-  Semibold = '600',
-  Bold = '700',
-  Title = '800',
+  Thin = 'hrsdgov_thin',
+  Light = 'hrsdgov_light',
+  Regular = 'hrsdgov_regular',
+  Medium = 'hrsdgov_medium',
+  Semibold = 'hrsdgov_semibold',
+  Bold = 'hrsdgov_bold',
+  Title = 'hrsdgov_title',
 }
