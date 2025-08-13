@@ -24,7 +24,6 @@ const Avatar = ({ testId, size, name, image }: AvatarProps) => {
           testId={testId}
           isCircular
           image={image}
-          size={size}
         />
       ) : (
         <Paragraph
