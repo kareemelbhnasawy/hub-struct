@@ -1,4 +1,4 @@
-import BaseTextProps from '@/components/atoms/base-text/interface';
+import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 import { icons } from 'lucide-react-native';
 import { ViewStyle, StyleProp } from 'react-native';
 
@@ -7,11 +7,11 @@ interface TagProps {
     size: 'sm' | 'md' | 'lg';
     label: string;
     hasIcon: boolean;
+    labelProps: ParagraphProps;
+    valueProps?: ParagraphProps;
     icon?: keyof typeof icons;
-    value?: string;
     onPress?: () => void;
     containerStyle?: StyleProp<ViewStyle>;
-    labelProps?: BaseTextProps;
 }
 
 export default TagProps;
