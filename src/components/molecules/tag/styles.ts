@@ -45,9 +45,9 @@ export const styles = StyleSheet.create({
             color: 'tagLabel',
         }
     }),
-    hasMarginEnd: responsiveHandler({
+    hasGap: responsiveHandler({
         base: {
-            marginEnd: 15
+            gap: 15
         }
-    }),
+    })
 });

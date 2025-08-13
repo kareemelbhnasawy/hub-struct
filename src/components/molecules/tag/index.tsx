@@ -13,24 +13,25 @@ const Tag = ({
   value,
   onPress,
   containerStyle,
+  labelProps,
 }: TagProps) => {
-  const hasValueOrIcon = value || icon;
   return (
     <View
       testID={`${testId}-tag`}
-      style={[styles.wrapper, styles[size], containerStyle]}>
+      style={[styles.wrapper, styles[size], styles.hasGap, containerStyle]}>
       <Paragraph
         testID={`${testId}-tag`}
         text={label}
         size={size}
-        style={[hasValueOrIcon && styles.hasMarginEnd, styles.text]}
+        style={styles.text}
+        {...labelProps}
       />
       {value && (
         <Paragraph
           testID={`${testId}-tag-value`}
           text={value}
           size={size}
-          style={[icon && styles.hasMarginEnd, styles.text]}
+          style={styles.text}
         />
       )}
       {icon && (
