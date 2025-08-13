@@ -1,3 +1,4 @@
+import React from 'react';
 import { View } from 'react-native';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';
@@ -8,33 +9,34 @@ import { getIconSize } from './utils';
 const Tag = ({
   testId,
   size,
-  label,
-  icon,
-  value,
+  hasIcon,
+  icon = 'X',
+  labelProps,
+  valueProps,
   onPress,
   containerStyle,
 }: TagProps) => {
-  const hasValueOrIcon = value || icon;
   return (
     <View
       testID={`${testId}-tag`}
-      style={[styles.wrapper, styles[size], containerStyle]}>
+      style={[styles.wrapper, styles[size], styles.hasGap, containerStyle]}>
       <Paragraph
-        testID={`${testId}-tag`}
-        text={label}
-        size={size}
-        style={[hasValueOrIcon && styles.hasMarginEnd, styles.text]}
+        size="sm"
+        testID={`${testId}-tag-label`}
+        {...labelProps}
+        style={[styles.text, labelProps.style]}
       />
-      {value && (
+      {valueProps && (
         <Paragraph
           testID={`${testId}-tag-value`}
-          text={value}
-          size={size}
-          style={[icon && styles.hasMarginEnd, styles.text]}
+          size="sm"
+          {...valueProps}
+          style={[styles.text, valueProps.style]}
         />
       )}
-      {icon && (
+      {hasIcon && (
         <LucideIcon
+        //TODO: wrap the icon add the onPress to the wrapper
           onPress={onPress}
           name={icon}
           color={getThemeColor('tagIcon')}
