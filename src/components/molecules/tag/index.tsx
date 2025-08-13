@@ -9,7 +9,8 @@ const Tag = ({
   testId,
   size,
   label,
-  icon,
+  hasIcon,
+  icon = 'X',
   value,
   onPress,
   containerStyle,
@@ -34,7 +35,7 @@ const Tag = ({
           style={styles.text}
         />
       )}
-      {icon && (
+      {hasIcon && (
         <LucideIcon
           onPress={onPress}
           name={icon}

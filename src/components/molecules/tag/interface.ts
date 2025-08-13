@@ -6,6 +6,7 @@ interface TagProps {
     testId: string,
     size: 'sm' | 'md' | 'lg';
     label: string;
+    hasIcon: boolean;
     icon?: keyof typeof icons;
     value?: string;
     onPress?: () => void;
