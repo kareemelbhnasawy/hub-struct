@@ -1,9 +1,8 @@
 import { ImageSourcePropType, TextProps } from 'react-native';
-import { avatarSizes } from './utils';
 
 interface AvatarPropsBase extends TextProps {
   testId: string;
-  size: keyof typeof avatarSizes;
+  size:  'sm' | 'md' | 'lg' | 'xl';
 }
 
 interface AvatarWithName extends AvatarPropsBase {
