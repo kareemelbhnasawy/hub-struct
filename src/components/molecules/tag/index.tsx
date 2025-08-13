@@ -3,7 +3,7 @@ import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';
 import { styles } from './styles';
 import { getThemeColor } from '@/theme';
-import { getIconSize } from './utils';
+import { getAbbreviatedSize, getIconSize } from './utils';
 
 const Tag = ({
   testId,
@@ -21,21 +21,15 @@ const Tag = ({
       <Paragraph
         testID={`${testId}-tag`}
         text={label}
-        style={[
-          hasValueOrIcon && styles.hasMarginEnd,
-          styles.text,
-          styles[`${size}Text`],
-        ]}
+        size={getAbbreviatedSize(size)}
+        style={[hasValueOrIcon && styles.hasMarginEnd, styles.text]}
       />
       {value && (
         <Paragraph
           testID={`${testId}-tag-value`}
           text={value}
-          style={[
-            icon && styles.hasMarginEnd,
-            styles.text,
-            styles[`${size}Text`],
-          ]}
+          size={getAbbreviatedSize(size)}
+          style={[icon && styles.hasMarginEnd, styles.text]}
         />
       )}
       {icon && (

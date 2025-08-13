@@ -20,44 +20,29 @@ export const styles = StyleSheet.create({
         base: {
             height: 23,
             borderRadius: 6,
-            paddingBlock: 5,
-            paddingInline: 15,
+            paddingVertical: 5,
+            paddingHorizontal: 15,
         },
     }),
     medium: responsiveHandler({
         base: {
             height: 28,
             borderRadius: 8,
-            paddingBlock: 5,
-            paddingInline: 17
+            paddingVertical: 5,
+            paddingHorizontal: 17
         },
     }),
     large: responsiveHandler({
         base: {
             height: 36,
             borderRadius: 10,
-            paddingBlock: 10,
-            paddingInline: 20
+            paddingVertical: 10,
+            paddingHorizontal: 20
         }
     }),
     text: responsiveHandler({
         base: {
             color: 'tagLabel',
-        }
-    }),
-    smallText: responsiveHandler({
-        base: {
-            fontSize: 12,
-        }
-    }),
-    mediumText: responsiveHandler({
-        base: {
-            fontSize: 14,
-        }
-    }),
-    largeText: responsiveHandler({
-        base: {
-            fontSize: 16,
         }
     }),
     hasMarginEnd: responsiveHandler({
