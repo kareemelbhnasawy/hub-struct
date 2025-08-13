@@ -1,29 +1,38 @@
 import { View } from 'react-native';
-import { BaseText, LucideIcon } from '@/components/atoms';
-import { TagProps } from './interface';
+import { LucideIcon, Paragraph } from '@/components/atoms';
+import TagProps from './interface';
 import { styles } from './styles';
 import { getThemeColor } from '@/theme';
 import { getIconSize } from './utils';
 
-const Tag = ({ testId, size, label, icon, value }: TagProps) => {
-    const hasValueOrIcon = (value || icon);
+const Tag = ({
+  testId,
+  size,
+  label,
+  icon,
+  value,
+  containerStyle,
+}: TagProps) => {
+  const hasValueOrIcon = value || icon;
   return (
-    <View testID={`${testId}-tag`} style={[styles.wrapper, styles[size]]}>
-      <BaseText
+    <View
+      testID={`${testId}-tag`}
+      style={[styles.wrapper, styles[size], containerStyle]}>
+      <Paragraph
         testID={`${testId}-tag`}
         text={label}
         style={[
-          hasValueOrIcon && styles.hasMarginRight,
+          hasValueOrIcon && styles.hasMarginEnd,
           styles.text,
           styles[`${size}Text`],
         ]}
       />
       {value && (
-        <BaseText
+        <Paragraph
           testID={`${testId}-tag-value`}
           text={value}
           style={[
-            icon && styles.hasMarginRight,
+            icon && styles.hasMarginEnd,
             styles.text,
             styles[`${size}Text`],
           ]}
