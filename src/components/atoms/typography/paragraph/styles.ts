@@ -6,6 +6,7 @@ const styles = createThemedStyles({
   paragraph: {
     base: {
       color: 'textPrimary',
+      textAlign: 'left',
     },
   },
   Thin: {

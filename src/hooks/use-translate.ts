@@ -1,23 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import i18n, { resources } from '@/localization';
-import { useEffect, useState } from 'react';
 import { STORAGE_KEYS } from '../constants/storageKeys';
 import { I18nManager } from 'react-native';
-import { getString, setString } from '../utilities/storage';
+import { setString } from '../utilities/storage';
 import RNRestart from 'react-native-restart';
 
 const useTranslate = () => {
   const { t } = useTranslation();
-  const [locale, setLocale] = useState(i18n.language);
-
-  useEffect(() => {
-    const lang = getString(STORAGE_KEYS.LANGUAGE);
-    if (lang) {
-      i18n.changeLanguage(lang);
-      I18nManager.forceRTL(lang === 'ar');
-      setLocale(lang);
-    }
-  }, []);
 
   const changeLanguage = (lang: string) => {
     setString(STORAGE_KEYS.LANGUAGE, lang);
@@ -51,7 +40,12 @@ const useTranslate = () => {
     });
     return res.join(' ');
   };
-  return { translate, isRTL: locale === 'ar', changeLanguage, locale };
+  return {
+    translate,
+    isRTL: I18nManager.isRTL,
+    changeLanguage,
+    locale: i18n.language,
+  };
 };
 
 export default useTranslate;
