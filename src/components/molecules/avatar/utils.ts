@@ -1,9 +1,3 @@
-export const avatarSizes = {
-  sm: ['size-6', 'sm'],
-  md: ['size-8', 'md'],
-  lg: ['size-12', 'lg'],
-  xl: ['w-[72px] h-[72px]', 'xl'],
-};
 
 export const getInitialsFromName = (name: string): string => {
   const names = name.split(' ');
@@ -19,10 +13,4 @@ export const getInitialsFromName = (name: string): string => {
   } else {
     return `${firstInitial} ${lastInitial}`;
   }
-};
-
-export const getRelativeAvatarSizes = (
-  size: keyof typeof avatarSizes,
-): string[] => {
-  return avatarSizes[size];
 };
