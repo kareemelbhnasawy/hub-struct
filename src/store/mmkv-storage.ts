@@ -1,8 +1,9 @@
-import { getString, setString, deleteKey } from '@/utilities';
-import type { StateStorage } from 'zustand/middleware';
+import { deleteKey, setItem, getItem } from '@/utilities';
+import type { PersistStorage } from 'zustand/middleware';
 
-export const zustandMMKVStorage: StateStorage = {
-  setItem: (name, value) => setString(name, value),
-  getItem: (name) => getString(name) ?? null,
+// Generic factory function
+export const getMMKVStorage = <T>(): PersistStorage<T> => ({
+  setItem: (name, value) => setItem(name, value),
+  getItem: (name) => getItem(name) ?? null,
   removeItem: (name) => deleteKey(name),
-};
+});
