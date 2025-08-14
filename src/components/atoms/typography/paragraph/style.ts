@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { responsiveHandler } from '@/theme/theme-responsive';
 import { fontWeights } from '@/theme/theme-fonts';
+import { getFont } from '@/utilities';
 
 export const styles = StyleSheet.create({
   paragraph: responsiveHandler({
@@ -10,37 +11,37 @@ export const styles = StyleSheet.create({
   }),
   Thin: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Thin,
+      fontFamily: getFont(fontWeights.Thin),
     },
   }),
   Light: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Light,
+      fontFamily: getFont(fontWeights.Light),
     },
   }),
   Regular: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Regular,
+      fontFamily: getFont(fontWeights.Regular),
     },
   }),
   Medium: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Medium,
+      fontFamily: getFont(fontWeights.Medium),
     },
   }),
   Semibold: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Semibold,
+      fontFamily: getFont(fontWeights.Semibold),
     },
   }),
   Bold: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Bold,
+      fontFamily: getFont(fontWeights.Bold),
     },
   }),
   Title: responsiveHandler({
     base: {
-      fontFamily: fontWeights.Title,
+      fontFamily: getFont(fontWeights.Title),
     },
   }),
   xl: responsiveHandler({
