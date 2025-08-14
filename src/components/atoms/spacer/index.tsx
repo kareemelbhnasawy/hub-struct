@@ -1,7 +1,8 @@
 import { View } from 'react-native';
 import SpacerProps, { SpacingValue } from './interface';
-import { styles } from './style';
-import { verticalScale, scale } from '@/theme';
+import styles from './styles';
+import { useThemeStore } from '@/store/theme';
+import { scale, verticalScale } from '@/store/theme/utils';
 
 const Spacer = ({
   space = 'md',
@@ -12,13 +13,16 @@ const Spacer = ({
   spaceTop = spaceTop || space;
   spaceBottom = spaceBottom || space;
 
+  const { getThemedStyles } = useThemeStore();
+  const themedStyle = getThemedStyles(styles);
+
   const generateSpacerView = (spaceValue: SpacingValue) => {
     return (
       <View
         style={
           typeof spaceValue === 'number'
             ? { height: verticalScale(spaceValue), width: scale(spaceValue) }
-            : styles[spaceValue]
+            : themedStyle[spaceValue]
         }
       />
     );
@@ -27,7 +31,7 @@ const Spacer = ({
   return isDivider ? (
     <>
       {generateSpacerView(spaceTop)}
-      <View style={styles.divider} />
+      <View style={themedStyle.divider} />
       {generateSpacerView(spaceBottom)}
     </>
   ) : (

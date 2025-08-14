@@ -1,9 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import { createThemedStyles } from '@/utilities';
 
-export const styles = StyleSheet.create({
+const styles = createThemedStyles({
   // Container styles
-  badgeContainer: responsiveHandler({
+  badgeContainer: {
     base: {
       display: 'flex',
       alignItems: 'center',
@@ -12,103 +11,83 @@ export const styles = StyleSheet.create({
       paddingVertical: 2,
       borderWidth: 1, // Add border width
     },
-  }),
+  },
 
   // Container variant styles
-  containerNumber: responsiveHandler({
+  containerNumber: {
     base: {
       borderRadius: 12, // Same radius for all number sizes
       minWidth: 20,
       minHeight: 20,
     },
-  }),
+  },
+
+  // Variant text styles
+  textNumber: {
+    base: {
+      textAlign: 'center',
+    },
+  },
 
   // Container size styles for labels (numbers use same border radius)
-  containerLabelSm: responsiveHandler({
+  sm: {
     base: {
       borderRadius: 4,
       paddingHorizontal: 6,
       paddingVertical: 2,
     },
-  }),
-  containerLabelMd: responsiveHandler({
+  },
+  md: {
     base: {
       borderRadius: 8,
       paddingHorizontal: 8,
       paddingVertical: 4,
     },
-  }),
-  containerLabelLg: responsiveHandler({
+  },
+  lg: {
     base: {
       borderRadius: 10,
       paddingHorizontal: 10,
       paddingVertical: 6,
     },
-  }),
-
-  // Variant text styles
-  textNumber: responsiveHandler({
-    base: {
-      textAlign: 'center',
-    },
-  }),
+  },
 
   // Background color styles using theme colors
-  backgroundBrand: responsiveHandler({
+  brand: {
     base: {
       backgroundColor: 'badgeDefaultBackground',
       borderColor: 'textPrimary', // Add matching border color
+      color: 'textPrimary',
     },
-  }),
-  backgroundSuccess: responsiveHandler({
+  },
+  success: {
     base: {
       backgroundColor: 'badgeSuccessBackground',
       borderColor: 'badgeSuccessText', // Add matching border color
+      color: 'badgeSuccessText',
     },
-  }),
-  backgroundWarning: responsiveHandler({
+  },
+  warning: {
     base: {
       backgroundColor: 'badgeWarningBackground',
       borderColor: 'badgeWarningText', // Add matching border color
+      color: 'badgeWarningText',
     },
-  }),
-  backgroundError: responsiveHandler({
+  },
+  error: {
     base: {
       backgroundColor: 'badgeErrorBackground',
       borderColor: 'badgeErrorText', // Add matching border color
+      color: 'badgeErrorText',
     },
-  }),
-  backgroundGray: responsiveHandler({
+  },
+  gray: {
     base: {
       backgroundColor: 'badgeDefaultBackground',
       borderColor: 'badgeDefaultText', // Add matching border color
-    },
-  }),
-
-  // Text color styles using theme colors
-  textColorBrand: responsiveHandler({
-    base: {
-      color: 'textPrimary',
-    },
-  }),
-  textColorSuccess: responsiveHandler({
-    base: {
-      color: 'badgeSuccessText',
-    },
-  }),
-  textColorWarning: responsiveHandler({
-    base: {
-      color: 'badgeWarningText',
-    },
-  }),
-  textColorError: responsiveHandler({
-    base: {
-      color: 'badgeErrorText',
-    },
-  }),
-  textColorGray: responsiveHandler({
-    base: {
       color: 'badgeDefaultText',
     },
-  }),
+  },
 });
+
+export default styles;

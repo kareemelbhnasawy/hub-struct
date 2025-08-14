@@ -2,8 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import { BaseToggle, BaseText } from '@/components/atoms';
 import BrandToggleProps from './interface';
-import { getThemeColor } from '@/theme';
-import { styles } from './styles';
+import styles from './styles';
+import { useThemeStore } from '@/store/theme';
 
 const BrandToggle = ({
   testId,
@@ -13,6 +13,8 @@ const BrandToggle = ({
   descriptionProps,
   ...toggleProps
 }: BrandToggleProps) => {
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+
   // Get track color based on state
   const getTrackColor = () => ({
     false: getThemeColor(
@@ -37,8 +39,10 @@ const BrandToggle = ({
           : 'toggleDefaultKnob',
     );
 
+  const themedStyles = getThemedStyles(styles);
+
   return (
-    <View style={styles.container}>
+    <View style={themedStyles.container}>
       <BaseToggle
         testId={testId}
         {...toggleProps}
@@ -46,15 +50,19 @@ const BrandToggle = ({
         thumbColor={getThumbColor()}
         ios_backgroundColor={getThemeColor('toggleDefaultBackground')}
       />
-      <View style={styles.contentContainer}>
+      <View style={themedStyles.contentContainer}>
         {title && (
-          <BaseText text={title} textProps={titleProps} style={styles.title} />
+          <BaseText
+            text={title}
+            textProps={titleProps}
+            style={themedStyles.title}
+          />
         )}
         {description && (
           <BaseText
             text={description}
             textProps={descriptionProps}
-            style={styles.description}
+            style={themedStyles.description}
           />
         )}
       </View>

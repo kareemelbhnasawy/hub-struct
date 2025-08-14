@@ -1,4 +1,3 @@
-import { getThemeColor } from '@/theme';
 import { scale, verticalScale } from 'react-native-size-matters';
 
 /**
@@ -7,60 +6,60 @@ import { scale, verticalScale } from 'react-native-size-matters';
  */
 const SHADOWS = {
   xs: {
-    shadowColor: getThemeColor('shadowXs'),
+    shadowColor: 'shadowXs',
     shadowOffset: { width: 0, height: verticalScale(1) },
     shadowOpacity: 1,
     shadowRadius: scale(2),
     elevation: scale(1),
-    boxShadow: `0 ${verticalScale(1)}px ${scale(2)}px 0 ${getThemeColor('shadowXs')}`,
+    boxShadow: `0 ${verticalScale(1)}px ${scale(2)}px 0`,
   },
   sm: {
-    shadowColor: getThemeColor('shadowSm'),
+    shadowColor: 'shadowSm',
     shadowOffset: { width: 0, height: verticalScale(1) },
     shadowOpacity: 1,
     shadowRadius: scale(3),
     elevation: scale(2),
-    boxShadow: `0 ${verticalScale(1)}px ${scale(3)}px 0 ${getThemeColor('shadowSm')}, 0 ${verticalScale(1)}px ${scale(2)}px 0 ${getThemeColor('shadowSm')}`,
+    boxShadow: `0 ${verticalScale(1)}px ${scale(3)}px 0, 0 ${verticalScale(1)}px ${scale(2)}px 0`,
   },
   md: {
-    shadowColor: getThemeColor('shadowMd'),
+    shadowColor: 'shadowMd',
     shadowOffset: { width: 0, height: verticalScale(4) },
     shadowOpacity: 1,
     shadowRadius: scale(8),
     elevation: scale(3),
-    boxShadow: `0 ${verticalScale(4)}px ${scale(8)}px 0 ${getThemeColor('shadowMd')}`,
+    boxShadow: `0 ${verticalScale(4)}px ${scale(8)}px 0`,
   },
   lg: {
-    shadowColor: getThemeColor('shadowLg'),
+    shadowColor: 'shadowLg',
     shadowOffset: { width: 0, height: verticalScale(12) },
     shadowOpacity: 1,
     shadowRadius: scale(16),
     elevation: scale(4),
-    boxShadow: `0 ${verticalScale(12)}px ${scale(16)}px ${scale(-4)}px ${getThemeColor('shadowLg')}, 0 ${verticalScale(4)}px ${scale(6)}px ${scale(-2)}px ${getThemeColor('shadowLg')}`,
+    boxShadow: `0 ${verticalScale(12)}px ${scale(16)}px ${scale(-4)}px, 0 ${verticalScale(4)}px ${scale(6)}px ${scale(-2)}px`,
   },
   xl: {
-    shadowColor: getThemeColor('shadowXl'),
+    shadowColor: 'shadowXl',
     shadowOffset: { width: 0, height: verticalScale(20) },
     shadowOpacity: 1,
     shadowRadius: scale(24),
     elevation: scale(5),
-    boxShadow: `0 ${verticalScale(20)}px ${scale(24)}px ${scale(-4)}px ${getThemeColor('shadowXl')}, 0 ${verticalScale(8)}px ${scale(8)}px ${scale(-4)}px ${getThemeColor('shadowXl')}`,
+    boxShadow: `0 ${verticalScale(20)}px ${scale(24)}px ${scale(-4)}px, 0 ${verticalScale(8)}px ${scale(8)}px ${scale(-4)}px`,
   },
   '2xl': {
-    shadowColor: getThemeColor('shadow2xl'),
+    shadowColor: 'shadow2xl',
     shadowOffset: { width: 0, height: verticalScale(24) },
     shadowOpacity: 1,
     shadowRadius: scale(48),
     elevation: scale(6),
-    boxShadow: `0 ${verticalScale(24)}px ${scale(48)}px ${scale(-12)}px ${getThemeColor('shadow2xl')}`,
+    boxShadow: `0 ${verticalScale(24)}px ${scale(48)}px ${scale(-12)}px`,
   },
   '3xl': {
-    shadowColor: getThemeColor('shadow3xl'),
+    shadowColor: 'shadow3xl',
     shadowOffset: { width: 0, height: verticalScale(32) },
     shadowOpacity: 1,
     shadowRadius: scale(64),
     elevation: scale(7),
-    boxShadow: `0 ${verticalScale(32)}px ${scale(64)}px ${scale(-12)}px ${getThemeColor('shadow3xl')}`,
+    boxShadow: `0 ${verticalScale(32)}px ${scale(64)}px ${scale(-12)}px`,
   },
 };
 

@@ -1,27 +1,35 @@
 import { create } from 'zustand';
 import ThemeState from './interface';
 import { Appearance } from 'react-native';
-import { getString, setString } from '@/utilities';
+import { getThemeColor, responsiveHandler } from './utils';
+import { persist } from 'zustand/middleware';
+import { getMMKVStorage } from '../mmkv-storage';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
+import { RNStyle, ThemeType } from '@/types/themes';
 
 const systemScheme = Appearance.getColorScheme();
-const defaultTheme =
-  (getString(STORAGE_KEYS.COLOR_SCHEME) as 'light' | 'dark') ||
-  systemScheme ||
-  'light';
+const initialTheme: ThemeType = (systemScheme as ThemeType) || 'light';
 
-export const useThemeStore = create<ThemeState>((set) => ({
-  theme: defaultTheme,
-  toggleTheme: () =>
-    set((prevState) => {
-      const newTheme = prevState.theme === 'light' ? 'dark' : 'light';
-      setString(STORAGE_KEYS.COLOR_SCHEME, newTheme);
-      return {
-        theme: newTheme,
-      };
+const useThemeStore = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: initialTheme,
+      toggleTheme: () =>
+        set((prevState) => ({
+          theme: prevState.theme === 'light' ? 'dark' : 'light',
+        })),
+      setTheme: (theme) => set({ theme }),
+      getThemeColor: (colorKey) => getThemeColor(colorKey, get().theme),
+      getThemedStyles: (styles) => {
+        const themedStyles: Record<string, RNStyle> = {};
+        for (const key in styles) {
+          themedStyles[key] = responsiveHandler(styles[key], get().theme);
+        }
+        return themedStyles;
+      },
     }),
-  setTheme: (theme) => {
-    setString(STORAGE_KEYS.COLOR_SCHEME, theme);
-    return set({ theme });
-  },
-}));
+    { name: STORAGE_KEYS.COLOR_SCHEME, storage: getMMKVStorage<ThemeState>() },
+  ),
+);
+
+export { useThemeStore };
