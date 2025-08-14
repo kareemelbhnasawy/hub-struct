@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import BadgeProps from './interface';
 import { Paragraph } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
-import { styles } from './style';
+import styles from './styles';
 
 const Badge = ({
   testId,

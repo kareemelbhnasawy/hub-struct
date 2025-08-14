@@ -1,6 +1,6 @@
-import { getThemedStyleInputType } from '@/store/theme/interface';
+import { createThemedStyles } from '@/utilities';
 
-export const styles: getThemedStyleInputType = {
+const styles = createThemedStyles({
   container: {
     base: {
       alignItems: 'flex-start',
@@ -27,4 +27,6 @@ export const styles: getThemedStyleInputType = {
       fontSize: 14,
     },
   },
-};
+});
+
+export default styles;

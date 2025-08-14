@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import SpacerProps, { SpacingValue } from './interface';
-import { styles } from './style';
+import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 import { scale, verticalScale } from '@/store/theme/utils';
 

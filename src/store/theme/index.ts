@@ -1,13 +1,14 @@
 import { create } from 'zustand';
-import ThemeState, { RNStyle, ThemeMode } from './interface';
+import ThemeState from './interface';
 import { Appearance } from 'react-native';
 import { getThemeColor, responsiveHandler } from './utils';
 import { persist } from 'zustand/middleware';
 import { getMMKVStorage } from '../mmkv-storage';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
+import { RNStyle, ThemeType } from '@/types/themes';
 
 const systemScheme = Appearance.getColorScheme();
-const initialTheme: ThemeMode = (systemScheme as ThemeMode) || 'light';
+const initialTheme: ThemeType = (systemScheme as ThemeType) || 'light';
 
 const useThemeStore = create<ThemeState>()(
   persist(

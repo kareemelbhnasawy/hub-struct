@@ -1,6 +1,6 @@
-import { getThemedStyleInputType } from '@/store/theme/interface';
+import { createThemedStyles } from '@/utilities';
 
-export const styles: getThemedStyleInputType = {
+const styles = createThemedStyles({
   // Container styles
   badgeContainer: {
     base: {
@@ -88,4 +88,6 @@ export const styles: getThemedStyleInputType = {
       color: 'badgeDefaultText',
     },
   },
-};
+});
+
+export default styles;

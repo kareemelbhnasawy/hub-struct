@@ -1,6 +1,6 @@
 import { icons } from 'lucide-react-native';
 import LucideIconProps from './interface';
-import { styles } from './styles';
+import styles from './styles';
 import { View } from 'react-native';
 import { DEFAULT_ICON_SIZE } from './constants';
 import { scale } from '@/store/theme/utils';

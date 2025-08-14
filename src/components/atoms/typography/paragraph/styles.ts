@@ -1,7 +1,7 @@
-import { getThemedStyleInputType } from '@/store/theme/interface';
 import { fontWeights } from '@/theme/theme-fonts';
+import { createThemedStyles } from '@/utilities';
 
-export const styles: getThemedStyleInputType = {
+const styles = createThemedStyles({
   paragraph: {
     base: {
       color: 'textPrimary',
@@ -98,4 +98,6 @@ export const styles: getThemedStyleInputType = {
       lineHeight: 14,
     },
   },
-};
+});
+
+export default styles;

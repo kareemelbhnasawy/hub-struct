@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';
-import { styles } from './styles';
+import styles from './styles';
 import { getIconSize } from './utils';
 import { useThemeStore } from '@/store/theme';
 
@@ -19,6 +19,7 @@ const Tag = ({
   const { getThemeColor, getThemedStyles } = useThemeStore();
 
   const themedStyles = getThemedStyles(styles);
+
   return (
     <View
       testID={`${testId}-tag`}

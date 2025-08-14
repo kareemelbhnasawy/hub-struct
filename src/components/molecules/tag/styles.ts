@@ -1,6 +1,6 @@
-import { getThemedStyleInputType } from '@/store/theme/interface';
+import { createThemedStyles } from '@/utilities';
 
-export const styles: getThemedStyleInputType = {
+const styles = createThemedStyles({
   wrapper: {
     base: {
       display: 'flex',
@@ -49,4 +49,6 @@ export const styles: getThemedStyleInputType = {
       gap: 15,
     },
   },
-};
+});
+
+export default styles;

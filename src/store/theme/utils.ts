@@ -5,14 +5,14 @@ import {
   moderateProps,
   verticalProps,
 } from './constants';
+import { screenType } from '@/utilities/device-selector';
+import { ThemeColorKey, themeColors } from '@/theme/theme-colors';
 import {
   responsiveHandlerInputType,
   responsiveHandlerInputTypeOptions,
   RNStyle,
-  ThemeMode,
-} from './interface';
-import { screenType } from '@/utilities/device-selector';
-import { ThemeColorKey, themeColors } from '@/theme/theme-colors';
+  ThemeType,
+} from '@/types/themes';
 
 export const scale = s;
 export const verticalScale = vs;
@@ -20,14 +20,14 @@ export const moderateScale = ms;
 
 export const getThemeColor = (
   colorKey: ThemeColorKey,
-  theme: ThemeMode,
+  theme: ThemeType,
 ): string => {
   return themeColors[colorKey][theme];
 };
 
 const autoScaleStyle = (
   style: Record<string, string | number>,
-  theme: ThemeMode,
+  theme: ThemeType,
   options?: responsiveHandlerInputTypeOptions,
 ) => {
   const scaled: Record<string, string | number> = {};
@@ -67,7 +67,7 @@ const autoScaleStyle = (
 
 export const responsiveHandler = (
   style: responsiveHandlerInputType,
-  theme: ThemeMode = 'light',
+  theme: ThemeType = 'light',
 ): RNStyle => {
   let merged: RNStyle = {};
   switch (screenType) {
@@ -83,5 +83,9 @@ export const responsiveHandler = (
     default:
       merged = style.base;
   }
-  return autoScaleStyle(merged, theme, style?.options);
+  return autoScaleStyle(
+    merged as Record<string, string | number>,
+    theme,
+    style?.options,
+  );
 };

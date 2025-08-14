@@ -1,6 +1,6 @@
-import { getThemedStyleInputType } from '@/store/theme/interface';
+import { createThemedStyles } from '@/utilities';
 
-const styles: getThemedStyleInputType = {
+const styles = createThemedStyles({
   wrapper: {
     base: {
       rowGap: 8,
@@ -26,6 +26,6 @@ const styles: getThemedStyleInputType = {
       color: 'textTitle',
     },
   },
-};
+});
 
 export default styles;
