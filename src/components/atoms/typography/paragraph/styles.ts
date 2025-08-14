@@ -1,5 +1,6 @@
 import { fontWeights } from '@/theme/theme-fonts';
 import { createThemedStyles } from '@/utilities';
+import { getFont } from '@/utilities';
 
 const styles = createThemedStyles({
   paragraph: {
@@ -9,37 +10,37 @@ const styles = createThemedStyles({
   },
   Thin: {
     base: {
-      fontWeight: fontWeights.Thin,
+      fontFamily: getFont(fontWeights.Thin),
     },
   },
   Light: {
     base: {
-      fontWeight: fontWeights.Light,
+      fontFamily: getFont(fontWeights.Light),
     },
   },
   Regular: {
     base: {
-      fontWeight: fontWeights.Regular,
+      fontFamily: getFont(fontWeights.Regular),
     },
   },
   Medium: {
     base: {
-      fontWeight: fontWeights.Medium,
+      fontFamily: getFont(fontWeights.Medium),
     },
   },
   Semibold: {
     base: {
-      fontWeight: fontWeights.Semibold,
+      fontFamily: getFont(fontWeights.Semibold),
     },
   },
   Bold: {
     base: {
-      fontWeight: fontWeights.Bold,
+      fontFamily: getFont(fontWeights.Bold),
     },
   },
   Title: {
     base: {
-      fontWeight: fontWeights.Title,
+      fontFamily: getFont(fontWeights.Title),
     },
   },
   xl: {
