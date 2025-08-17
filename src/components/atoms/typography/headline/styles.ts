@@ -6,6 +6,7 @@ const styles = createThemedStyles({
   headline: {
     base: {
       color: 'textPrimary',
+      textAlign: 'left',
     },
   },
   Thin: {
