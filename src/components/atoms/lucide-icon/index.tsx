@@ -1,4 +1,3 @@
-import React from 'react';
 import { icons } from 'lucide-react-native';
 import LucideIconProps from './interface';
 import styles from './styles';

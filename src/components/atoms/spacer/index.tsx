@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import SpacerProps, { SpacingValue } from './interface';
 import styles from './styles';
