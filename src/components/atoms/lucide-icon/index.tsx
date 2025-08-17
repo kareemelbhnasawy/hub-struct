@@ -1,3 +1,4 @@
+import React from 'react';
 import { icons } from 'lucide-react-native';
 import LucideIconProps from './interface';
 import styles from './styles';
@@ -7,6 +8,7 @@ import { scale } from '@/store/theme/utils';
 import { useThemeStore } from '@/store/theme';
 
 const LucideIcon = ({
+  testId,
   name,
   size = DEFAULT_ICON_SIZE,
   isOutline,
@@ -21,16 +23,16 @@ const LucideIcon = ({
   const themedStyle = getThemedStyles(styles(size));
 
   const appliedStyles = [
-    themedStyle['wrapper-base'],
-    themedStyle['wrapper'],
-    isCircle ? themedStyle['circle-bg'] : null,
-    isOutline ? themedStyle['outline'] : null,
+    themedStyle.wrapperBase,
+    themedStyle.wrapper,
+    isCircle ? themedStyle.circleBackground : null,
+    isOutline ? themedStyle.outline : null,
   ];
 
   if (hasWrapper || isCircle || isOutline)
     return (
-      <View style={appliedStyles}>
-        <LIcon size={scale(size)} {...props} />
+      <View testID={`${testId}-icon-container`} style={appliedStyles}>
+        <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
       </View>
     );
   return <LIcon size={scale(size)} {...props} />;

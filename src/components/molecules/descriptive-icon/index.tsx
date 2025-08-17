@@ -5,7 +5,11 @@ import DescriptiveIconProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 
-const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
+const DescriptiveIcon = ({
+  testId,
+  iconProps,
+  textProps,
+}: DescriptiveIconProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const wrapperAppliedStyles = [themedStyles['wrapper']];
@@ -29,14 +33,21 @@ const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
   //
 
   return (
-    <View style={wrapperAppliedStyles}>
-      <LucideIcon isOutline={_isOutline} {...iconProps} />
-      <View style={themedStyles['text-wrapper']}>
+    <View
+      testID={`${testId}-descriptive-icon-container`}
+      style={wrapperAppliedStyles}>
+      <LucideIcon
+        testId={`${testId}-descriptive`}
+        isOutline={_isOutline}
+        {...iconProps}
+      />
+      <View style={themedStyles.textWrapper}>
         <Paragraph
+          testId={`${testId}-descriptive-icon`}
           {...textProps}
           size="sm"
           weight="Medium"
-          style={themedStyles['icon-text']}
+          style={themedStyles.iconText}
         />
       </View>
     </View>

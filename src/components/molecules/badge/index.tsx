@@ -10,16 +10,15 @@ const Badge = ({
   variant,
   color = 'brand',
   size = 'md',
-  text,
+  paragraphProps,
   style,
-  ...props
 }: BadgeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   return (
     <View
-      testID={`${testId}-badge-${variant}-${color}-${size}`}
+      testID={`${testId}-badge-container`}
       style={
         variant == 'number'
           ? [
@@ -37,15 +36,15 @@ const Badge = ({
       }
       accessibilityRole="text">
       <Paragraph
-        {...props}
-        text={text}
         style={
           variant == 'number'
             ? [themedStyles.textNumber, themedStyles[color]]
             : [themedStyles[color]]
         }
         size={size}
-        weight={'Medium'}
+        weight="Medium"
+        {...paragraphProps}
+        testId={`${testId}-badge`}
       />
     </View>
   );

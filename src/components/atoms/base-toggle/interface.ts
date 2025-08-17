@@ -1,6 +1,6 @@
 import { SwitchProps } from 'react-native';
 
-interface ToggleProps extends SwitchProps {
+interface ToggleProps extends Omit<SwitchProps, 'testID'> {
   testId: string;
 }
 

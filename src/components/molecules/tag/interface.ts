@@ -7,8 +7,8 @@ interface TagProps {
     size: 'sm' | 'md' | 'lg';
     label: string;
     hasIcon: boolean;
-    labelProps: ParagraphProps;
-    valueProps?: ParagraphProps;
+    labelProps: Omit<ParagraphProps, 'testId'>;
+    valueProps?: Omit<ParagraphProps, 'testId'>;
     icon?: keyof typeof icons;
     onPress?: () => void;
     containerStyle?: StyleProp<ViewStyle>;

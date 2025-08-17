@@ -1,3 +1,4 @@
+import React from 'react';
 import { View } from 'react-native';
 import SpacerProps, { SpacingValue } from './interface';
 import styles from './styles';
@@ -5,6 +6,7 @@ import { useThemeStore } from '@/store/theme';
 import { scale, verticalScale } from '@/store/theme/utils';
 
 const Spacer = ({
+  testId,
   space = 'md',
   isDivider = false,
   spaceTop,
@@ -19,6 +21,7 @@ const Spacer = ({
   const generateSpacerView = (spaceValue: SpacingValue) => {
     return (
       <View
+        testID={testId ? `${testId}-spacer` : undefined}
         style={
           typeof spaceValue === 'number'
             ? { height: verticalScale(spaceValue), width: scale(spaceValue) }

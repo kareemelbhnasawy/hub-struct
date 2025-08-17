@@ -1,14 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
-import { BaseToggle, BaseText } from '@/components/atoms';
+import { BaseToggle, Paragraph } from '@/components/atoms';
 import BrandToggleProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 
 const BrandToggle = ({
   testId,
-  title,
-  description,
   titleProps,
   descriptionProps,
   ...toggleProps
@@ -42,27 +40,31 @@ const BrandToggle = ({
   const themedStyles = getThemedStyles(styles);
 
   return (
-    <View style={themedStyles.container}>
+    <View
+      testID={`${testId}-brand-toggle-container`}
+      style={themedStyles.container}>
       <BaseToggle
-        testId={testId}
+        testId={`${testId}-brand`}
         {...toggleProps}
         trackColor={getTrackColor()}
         thumbColor={getThumbColor()}
         ios_backgroundColor={getThemeColor('toggleDefaultBackground')}
       />
       <View style={themedStyles.contentContainer}>
-        {title && (
-          <BaseText
-            text={title}
-            textProps={titleProps}
+        {titleProps && (
+          <Paragraph
+            testId={`${testId}-brand-toggle-title`}
+            size="md"
             style={themedStyles.title}
+            {...titleProps}
           />
         )}
-        {description && (
-          <BaseText
-            text={description}
-            textProps={descriptionProps}
+        {descriptionProps && (
+          <Paragraph
+            testId={`${testId}-brand-toggle-description`}
+            size="lg"
             style={themedStyles.description}
+            {...descriptionProps}
           />
         )}
       </View>

@@ -6,6 +6,7 @@ import { scale } from 'react-native-size-matters';
 import { COLORS } from '@/style';
 
 const MultiColorIcon = ({
+  testId,
   name,
   primaryColor,
   secondaryColor,
@@ -30,7 +31,7 @@ const MultiColorIcon = ({
 
   const xml = getXml();
   return (
-    <SvgXml xml={xml} width={scale(size)} height={scale(size)} {...props} />
+    <SvgXml testID={`${testId}-mulicolor-icon`} xml={xml} width={scale(size)} height={scale(size)} {...props} />
   );
 };
 

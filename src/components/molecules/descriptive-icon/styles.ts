@@ -12,7 +12,7 @@ const styles = createThemedStyles({
       width: 60,
     },
   },
-  'text-wrapper': {
+  textWrapper: {
     base: {
       flexGrow: 1,
       justifyContent: 'center',
@@ -20,7 +20,7 @@ const styles = createThemedStyles({
       flexDirection: 'column',
     },
   },
-  'icon-text': {
+  iconText: {
     base: {
       textAlign: 'center',
       color: 'textTitle',
