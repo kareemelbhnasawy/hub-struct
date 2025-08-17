@@ -1,4 +1,3 @@
-import React from 'react';
 import { Image } from 'react-native';
 import BaseImageProps from './interface';
 import { styles } from './styles';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import BadgeProps from './interface';
 import { Paragraph } from '@/components/atoms';

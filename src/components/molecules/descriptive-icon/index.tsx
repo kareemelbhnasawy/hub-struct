@@ -1,5 +1,4 @@
 import { View } from 'react-native';
-import React from 'react';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import DescriptiveIconProps from './interface';
 import styles from './styles';

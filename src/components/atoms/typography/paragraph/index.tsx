@@ -1,4 +1,3 @@
-import React from 'react';
 import BaseText from '../../base-text';
 import ParagraphProps from './interface';
 import styles from './styles';

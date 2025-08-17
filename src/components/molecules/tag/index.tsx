@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';

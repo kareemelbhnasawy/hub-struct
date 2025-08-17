@@ -1,4 +1,3 @@
-import React from 'react';
 import AvatarProps from './interface';
 import { getInitialsFromName } from './utils';
 import { View } from 'react-native';

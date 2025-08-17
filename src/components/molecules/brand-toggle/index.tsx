@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { BaseToggle, Paragraph } from '@/components/atoms';
 import BrandToggleProps from './interface';

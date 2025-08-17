@@ -1,4 +1,3 @@
-import React from 'react';
 import { SvgXml } from 'react-native-svg';
 import MultiColorIconProps from './interface';
 import { getMultiColorIconFnByName } from './utils';
@@ -31,7 +30,13 @@ const MultiColorIcon = ({
 
   const xml = getXml();
   return (
-    <SvgXml testID={`${testId}-mulicolor-icon`} xml={xml} width={scale(size)} height={scale(size)} {...props} />
+    <SvgXml
+      testID={`${testId}-mulicolor-icon`}
+      xml={xml}
+      width={scale(size)}
+      height={scale(size)}
+      {...props}
+    />
   );
 };
 
