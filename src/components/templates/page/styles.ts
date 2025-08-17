@@ -1,18 +1,18 @@
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
-  'safe-area-style': {
+  safeAreaStyle: {
     base: {
       flex: 1,
       backgroundColor: 'backgroundWhite',
     },
   },
-  'main-wrapper-view-style': {
+  mainWrapperViewStyle: {
     base: {
       flex: 1,
     },
   },
-  'main-wrapper-content-container-style': {
+  mainWrapperContentContainerStyle: {
     base: {
       flexGrow: 1,
     },
@@ -30,10 +30,21 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
-  'inner-page-style': {
+  innerPageStyle: {
     base: {
       paddingHorizontal: 20,
       flexGrow: 1,
+    },
+  },
+  stickyBottom: {
+    base: {
+      paddingHorizontal: 20,
+      paddingVertical: 24,
+      flexDirection: 'row',
+      borderTopWidth: 1,
+      borderColor: 'alphaBlack50',
+      alignItems: 'center',
+      backgroundColor: 'backgroundWhite',
     },
   },
 });

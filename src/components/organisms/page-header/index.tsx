@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
@@ -7,7 +7,7 @@ import PageHeaderProps from './interface';
 
 const PageHeader = ({
   isTitleCentered = true,
-  hasStartIcon = true,
+  hasBackIcon = true,
   startIcon,
   titleProps,
   endIcon,
@@ -15,13 +15,14 @@ const PageHeader = ({
 }: PageHeaderProps) => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const prefixTestId = 'page-header';
+  const prefixTestId = `${testId}-page-header`;
 
   const renderEndIcons = useCallback(() => {
     if (!endIcon) return null;
     if (Array.isArray(endIcon)) {
-      return endIcon.map((endIconSingleProp) => (
+      return endIcon.map((endIconSingleProp, index) => (
         <LucideIcon
+          testId={`${prefixTestId}-end-icon-${index}`}
           key={endIconSingleProp.name}
           color={getThemeColor('textDefault')}
           {...endIconSingleProp}
@@ -31,21 +32,21 @@ const PageHeader = ({
     }
     return (
       <LucideIcon
+        testId={`${prefixTestId}-end-icon`}
         color={getThemeColor('textDefault')}
         {...endIcon}
         hasWrapper
       />
     );
-  }, [endIcon]);
+  }, [endIcon, getThemeColor, prefixTestId]);
 
   return (
-    <View
-      testID={`${testId}-${prefixTestId}-wrapper`}
-      style={themedStyles['headerMain']}>
+    <View testID={`${prefixTestId}-wrapper`} style={themedStyles.headerMain}>
       {/* Start Icon */}
-      <View style={themedStyles['iconWrapper']}>
-        {hasStartIcon ? (
+      <View style={themedStyles.iconWrapper}>
+        {hasBackIcon || startIcon ? (
           <LucideIcon
+            testId={`${prefixTestId}-`}
             color={getThemeColor('textDefault')}
             name="ArrowLeft"
             hasWrapper
@@ -60,17 +61,18 @@ const PageHeader = ({
 
       {/* Title Wrapper */}
       <View
-        testID={`${testId}-${prefixTestId}-title-wrapper`}
-        style={themedStyles['textWrapper']}>
+        testID={`${prefixTestId}-title-wrapper`}
+        style={themedStyles.textWrapper}>
         {titleProps ? (
           <Headline
+            testId={`${prefixTestId}-title`}
             {...titleProps}
             style={[
-              themedStyles['fontColor'],
+              themedStyles.fontColor,
               titleProps.style,
               isTitleCentered &&
                 (!endIcon || (Array.isArray(endIcon) && endIcon.length <= 1)) && // force title to be NOT center if more than 1 endIcon
-                themedStyles['titleAlignCenter'],
+                themedStyles.titleAlignCenter,
             ]}
           />
         ) : null}
@@ -80,8 +82,7 @@ const PageHeader = ({
       {/*  */}
 
       {/* End Icons View Wrapper */}
-      <View
-        style={[themedStyles['endIconsWrapper'], themedStyles['iconWrapper']]}>
+      <View style={[themedStyles.endIconsWrapper, themedStyles.iconWrapper]}>
         {renderEndIcons()}
       </View>
       {/* End Icons View Wrapper */}

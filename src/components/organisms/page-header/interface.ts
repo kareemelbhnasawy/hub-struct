@@ -1,13 +1,15 @@
 import LucideIconProps from '@/components/atoms/lucide-icon/interface';
 import HeadlineProps from '@/components/atoms/typography/headline/interface';
 
+type OmittedLucideIconProps = Omit<LucideIconProps, 'testId'>;
+
 interface PageHeaderProps {
-  startIcon?: LucideIconProps;
-  titleProps?: HeadlineProps;
+  startIcon?: OmittedLucideIconProps;
+  titleProps?: Omit<HeadlineProps, 'testId'>;
   isTitleCentered?: boolean;
-  endIcon?: LucideIconProps | LucideIconProps[];
+  endIcon?: OmittedLucideIconProps | OmittedLucideIconProps[];
   testId: string;
-  hasStartIcon?: boolean;
+  hasBackIcon?: boolean;
 }
 
 export default PageHeaderProps;

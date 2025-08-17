@@ -19,6 +19,7 @@ const Page = ({
   backgroundImage,
   isLoading,
   renderCustomHeader,
+  renderStickyBottom,
   scrollEnabled = true,
   testId,
   pageHeaderVariant,
@@ -28,6 +29,7 @@ const Page = ({
   mainWrapperContentContainerStyle,
   innerPageStyle,
   safeAreaStyle,
+  stickyBottomContainerStyle,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -75,7 +77,7 @@ const Page = ({
   return (
     <SafeAreaView
       testID={`${prefixTestId}-safe-area-view`}
-      style={[themedStyles['safe-area-style'], safeAreaStyle]}>
+      style={[themedStyles.safeAreaStyle, safeAreaStyle]}>
       {/* Header */}
       <StatusBar
         barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
@@ -92,9 +94,9 @@ const Page = ({
       {/* Main Page */}
       <PageMainWrapper
         testID={`${prefixTestId}-main-wrapper`}
-        style={[themedStyles['main-wrapper-view-style'], mainWrapperStyle]}
+        style={[themedStyles.mainWrapperViewStyle, mainWrapperStyle]}
         contentContainerStyle={[
-          themedStyles['main-wrapper-content-container-style'],
+          themedStyles.mainWrapperContentContainerStyle,
           mainWrapperContentContainerStyle,
         ]}
         showsVerticalScrollIndicator={false}
@@ -104,7 +106,7 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[themedStyles['inner-page-style'], innerPageStyle]}>
+          style={[themedStyles.innerPageStyle, innerPageStyle]}>
           {children}
         </InnerPageWrapper>
         {/* Content */}
@@ -125,6 +127,12 @@ const Page = ({
           </View>
         </Portal>
       )}
+
+      {renderStickyBottom ? (
+        <View style={[themedStyles.stickyBottom, stickyBottomContainerStyle]}>
+          {renderStickyBottom()}
+        </View>
+      ) : null}
     </SafeAreaView>
   );
 };

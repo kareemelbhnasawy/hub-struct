@@ -1,4 +1,3 @@
-import React from 'react';
 import BaseSheetProps from './interface';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { styles } from './styles';
@@ -6,7 +5,7 @@ import { Headline, LucideIcon } from '@/components/atoms';
 import { Button, Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
 
-const BaseSheet: React.FC<BaseSheetProps> = ({
+const BaseSheet = ({
   testId,
   titleProps,
   hasCloseButton = true,
@@ -16,7 +15,7 @@ const BaseSheet: React.FC<BaseSheetProps> = ({
   snapPoints,
   containerStyle,
   ...props
-}) => {
+}: BaseSheetProps) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const closeButton = (
