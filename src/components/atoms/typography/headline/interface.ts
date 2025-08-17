@@ -1,6 +1,6 @@
 import BaseTextProps from '../../base-text/interface';
 
-interface DisplayProps extends BaseTextProps {
+interface HeadlineProps extends BaseTextProps {
   size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | '2xs';
   weight?:
     | 'Thin'
@@ -12,4 +12,4 @@ interface DisplayProps extends BaseTextProps {
     | 'Title';
 }
 
-export default DisplayProps;
+export default HeadlineProps;

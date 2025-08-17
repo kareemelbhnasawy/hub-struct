@@ -7,6 +7,9 @@ import { checkPermissions } from '@/utilities/permissions';
 import { requestNotifications } from 'react-native-permissions';
 import AppRoot from '@/apps/app-root';
 import React from 'react';
+import { Page } from '@/components/templates';
+import { PageHeaderVariants } from '@/components/templates/page/constants';
+import { PortalProvider } from '@gorhom/portal';
 
 const App = () => {
   const crashlytics = getCrashlytics();
@@ -20,7 +23,17 @@ const App = () => {
 
   return (
     <SafeAreaProvider style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
-      <AppRoot />
+      <PortalProvider>
+        <Page
+          hasHeader={false}
+          pageHeaderVariant={PageHeaderVariants.XWithTitle}
+          pageHeaderProps={{
+            titleProps: { text: 'Page Header' },
+          }}
+          testId="main-app-page-example">
+          <AppRoot />
+        </Page>
+      </PortalProvider>
     </SafeAreaProvider>
   );
 };
