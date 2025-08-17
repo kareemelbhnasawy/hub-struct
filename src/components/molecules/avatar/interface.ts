@@ -1,8 +1,8 @@
 import { ImageSourcePropType, TextProps, ViewStyle, StyleProp } from 'react-native';
 
-interface AvatarPropsBase extends TextProps {
+interface AvatarPropsBase extends Omit<TextProps, 'testID'> {
   testId: string;
-  size:  'sm' | 'md' | 'lg' | 'xl';
+  size: 'sm' | 'md' | 'lg' | 'xl';
   containerStyle: StyleProp<ViewStyle>;
 }
 

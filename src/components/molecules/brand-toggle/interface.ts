@@ -1,11 +1,10 @@
+import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 import { SwitchProps } from 'react-native';
 
 interface BrandToggleProps extends Omit<SwitchProps, 'testID'> {
   testId: string;
-  title?: string;
-  description?: string;
-  titleProps?: { [x: string]: string };
-  descriptionProps?: { [x: string]: string };
+  titleProps?: Omit<ParagraphProps,'testId'>;
+  descriptionProps?:  Omit<ParagraphProps,'testId'>;
 }
 
 export default BrandToggleProps;

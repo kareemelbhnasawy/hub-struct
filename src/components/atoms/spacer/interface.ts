@@ -18,6 +18,8 @@ export type SpacingValue =
   | '11xl';
 
 interface SpacerProps {
+  // Optinal till really needed
+  testId?: string;
   space?: SpacingValue;
   isDivider?: boolean;
   spaceTop?: SpacingValue;

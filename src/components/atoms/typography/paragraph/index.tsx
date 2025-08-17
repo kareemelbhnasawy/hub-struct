@@ -1,4 +1,3 @@
-import React from 'react';
 import BaseText from '../../base-text';
 import ParagraphProps from './interface';
 import styles from './styles';
@@ -8,6 +7,7 @@ import { useThemeStore } from '@/store/theme';
  * This is the Text in Figma, but we are using it as Paragraph in the app
  */
 const Paragraph = ({
+  testId,
   size = 'md',
   weight = 'Regular',
   ...props
@@ -16,6 +16,7 @@ const Paragraph = ({
   const themedStyles = getThemedStyles(styles);
   return (
     <BaseText
+      testId={`${testId}-paragraph`}
       {...props}
       style={[
         themedStyles.paragraph,

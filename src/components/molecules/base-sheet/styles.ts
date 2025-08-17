@@ -1,8 +1,7 @@
-import { responsiveHandler } from '@/theme';
-import { StyleSheet } from 'react-native';
+import { createThemedStyles } from '@/utilities';
 
-export const styles = StyleSheet.create({
-  containerWrapper: responsiveHandler({
+export const styles = createThemedStyles({
+  containerWrapper: {
     base: {
       backgroundColor: 'surfaceOncolor',
       paddingVertical: 15,
@@ -12,17 +11,17 @@ export const styles = StyleSheet.create({
       borderTopEndRadius: 20,
       borderTopStartRadius: 20,
     }
-  }),
-  heading: responsiveHandler({
+  },
+  heading: {
     base: {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
     }
-  }),
-  hasVerticalGap: responsiveHandler({
+  },
+  hasVerticalGap: {
     base: {
       rowGap: 20,
     }
-  }),
+  },
 });
