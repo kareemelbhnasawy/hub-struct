@@ -41,10 +41,10 @@ const List = <TItem,>({
         <View key={`skeleton-${index}`}>
           <Spacer {...spacerProps} />
           {/* Render Array of Skeleton Skeleton Component with its props for now it is a dummy paragraph */}
-          <Paragraph text="Skeleton" />
+          <Paragraph testId={`${testId}-list-skeleton`} text="Skeleton" />
         </View>
       )),
-    [loadingItemCount, testId],
+    [loadingItemCount, spacerProps, testId],
   );
 
   const renderListFooter = useCallback(() => {
@@ -53,7 +53,7 @@ const List = <TItem,>({
         <View>{renderSkeletons}</View> // Wrap in View for better performance
       ) : (
         <ActivityIndicator
-          testID={`${testId}-flash-list-loading-more-data-indicator`}
+          testID={`${testId}-list-loading-indicator`}
           style={themedStyles.loadMoreSpinnerStyle}
         />
       );
@@ -73,7 +73,7 @@ const List = <TItem,>({
       isLoading ? null : (
         // Dummy Empty Component To Be Changed With The Design Empty Component
         <Paragraph
-          testID={`${testId}-flash-list`}
+          testId={`${testId}-list`}
           style={themedStyles.defaultEmptyComponentStyle}
           {...emptyComponentProps}
           text="Empty Component"
@@ -88,12 +88,12 @@ const List = <TItem,>({
   );
 
   return (
-    <View style={listContainerStyle}>
+    <View testID={`${testId}-list-container`} style={listContainerStyle}>
       <FlashList
         {...flashListProps}
         keyExtractor={keyExtractor}
         ListEmptyComponent={renderEmptyComponent}
-        testID={`${testId}-flash-list`}
+        testID={`${testId}-list`}
         /**
          * Item separator, if not specified from consumer, a default is used
          */

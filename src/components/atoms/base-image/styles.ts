@@ -1,17 +1,16 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme';
+import { createThemedStyles } from '@/utilities';
 
-export const styles = StyleSheet.create({
-  fullSize: responsiveHandler({
+export const styles = createThemedStyles({
+  fullSize: {
     base: {
       height: '100%',
       width: '100%',
 
     }
-  }),
-  roundedFull: responsiveHandler({
+  },
+  roundedFull: {
     base: {
       borderRadius: 9999,
     }
-  }),
+  },
 });

@@ -6,7 +6,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { checkPermissions } from '@/utilities/permissions';
 import { requestNotifications } from 'react-native-permissions';
 import AppRoot from '@/apps/app-root';
-import React from 'react';
 import { Page } from '@/components/templates';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { PortalProvider } from '@gorhom/portal';

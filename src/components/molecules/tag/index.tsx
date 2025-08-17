@@ -1,4 +1,3 @@
-import React from 'react';
 import { View } from 'react-native';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import TagProps from './interface';
@@ -31,13 +30,13 @@ const Tag = ({
       ]}>
       <Paragraph
         size="sm"
-        testID={`${testId}-tag-label`}
+        testId={`${testId}-tag-label`}
         {...labelProps}
         style={[themedStyles.text, labelProps.style]}
       />
       {valueProps && (
         <Paragraph
-          testID={`${testId}-tag-value`}
+          testId={`${testId}-tag-value`}
           size="sm"
           {...valueProps}
           style={[themedStyles.text, valueProps.style]}
@@ -45,6 +44,7 @@ const Tag = ({
       )}
       {hasIcon && (
         <LucideIcon
+          testId={`${testId}-tag`}
           //TODO: wrap the icon add the onPress to the wrapper
           onPress={onPress}
           name={icon}

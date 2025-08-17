@@ -4,7 +4,7 @@ import { createThemedStyles } from '@/utilities';
 
 const styles = (size: number = DEFAULT_ICON_SIZE) =>
   createThemedStyles({
-    'wrapper-base': {
+    wrapperBase: {
       base: { width: scale(size) + 24, height: scale(size) + 24 },
       options: { skipScale: true },
     },
@@ -16,7 +16,7 @@ const styles = (size: number = DEFAULT_ICON_SIZE) =>
         borderRadius: 9999,
       },
     },
-    'circle-bg': {
+    circleBackground: {
       base: {
         backgroundColor: 'iconBackgroundSelected',
       },

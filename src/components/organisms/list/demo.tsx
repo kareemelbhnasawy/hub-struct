@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import List from './index'; // Adjust import path as needed
 import { Paragraph } from '@/components/atoms'; // Assuming Paragraph is available from your atoms

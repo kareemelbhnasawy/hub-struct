@@ -17,14 +17,12 @@ const styles = createThemedStyles({
   description: {
     base: {
       color: 'textToggleTitle',
-      fontSize: 12,
       marginTop: 4,
     },
   },
   title: {
     base: {
       color: 'textToggleTitle',
-      fontSize: 14,
     },
   },
 });

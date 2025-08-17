@@ -7,6 +7,7 @@ import { scale } from '@/store/theme/utils';
 import { useThemeStore } from '@/store/theme';
 
 const LucideIcon = ({
+  testId,
   name,
   size = DEFAULT_ICON_SIZE,
   isOutline,
@@ -22,10 +23,10 @@ const LucideIcon = ({
   const themedStyle = getThemedStyles(styles(size));
 
   const appliedStyles = [
-    themedStyle['wrapper-base'],
-    themedStyle['wrapper'],
-    isCircle ? themedStyle['circle-bg'] : null,
-    isOutline ? themedStyle['outline'] : null,
+    themedStyle.wrapperBase,
+    themedStyle.wrapper,
+    isCircle ? themedStyle.circleBackground : null,
+    isOutline ? themedStyle.outline : null,
   ];
 
   // question: should we add onPress to the following condition so icon always
@@ -33,9 +34,10 @@ const LucideIcon = ({
 
   if (hasWrapper || isCircle || isOutline)
     return (
-      <Wrapper onPress={onPress} style={appliedStyles}>
-        <LIcon size={scale(size)} {...props} />
+      <Wrapper testID={`${testId}-icon-container`} onPress={onPress} style={appliedStyles}>
+        <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
       </Wrapper>
+
     );
   return <LIcon size={scale(size)} {...props} onPress={onPress} />;
 };

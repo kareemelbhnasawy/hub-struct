@@ -1,51 +1,71 @@
-import { responsiveHandler, scale } from '@/theme';
-import { StyleSheet } from 'react-native';
+import { scale } from '@/store/theme/utils';
+import { createThemedStyles } from '@/utilities';
 
-export const styles = StyleSheet.create({
-  bgIconBackgroundDefault: responsiveHandler({
+export const styles = createThemedStyles({
+  bgIconBackgroundDefault: {
     base: {
       backgroundColor: 'iconBackgroundDefault',
     }
-  }),
-  flex: responsiveHandler({
+  },
+  flex: {
     base: {
       display: 'flex',
     }
-  }),
-  itemsCenter: responsiveHandler({
+  },
+  itemsCenter: {
     base: {
       alignItems: 'center',
     }
-  }),
-  justifyCenter: responsiveHandler({
+  },
+  justifyCenter: {
     base: {
       justifyContent: 'center',
     }
-  }),
-  roundedFull: responsiveHandler({
+  },
+  roundedFull: {
     base: {
       borderRadius: 9999,
     },
-  }),
+  },
   lg: {
-    height: scale(48),
-    width: scale(48)
+    base: {
+      height: scale(48),
+      width: scale(48)
+    },
+    options: {
+      skipScale: true
+    }
   },
   md: {
-    height: scale(32),
-    width: scale(32)
+    base: {
+      height: scale(32),
+      width: scale(32)
+    },
+    options: {
+      skipScale: true
+    }
   },
   sm: {
-    height: scale(24),
-    width: scale(24)
+    base: {
+      height: scale(24),
+      width: scale(24)
+    },
+    options: {
+      skipScale: true
+    }
   },
   xl: {
-    height: scale(72),
-    width: scale(72)
+    base: {
+      height: scale(72),
+      width: scale(72)
+    },
+    options: {
+      skipScale: true
+    }
   },
-  textWhite: responsiveHandler({
+  textWhite: {
     base: {
       color: 'textOncolorPrimary',
     }
-  })
+  }
 });

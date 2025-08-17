@@ -1,4 +1,3 @@
-import React from 'react';
 import BaseText from '../../base-text';
 import HeadlineProps from './interface';
 import styles from './styles';
@@ -8,6 +7,7 @@ import { useThemeStore } from '@/store/theme';
  * This is the Display component in Figma, but we are using it as Headline in the app
  */
 const Headline = ({
+  testId,
   size = 'md',
   weight = 'Regular',
   ...props
@@ -17,6 +17,7 @@ const Headline = ({
 
   return (
     <BaseText
+      testId={`${testId}-headline`}
       {...props}
       style={[
         themedStyles.headline,
