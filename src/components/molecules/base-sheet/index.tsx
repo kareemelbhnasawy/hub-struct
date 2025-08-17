@@ -24,7 +24,7 @@ const BaseSheet: React.FC<BaseSheetProps> = ({
     <BottomSheet
       ref={sheetRef}
       enablePanDownToClose={true}
-      snapPoints={snapPoints}
+      snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
       enableDynamicSizing={true}
       style={[containerStyle, styles.containerWrapper]}>
       <BottomSheetView style={styles.hasVerticalGap}>
@@ -35,6 +35,7 @@ const BaseSheet: React.FC<BaseSheetProps> = ({
         <View>{children}</View>
 
         {/* //TODO: replace with actual Button */}
+        {/* //TODO: make place for 2 buttons instead of one */}
         <View>{hasSubmitButton && <Button title="Submit" />}</View>
       </BottomSheetView>
     </BottomSheet>

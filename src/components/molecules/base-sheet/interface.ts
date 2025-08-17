@@ -6,7 +6,7 @@ interface BaseSheetProps {
     testId: string;
     children: React.ReactNode;
     sheetRef: React.RefObject<BottomSheet | null>;
-    snapPoints: string[];
+    snapPoints: string[] | string;
     titleProps?: DisplayProps;
     hasCloseButton?: boolean;
     hasSubmitButton?: boolean;
