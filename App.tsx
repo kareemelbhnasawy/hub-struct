@@ -29,10 +29,12 @@ const App = () => {
     <SafeAreaProvider style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
       <PortalProvider>
         <Page
-          hasHeader={false}
+          // hasHeader={false}
           pageHeaderVariant={PageHeaderVariants.XWithTitle}
           pageHeaderProps={{
+            isTitleCentered: false,
             titleProps: { text: 'Page Header' },
+            // endIcon: [{ name: 'AArrowDown' }],
           }}
           renderStickyBottom={stickyBottom}
           testId="main-app-page-example">

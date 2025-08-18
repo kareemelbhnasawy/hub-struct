@@ -6,7 +6,7 @@ import { Headline, LucideIcon } from '@/components/atoms';
 import PageHeaderProps from './interface';
 
 const PageHeader = ({
-  isTitleCentered = true,
+  isTitleCentered,
   hasBackIcon = true,
   startIcon,
   titleProps,
@@ -26,7 +26,7 @@ const PageHeader = ({
           key={endIconSingleProp.name}
           color={getThemeColor('textDefault')}
           {...endIconSingleProp}
-          hasWrapper={endIcon.length < 1}
+          hasWrapper={endIcon.length <= 1}
         />
       ));
     }
@@ -43,7 +43,7 @@ const PageHeader = ({
   return (
     <View testID={`${prefixTestId}-wrapper`} style={themedStyles.headerMain}>
       {/* Start Icon */}
-      <View style={themedStyles.iconWrapper}>
+      <View style={[themedStyles.startIconsWrapper, themedStyles.iconWrapper]}>
         {hasBackIcon || startIcon ? (
           <LucideIcon
             testId={`${prefixTestId}-`}
@@ -70,9 +70,7 @@ const PageHeader = ({
             style={[
               themedStyles.fontColor,
               titleProps.style,
-              isTitleCentered &&
-                (!endIcon || (Array.isArray(endIcon) && endIcon.length <= 1)) && // force title to be NOT center if more than 1 endIcon
-                themedStyles.titleAlignCenter,
+              isTitleCentered && themedStyles.titleAlignCenter,
             ]}
           />
         ) : null}

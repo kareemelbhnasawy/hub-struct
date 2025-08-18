@@ -1,4 +1,3 @@
-import { scale } from '@/store/theme/utils';
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
@@ -14,7 +13,7 @@ const styles = createThemedStyles({
   },
   textWrapper: {
     base: {
-      flex: 1,
+      flex: 5,
       flexDirection: 'row',
       alignItems: 'center',
     },
@@ -31,16 +30,24 @@ const styles = createThemedStyles({
       textAlign: 'center',
     },
   },
+  startIconsWrapper: {
+    base: {
+      justifyContent: 'flex-start',
+    },
+  },
   endIconsWrapper: {
     base: {
-      flexDirection: 'row',
-      columnGap: 12,
-      alignItems: 'center',
+      justifyContent: 'flex-end',
     },
   },
   iconWrapper: {
-    base: { minWidth: scale(24) + 24, minHeight: scale(24) + 24 },
-    options: { skipScale: true },
+    base: {
+      flex: 2,
+      flexDirection: 'row',
+      columnGap: 12,
+      alignItems: 'center',
+      backgroundColor: 'alphaBlack40',
+    },
   },
 });
 
