@@ -1,7 +1,7 @@
 import { icons } from 'lucide-react-native';
 import LucideIconProps from './interface';
 import styles from './styles';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { DEFAULT_ICON_SIZE } from './constants';
 import { scale } from '@/store/theme/utils';
 import { useThemeStore } from '@/store/theme';
@@ -13,10 +13,11 @@ const LucideIcon = ({
   isOutline,
   isCircle,
   hasWrapper = false,
+  onPress,
   ...props
 }: LucideIconProps) => {
   const LIcon = icons[name];
-
+  const Wrapper = onPress ? Pressable : View;
   const { getThemedStyles } = useThemeStore();
 
   const themedStyle = getThemedStyles(styles(size));
@@ -28,13 +29,17 @@ const LucideIcon = ({
     isOutline ? themedStyle.outline : null,
   ];
 
+  // question: should we add onPress to the following condition so icon always
+  // has a wrapper if it has an onPress? for better UX
+
   if (hasWrapper || isCircle || isOutline)
     return (
-      <View testID={`${testId}-icon-container`} style={appliedStyles}>
+      <Wrapper testID={`${testId}-icon-container`} onPress={onPress} style={appliedStyles}>
         <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
-      </View>
+      </Wrapper>
+
     );
-  return <LIcon size={scale(size)} {...props} />;
+  return <LIcon size={scale(size)} {...props} onPress={onPress} />;
 };
 
 export default LucideIcon;

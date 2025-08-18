@@ -1,4 +1,4 @@
-import { Image } from 'react-native';
+import { Image, ImageStyle, StyleProp } from 'react-native';
 import BaseImageProps from './interface';
 import { styles } from './styles';
 import { useThemeStore } from '@/store/theme';
@@ -18,8 +18,8 @@ const BaseImage = ({
     <Image
       testID={`${testId}-image`}
       style={[
-        themedStyles.fullSize,
-        isCircular && themedStyles.roundedFull,
+        themedStyles.fullSize as StyleProp<ImageStyle>,
+        isCircular && (themedStyles.roundedFull as StyleProp<ImageStyle>),
         imageProps.style,
       ]}
       resizeMode={resizeMode}
