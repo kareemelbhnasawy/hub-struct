@@ -553,6 +553,10 @@ export const themeColors = {
   },
 
   // Alpha Colors
+  transparent: {
+    light: COLORS['transparent'],
+    dark: COLORS['transparent'],
+  },
   alphaWhite10: {
     light: COLORS['alpha-white-10'],
     dark: COLORS['alpha-white-10'],

@@ -30,6 +30,18 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
+  topPageImageStyle: {
+    base: {
+      position: 'absolute',
+      top: 0,
+      zIndex: -1,
+    },
+  },
+  transparentBackground: {
+    base: {
+      backgroundColor: 'transparent',
+    },
+  },
   innerPageStyle: {
     base: {
       paddingHorizontal: 20,

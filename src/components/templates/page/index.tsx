@@ -13,6 +13,7 @@ import { Portal } from '@gorhom/portal';
 import styles from './styles';
 import { PageHeader } from '@/components/organisms';
 import { PageHeaderVariants } from './constants';
+import { CurvedHeroImage } from '@/components/atoms';
 
 const Page = ({
   children,
@@ -30,6 +31,9 @@ const Page = ({
   innerPageStyle,
   safeAreaStyle,
   stickyBottomContainerStyle,
+  imageStyle,
+  topPageImageSource,
+  pageHeaderFontColor,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -59,6 +63,12 @@ const Page = ({
             testId={prefixTestId}
             startIcon={{ name: 'ArrowLeft' }}
             {...pageHeaderProps}
+            fontColor={pageHeaderFontColor}
+            containerStyle={
+              topPageImageSource
+                ? themedStyles.transparentBackground
+                : undefined
+            }
           />
         );
       case PageHeaderVariants.XWithTitle:
@@ -67,12 +77,36 @@ const Page = ({
             testId={prefixTestId}
             startIcon={{ name: 'X' }}
             {...pageHeaderProps}
+            fontColor={pageHeaderFontColor}
+            containerStyle={
+              topPageImageSource
+                ? themedStyles.transparentBackground
+                : undefined
+            }
           />
         );
       default:
-        return <PageHeader testId={prefixTestId} {...pageHeaderProps} />;
+        return (
+          <PageHeader
+            testId={prefixTestId}
+            {...pageHeaderProps}
+            fontColor={pageHeaderFontColor}
+            containerStyle={
+              topPageImageSource
+                ? themedStyles.transparentBackground
+                : undefined
+            }
+          />
+        );
     }
-  }, [pageHeaderProps, pageHeaderVariant, prefixTestId]);
+  }, [
+    pageHeaderFontColor,
+    pageHeaderProps,
+    pageHeaderVariant,
+    prefixTestId,
+    themedStyles.transparentBackground,
+    topPageImageSource,
+  ]);
 
   return (
     <SafeAreaView
@@ -91,6 +125,18 @@ const Page = ({
 
       {/*  */}
 
+      {/* Top page image */}
+      {topPageImageSource ? (
+        <CurvedHeroImage
+          testId="a"
+          source={topPageImageSource}
+          style={themedStyles.topPageImageStyle}
+        />
+      ) : null}
+      {/* Top page image */}
+
+      {/*  */}
+
       {/* Main Page */}
       <PageMainWrapper
         testID={`${prefixTestId}-main-wrapper`}
@@ -106,7 +152,9 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[themedStyles.innerPageStyle, innerPageStyle]}>
+          style={[themedStyles.innerPageStyle, innerPageStyle]}
+          source={backgroundImage}
+          imageStyle={backgroundImage ? imageStyle : undefined}>
           {children}
         </InnerPageWrapper>
         {/* Content */}

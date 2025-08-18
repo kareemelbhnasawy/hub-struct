@@ -10,6 +10,7 @@ import { Page } from '@/components/templates';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { PortalProvider } from '@gorhom/portal';
 import { Paragraph } from '@/components/atoms';
+import RiyadhImage from '@/assets/images/riyadh.png';
 
 const App = () => {
   const crashlytics = getCrashlytics();
@@ -30,12 +31,14 @@ const App = () => {
       <PortalProvider>
         <Page
           // hasHeader={false}
+          topPageImageSource={RiyadhImage}
           pageHeaderVariant={PageHeaderVariants.XWithTitle}
           pageHeaderProps={{
-            isTitleCentered: false,
+            isTitleCentered: true,
             titleProps: { text: 'Page Header' },
-            // endIcon: [{ name: 'AArrowDown' }],
+            endIcon: [{ name: 'Search' }],
           }}
+          pageHeaderFontColor={'white'} // to be changed
           renderStickyBottom={stickyBottom}
           testId="main-app-page-example">
           <AppRoot />

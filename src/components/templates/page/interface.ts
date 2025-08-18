@@ -34,6 +34,8 @@ interface PageProps {
   pageHeaderProps?: Omit<PageHeaderProps, 'testId'>;
   pageHeaderVariant?: PageHeaderVariants;
   hasHeader?: boolean;
+  topPageImageSource?: ImageSourcePropType | undefined;
+  pageHeaderFontColor?: string;
 }
 
 // THESE PROPS HAVE MORE PROPS THAN ARE USED BECAUSE A LOT OF THEM ARE TODOS

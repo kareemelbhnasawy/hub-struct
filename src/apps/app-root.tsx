@@ -19,7 +19,7 @@ const AppRoot = () => {
           <Text style={{ color: 'white' }}>Samya</Text>
         </View>
       </CurvedHeroImage> */}
-      <Headline text="common.welcome" />
+      <Headline testId="app-root-headline-1" text="common.welcome" />
       <Pressable
         onPress={() => {
           toggleTheme();

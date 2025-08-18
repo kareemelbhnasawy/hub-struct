@@ -11,7 +11,9 @@ const PageHeader = ({
   startIcon,
   titleProps,
   endIcon,
+  containerStyle,
   testId,
+  fontColor,
 }: PageHeaderProps) => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -24,7 +26,7 @@ const PageHeader = ({
         <LucideIcon
           testId={`${prefixTestId}-end-icon-${index}`}
           key={endIconSingleProp.name}
-          color={getThemeColor('textDefault')}
+          color={fontColor ?? getThemeColor('textDefault')}
           {...endIconSingleProp}
           hasWrapper={endIcon.length <= 1}
         />
@@ -33,21 +35,23 @@ const PageHeader = ({
     return (
       <LucideIcon
         testId={`${prefixTestId}-end-icon`}
-        color={getThemeColor('textDefault')}
+        color={fontColor ?? getThemeColor('textDefault')}
         {...endIcon}
         hasWrapper
       />
     );
-  }, [endIcon, getThemeColor, prefixTestId]);
+  }, [endIcon, fontColor, getThemeColor, prefixTestId]);
 
   return (
-    <View testID={`${prefixTestId}-wrapper`} style={themedStyles.headerMain}>
+    <View
+      testID={`${prefixTestId}-wrapper`}
+      style={[themedStyles.headerMain, containerStyle]}>
       {/* Start Icon */}
       <View style={[themedStyles.startIconsWrapper, themedStyles.iconWrapper]}>
         {hasBackIcon || startIcon ? (
           <LucideIcon
             testId={`${prefixTestId}-`}
-            color={getThemeColor('textDefault')}
+            color={fontColor ?? getThemeColor('textDefault')}
             name="ArrowLeft"
             hasWrapper
             // onPress={() => console.log('TODO: Go back!!')} TODO
@@ -69,6 +73,7 @@ const PageHeader = ({
             {...titleProps}
             style={[
               themedStyles.fontColor,
+              fontColor ? { color: fontColor } : null,
               titleProps.style,
               isTitleCentered && themedStyles.titleAlignCenter,
             ]}
