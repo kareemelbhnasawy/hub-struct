@@ -17,18 +17,18 @@ const AppRoot = () => {
   return (
     <>
       <ScrollView>
-        <CurvedHeroImage>
+        <CurvedHeroImage testId={'test'}>
           <View
             style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
             <GlassContainer testId="samya" borderRadius={Radius.LG}>
-              <Headline text="Test Glass Container" weight="Bold" />
+              <Headline text="Test Glass Container" weight="Bold" testId={''} />
             </GlassContainer>
             <GlassContainer testId="icon" containerStyle={{ aspectRatio: 1 }}>
-              <LucideIcon name="X" />
+              <LucideIcon name="X" testId={''} />
             </GlassContainer>
           </View>
         </CurvedHeroImage>
-        <Headline text="common.welcome" />
+        <Headline text="common.welcome" testId={''} />
         <Pressable
           onPress={() => {
             toggleTheme();

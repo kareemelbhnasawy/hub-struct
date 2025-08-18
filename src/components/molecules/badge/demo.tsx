@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Badge from './index';
 import { Paragraph } from '../../atoms';
@@ -11,6 +10,7 @@ const BadgeDemo = () => {
   return (
     <View style={styles.container}>
       <Paragraph
+        testId="demo-badge-title"
         text="Badge Component Demo"
         size="lg"
         weight="Bold"
@@ -20,6 +20,7 @@ const BadgeDemo = () => {
       {/* Label variants */}
       <View style={styles.section}>
         <Paragraph
+          testId="demo-badge-title-label-variants"
           text="Label Variants"
           weight="Semibold"
           style={styles.sectionTitle}
@@ -31,21 +32,27 @@ const BadgeDemo = () => {
             variant="label"
             color="brand"
             size="sm"
-            text="عنوان"
+            paragraphProps={{
+              text: 'عنوان',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="brand"
             size="md"
-            text="عنوان"
+            paragraphProps={{
+              text: 'عنوان',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="brand"
             size="lg"
-            text="عنوان"
+            paragraphProps={{
+              text: 'عنوان',
+            }}
           />
         </View>
 
@@ -55,21 +62,27 @@ const BadgeDemo = () => {
             variant="label"
             color="brand"
             size="sm"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="brand"
             size="md"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="brand"
             size="lg"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
         </View>
 
@@ -79,21 +92,27 @@ const BadgeDemo = () => {
             variant="label"
             color="gray"
             size="sm"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="success"
             size="md"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="warning"
             size="lg"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
         </View>
 
@@ -103,21 +122,27 @@ const BadgeDemo = () => {
             variant="label"
             color="error"
             size="sm"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="error"
             size="md"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
           <Badge
             testId="demo"
             variant="label"
             color="error"
             size="lg"
-            text="Label"
+            paragraphProps={{
+              text: 'Label',
+            }}
           />
         </View>
       </View>
@@ -125,6 +150,7 @@ const BadgeDemo = () => {
       {/* Number variants */}
       <View style={styles.section}>
         <Paragraph
+          testId="demo-badge-title-number-variants"
           text="Number Variants"
           weight="Semibold"
           style={styles.sectionTitle}
@@ -136,21 +162,27 @@ const BadgeDemo = () => {
             variant="number"
             color="brand"
             size="sm"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="brand"
             size="md"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="brand"
             size="lg"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
         </View>
 
@@ -160,21 +192,27 @@ const BadgeDemo = () => {
             variant="number"
             color="gray"
             size="sm"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="success"
             size="md"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="warning"
             size="lg"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
         </View>
 
@@ -184,21 +222,27 @@ const BadgeDemo = () => {
             variant="number"
             color="error"
             size="sm"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="error"
             size="md"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
           <Badge
             testId="demo"
             variant="number"
             color="error"
             size="lg"
-            text="9"
+            paragraphProps={{
+              text: '9',
+            }}
           />
         </View>
       </View>
@@ -208,7 +252,7 @@ const BadgeDemo = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     padding: 20,
     backgroundColor: '#f8f9fa',
   },

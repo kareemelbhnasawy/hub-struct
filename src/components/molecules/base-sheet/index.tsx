@@ -1,12 +1,12 @@
-import React from 'react';
 import BaseSheetProps from './interface';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { styles } from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
 import { Button, Pressable, View } from 'react-native';
-import { getThemeColor } from '@/theme/theme-colors';
+import { useThemeStore } from '@/store/theme';
 
-const BaseSheet: React.FC<BaseSheetProps> = ({
+const BaseSheet = ({
+  testId,
   titleProps,
   hasCloseButton = true,
   hasSubmitButton = false,
@@ -14,10 +14,20 @@ const BaseSheet: React.FC<BaseSheetProps> = ({
   sheetRef,
   snapPoints,
   containerStyle,
-}) => {
+  ...props
+}: BaseSheetProps) => {
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
   const closeButton = (
-    <Pressable onPress={() => sheetRef.current?.snapToIndex(0)}>
-      <LucideIcon name="X" size={24} color={getThemeColor('iconDefault')} />
+    <Pressable
+      testID={`${testId}-bottom-sheet-close-container`}
+      onPress={() => sheetRef.current?.snapToIndex(0)}>
+      <LucideIcon
+        testId={`${testId}-bottom-sheet-close-icon`}
+        name="X"
+        size={24}
+        color={getThemeColor('iconDefault')}
+      />
     </Pressable>
   );
   return (
@@ -26,17 +36,29 @@ const BaseSheet: React.FC<BaseSheetProps> = ({
       enablePanDownToClose={true}
       snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
       enableDynamicSizing={true}
-      style={[containerStyle, styles.containerWrapper]}>
-      <BottomSheetView style={styles.hasVerticalGap}>
-        <View style={styles.heading}>
-          {titleProps && <Headline {...titleProps} />}
+      style={[containerStyle, themedStyles.containerWrapper]}
+      {...props}>
+      <BottomSheetView
+        testID={`${testId}-bottom-sheet`}
+        style={themedStyles.hasVerticalGap}>
+        <View
+          testID={`${testId}-bottom-sheet-header-container`}
+          style={themedStyles.heading}>
+          {titleProps && (
+            <Headline
+              testId={`${testId}-bottom-sheet-header`}
+              {...titleProps}
+            />
+          )}
           {hasCloseButton && closeButton}
         </View>
-        <View>{children}</View>
+        <View testID={`${testId}-bottom-sheet-body-container`}>{children}</View>
 
         {/* //TODO: replace with actual Button */}
         {/* //TODO: make place for 2 buttons instead of one */}
-        <View>{hasSubmitButton && <Button title="Submit" />}</View>
+        <View testID={`${testId}-bottom-sheet-footer-container`}>
+          {hasSubmitButton && <Button title="Submit" />}
+        </View>
       </BottomSheetView>
     </BottomSheet>
   );
