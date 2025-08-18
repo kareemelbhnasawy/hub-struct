@@ -46,7 +46,6 @@ const styles = createThemedStyles({
       flexDirection: 'row',
       columnGap: 12,
       alignItems: 'center',
-      backgroundColor: 'alphaBlack40',
     },
   },
 });
