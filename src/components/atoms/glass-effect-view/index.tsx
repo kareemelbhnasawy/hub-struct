@@ -7,21 +7,25 @@ import Animated, {
   useAnimatedStyle,
   withRepeat,
   withTiming,
+  Easing,
 } from 'react-native-reanimated';
+import MaskedView from '@react-native-masked-view/masked-view';
+import LinearGradient from 'react-native-linear-gradient';
 
 const FrostedGlass = () => {
-  const rotation = useSharedValue(0);
+  const translateX = useSharedValue(0);
 
   useEffect(() => {
-    rotation.value = withRepeat(
-      withTiming(360, { duration: 3000 }), // 3s for full rotation
-      -1, // infinite
-      false,
+    translateX.value = withRepeat(
+      withTiming(200, { duration: 6000 }),
+      -1,
+      true,
     );
   }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${rotation.value}deg` }],
+    transform: [{ translateX: translateX.value }],
+    easing: Easing.linear,
   }));
 
   return (
@@ -32,52 +36,56 @@ const FrostedGlass = () => {
         blurAmount={1}
         reducedTransparencyFallbackColor="white"
       />
-      <Animated.View style={[styles.border, animatedStyle]}>
-        <View style={styles.innerBox}>
-          <Text style={styles.text}>Glass Zeft</Text>
-        </View>
-      </Animated.View>
+      <MaskedView
+        style={StyleSheet.absoluteFillObject}
+        maskElement={<View style={styles.borderMask} />}>
+        <Animated.View style={animatedStyle}>
+          <LinearGradient
+            colors={['transparent', '#ffffffaa', 'transparent']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.shimmerGradient}
+          />
+        </Animated.View>
+      </MaskedView>
+      <View style={styles.innerBox}>
+        <Text style={styles.text}>Glass Zeft</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: 150,
-    height: 75,
+    padding: 20,
     borderRadius: 100,
     overflow: 'hidden',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: 'rgba(255,255,255,0.05)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#e5e7eb',
-    borderEndWidth: 1,
-    borderTopWidth: 1,
-    borderBottomWidth: 2,
-    borderStartWidth: 2,
-    ...SHADOWS.sm,
   },
   blurView: {
     ...StyleSheet.absoluteFillObject,
+    ...SHADOWS.sm,
+  },
+  borderMask: {
+    flex: 1,
+    borderRadius: 100,
+    borderWidth: 2,
+    borderColor: 'black',
+  },
+  shimmerGradient: {
+    width: 400,
+    height: '100%',
+  },
+  innerBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     fontSize: 15,
     fontWeight: 'bold',
     color: '#fff',
-  },
-  border: {
-    padding: 4, // border thickness
-    borderWidth: 4,
-    borderColor: 'blue',
-    borderRadius: 100,
-  },
-  innerBox: {
-    width: 120,
-    height: 120,
-    borderRadius: 100,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 
