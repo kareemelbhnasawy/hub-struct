@@ -1,11 +1,12 @@
 /* eslint-disable */
+import React from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { CurvedHeroImage, Headline } from '@/components/atoms';
 import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
-import BadgeDemo from '@/components/molecules/badge/demo';
 import ListDemo from '@/components/organisms/list/demo';
+import FrostedGlassCard from '@/components/atoms/glass-effect-view';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -17,8 +18,8 @@ const AppRoot = () => {
       <ScrollView>
         <CurvedHeroImage>
           <View
-            style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-            <Text style={{ color: 'white' }}>Samya</Text>
+            style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+            <FrostedGlassCard />
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" />
