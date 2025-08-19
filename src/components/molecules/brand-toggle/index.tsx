@@ -1,18 +1,17 @@
-import React from 'react';
 import { View } from 'react-native';
-import { BaseToggle, BaseText } from '@/components/atoms';
+import { BaseToggle, Paragraph } from '@/components/atoms';
 import BrandToggleProps from './interface';
-import { getThemeColor } from '@/theme';
-import { styles } from './styles';
+import styles from './styles';
+import { useThemeStore } from '@/store/theme';
 
 const BrandToggle = ({
   testId,
-  title,
-  description,
   titleProps,
   descriptionProps,
   ...toggleProps
 }: BrandToggleProps) => {
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+
   // Get track color based on state
   const getTrackColor = () => ({
     false: getThemeColor(
@@ -37,24 +36,34 @@ const BrandToggle = ({
           : 'toggleDefaultKnob',
     );
 
+  const themedStyles = getThemedStyles(styles);
+
   return (
-    <View style={styles.container}>
+    <View
+      testID={`${testId}-brand-toggle-container`}
+      style={themedStyles.container}>
       <BaseToggle
-        testId={testId}
+        testId={`${testId}-brand`}
         {...toggleProps}
         trackColor={getTrackColor()}
         thumbColor={getThumbColor()}
         ios_backgroundColor={getThemeColor('toggleDefaultBackground')}
       />
-      <View style={styles.contentContainer}>
-        {title && (
-          <BaseText text={title} textProps={titleProps} style={styles.title} />
+      <View style={themedStyles.contentContainer}>
+        {titleProps && (
+          <Paragraph
+            testId={`${testId}-brand-toggle-title`}
+            size="md"
+            style={themedStyles.title}
+            {...titleProps}
+          />
         )}
-        {description && (
-          <BaseText
-            text={description}
-            textProps={descriptionProps}
-            style={styles.description}
+        {descriptionProps && (
+          <Paragraph
+            testId={`${testId}-brand-toggle-description`}
+            size="lg"
+            style={themedStyles.description}
+            {...descriptionProps}
           />
         )}
       </View>

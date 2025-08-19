@@ -1,20 +1,27 @@
-import React from 'react';
-import { Image } from 'react-native';
+import { Image, ImageStyle, StyleProp } from 'react-native';
 import BaseImageProps from './interface';
+import { styles } from './styles';
+import { useThemeStore } from '@/store/theme';
 
 const BaseImage = ({
-  testID,
-  size,
+  testId,
   image,
   roundedImageSize = 0,
   resizeMode = roundedImageSize ? 'cover' : undefined,
   isCircular = false,
   ...imageProps
 }: BaseImageProps) => {
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+
   return (
     <Image
-      testID={`${testID}-image`}
-      className={`${size} ${isCircular ? 'rounded-full' : ''}`}
+      testID={`${testId}-image`}
+      style={[
+        themedStyles.fullSize as StyleProp<ImageStyle>,
+        isCircular && (themedStyles.roundedFull as StyleProp<ImageStyle>),
+        imageProps.style,
+      ]}
       resizeMode={resizeMode}
       source={typeof image === 'string' ? { uri: image } : image}
       {...imageProps}

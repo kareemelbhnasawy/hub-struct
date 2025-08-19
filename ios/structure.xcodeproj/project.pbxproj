@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030EDAEB8B6B42BC906B8539 /* hrsdgov_semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D8D073F2274761AC5FBE46 /* hrsdgov_semibold.ttf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		29C31BD49C9426962ABD5861 /* Pods_structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD24D11249427CC3019213C /* Pods_structure.framework */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A15099CBF463495A9FD48C8C /* hrsdgov_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68074EDD8E004374BEFCA534 /* hrsdgov_bold.ttf */; };
 		A34BC3302DF269DA1CBD8A09 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		A969E18238BA4AA6923BF8AA /* hrsdgov_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0EC8CFEE6545C6A65337CC /* hrsdgov_medium.ttf */; };
+		B1C5AE70028F44569C729791 /* hrsdgov_title.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D73589F18794197B0DEDBE6 /* hrsdgov_title.ttf */; };
 		B807B07C2E489BCA00FDE676 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B807B07B2E489BCA00FDE676 /* GoogleService-Info.plist */; };
+		CAA691D84DD240EFB312682B /* hrsdgov_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8592C5B98081431A95A5946F /* hrsdgov_light.ttf */; };
+		DE565CB1E88F4166A61E8081 /* hrsdgov_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1191BDC4582F4C5FB8093C1E /* hrsdgov_regular.ttf */; };
+		EA1F19A614B3448280203463 /* hrsdgov_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60BB34E77DBE42E394C49FE7 /* hrsdgov_thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1191BDC4582F4C5FB8093C1E /* hrsdgov_regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_regular.ttf; path = ../src/assets/fonts/hrsdgov_regular.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* structure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = structure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = structure/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = structure/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = structure/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1F0EC8CFEE6545C6A65337CC /* hrsdgov_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_medium.ttf; path = ../src/assets/fonts/hrsdgov_medium.ttf; sourceTree = "<group>"; };
 		2DD24D11249427CC3019213C /* Pods_structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D73589F18794197B0DEDBE6 /* hrsdgov_title.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_title.ttf; path = ../src/assets/fonts/hrsdgov_title.ttf; sourceTree = "<group>"; };
 		4E00DA6D3EBFAA3A32C46838 /* Pods-structure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-structure.release.xcconfig"; path = "Target Support Files/Pods-structure/Pods-structure.release.xcconfig"; sourceTree = "<group>"; };
+		60BB34E77DBE42E394C49FE7 /* hrsdgov_thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_thin.ttf; path = ../src/assets/fonts/hrsdgov_thin.ttf; sourceTree = "<group>"; };
+		68074EDD8E004374BEFCA534 /* hrsdgov_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_bold.ttf; path = ../src/assets/fonts/hrsdgov_bold.ttf; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = structure/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = structure/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8592C5B98081431A95A5946F /* hrsdgov_light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_light.ttf; path = ../src/assets/fonts/hrsdgov_light.ttf; sourceTree = "<group>"; };
+		A0D8D073F2274761AC5FBE46 /* hrsdgov_semibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = hrsdgov_semibold.ttf; path = ../src/assets/fonts/hrsdgov_semibold.ttf; sourceTree = "<group>"; };
 		B807B07B2E489BCA00FDE676 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E163224F1ACA450FB57C577C /* Pods-structure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-structure.debug.xcconfig"; path = "Target Support Files/Pods-structure/Pods-structure.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -78,6 +92,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				A09C407A823140878FFCD069 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -90,6 +105,21 @@
 				13B07F961A680F5B00A75B9A /* structure.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A09C407A823140878FFCD069 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68074EDD8E004374BEFCA534 /* hrsdgov_bold.ttf */,
+				8592C5B98081431A95A5946F /* hrsdgov_light.ttf */,
+				1F0EC8CFEE6545C6A65337CC /* hrsdgov_medium.ttf */,
+				1191BDC4582F4C5FB8093C1E /* hrsdgov_regular.ttf */,
+				A0D8D073F2274761AC5FBE46 /* hrsdgov_semibold.ttf */,
+				60BB34E77DBE42E394C49FE7 /* hrsdgov_thin.ttf */,
+				4D73589F18794197B0DEDBE6 /* hrsdgov_title.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -167,6 +197,13 @@
 				B807B07C2E489BCA00FDE676 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				A34BC3302DF269DA1CBD8A09 /* PrivacyInfo.xcprivacy in Resources */,
+				A15099CBF463495A9FD48C8C /* hrsdgov_bold.ttf in Resources */,
+				CAA691D84DD240EFB312682B /* hrsdgov_light.ttf in Resources */,
+				A969E18238BA4AA6923BF8AA /* hrsdgov_medium.ttf in Resources */,
+				DE565CB1E88F4166A61E8081 /* hrsdgov_regular.ttf in Resources */,
+				030EDAEB8B6B42BC906B8539 /* hrsdgov_semibold.ttf in Resources */,
+				EA1F19A614B3448280203463 /* hrsdgov_thin.ttf in Resources */,
+				B1C5AE70028F44569C729791 /* hrsdgov_title.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

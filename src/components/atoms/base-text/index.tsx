@@ -1,9 +1,9 @@
-import React from 'react';
 import { Text } from 'react-native';
 import BaseTextProps from './interface';
 import { useTranslate } from '@/hooks';
 
 const BaseText = ({
+  testId,
   text,
   isTranslated = true,
   textProps,
@@ -13,7 +13,7 @@ const BaseText = ({
   const { translate } = useTranslate();
 
   return (
-    <Text {...props}>
+    <Text testID={`${testId}-text`} {...props}>
       {isTranslated ? translate(text, textProps) : text}
       {children}
     </Text>

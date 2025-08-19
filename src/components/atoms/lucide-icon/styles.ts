@@ -1,30 +1,33 @@
-import { responsiveHandler, scale } from '@/theme';
-import { StyleSheet } from 'react-native';
+import { scale } from '@/store/theme/utils';
 import { DEFAULT_ICON_SIZE } from './constants';
+import { createThemedStyles } from '@/utilities';
 
-export const styles = (size: number = DEFAULT_ICON_SIZE) =>
-  StyleSheet.create({
-    'wrapper-base': {
-      width: scale(size) + 24,
-      height: scale(size) + 24,
+const styles = (size: number = DEFAULT_ICON_SIZE) =>
+  createThemedStyles({
+    wrapperBase: {
+      base: { width: scale(size) + 24, height: scale(size) + 24 },
+      options: { skipScale: true },
     },
-    wrapper: responsiveHandler({
+
+    wrapper: {
       base: {
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 9999,
       },
-    }),
-    'circle-bg': responsiveHandler({
+    },
+    circleBackground: {
       base: {
         backgroundColor: 'iconBackgroundSelected',
       },
-    }),
-    outline: responsiveHandler({
+    },
+    outline: {
       base: {
         borderColor: 'borderCircle',
         borderStyle: 'solid',
         borderWidth: 1,
       },
-    }),
+    },
   });
+
+export default styles;

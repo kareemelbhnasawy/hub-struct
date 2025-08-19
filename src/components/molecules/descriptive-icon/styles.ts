@@ -1,8 +1,7 @@
-import { responsiveHandler } from '@/theme';
-import { StyleSheet } from 'react-native';
+import { createThemedStyles } from '@/utilities';
 
-const styles = StyleSheet.create({
-  wrapper: responsiveHandler({
+const styles = createThemedStyles({
+  wrapper: {
     base: {
       rowGap: 8,
       display: 'flex',
@@ -12,21 +11,21 @@ const styles = StyleSheet.create({
       backgroundColor: 'backgroundWhite',
       width: 60,
     },
-  }),
-  'text-wrapper': responsiveHandler({
+  },
+  textWrapper: {
     base: {
       flexGrow: 1,
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
     },
-  }),
-  'icon-text': responsiveHandler({
+  },
+  iconText: {
     base: {
       textAlign: 'center',
       color: 'textTitle',
     },
-  }),
+  },
 });
 
 export default styles;

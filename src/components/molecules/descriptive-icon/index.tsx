@@ -1,11 +1,17 @@
 import { View } from 'react-native';
-import React from 'react';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import DescriptiveIconProps from './interface';
 import styles from './styles';
+import { useThemeStore } from '@/store/theme';
 
-const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
-  const wrapperAppliedStyles = [styles['wrapper']];
+const DescriptiveIcon = ({
+  testId,
+  iconProps,
+  textProps,
+}: DescriptiveIconProps) => {
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+  const wrapperAppliedStyles = [themedStyles['wrapper']];
 
   //
 
@@ -26,14 +32,21 @@ const DescriptiveIcon = ({ iconProps, textProps }: DescriptiveIconProps) => {
   //
 
   return (
-    <View style={wrapperAppliedStyles}>
-      <LucideIcon isOutline={_isOutline} {...iconProps} />
-      <View style={styles['text-wrapper']}>
+    <View
+      testID={`${testId}-descriptive-icon-container`}
+      style={wrapperAppliedStyles}>
+      <LucideIcon
+        testId={`${testId}-descriptive`}
+        isOutline={_isOutline}
+        {...iconProps}
+      />
+      <View style={themedStyles.textWrapper}>
         <Paragraph
+          testId={`${testId}-descriptive-icon`}
           {...textProps}
           size="sm"
           weight="Medium"
-          style={styles['icon-text']}
+          style={themedStyles.iconText}
         />
       </View>
     </View>
