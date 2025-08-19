@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.1.8",
+    "@react-native-community/blur": "^4.4.1",
     "@gorhom/portal": "^1.0.14",
     "@react-native-firebase/app": "^23.0.0",
     "@react-native-firebase/crashlytics": "^23.0.0",
@@ -33,6 +34,7 @@
     "react-native": "0.80.1",
     "react-native-config": "^1.5.6",
     "react-native-gesture-handler": "^2.28.0",
+    "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.5.1",
     "react-native-mmkv": "^3.3.0",
     "react-native-permissions": "^5.4.2",

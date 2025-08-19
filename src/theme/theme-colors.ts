@@ -1,6 +1,10 @@
 import { COLORS } from '@/style';
 
 export const themeColors = {
+  transparent: {
+    light: COLORS.transparent,
+    dark: COLORS.transparent,
+  },
   // Basic Backgrounds
   backgroundWhite: {
     light: COLORS.white,

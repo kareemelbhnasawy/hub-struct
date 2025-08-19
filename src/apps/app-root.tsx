@@ -1,10 +1,13 @@
 /* eslint-disable */
+import React from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import { CurvedHeroImage, Headline } from '@/components/atoms';
+import { CurvedHeroImage, Headline, LucideIcon } from '@/components/atoms';
 import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
-import BadgeDemo from '@/components/molecules/badge/demo';
+import ListDemo from '@/components/organisms/list/demo';
+import { GlassContainer } from '@/components/atoms/glass-container';
+import { Radius } from '@/style';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -13,26 +16,35 @@ const AppRoot = () => {
 
   return (
     <>
-      {/* <CurvedHeroImage>
-        <View
-          style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-          <Text style={{ color: 'white' }}>Samya</Text>
-        </View>
-      </CurvedHeroImage> */}
-      <Headline text="common.welcome" />
-      <Pressable
-        onPress={() => {
-          toggleTheme();
-        }}>
-        <Text>Toggle Theme</Text>
-      </Pressable>
-      <Pressable onPress={() => crash(crashlytics)}>
-        <Text>CRASH MY APP</Text>
-      </Pressable>
-      <Pressable onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
-        <Text>Toggle Lang</Text>
-      </Pressable>
-      <BadgeDemo />
+      <ScrollView>
+        <CurvedHeroImage testId={'test'}>
+          <View
+            style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+            <GlassContainer testId="samya" borderRadius={Radius.LG}>
+              <Headline text="Test Glass Container" weight="Bold" testId={''} />
+            </GlassContainer>
+            <GlassContainer testId="icon" containerStyle={{ aspectRatio: 1 }}>
+              <LucideIcon name="X" testId={''} />
+            </GlassContainer>
+          </View>
+        </CurvedHeroImage>
+        <Headline text="common.welcome" testId={''} />
+        <Pressable
+          onPress={() => {
+            toggleTheme();
+          }}>
+          <Text>Toggle Theme</Text>
+        </Pressable>
+        <Pressable onPress={() => crash(crashlytics)}>
+          <Text>CRASH MY APP</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
+          <Text>Toggle Lang</Text>
+        </Pressable>
+        <ListDemo />
+        {/* <BadgeDemo /> */}
+      </ScrollView>
     </>
   );
 };
