@@ -1,8 +1,8 @@
 import HeadlineProps from '@/components/atoms/typography/headline/interface';
-import { ButtonProps } from 'react-native';
+import { ButtonProps, ModalProps } from 'react-native';
 import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 
-interface BaseModalProps {
+interface BaseModalProps extends ModalProps {
   testId: string;
   isVisible: boolean;
   titleProps?: HeadlineProps;
