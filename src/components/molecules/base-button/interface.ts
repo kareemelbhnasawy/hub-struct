@@ -11,7 +11,9 @@ interface BaseButtonProps extends PressableProps {
   leftIcon?: LucideIconProps;
   rightIcon?: LucideIconProps;
   textProps: BaseTextProps;
-  error?: boolean;
+  danger?: boolean;
+  disabled?: boolean;
+  success?: boolean;
   loading?: boolean;
   variant?: ButtonVariant;
 }

@@ -1,13 +1,19 @@
 /* eslint-disable */
 import React from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import { CurvedHeroImage, Headline, LucideIcon } from '@/components/atoms';
+import {
+  CurvedHeroImage,
+  Headline,
+  LucideIcon,
+  Spacer,
+} from '@/components/atoms';
 import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
 import ListDemo from '@/components/organisms/list/demo';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
+import { BaseButton } from '@/components/molecules';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -29,6 +35,263 @@ const AppRoot = () => {
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" testId={''} />
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <View style={{ flexDirection: 'column', gap: 5 }}>
+            <Text>Primary Button</Text>
+            <BaseButton
+              textProps={{ text: 'Small', testId: 'Secondary-btn' }}
+              size="sm"
+              variant="primary"
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
+              size="md"
+              variant="primary"
+              loading
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 12,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
+              size="lg"
+              variant="primary"
+              success
+              leftIcon={{
+                name: 'Check',
+                size: 15,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XL', testId: 'Secondary-btn' }}
+              size="xl"
+              variant="primary"
+              leftIcon={{
+                name: 'ArrowLeft',
+                size: 16,
+                testId: 'arrow-left-icon',
+              }}
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
+              size="xxl"
+              variant="primary"
+              disabled
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+          </View>
+          <View style={{ flexDirection: 'column', gap: 5 }}>
+            <Text>Primary Danger Button</Text>
+            <BaseButton
+              textProps={{ text: 'Small', testId: 'Secondary-btn' }}
+              size="sm"
+              variant="primary"
+              danger
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
+              size="md"
+              variant="primary"
+              loading
+              danger
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 12,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
+              size="lg"
+              variant="primary"
+              success
+              danger
+              leftIcon={{
+                name: 'Check',
+                size: 15,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XL', testId: 'Secondary-btn' }}
+              size="xl"
+              variant="primary"
+              danger
+              leftIcon={{
+                name: 'ArrowLeft',
+                size: 16,
+                testId: 'arrow-left-icon',
+              }}
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
+              size="xxl"
+              danger
+              variant="primary"
+              disabled
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+          </View>
+        </View>
+
+        <Spacer  space={20}/>
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <View style={{ flexDirection: 'column', gap: 5 }}>
+            <Text>Secondary Button</Text>
+            <BaseButton
+              textProps={{ text: 'Small', testId: 'Secondary-btn' }}
+              size="sm"
+              variant="secondary"
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
+              size="md"
+              variant="secondary"
+              loading
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 12,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
+              size="lg"
+              variant="secondary"
+              success
+              leftIcon={{
+                name: 'Check',
+                size: 15,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XL', testId: 'Secondary-btn' }}
+              size="xl"
+              variant="secondary"
+              leftIcon={{
+                name: 'ArrowLeft',
+                size: 16,
+                testId: 'arrow-left-icon',
+              }}
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
+              size="xxl"
+              variant="secondary"
+              disabled
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+          </View>
+          <View style={{ flexDirection: 'column', gap: 5 }}>
+            <Text>Secondary Danger Button</Text>
+            <BaseButton
+              textProps={{ text: 'Small', testId: 'Secondary-btn' }}
+              size="sm"
+              variant="secondary"
+              danger
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
+              size="md"
+              variant="secondary"
+              loading
+              danger
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 12,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
+              size="lg"
+              variant="secondary"
+              success
+              danger
+              leftIcon={{
+                name: 'Check',
+                size: 15,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XL', testId: 'Secondary-btn' }}
+              size="xl"
+              variant="secondary"
+              danger
+              leftIcon={{
+                name: 'ArrowLeft',
+                size: 16,
+                testId: 'arrow-left-icon',
+              }}
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+            <Spacer />
+            <BaseButton
+              textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
+              size="xxl"
+              danger
+              variant="secondary"
+              disabled
+              rightIcon={{
+                name: 'ArrowRight',
+                size: 16,
+                testId: 'arrow-right-icon',
+              }}
+            />
+          </View>
+        </View>
+
         <Pressable
           onPress={() => {
             toggleTheme();

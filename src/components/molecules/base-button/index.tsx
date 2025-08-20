@@ -1,18 +1,20 @@
-import { ActivityIndicator, Pressable } from 'react-native';
+import { ActivityIndicator, Pressable, View } from 'react-native';
 import BaseButtonProps from './interface';
-import { styles } from './style';
+import { baseStyles } from './style';
 import { useThemeStore } from '@/store/theme';
 import { Headline, LucideIcon, Paragraph } from '@/components/atoms';
 import useBaseButton from './hook';
 import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
-import { useEffect } from 'react';
+import { getButtonStyle } from './utils';
 
 const BaseButton = (props: BaseButtonProps) => {
   const {
     textProps,
     size = 'md',
     disabled,
+    danger,
     loading,
+    success,
     leftIcon,
     rightIcon,
     variant = 'primary',
@@ -28,16 +30,17 @@ const BaseButton = (props: BaseButtonProps) => {
     state,
     textType,
     textSize,
+    loaderSize,
   } = useBaseButton(props);
   const TextComponent = textType === 'paragraph' ? Paragraph : Headline;
-  const { getThemeColor } = useThemeStore();
-  
-  useEffect(() => {
-    console.log(styles[variant][state]);
-  }, [variant, state]);
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const baseThemedStyles = getThemedStyles(baseStyles);
+  const variantStyles = getButtonStyle(variant, danger);
+  const variantThemedStyles = getThemedStyles(variantStyles);
+  const hasBorder = !disabled && !loading && !success;
   return (
     <Pressable
-      disabled={disabled || loading}
+      disabled={disabled || loading || success}
       onHoverIn={onHoverInFn}
       onHoverOut={onHoverOutFn}
       onFocus={onFocusFn}
@@ -45,33 +48,35 @@ const BaseButton = (props: BaseButtonProps) => {
       onPressIn={onPressInFn}
       onPressOut={onPressOutFn}
       style={[
-        styles.base.button,
-        styles[variant][state].wrapper,
-        styles.base[size],
+        baseThemedStyles.button,
+        baseThemedStyles[size],
+        variantThemedStyles[state],
+        hasBorder ? variantThemedStyles.border : null,
       ]}
       {...restProps}>
+      {leftIcon ? (
+        <LucideIcon {...leftIcon} style={variantThemedStyles[`${state}Icon`]} />
+      ) : null}
       {loading ? (
-        <ActivityIndicator
-          color={getThemeColor(
-            variant === 'primary' ? 'alphaWhite30' : 'alphaBlack60',
-          )}
-        />
-      ) : (
-        <>
-          {leftIcon ? (
-            <LucideIcon {...leftIcon} style={styles[variant][state].icon} />
-          ) : null}
-          <TextComponent
-            weight="Medium"
-            size={textSize as ParagraphProps['size']}
-            style={styles[variant][state].text}
-            {...textProps}
+        <View>
+          <ActivityIndicator
+            color={getThemeColor('alphaBlack60')}
+            size={loaderSize}
           />
-          {rightIcon ? (
-            <LucideIcon {...rightIcon} style={styles[variant][state].icon} />
-          ) : null}
-        </>
-      )}
+        </View>
+      ) : null}
+      <TextComponent
+        weight="Medium"
+        size={textSize as ParagraphProps['size']}
+        style={variantThemedStyles[state]}
+        {...textProps}
+      />
+      {rightIcon ? (
+        <LucideIcon
+          {...rightIcon}
+          style={variantThemedStyles[`${state}Icon`]}
+        />
+      ) : null}
     </Pressable>
   );
 };

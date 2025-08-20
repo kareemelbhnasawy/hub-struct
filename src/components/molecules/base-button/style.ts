@@ -1,436 +1,410 @@
 import createThemedStyles from '@/utilities/create-themed-styles';
 
-export const styles = {
-  base: createThemedStyles({
-    button: {
-      base: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
-        minHeight: 44,
-      },
+const baseStyles = createThemedStyles({
+  button: {
+    base: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'flex-start',
     },
-    xxl: {
-      base: {
-        paddingVertical: 48,
-        paddingHorizontal: 64,
-        gap: 16,
-        borderRadius: 28,
-      },
-    },
-    xl: {
-      base: {
-        paddingVertical: 32,
-        paddingHorizontal: 48,
-        gap: 12,
-        borderRadius: 28,
-      },
-    },
-    lg: {
-      base: {
-        paddingVertical: 16,
-        paddingHorizontal: 24,
-        gap: 8,
-        borderRadius: 16,
-      },
-    },
-    md: {
-      base: {
-        paddingVertical: 10,
-        paddingHorizontal: 16,
-        gap: 8,
-        borderRadius: 10,
-      },
-    },
-    sm: {
-      base: {
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        gap: 4,
-        borderRadius: 8,
-      },
-    },
-  }),
-  primary: {
-    default: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryDefaultBackground',
-          borderColor: 'buttonPrimaryDefaultBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryDefaultLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryDefaultIcon',
-        },
-      },
-    }),
-    hover: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryHoverBackground',
-          borderColor: 'buttonPrimaryHoverBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryHoverLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryHoverIcon',
-        },
-      },
-    }),
-    focused: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryFocusedBackground',
-          borderColor: 'buttonPrimaryFocusedBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryFocusedLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryFocusedIcon',
-        },
-      },
-    }),
-    pressed: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryPressedBackground',
-          borderColor: 'buttonPrimaryPressedBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryPressedLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryPressedIcon',
-        },
-      },
-    }),
-    disabled: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryDisabledBackground',
-          //TODO: CHECK WHERE THIS COLOR IS?
-          // borderColor: 'buttonPrimaryDisabledBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryDisabledLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryDisabledIcon',
-        },
-      },
-    }),
-    loading: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryLoadingBackground',
-          borderColor: 'buttonPrimaryLoadingBackground',
-        },
-      },
-      text: {
-        base: {
-          // EMPTY ON PURPOSE
-        },
-      },
-      icon: {
-        base: {
-          // EMPTY ON PURPOSE
-        },
-      },
-    }),
-    error: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonPrimaryErrorBackground',
-          borderColor: 'buttonPrimaryErrorBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonPrimaryErrorLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonPrimaryErrorIcon',
-        },
-      },
-    }),
   },
-  secondary: {
-    default: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryDefaultBackground',
-          borderColor: 'buttonSecondaryDefaultBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryDefaultLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonSecondaryDefaultIcon',
-        },
-      },
-    }),
-    hover: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryHoverBackground',
-          borderColor: 'buttonSecondaryHoverBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryHoverLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonSecondaryHoverIcon',
-        },
-      },
-    }),
-    focused: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryFocusedBackground',
-          borderColor: 'buttonSecondaryFocusedBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryHoverIcon',
-        },
-      },
-    }),
-    pressed: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryPressedBackground',
-          borderColor: 'buttonSecondaryPressedBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryPressedLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonSecondaryFocusedIcon',
-        },
-      },
-    }),
-    disabled: createThemedStyles({
-      wrapper: {
-        base: {
-          //TODO: CHECK WHERE THIS COLOR IS?
-          // backgroundColor: 'buttonSecondaryDisabledBackground',
-          borderColor: 'buttonSecondaryDisabledBorder',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryDisabledLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonSecondaryDisabledIcon',
-        },
-      },
-    }),
-    loading: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryLoadingBackground',
-          borderColor: 'buttonSecondaryLoadingBackground',
-        },
-      },
-      text: {
-        base: {
-          // EMPTY ON PURPOSE
-        },
-      },
-      icon: {
-        base: {
-          // EMPTY ON PURPOSE
-        },
-      },
-    }),
-    error: createThemedStyles({
-      wrapper: {
-        base: {
-          backgroundColor: 'buttonSecondaryErrorBackground',
-          borderColor: 'buttonSecondaryErrorBackground',
-        },
-      },
-      text: {
-        base: {
-          color: 'buttonSecondaryErrorLabel',
-        },
-      },
-      icon: {
-        base: {
-          color: 'buttonSecondaryErrorIcon',
-        },
-      },
-    }),
+  xxl: {
+    base: {
+      height: 38,
+      minWidth: 135,
+      borderRadius: 14,
+      paddingHorizontal: 28,
+      gap: 10,
+    },
   },
-  // tertiary: {
-  //   default: createThemedStyles({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryDefaultBackground',
-  //         borderColor: 'buttonTertiaryDefaultBackground',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryDefaultLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryDefaultIcon',
-  //       },
-  //     }),
-  //   }),
-  //   hover: createThemedStyles({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryHoverBackground',
-  //         borderColor: 'buttonTertiaryHoverBackground',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryHoverLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryHoverIcon',
-  //       },
-  //     }),
-  //   }),
-  //   focused: createThemedStyles({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryFocusedBackground',
-  //         borderColor: 'buttonTertiaryFocusedBorder',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryFocusedLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryFocusedIcon',
-  //       },
-  //     }),
-  //   }),
-  //   pressed: StyleSheet.create({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryPressedBackground',
-  //         borderColor: 'buttonTertiaryPressedBorder',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryPressedLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryPressedIcon',
-  //       },
-  //     }),
-  //   }),
-  //   disabled: StyleSheet.create({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryDisabledBackground',
-  //         borderColor: 'buttonTertiaryDisabledBorder',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryDisabledLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryDisabledIcon',
-  //       },
-  //     }),
-  //   }),
-  //   loading: StyleSheet.create({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryLoadingBackground',
-  //         borderColor: 'buttonTertiaryLoadingBackground',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         // EMPTY ON PURPOSE
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         // EMPTY ON PURPOSE
-  //       },
-  //     }),
-  //   }),
-  //   error: StyleSheet.create({
-  //     wrapper: responsiveHandler({
-  //       base: {
-  //         backgroundColor: 'buttonTertiaryErrorBackground',
-  //         borderColor: 'buttonTertiaryErrorBackground',
-  //       },
-  //     }),
-  //     text: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryErrorLabel',
-  //       },
-  //     }),
-  //     icon: responsiveHandler({
-  //       base: {
-  //         color: 'buttonTertiaryErrorIcon',
-  //       },
-  //     }),
-  //   }),
-  // },
-};
+  xl: {
+    base: {
+      height: 34,
+      minWidth: 128,
+      borderRadius: 12,
+      paddingHorizontal: 24,
+      gap: 10,
+    },
+  },
+  lg: {
+    base: {
+      height: 30,
+      minWidth: 90,
+      borderRadius: 10,
+      paddingHorizontal: 20,
+      gap: 6,
+    },
+  },
+  md: {
+    base: {
+      height: 26,
+      minWidth: 82,
+      borderRadius: 10,
+      paddingHorizontal: 16,
+      gap: 5,
+    },
+  },
+  sm: {
+    base: {
+      height: 22,
+      minWidth: 72,
+      borderRadius: 8,
+      paddingHorizontal: 12,
+      gap: 5,
+    },
+  },
+});
+
+const primaryStyles = createThemedStyles({
+  default: {
+    base: {
+      backgroundColor: 'buttonPrimaryDefaultBackground',
+      borderColor: 'buttonPrimaryDefaultBackground',
+      color: 'buttonPrimaryDefaultLabel',
+    },
+  },
+  defaultIcon: {
+    base: {
+      color: 'buttonPrimaryDefaultIcon',
+    },
+  },
+  hover: {
+    base: {
+      backgroundColor: 'buttonPrimaryHoverBackground',
+      borderColor: 'buttonPrimaryHoverBackground',
+      color: 'buttonPrimaryHoverLabel',
+    },
+  },
+  hoverIcon: {
+    base: {
+      color: 'buttonPrimaryHoverIcon',
+    },
+  },
+  focused: {
+    base: {
+      backgroundColor: 'buttonPrimaryFocusedBackground',
+      borderColor: 'buttonPrimaryFocusedBorder',
+      color: 'buttonPrimaryFocusedLabel',
+    },
+  },
+  focusedIcon: {
+    base: {
+      color: 'buttonPrimaryFocusedIcon',
+    },
+  },
+  pressed: {
+    base: {
+      backgroundColor: 'buttonPrimaryPressedBackground',
+      borderColor: 'buttonPrimaryPressedBorder',
+      color: 'buttonPrimaryPressedLabel',
+    },
+  },
+  pressedIcon: {
+    base: {
+      color: 'buttonPrimaryPressedIcon',
+    },
+  },
+  disabled: {
+    base: {
+      backgroundColor: 'buttonPrimaryDisabledBackground',
+      color: 'buttonPrimaryDisabledLabel',
+    },
+  },
+  disabledIcon: {
+    base: {
+      color: 'buttonPrimaryDisabledIcon',
+    },
+  },
+  loading: {
+    base: {
+      backgroundColor: 'buttonPrimaryLoadingBackground',
+      color: 'buttonPrimaryLoadingLabel',
+    },
+  },
+  loadingIcon: {
+    base: {
+      color: 'buttonPrimaryLoadingIcon',
+    },
+  },
+  success: {
+    base: {
+      backgroundColor: 'buttonPrimarySuccessBackground',
+      color: 'buttonPrimarySuccessLabel',
+    },
+  },
+  successIcon: {
+    base: {
+      color: 'buttonPrimarySuccessIcon',
+    },
+  },
+  border: {
+    base: {
+      borderWidth: 0,
+    },
+  },
+});
+
+const primaryDangerStyles = createThemedStyles({
+  default: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerDefaultBackground',
+      color: 'buttonPrimaryDangerDefaultLabel',
+    },
+  },
+  defaultIcon: {
+    base: {
+      color: 'buttonPrimaryDangerDefaultIcon',
+    },
+  },
+  hover: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerHoverBackground',
+      color: 'buttonPrimaryDangerHoverLabel',
+    },
+  },
+  hoverIcon: {
+    base: {
+      color: 'buttonPrimaryDangerHoverIcon',
+    },
+  },
+  focused: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerFocusedBackground',
+      color: 'buttonPrimaryDangerFocusedLabel',
+    },
+  },
+  focusedIcon: {
+    base: {
+      color: 'buttonPrimaryDangerFocusedIcon',
+    },
+  },
+  pressed: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerPressedBackground',
+      color: 'buttonPrimaryDangerPressedLabel',
+    },
+  },
+  pressedIcon: {
+    base: {
+      color: 'buttonPrimaryDangerPressedIcon',
+    },
+  },
+  disabled: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerDisabledBackground',
+      color: 'buttonPrimaryDangerDisabledLabel',
+    },
+  },
+  disabledIcon: {
+    base: {
+      color: 'buttonPrimaryDangerDisabledIcon',
+    },
+  },
+  loading: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerLoadingBackground',
+      color: 'buttonPrimaryDangerLoadingLabel',
+    },
+  },
+  loadingIcon: {
+    base: {
+      color: 'buttonPrimaryDangerLoadingIcon',
+    },
+  },
+  success: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerSuccessBackground',
+      color: 'buttonPrimaryDangerSuccessLabel',
+    },
+  },
+  successIcon: {
+    base: {
+      color: 'buttonPrimaryDangerSuccessIcon',
+    },
+  },
+  border: {
+    base: {
+      borderWidth: 0,
+    },
+  },
+});
+
+const secondaryStyles = createThemedStyles({
+  default: {
+    base: {
+      backgroundColor: 'buttonSecondaryDefaultBackground',
+      color: 'buttonSecondaryDefaultLabel',
+    },
+  },
+  defaultIcon: {
+    base: {
+      color: 'buttonSecondaryDefaultIcon',
+    },
+  },
+  hover: {
+    base: {
+      backgroundColor: 'buttonSecondaryHoverBackground',
+      borderColor: 'buttonSecondaryHoverBackground',
+      color: 'buttonSecondaryHoverLabel',
+    },
+  },
+  hoverIcon: {
+    base: {
+      color: 'buttonSecondaryHoverIcon',
+    },
+  },
+  focused: {
+    base: {
+      backgroundColor: 'buttonSecondaryFocusedBackground',
+      borderColor: 'buttonSecondaryFocusedBorder',
+      color: 'buttonSecondaryHoverIcon',
+    },
+  },
+  focusedIcon: {
+    base: {
+      color: 'buttonPrimaryFocusedIcon',
+    },
+  },
+  pressed: {
+    base: {
+      backgroundColor: 'buttonSecondaryPressedBackground',
+      borderColor: 'buttonSecondaryPressedBorder',
+      color: 'buttonSecondaryPressedLabel',
+    },
+  },
+  pressedIcon: {
+    base: {
+      color: 'buttonSecondaryFocusedIcon',
+    },
+  },
+  disabled: {
+    base: {
+      backgroundColor: 'buttonSecondaryDisabledBackground',
+      color: 'buttonSecondaryDisabledLabel',
+    },
+  },
+  disabledIcon: {
+    base: {
+      color: 'buttonSecondaryDisabledIcon',
+    },
+  },
+  loading: {
+    base: {
+      backgroundColor: 'buttonSecondaryLoadingBackground',
+      color: 'buttonSecondaryLoadingLabel',
+    },
+  },
+  loadingIcon: {
+    base: {
+      color: 'buttonSecondaryLoadingIcon',
+    },
+  },
+  success: {
+    base: {
+      backgroundColor: 'buttonPrimarySuccessBackground',
+      color: 'buttonPrimarySuccessLabel',
+    },
+  },
+  successIcon: {
+    base: {
+      color: 'buttonPrimarySuccessIcon',
+    },
+  },
+  border: {
+    base: {
+      borderColor: 'buttonSecondaryDefaultBorder',
+      borderWidth: 1,
+    },
+  },
+});
+
+const secondaryDangerStyles = createThemedStyles({
+  default: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerDefaultBackground',
+      color: 'buttonSecondaryDangerDefaultLabel',
+    },
+  },
+  defaultIcon: {
+    base: {
+      color: 'buttonSecondaryDangerDefaultIcon',
+    },
+  },
+  hover: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerHoverBackground',
+      color: 'buttonSecondaryDangerHoverLabel',
+    },
+  },
+  hoverIcon: {
+    base: {
+      color: 'buttonSecondaryDangerHoverIcon',
+    },
+  },
+  focused: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerFocusedBackground',
+      color: 'buttonSecondaryDangerFocusedIcon',
+    },
+  },
+  focusedIcon: {
+    base: {
+      color: 'buttonPrimaryDangerFocusedIcon',
+    },
+  },
+  pressed: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerPressedBackground',
+      color: 'buttonSecondaryDangerPressedLabel',
+    },
+  },
+  pressedIcon: {
+    base: {
+      color: 'buttonSecondaryDangerPressedIcon',
+    },
+  },
+  disabled: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerDisabledBackground',
+      color: 'buttonSecondaryDangerDisabledLabel',
+    },
+  },
+  disabledIcon: {
+    base: {
+      color: 'buttonSecondaryDangerDisabledIcon',
+    },
+  },
+  loading: {
+    base: {
+      backgroundColor: 'buttonSecondaryDangerLoadingBackground',
+      color: 'buttonSecondaryDangerLoadingLabel',
+    },
+  },
+  loadingIcon: {
+    base: {
+      color: 'buttonSecondaryDangerLoadingIcon',
+    },
+  },
+  success: {
+    base: {
+      backgroundColor: 'buttonPrimaryDangerSuccessBackground',
+      color: 'buttonPrimaryDangerSuccessLabel',
+    },
+  },
+  successIcon: {
+    base: {
+      color: 'buttonPrimaryDangerSuccessIcon',
+    },
+  },
+  border: {
+    base: {
+      borderColor: 'buttonSecondaryDangerDefaultBorder',
+      borderWidth: 1,
+    },
+  },
+});
+
+
+
+export { baseStyles, primaryStyles, primaryDangerStyles, secondaryStyles, secondaryDangerStyles };

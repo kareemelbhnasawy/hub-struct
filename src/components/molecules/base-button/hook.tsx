@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import BaseButtonProps from './interface';
-import { getTextSize, getTextType } from './utils';
+import { getTextSize, getTextType, getLoaderSize } from './utils';
 import {
   NativeSyntheticEvent,
   NativeMouseEvent,
@@ -15,13 +15,13 @@ type ButtonState =
   | 'pressed'
   | 'disabled'
   | 'loading'
-  | 'error';
+  | 'success';
 
 const useBaseButton = ({
   size = 'md',
   disabled,
   loading,
-  error,
+  success,
   onHoverIn,
   onHoverOut,
   onFocus,
@@ -31,6 +31,7 @@ const useBaseButton = ({
 }: BaseButtonProps) => {
   const textType = getTextType(size);
   const textSize = getTextSize(size);
+  const loaderSize = getLoaderSize(size);
 
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -39,10 +40,10 @@ const useBaseButton = ({
   const getState = (): ButtonState => {
     if (disabled) return 'disabled';
     if (loading) return 'loading';
-    if (error) return 'error';
     if (pressed) return 'pressed';
     if (hovered) return 'hover';
     if (focused) return 'focused';
+    if (success) return 'success';
     return 'default';
   };
 
@@ -80,6 +81,7 @@ const useBaseButton = ({
   return {
     textType,
     textSize,
+    loaderSize,
     onHoverInFn,
     onHoverOutFn,
     onFocusFn,
