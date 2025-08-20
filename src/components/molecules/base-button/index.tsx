@@ -1,10 +1,11 @@
 import { ActivityIndicator, Pressable } from 'react-native';
 import BaseButtonProps from './interface';
 import { styles } from './style';
-import { getThemeColor } from '@/theme/theme-colors';
+import { useThemeStore } from '@/store/theme';
 import { Headline, LucideIcon, Paragraph } from '@/components/atoms';
 import useBaseButton from './hook';
 import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import { useEffect } from 'react';
 
 const BaseButton = (props: BaseButtonProps) => {
   const {
@@ -28,9 +29,12 @@ const BaseButton = (props: BaseButtonProps) => {
     textType,
     textSize,
   } = useBaseButton(props);
-
   const TextComponent = textType === 'paragraph' ? Paragraph : Headline;
-
+  const { getThemeColor } = useThemeStore();
+  
+  useEffect(() => {
+    console.log(styles[variant][state]);
+  }, [variant, state]);
   return (
     <Pressable
       disabled={disabled || loading}

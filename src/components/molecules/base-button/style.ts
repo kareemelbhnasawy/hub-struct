@@ -1,9 +1,8 @@
-import { StyleSheet } from 'react-native';
-import { responsiveHandler } from '@/theme/theme-responsive';
+import createThemedStyles from '@/utilities/create-themed-styles';
 
 export const styles = {
-  base: StyleSheet.create({
-    button: responsiveHandler({
+  base: createThemedStyles({
+    button: {
       base: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -11,306 +10,303 @@ export const styles = {
         borderWidth: 1,
         minHeight: 44,
       },
-    }),
-    xxl: responsiveHandler({
+    },
+    xxl: {
       base: {
         paddingVertical: 48,
         paddingHorizontal: 64,
         gap: 16,
         borderRadius: 28,
       },
-    }),
-    xl: responsiveHandler({
+    },
+    xl: {
       base: {
         paddingVertical: 32,
         paddingHorizontal: 48,
         gap: 12,
         borderRadius: 28,
       },
-    }),
-    lg: responsiveHandler({
+    },
+    lg: {
       base: {
         paddingVertical: 16,
         paddingHorizontal: 24,
         gap: 8,
         borderRadius: 16,
       },
-    }),
-    md: responsiveHandler({
+    },
+    md: {
       base: {
         paddingVertical: 10,
         paddingHorizontal: 16,
         gap: 8,
         borderRadius: 10,
       },
-    }),
-    sm: responsiveHandler({
+    },
+    sm: {
       base: {
         paddingVertical: 8,
         paddingHorizontal: 12,
         gap: 4,
         borderRadius: 8,
       },
-    }),
+    },
   }),
   primary: {
-    default: StyleSheet.create({
-      wrapper: responsiveHandler({
+    default: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryDefaultBackground',
           borderColor: 'buttonPrimaryDefaultBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryDefaultLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryDefaultIcon',
         },
-      }),
+      },
     }),
-    hover: StyleSheet.create({
-      wrapper: responsiveHandler({
+    hover: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryHoverBackground',
           borderColor: 'buttonPrimaryHoverBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryHoverLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryHoverIcon',
         },
-      }),
+      },
     }),
-    focused: StyleSheet.create({
-      wrapper: responsiveHandler({
+    focused: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryFocusedBackground',
           borderColor: 'buttonPrimaryFocusedBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryFocusedLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryFocusedIcon',
         },
-      }),
+      },
     }),
-    pressed: StyleSheet.create({
-      wrapper: responsiveHandler({
+    pressed: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryPressedBackground',
           borderColor: 'buttonPrimaryPressedBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryPressedLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryPressedIcon',
         },
-      }),
+      },
     }),
-    disabled: StyleSheet.create({
-      wrapper: responsiveHandler({
+    disabled: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryDisabledBackground',
-          borderColor: 'buttonPrimaryDisabledBorder',
+          //TODO: CHECK WHERE THIS COLOR IS?
+          // borderColor: 'buttonPrimaryDisabledBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryDisabledLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryDisabledIcon',
         },
-      }),
+      },
     }),
-    loading: StyleSheet.create({
-      wrapper: responsiveHandler({
+    loading: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryLoadingBackground',
           borderColor: 'buttonPrimaryLoadingBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           // EMPTY ON PURPOSE
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           // EMPTY ON PURPOSE
         },
-      }),
+      },
     }),
-    error: StyleSheet.create({
-      wrapper: responsiveHandler({
+    error: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonPrimaryErrorBackground',
           borderColor: 'buttonPrimaryErrorBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonPrimaryErrorLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonPrimaryErrorIcon',
         },
-      }),
+      },
     }),
   },
   secondary: {
-    default: StyleSheet.create({
-      wrapper: responsiveHandler({
+    default: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryDefaultBackground',
           borderColor: 'buttonSecondaryDefaultBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonSecondaryDefaultLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonSecondaryDefaultIcon',
         },
-      }),
+      },
     }),
-    hover: StyleSheet.create({
-      wrapper: responsiveHandler({
+    hover: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryHoverBackground',
           borderColor: 'buttonSecondaryHoverBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonSecondaryHoverLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonSecondaryHoverIcon',
         },
-      }),
+      },
     }),
-    focused: StyleSheet.create({
-      wrapper: responsiveHandler({
+    focused: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryFocusedBackground',
           borderColor: 'buttonSecondaryFocusedBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
-          color: 'buttonSecondaryFocusedLabel',
+          color: 'buttonSecondaryHoverIcon',
         },
-      }),
-      icon: responsiveHandler({
-        base: {
-          color: 'buttonSecondaryFocusedIcon',
-        },
-      }),
+      },
     }),
-    pressed: StyleSheet.create({
-      wrapper: responsiveHandler({
+    pressed: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryPressedBackground',
           borderColor: 'buttonSecondaryPressedBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonSecondaryPressedLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
-          color: 'buttonSecondaryPressedIcon',
+          color: 'buttonSecondaryFocusedIcon',
         },
-      }),
+      },
     }),
-    disabled: StyleSheet.create({
-      wrapper: responsiveHandler({
+    disabled: createThemedStyles({
+      wrapper: {
         base: {
-          backgroundColor: 'buttonSecondaryDisabledBackground',
+          //TODO: CHECK WHERE THIS COLOR IS?
+          // backgroundColor: 'buttonSecondaryDisabledBackground',
           borderColor: 'buttonSecondaryDisabledBorder',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonSecondaryDisabledLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonSecondaryDisabledIcon',
         },
-      }),
+      },
     }),
-    loading: StyleSheet.create({
-      wrapper: responsiveHandler({
+    loading: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryLoadingBackground',
           borderColor: 'buttonSecondaryLoadingBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           // EMPTY ON PURPOSE
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           // EMPTY ON PURPOSE
         },
-      }),
+      },
     }),
-    error: StyleSheet.create({
-      wrapper: responsiveHandler({
+    error: createThemedStyles({
+      wrapper: {
         base: {
           backgroundColor: 'buttonSecondaryErrorBackground',
           borderColor: 'buttonSecondaryErrorBackground',
         },
-      }),
-      text: responsiveHandler({
+      },
+      text: {
         base: {
           color: 'buttonSecondaryErrorLabel',
         },
-      }),
-      icon: responsiveHandler({
+      },
+      icon: {
         base: {
           color: 'buttonSecondaryErrorIcon',
         },
-      }),
+      },
     }),
   },
   // tertiary: {
-  //   default: StyleSheet.create({
+  //   default: createThemedStyles({
   //     wrapper: responsiveHandler({
   //       base: {
   //         backgroundColor: 'buttonTertiaryDefaultBackground',
@@ -328,7 +324,7 @@ export const styles = {
   //       },
   //     }),
   //   }),
-  //   hover: StyleSheet.create({
+  //   hover: createThemedStyles({
   //     wrapper: responsiveHandler({
   //       base: {
   //         backgroundColor: 'buttonTertiaryHoverBackground',
@@ -346,7 +342,7 @@ export const styles = {
   //       },
   //     }),
   //   }),
-  //   focused: StyleSheet.create({
+  //   focused: createThemedStyles({
   //     wrapper: responsiveHandler({
   //       base: {
   //         backgroundColor: 'buttonTertiaryFocusedBackground',
