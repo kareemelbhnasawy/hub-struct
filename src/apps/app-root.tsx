@@ -71,8 +71,7 @@ const AppRoot = () => {
             <BaseButton
               textProps={{ text: 'Small', testId: 'Secondary-btn' }}
               size="sm"
-              variant="primary"
-            />
+              variant="primary" testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
@@ -83,8 +82,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 12,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
@@ -95,8 +93,7 @@ const AppRoot = () => {
                 name: 'Check',
                 size: 15,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XL', testId: 'Secondary-btn' }}
@@ -111,8 +108,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
@@ -123,8 +119,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
           </View>
           <View style={{ flexDirection: 'column', gap: 5 }}>
             <Text>Primary Danger Button</Text>
@@ -132,8 +127,7 @@ const AppRoot = () => {
               textProps={{ text: 'Small', testId: 'Secondary-btn' }}
               size="sm"
               variant="primary"
-              danger
-            />
+              danger testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
@@ -145,8 +139,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 12,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
@@ -158,8 +151,7 @@ const AppRoot = () => {
                 name: 'Check',
                 size: 15,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XL', testId: 'Secondary-btn' }}
@@ -175,8 +167,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
@@ -188,8 +179,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
           </View>
         </View>
 
@@ -200,8 +190,7 @@ const AppRoot = () => {
             <BaseButton
               textProps={{ text: 'Small', testId: 'Secondary-btn' }}
               size="sm"
-              variant="secondary"
-            />
+              variant="secondary" testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
@@ -212,8 +201,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 12,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
@@ -224,8 +212,7 @@ const AppRoot = () => {
                 name: 'Check',
                 size: 15,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XL', testId: 'Secondary-btn' }}
@@ -240,8 +227,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
@@ -252,8 +238,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
           </View>
           <View style={{ flexDirection: 'column', gap: 5 }}>
             <Text>Secondary Danger Button</Text>
@@ -261,8 +246,7 @@ const AppRoot = () => {
               textProps={{ text: 'Small', testId: 'Secondary-btn' }}
               size="sm"
               variant="secondary"
-              danger
-            />
+              danger testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Md Loading', testId: 'Secondary-btn' }}
@@ -274,8 +258,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 12,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'Lg Success', testId: 'Secondary-btn' }}
@@ -287,8 +270,7 @@ const AppRoot = () => {
                 name: 'Check',
                 size: 15,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XL', testId: 'Secondary-btn' }}
@@ -304,8 +286,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
             <Spacer />
             <BaseButton
               textProps={{ text: 'XXL Disabled', testId: 'Secondary-btn' }}
@@ -317,8 +298,7 @@ const AppRoot = () => {
                 name: 'ArrowRight',
                 size: 16,
                 testId: 'arrow-right-icon',
-              }}
-            />
+              }} testId={''}            />
           </View>
         </View>
 

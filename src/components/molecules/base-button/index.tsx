@@ -9,6 +9,7 @@ import { getButtonStyle } from './utils';
 
 const BaseButton = (props: BaseButtonProps) => {
   const {
+    testId,
     textProps,
     size = 'md',
     disabled,
@@ -40,6 +41,7 @@ const BaseButton = (props: BaseButtonProps) => {
   const hasBorder = !disabled && !loading && !success;
   return (
     <Pressable
+      testID={testId}
       disabled={disabled || loading || success}
       onHoverIn={onHoverInFn}
       onHoverOut={onHoverOutFn}

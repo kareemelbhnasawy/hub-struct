@@ -5,8 +5,17 @@ import LucideIconProps from '../../atoms/lucide-icon/interface';
 type ButtonVariant = 'primary' | 'secondary';
 
 export type ButtonSizes = 'xxl' | 'xl' | 'lg' | 'md' | 'sm';
+export type ButtonState =
+  | 'default'
+  | 'hover'
+  | 'focused'
+  | 'pressed'
+  | 'disabled'
+  | 'loading'
+  | 'success';
 
 interface BaseButtonProps extends PressableProps {
+  testId: string;
   size?: ButtonSizes;
   leftIcon?: LucideIconProps;
   rightIcon?: LucideIconProps;

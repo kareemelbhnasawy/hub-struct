@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BaseButtonProps from './interface';
+import BaseButtonProps, { ButtonState } from './interface';
 import { getTextSize, getTextType, getLoaderSize } from './utils';
 import {
   NativeSyntheticEvent,
@@ -7,15 +7,6 @@ import {
   TargetedEvent,
   GestureResponderEvent,
 } from 'react-native';
-
-type ButtonState =
-  | 'default'
-  | 'hover'
-  | 'focused'
-  | 'pressed'
-  | 'disabled'
-  | 'loading'
-  | 'success';
 
 const useBaseButton = ({
   size = 'md',
