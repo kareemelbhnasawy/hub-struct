@@ -13,7 +13,7 @@ import { useThemeStore } from '@/store/theme';
 import ListDemo from '@/components/organisms/list/demo';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
-import { BaseButton } from '@/components/molecules';
+import { BaseButton, LinkButton } from '@/components/molecules';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -35,6 +35,36 @@ const AppRoot = () => {
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" testId={''} />
+
+        <Spacer space={20} />
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <View style={{ flexDirection: 'column', gap: 5 }}>
+            <LinkButton
+              textProps={{ text: 'Small Link Button', testId: 'Secondary-btn' }}
+              size="sm"
+            />
+            <LinkButton
+              textProps={{ text: 'Medium Link Button', testId: 'Secondary-btn' }}
+              size="md"
+            />
+            <LinkButton
+              textProps={{ text: 'Large Link Button', testId: 'Secondary-btn' }}
+              size="lg"
+            />
+            <LinkButton
+              textProps={{ text: 'XL Link Button', testId: 'Secondary-btn' }}
+              size="xl"
+            />
+            <LinkButton
+              textProps={{ text: 'XXL Link Button', testId: 'Secondary-btn' }}
+              size="xxl"
+              disabled
+            />
+          </View>
+        </View>
+
+        <Spacer space={20} />
+
         <View style={{ flexDirection: 'row', gap: 10 }}>
           <View style={{ flexDirection: 'column', gap: 5 }}>
             <Text>Primary Button</Text>
@@ -163,7 +193,7 @@ const AppRoot = () => {
           </View>
         </View>
 
-        <Spacer  space={20}/>
+        <Spacer space={20} />
         <View style={{ flexDirection: 'row', gap: 10 }}>
           <View style={{ flexDirection: 'column', gap: 5 }}>
             <Text>Secondary Button</Text>
