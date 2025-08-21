@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.1.8",
-    "@react-native-community/blur": "^4.4.1",
     "@gorhom/portal": "^1.0.14",
+    "@react-native-community/blur": "^4.4.1",
     "@react-native-firebase/app": "^23.0.0",
     "@react-native-firebase/crashlytics": "^23.0.0",
     "@react-native-firebase/messaging": "^23.0.0",
@@ -26,6 +26,7 @@
     "@shopify/flash-list": "^2.0.2",
     "@tanstack/react-query": "^5.84.2",
     "axios": "^1.11.0",
+    "formik": "^2.4.6",
     "i18next": "^25.3.2",
     "lucide-react-native": "^0.536.0",
     "moment": "^2.30.1",
@@ -44,6 +45,7 @@
     "react-native-screens": "^4.13.1",
     "react-native-size-matters": "^0.4.2",
     "react-native-svg": "^15.12.1",
+    "use-debounce": "^10.0.5",
     "yup": "^1.6.1",
     "zustand": "^5.0.7"
   },

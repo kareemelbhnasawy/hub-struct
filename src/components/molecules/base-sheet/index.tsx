@@ -4,6 +4,7 @@ import { styles } from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
 import { Button, Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 
 const BaseSheet = ({
   testId,
@@ -11,21 +12,39 @@ const BaseSheet = ({
   hasCloseButton = true,
   hasSubmitButton = false,
   children,
-  sheetRef,
   snapPoints,
   containerStyle,
+  modalVisible,
+  setModalVisible,
+  onClose,
   ...props
-}: BaseSheetProps) => {
+}: PropsWithChildren<BaseSheetProps>) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+  const sheetRef = useRef<BottomSheet>(null);
+
+  useEffect(() => {
+    if (!modalVisible) {
+      sheetRef.current?.close();
+      // sheetRef.current?.snapToIndex(0);
+    } else {
+      sheetRef.current?.expand();
+      // sheetRef.current?.snapToIndex(1);
+    }
+  }, [modalVisible]);
+
+  const onCloseFn = () => {
+    setModalVisible(false);
+    onClose?.();
+  };
+
   const closeButton = (
     <Pressable
       testID={`${testId}-bottom-sheet-close-container`}
-      onPress={() => sheetRef.current?.snapToIndex(0)}>
+      onPress={onCloseFn}>
       <LucideIcon
         testId={`${testId}-bottom-sheet-close-icon`}
         name="X"
-        size={24}
         color={getThemeColor('iconDefault')}
       />
     </Pressable>
@@ -33,10 +52,12 @@ const BaseSheet = ({
   return (
     <BottomSheet
       ref={sheetRef}
-      enablePanDownToClose={true}
       snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
-      enableDynamicSizing={true}
+      enablePanDownToClose={true}
+      enableDynamicSizing={false}
+      enableContentPanningGesture={true}
       style={[containerStyle, themedStyles.containerWrapper]}
+      onClose={onCloseFn}
       {...props}>
       <BottomSheetView
         testID={`${testId}-bottom-sheet`}

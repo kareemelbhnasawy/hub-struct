@@ -1,18 +1,36 @@
 /* eslint-disable */
-import React from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import { CurvedHeroImage, Headline, LucideIcon } from '@/components/atoms';
+import {
+  CurvedHeroImage,
+  Headline,
+  LucideIcon,
+  Paragraph,
+} from '@/components/atoms';
 import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
-import ListDemo from '@/components/organisms/list/demo';
+import ListDemo from '@/components/molecules/list/demo';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
+import TextInput from '@/components/molecules/text-input';
+import SearchTextInput from '@/components/organisms/search-input';
+import PasswordInput from '@/components/organisms/password-input';
+import SelectInput from '@/components/organisms/select-input';
+import Form from '@/components/templates/form/form.component';
+import { FormikValues, FormikHelpers } from 'formik';
+import FormInputTypes from '@/components/templates/form/constants';
+import { Page } from '@/components/templates';
+import { PageHeaderVariants } from '@/components/templates/page/constants';
+import { useCallback } from 'react';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
   const crashlytics = getCrashlytics();
   const { toggleTheme } = useThemeStore();
+
+  const stickyBottom = useCallback(() => {
+    return <Paragraph testId="sticky-bottom" text="Sticky Bottom!" />;
+  }, []);
 
   return (
     <>
@@ -29,6 +47,42 @@ const AppRoot = () => {
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" testId={''} />
+
+        <Form
+          fields={[
+            {
+              name: 'field1',
+              type: FormInputTypes.TextInput,
+              testId: `field1-input`,
+              placeholder: 'placeholder',
+              labelProps: { text: 'Text input label' },
+            },
+            {
+              name: 'field2',
+              type: FormInputTypes.PasswordInput,
+              testId: `field2-input`,
+              placeholder: 'placeholder',
+              labelProps: { text: 'Text input label' },
+            },
+            {
+              name: 'field3',
+              type: FormInputTypes.SelectInput,
+              testId: `field2-input`,
+              placeholder: 'placeholder',
+              labelProps: { text: 'Text input label' },
+            },
+            {
+              name: 'field4',
+              type: FormInputTypes.DateInput,
+              testId: `field2-input`,
+              placeholder: 'placeholder',
+              labelProps: { text: 'Text input label' },
+            },
+          ]}
+          testId={''}
+          onSubmit={(values) => console.log(values)}
+        />
+
         <Pressable
           onPress={() => {
             toggleTheme();

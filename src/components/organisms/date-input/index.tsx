@@ -1,0 +1,80 @@
+import { useCallback, useState } from 'react';
+import DateInputProps from './interface';
+import styles from './styles';
+import { useThemeStore } from '@/store/theme';
+import InputContainer from '@/components/molecules/input-container';
+import { Pressable } from 'react-native';
+import { Paragraph } from '@/components/atoms';
+
+type InputState =
+  | 'default'
+  | 'hover'
+  | 'pressed'
+  | 'focused'
+  | 'disabled'
+  | 'error';
+
+const DateInput = ({
+  labelProps,
+  required,
+  inputStyle,
+  containerStyle,
+  testId,
+  leadingIconProps,
+  style,
+  error,
+  disabled,
+  placeholder,
+  placeholderProps,
+  ...props
+}: DateInputProps) => {
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+  const [hovered, setHovered] = useState(false);
+  // TODO: focused will be the isVisible from the selector
+  const [focused, setFocused] = useState(false);
+  const [pressed, setPressed] = useState(false);
+
+  const getState = useCallback((): InputState => {
+    if (disabled) return 'disabled';
+    if (error) return 'error';
+    if (pressed) return 'pressed';
+    if (hovered) return 'hover';
+    if (focused) return 'focused';
+    return 'default';
+  }, [disabled, error, focused, hovered, pressed]);
+
+  return (
+    <InputContainer
+      testId={testId}
+      required={required}
+      labelProps={labelProps}
+      containerStyle={containerStyle}
+      trailingIconProps={{ name: 'CalendarDays' }}
+      leadingIconProps={leadingIconProps}
+      inputStyle={style}
+      state={getState()}
+      onPressContainer={() => {
+        // TODO: Open Modal
+      }}>
+      <Pressable
+        style={[themedStyles.flexOne, inputStyle]}
+        onHoverIn={() => setHovered(true)}
+        onHoverOut={() => setHovered(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        onPressIn={() => setPressed(true)}
+        onPressOut={() => setPressed(false)}
+        {...props}>
+        {placeholder && (
+          <Paragraph
+            testId=""
+            text={placeholder}
+            textProps={placeholderProps}
+          />
+        )}
+      </Pressable>
+    </InputContainer>
+  );
+};
+export default DateInput;
