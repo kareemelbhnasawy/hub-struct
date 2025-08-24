@@ -19,7 +19,7 @@ export const generateValidationSchema = (fields: FormFieldType[]) => {
         validation = validation.min(field.validation?.min);
       }
       if (field.validation?.max) {
-        validation = validation.min(field.validation?.max);
+        validation = validation.max(field.validation?.max);
       }
       schema[field.name] = validation;
     }

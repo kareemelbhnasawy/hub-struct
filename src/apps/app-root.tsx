@@ -48,7 +48,7 @@ const AppRoot = () => {
               testId: `field1-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
-              validation: { required: true, digitsOnly: true, min: 5 },
+              validation: { required: true, digitsOnly: true, min: 7 },
             },
             {
               name: 'field2',
