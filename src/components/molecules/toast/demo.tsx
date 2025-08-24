@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Paragraph } from '@/components/atoms';
-import Toast from './index';
+import Toast from './toast';
 import { ToastService } from './toast-provider';
 
 const ToastDemo = () => {

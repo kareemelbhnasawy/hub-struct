@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import ToastManager, { Toast as ToastifyToast } from 'toastify-react-native';
-import Toast from './index';
+import Toast from './toast';
 import { ToastType } from './interface';
 
 interface ToastConfig {
