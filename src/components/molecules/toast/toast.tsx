@@ -5,9 +5,17 @@ import { Paragraph } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
 import ToastProps from './interface';
 import styles from './styles';
-import { TOAST_ICON_COLORS, DEFAULT_ACTION_LABEL, DEFAULT_ACTION_LABEL_AR } from './constants';
+import {
+  TOAST_ICON_COLORS,
+  DEFAULT_ACTION_LABEL,
+  DEFAULT_ACTION_LABEL_AR,
+} from './constants';
 
-const ToastIcon = ({ type }: { type: 'success' | 'error' | 'info' | 'warning' }) => {
+const ToastIcon = ({
+  type,
+}: {
+  type: 'success' | 'error' | 'info' | 'warning';
+}) => {
   const iconColor = TOAST_ICON_COLORS[type];
 
   switch (type) {
@@ -118,7 +126,9 @@ const Toast = ({
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
-  const defaultActionLabel = isRTL ? DEFAULT_ACTION_LABEL_AR : DEFAULT_ACTION_LABEL;
+  const defaultActionLabel = isRTL
+    ? DEFAULT_ACTION_LABEL_AR
+    : DEFAULT_ACTION_LABEL;
   const finalActionLabel = actionLabel || defaultActionLabel;
 
   return (
@@ -129,15 +139,9 @@ const Toast = ({
         themedStyles[type],
         isRTL && themedStyles.containerRTL,
       ]}
-      {...viewProps}
-    >
+      {...viewProps}>
       {/* Content area with icon and text */}
-      <View
-        style={[
-          themedStyles.content,
-          isRTL && themedStyles.contentRTL,
-        ]}
-      >
+      <View style={[themedStyles.content, isRTL && themedStyles.contentRTL]}>
         <ToastIcon type={type} />
         <Paragraph
           testId={`${testId}-toast-message`}
@@ -154,18 +158,12 @@ const Toast = ({
 
       {/* Actions area */}
       {(showAction || showClose) && (
-        <View
-          style={[
-            themedStyles.actions,
-            isRTL && themedStyles.actionsRTL,
-          ]}
-        >
+        <View style={[themedStyles.actions, isRTL && themedStyles.actionsRTL]}>
           {showAction && (
             <Pressable
               testID={`${testId}-toast-action`}
               style={themedStyles.actionButton}
-              onPress={onActionPress}
-            >
+              onPress={onActionPress}>
               <Paragraph
                 testId={`${testId}-toast-action-text`}
                 text={finalActionLabel}
@@ -181,8 +179,7 @@ const Toast = ({
             <Pressable
               testID={`${testId}-toast-close`}
               style={themedStyles.closeButton}
-              onPress={onClosePress}
-            >
+              onPress={onClosePress}>
               <CloseIcon />
             </Pressable>
           )}

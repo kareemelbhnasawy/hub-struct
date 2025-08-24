@@ -22,7 +22,7 @@ class ToastService {
 
   static show(config: ToastConfig) {
     const toastId = this.generateId();
-    
+
     ToastifyToast.show({
       data: {
         title: config.message,
@@ -87,7 +87,9 @@ class ToastService {
   }
 }
 
-const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <>
       {children}

@@ -15,7 +15,7 @@ const ToastDemo = () => {
 
   const showToasts = () => {
     ToastService.success('Operation completed successfully!');
-    
+
     setTimeout(() => {
       ToastService.error('Something went wrong. Please try again.');
     }, 1000);
@@ -47,7 +47,7 @@ const ToastDemo = () => {
           weight="Medium"
           style={styles.sectionTitle}
         />
-        
+
         <Toast
           testId="demo-success"
           type="success"
@@ -89,7 +89,7 @@ const ToastDemo = () => {
           weight="Medium"
           style={styles.sectionTitle}
         />
-        
+
         <Toast
           testId="demo-success-rtl"
           type="success"

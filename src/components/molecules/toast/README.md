@@ -39,7 +39,7 @@ ToastService.success('Success message', {
   actionLabel: 'إجراء',
   onActionPress: () => {
     console.log('Action pressed');
-  }
+  },
 });
 
 // Custom configuration
@@ -53,7 +53,7 @@ ToastService.show({
   onActionPress: () => {
     // Handle action
   },
-  duration: 4000
+  duration: 4000,
 });
 ```
 
@@ -72,37 +72,37 @@ import { Toast } from '@/components/molecules';
   actionLabel="Action"
   onActionPress={() => console.log('Action pressed')}
   onClosePress={() => console.log('Close pressed')}
-/>
+/>;
 ```
 
 ## Props
 
 ### ToastProps Interface
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `testId` | `string` | **Required** | Test identifier for testing |
-| `type` | `'success' \| 'error' \| 'info' \| 'warning'` | **Required** | Toast type determines icon and colors |
-| `message` | `string` | **Required** | Message text to display |
-| `isRTL` | `boolean` | `false` | Enable RTL layout and text alignment |
-| `showAction` | `boolean` | `true` | Show/hide action button |
-| `showClose` | `boolean` | `true` | Show/hide close button |
-| `actionLabel` | `string` | `'Action'` or `'اكشن'` | Text for action button |
-| `onActionPress` | `() => void` | `undefined` | Action button press handler |
-| `onClosePress` | `() => void` | `undefined` | Close button press handler |
-| `messageProps` | `Omit<ParagraphProps, 'testId' \| 'text'>` | `undefined` | Props for message text |
-| `actionProps` | `Omit<ParagraphProps, 'testId' \| 'text'>` | `undefined` | Props for action text |
+| Prop            | Type                                          | Default                | Description                           |
+| --------------- | --------------------------------------------- | ---------------------- | ------------------------------------- |
+| `testId`        | `string`                                      | **Required**           | Test identifier for testing           |
+| `type`          | `'success' \| 'error' \| 'info' \| 'warning'` | **Required**           | Toast type determines icon and colors |
+| `message`       | `string`                                      | **Required**           | Message text to display               |
+| `isRTL`         | `boolean`                                     | `false`                | Enable RTL layout and text alignment  |
+| `showAction`    | `boolean`                                     | `true`                 | Show/hide action button               |
+| `showClose`     | `boolean`                                     | `true`                 | Show/hide close button                |
+| `actionLabel`   | `string`                                      | `'Action'` or `'اكشن'` | Text for action button                |
+| `onActionPress` | `() => void`                                  | `undefined`            | Action button press handler           |
+| `onClosePress`  | `() => void`                                  | `undefined`            | Close button press handler            |
+| `messageProps`  | `Omit<ParagraphProps, 'testId' \| 'text'>`    | `undefined`            | Props for message text                |
+| `actionProps`   | `Omit<ParagraphProps, 'testId' \| 'text'>`    | `undefined`            | Props for action text                 |
 
 ### ToastService Methods
 
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `show()` | `(config: ToastConfig) => void` | Show toast with full configuration |
-| `success()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show success toast |
-| `error()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show error toast |
-| `info()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show info toast |
-| `warning()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show warning toast |
-| `hide()` | `() => void` | Hide all active toasts |
+| Method      | Signature                                                   | Description                        |
+| ----------- | ----------------------------------------------------------- | ---------------------------------- |
+| `show()`    | `(config: ToastConfig) => void`                             | Show toast with full configuration |
+| `success()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show success toast                 |
+| `error()`   | `(message: string, options?: Partial<ToastConfig>) => void` | Show error toast                   |
+| `info()`    | `(message: string, options?: Partial<ToastConfig>) => void` | Show info toast                    |
+| `warning()` | `(message: string, options?: Partial<ToastConfig>) => void` | Show warning toast                 |
+| `hide()`    | `() => void`                                                | Hide all active toasts             |
 
 ## Setup
 
@@ -112,11 +112,7 @@ The `ToastProvider` must be wrapped around your app root:
 import { ToastProvider } from '@/components/molecules';
 
 export default function App() {
-  return (
-    <ToastProvider>
-      {/* Your app content */}
-    </ToastProvider>
-  );
+  return <ToastProvider>{/* Your app content */}</ToastProvider>;
 }
 ```
 
