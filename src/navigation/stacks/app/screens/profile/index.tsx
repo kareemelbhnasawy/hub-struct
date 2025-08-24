@@ -1,25 +1,15 @@
 import { View, Text, Pressable } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Headline, Paragraph } from '@/components/atoms';
-import { useTranslate } from '@/hooks';
-import { AppStackParamList } from '../../types';
+import { useNavigation, useTranslate } from '@/hooks';
 import styles from './styles';
-import { ProfileScreenParams } from './types';
-
-type ProfileScreenNavigationProp = NativeStackNavigationProp<
-  AppStackParamList,
-  'Profile'
->;
 
 const ProfileScreen = () => {
-  const navigation = useNavigation<ProfileScreenNavigationProp>();
-  const route = useRoute();
-  const { userId = '12345' } = (route.params as ProfileScreenParams) || {};
+  const nav = useNavigation<'Profile'>(); // TRoute is 'Profile'
+  const { userId } = nav.params; // strongly typed
   const { locale } = useTranslate();
 
   const handleGoBackToHome = () => {
-    navigation.goBack();
+    nav.goBack();
   };
 
   return (

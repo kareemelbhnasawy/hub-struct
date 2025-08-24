@@ -1,13 +1,10 @@
-import React from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { LoginScreenNavigationProp } from './types';
 import { Headline, Paragraph } from '@/components/atoms';
-import { useTranslate } from '@/hooks';
+import { useNavigation, useTranslate } from '@/hooks';
 import styles from './styles';
 
 const LoginScreen = () => {
-  const navigation = useNavigation<LoginScreenNavigationProp>();
+  const navigation = useNavigation();
   const { locale } = useTranslate();
 
   const handleNavigateToApp = () => {

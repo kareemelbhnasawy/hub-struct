@@ -1,23 +1,12 @@
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
-  heroContent: {
+  container: {
     base: {
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      flex: 1,
-    },
-  },
-  iconContainer: {
-    base: {
-      aspectRatio: 1,
-    },
-  },
-  buttonContainer: {
-    base: {
-      paddingVertical: 20,
-      paddingHorizontal: 20,
-      gap: 15,
+      backgroundColor: 'backgroundPrimary',
     },
   },
   profileButton: {
