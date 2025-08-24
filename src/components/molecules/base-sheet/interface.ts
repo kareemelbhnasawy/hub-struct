@@ -1,16 +1,18 @@
 import HeadlineProps from '@/components/atoms/typography/headline/interface';
-import BottomSheet, { BottomSheetProps } from '@gorhom/bottom-sheet';
-import { StyleProp, ViewStyle } from 'react-native';
-import { SnapPoints } from './utils';
-interface BaseSheetProps extends Omit<BottomSheetProps, 'snapPoints'> {
+import { BottomSheetProps } from '@gorhom/bottom-sheet';
+import { SnapPoints } from './constants';
+import { RNStyle } from '@/types/themes';
+
+interface BaseSheetProps
+  extends Omit<BottomSheetProps, 'snapPoints' | 'children'> {
   testId: string;
-  children: React.ReactNode;
-  sheetRef: React.RefObject<BottomSheet | null>;
   snapPoints: SnapPoints[] | SnapPoints;
   titleProps?: Omit<HeadlineProps, 'testId'>;
   hasCloseButton?: boolean;
   hasSubmitButton?: boolean;
-  containerStyle?: StyleProp<ViewStyle>;
+  containerStyle?: RNStyle;
+  modalVisible: boolean;
+  setModalVisible: (arg0: boolean) => void;
 }
 
 export default BaseSheetProps;
