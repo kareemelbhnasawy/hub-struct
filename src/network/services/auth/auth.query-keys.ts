@@ -1,0 +1,6 @@
+const AUTH_QUERY_KEYS = {
+  LOGIN_START: 'LOGIN_START',
+  LOGIN_FINISH: 'LOGIN_FINISH',
+} as const;
+
+export default AUTH_QUERY_KEYS;
