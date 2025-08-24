@@ -8,6 +8,7 @@ import { useThemeStore } from '@/store/theme';
 import ListDemo from '@/components/organisms/list/demo';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
+import PinCodeInput from '@/components/molecules/pin-code';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -29,6 +30,11 @@ const AppRoot = () => {
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" testId={''} />
+        <PinCodeInput
+          onPinComplete={(pin) => console.log(pin)}
+          testId={''}
+          errorProps={{ text: 'samya' }}
+        />
         <Pressable
           onPress={() => {
             toggleTheme();
