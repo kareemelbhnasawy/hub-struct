@@ -31,14 +31,22 @@ const ToastDemo = () => {
 
   return (
     <View style={styles.container}>
-      <Paragraph size="lg" weight="SemiBold" style={styles.title}>
-        Toast Component Demo
-      </Paragraph>
+      <Paragraph
+        testId="demo-title"
+        text="Toast Component Demo"
+        size="lg"
+        weight="SemiBold"
+        style={styles.title}
+      />
 
       <View style={styles.section}>
-        <Paragraph size="md" weight="Medium" style={styles.sectionTitle}>
-          Static Toasts (LTR)
-        </Paragraph>
+        <Paragraph
+          testId="demo-section-ltr"
+          text="Static Toasts (LTR)"
+          size="md"
+          weight="Medium"
+          style={styles.sectionTitle}
+        />
         
         <Toast
           testId="demo-success"
@@ -74,9 +82,13 @@ const ToastDemo = () => {
       </View>
 
       <View style={styles.section}>
-        <Paragraph size="md" weight="Medium" style={styles.sectionTitle}>
-          Static Toasts (RTL)
-        </Paragraph>
+        <Paragraph
+          testId="demo-section-rtl"
+          text="Static Toasts (RTL)"
+          size="md"
+          weight="Medium"
+          style={styles.sectionTitle}
+        />
         
         <Toast
           testId="demo-success-rtl"
@@ -100,14 +112,14 @@ const ToastDemo = () => {
       </View>
 
       <View style={styles.buttonSection}>
-        <Paragraph 
-          size="md" 
-          weight="Medium" 
+        <Paragraph
+          testId="demo-button"
+          text="Show Toast Notifications"
+          size="md"
+          weight="Medium"
           style={styles.button}
           onPress={showToasts}
-        >
-          Show Toast Notifications
-        </Paragraph>
+        />
       </View>
     </View>
   );

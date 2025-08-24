@@ -13,8 +13,8 @@ export interface ToastProps extends Omit<ViewProps, 'style' | 'testID'> {
   actionLabel?: string;
   onActionPress?: () => void;
   onClosePress?: () => void;
-  messageProps?: Omit<ParagraphProps, 'testId' | 'children'>;
-  actionProps?: Omit<ParagraphProps, 'testId' | 'children'>;
+  messageProps?: Omit<ParagraphProps, 'testId' | 'text'>;
+  actionProps?: Omit<ParagraphProps, 'testId' | 'text'>;
 }
 
 export default ToastProps;
