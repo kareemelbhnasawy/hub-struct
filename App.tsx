@@ -8,6 +8,7 @@ import { requestNotifications } from 'react-native-permissions';
 import AppRoot from '@/apps/app-root';
 import { PortalProvider } from '@gorhom/portal';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ToastProvider } from '@/components/molecules';
 
 const App = () => {
   const crashlytics = getCrashlytics();
@@ -24,7 +25,9 @@ const App = () => {
       <PortalProvider>
         <SafeAreaProvider
           style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
-          <AppRoot />
+          <ToastProvider>
+            <AppRoot />
+          </ToastProvider>
         </SafeAreaProvider>
       </PortalProvider>
     </GestureHandlerRootView>
