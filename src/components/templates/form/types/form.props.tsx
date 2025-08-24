@@ -23,7 +23,6 @@ interface FormType extends FlatListPropsWithoutInitialValues {
   space?: SpacingValue;
   ListFormBottom?: (props: FormikProps<FormikValues>) => React.ReactNode;
   selectorProps?: FlatListPropsWithoutData;
-  removeSubmitBtn?: boolean;
   showErrorsInForm?: boolean;
 }
 

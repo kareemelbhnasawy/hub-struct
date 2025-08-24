@@ -22,6 +22,7 @@ import FormInputTypes from '@/components/templates/form/constants';
 import { Page } from '@/components/templates';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { useCallback } from 'react';
+import { Yup } from '@/utilities';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -56,6 +57,7 @@ const AppRoot = () => {
               testId: `field1-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
+              validation: { required: true, digitsOnly: true, min: 5 },
             },
             {
               name: 'field2',
@@ -70,6 +72,11 @@ const AppRoot = () => {
               testId: `field2-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
+              items: [
+                { label: '1', value: 1 },
+                { label: '2', value: 2 },
+                { label: '3', value: 3 },
+              ],
             },
             {
               name: 'field4',

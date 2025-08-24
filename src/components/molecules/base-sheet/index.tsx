@@ -1,10 +1,15 @@
 import BaseSheetProps from './interface';
-import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import BottomSheet, {
+  BottomSheetBackdrop,
+  BottomSheetBackdropProps,
+  BottomSheetView,
+} from '@gorhom/bottom-sheet';
 import { styles } from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
 import { Button, Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
-import { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useCallback, useEffect, useRef } from 'react';
+import { Portal } from '@gorhom/portal';
 
 const BaseSheet = ({
   testId,
@@ -26,10 +31,8 @@ const BaseSheet = ({
   useEffect(() => {
     if (!modalVisible) {
       sheetRef.current?.close();
-      // sheetRef.current?.snapToIndex(0);
     } else {
       sheetRef.current?.expand();
-      // sheetRef.current?.snapToIndex(1);
     }
   }, [modalVisible]);
 
@@ -49,39 +52,59 @@ const BaseSheet = ({
       />
     </Pressable>
   );
-  return (
-    <BottomSheet
-      ref={sheetRef}
-      snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
-      enablePanDownToClose={true}
-      enableDynamicSizing={false}
-      enableContentPanningGesture={true}
-      style={[containerStyle, themedStyles.containerWrapper]}
-      onClose={onCloseFn}
-      {...props}>
-      <BottomSheetView
-        testID={`${testId}-bottom-sheet`}
-        style={themedStyles.hasVerticalGap}>
-        <View
-          testID={`${testId}-bottom-sheet-header-container`}
-          style={themedStyles.heading}>
-          {titleProps && (
-            <Headline
-              testId={`${testId}-bottom-sheet-header`}
-              {...titleProps}
-            />
-          )}
-          {hasCloseButton && closeButton}
-        </View>
-        <View testID={`${testId}-bottom-sheet-body-container`}>{children}</View>
 
-        {/* //TODO: replace with actual Button */}
-        {/* //TODO: make place for 2 buttons instead of one */}
-        <View testID={`${testId}-bottom-sheet-footer-container`}>
-          {hasSubmitButton && <Button title="Submit" />}
-        </View>
-      </BottomSheetView>
-    </BottomSheet>
+  const renderBackdrop = useCallback(
+    (props: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop
+        disappearsOnIndex={-1}
+        appearsOnIndex={0}
+        opacity={0.75}
+        pressBehavior="close"
+        {...props}
+      />
+    ),
+    [],
+  );
+
+  return (
+    <Portal>
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
+        enablePanDownToClose={true}
+        enableDynamicSizing={false}
+        enableContentPanningGesture={true}
+        index={modalVisible ? 0 : -1}
+        style={[containerStyle, themedStyles.containerWrapper]}
+        onClose={onCloseFn}
+        backdropComponent={renderBackdrop}
+        {...props}>
+        <BottomSheetView
+          testID={`${testId}-bottom-sheet`}
+          style={themedStyles.hasVerticalGap}>
+          <View
+            testID={`${testId}-bottom-sheet-header-container`}
+            style={themedStyles.heading}>
+            {titleProps && (
+              <Headline
+                testId={`${testId}-bottom-sheet-header`}
+                {...titleProps}
+              />
+            )}
+            {hasCloseButton && closeButton}
+          </View>
+          <View testID={`${testId}-bottom-sheet-body-container`}>
+            {children}
+          </View>
+
+          {/* //TODO: replace with actual Button */}
+          {/* //TODO: make place for 2 buttons instead of one */}
+          <View testID={`${testId}-bottom-sheet-footer-container`}>
+            {hasSubmitButton && <Button title="Submit" />}
+          </View>
+        </BottomSheetView>
+      </BottomSheet>
+    </Portal>
   );
 };
 

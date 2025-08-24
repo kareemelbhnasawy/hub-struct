@@ -15,7 +15,7 @@ type InputState =
 
 const TextInput = ({
   labelProps,
-  required,
+  isRequired,
   inputStyle,
   containerStyle,
   value,
@@ -28,6 +28,7 @@ const TextInput = ({
   style,
   error,
   disabled,
+  errorProps,
   ...props
 }: TextInputProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -49,13 +50,14 @@ const TextInput = ({
   return (
     <InputContainer
       testId={testId}
-      required={required}
+      isRequired={isRequired}
       labelProps={labelProps}
       containerStyle={containerStyle}
       leadingIconProps={leadingIconProps}
       trailingIconProps={trailingIconProps}
       inputStyle={style}
       state={getState()}
+      errorProps={errorProps}
       onPressContainer={() => {
         baseTextRef?.current?.focus();
       }}>

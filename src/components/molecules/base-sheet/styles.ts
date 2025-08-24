@@ -22,6 +22,7 @@ export const styles = createThemedStyles({
   hasVerticalGap: {
     base: {
       rowGap: 20,
+      flex: 1,
     },
   },
 });

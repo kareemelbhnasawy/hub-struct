@@ -10,6 +10,19 @@ import DateInput from '@/components/organisms/date-input';
 import SelectInput from '@/components/organisms/select-input';
 import { Paragraph, Spacer } from '@/components/atoms';
 
+const handleErrorMessage = (
+  field: FormFieldType,
+  formikProps: FormikProps<FormikValues>,
+) => {
+  if (field.errorProps) {
+    return field.errorProps;
+  }
+  if (formikProps.touched?.[field.name] && formikProps.errors?.[field.name]) {
+    return formikProps.errors?.[field.name];
+  }
+  return null;
+};
+
 const select = (
   field: FormFieldType,
   formikProps: FormikProps<FormikValues>,
@@ -24,17 +37,28 @@ const select = (
       formikProps.setFieldTouched(field.name);
       field.onChangeValue?.(v);
     },
-    // errorProps: handleErrorMessage(field, formikProps),
+    errorProps: handleErrorMessage(field, formikProps),
   };
   switch (field.type) {
     case FormInputTypes.TextInput:
-      return <TextInput {...fieldProps} />;
+      return (
+        <TextInput isRequired={field?.validation?.required} {...fieldProps} />
+      );
     case FormInputTypes.PasswordInput:
-      return <PasswordInput {...fieldProps} />;
+      return (
+        <PasswordInput
+          isRequired={field?.validation?.required}
+          {...fieldProps}
+        />
+      );
     case FormInputTypes.DateInput:
-      return <DateInput {...fieldProps} />;
+      return (
+        <DateInput isRequired={field?.validation?.required} {...fieldProps} />
+      );
     case FormInputTypes.SelectInput:
-      return <SelectInput {...fieldProps} />;
+      return (
+        <SelectInput isRequired={field?.validation?.required} {...fieldProps} />
+      );
     default:
       return (
         <Paragraph testId="not-supported" text="Component not supported" />

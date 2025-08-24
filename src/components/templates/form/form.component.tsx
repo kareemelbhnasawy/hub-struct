@@ -5,6 +5,7 @@ import FormType from './types/form.props';
 import FormSelector from './form-selector.component';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
+import { generateValidationSchema } from './utils';
 
 // eslint-disable-next-line react/display-name
 const Form = forwardRef(
@@ -19,7 +20,6 @@ const Form = forwardRef(
       selectorProps,
       ListFormBottom,
       space,
-      removeSubmitBtn,
       initialValues = {},
       showErrorsInForm,
       ...formikProps
@@ -35,6 +35,7 @@ const Form = forwardRef(
           validateOnBlur={validateOnBlur}
           validateOnMount={validateOnMount}
           initialValues={initialValues}
+          validationSchema={generateValidationSchema(fields)}
           {...formikProps}>
           {(props: FormikProps<FormikValues>) => (
             <>
@@ -50,15 +51,13 @@ const Form = forwardRef(
                   />
                 ) : null}
               </View>
-              {!removeSubmitBtn ? (
-                <Button
-                  onPress={props?.handleSubmit}
-                  testID={`${testId}-submit-btn`}
-                  title="Submit"
-                  {...submitButtonProps}
-                  disabled={submitButtonProps?.disabled || !props.isValid}
-                />
-              ) : null}
+              <Button
+                onPress={() => props?.handleSubmit()}
+                testID={`${testId}-submit-btn`}
+                title="Submit"
+                {...submitButtonProps}
+                disabled={submitButtonProps?.disabled || !props.isValid}
+              />
               {ListFormBottom?.(props)}
             </>
           )}

@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import { Pressable, View } from 'react-native';
 import styles from './styles';
 import { InputContainerProps } from './interface';
-import { Headline, LucideIcon, Spacer } from '@/components/atoms';
+import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
 
 const InputContainer = ({
@@ -13,8 +13,9 @@ const InputContainer = ({
   leadingIconProps,
   trailingIconProps,
   onPressContainer,
-  required,
+  isRequired,
   state = 'default',
+  errorProps,
   children,
 }: PropsWithChildren<InputContainerProps>) => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
@@ -27,7 +28,7 @@ const InputContainer = ({
         <>
           <View style={themedStyles.labelContainer}>
             <Headline testId={`${testId}-input-label`} {...labelProps} />
-            {required && (
+            {isRequired && (
               <LucideIcon
                 testId={`${testId}-input-label-asterisk`}
                 name="Asterisk"
@@ -56,6 +57,17 @@ const InputContainer = ({
           />
         )}
       </Pressable>
+      {errorProps ? (
+        <>
+          <Spacer space="sm" />
+          <Paragraph
+            testId={`${testId}-input-error-string`}
+            style={themedStyles.errorColor}
+            size="xl"
+            {...errorProps}
+          />
+        </>
+      ) : null}
     </View>
   );
 };

@@ -57,6 +57,11 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
+  errorColor: {
+    base: {
+      color: 'textError',
+    },
+  },
 });
 
 export default styles;

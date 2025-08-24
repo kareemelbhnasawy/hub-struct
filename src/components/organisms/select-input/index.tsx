@@ -18,7 +18,7 @@ type InputState =
 
 const SelectInput = ({
   labelProps,
-  required,
+  isRequired,
   inputStyle,
   containerStyle,
   testId,
@@ -28,6 +28,9 @@ const SelectInput = ({
   disabled,
   placeholder,
   placeholderProps,
+  items,
+  value,
+  onChangeValue,
   ...actionMenuProps
 }: SelectInputProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -50,31 +53,32 @@ const SelectInput = ({
       <ActionMenu
         {...actionMenuProps}
         testId=""
-        items={[]}
+        items={items}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
-        snapPoints={[SnapPoints.MD, SnapPoints.LG, SnapPoints.XL]}
+        snapPoints={SnapPoints.LG}
+        onSelect={onChangeValue}
       />
       <InputContainer
         testId={testId}
-        required={required}
+        isRequired={isRequired}
         labelProps={labelProps}
         containerStyle={containerStyle}
         trailingIconProps={{ name: 'ChevronDown' }}
         leadingIconProps={leadingIconProps}
         inputStyle={style}
-        state={getState()}
-        onPressContainer={() => setModalVisible(true)}>
+        state={getState()}>
         <Pressable
           style={[themedStyles.flexOne, inputStyle]}
           onHoverIn={() => setHovered(true)}
           onHoverOut={() => setHovered(false)}
           onPressIn={() => setPressed(true)}
-          onPressOut={() => setPressed(false)}>
+          onPressOut={() => setPressed(false)}
+          onPress={() => setModalVisible(true)}>
           {placeholder && (
             <Paragraph
               testId=""
-              text={placeholder}
+              text={value || placeholder}
               textProps={placeholderProps}
             />
           )}

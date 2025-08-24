@@ -16,7 +16,7 @@ type InputState =
 
 const DateInput = ({
   labelProps,
-  required,
+  isRequired,
   inputStyle,
   containerStyle,
   testId,
@@ -47,7 +47,7 @@ const DateInput = ({
   return (
     <InputContainer
       testId={testId}
-      required={required}
+      isRequired={isRequired}
       labelProps={labelProps}
       containerStyle={containerStyle}
       trailingIconProps={{ name: 'CalendarDays' }}

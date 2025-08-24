@@ -37,6 +37,7 @@ const ActionMenu = ({
       testId={testId}
       modalVisible={modalVisible}
       setModalVisible={setModalVisible}
+      enableDynamicSizing={false}
       {...bottomSheetProps}>
       <List
         testId={''}
