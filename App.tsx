@@ -15,7 +15,6 @@ const App = () => {
   useEffect(() => {
     if (crashlytics) log(crashlytics, 'App mounted.');
     checkPermissions();
-
     requestNotifications();
   }, [crashlytics]);
 
