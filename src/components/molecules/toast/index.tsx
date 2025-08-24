@@ -60,8 +60,7 @@ const Toast = ({
         isRTL && themedStyles.containerRTL,
         style,
       ]}
-      {...props}
-    >
+      {...props}>
       {/* Icon */}
       <View style={themedStyles.iconContainer}>
         <LucideIcon
@@ -77,15 +76,13 @@ const Toast = ({
         style={[
           themedStyles.contentContainer,
           isRTL && themedStyles.contentContainerRTL,
-        ]}
-      >
+        ]}>
         {title && (
           <Paragraph
             testId={`${testId}-toast-title`}
             size="md"
             weight="SemiBold"
-            style={[themedStyles.title, variantStyles.title]}
-          >
+            style={[themedStyles.title, variantStyles.title]}>
             {title}
           </Paragraph>
         )}
@@ -93,8 +90,7 @@ const Toast = ({
           testId={`${testId}-toast-message`}
           size="sm"
           weight="Regular"
-          style={[themedStyles.message, variantStyles.message]}
-        >
+          style={[themedStyles.message, variantStyles.message]}>
           {message}
         </Paragraph>
       </View>
@@ -104,21 +100,18 @@ const Toast = ({
         style={[
           themedStyles.actionsContainer,
           isRTL && themedStyles.actionsContainerRTL,
-        ]}
-      >
+        ]}>
         {/* Action Button */}
         {showAction && actionLabel && onActionPress && (
           <Pressable
             testID={`${testId}-toast-action`}
             style={[themedStyles.actionButton, variantStyles.action]}
-            onPress={onActionPress}
-          >
+            onPress={onActionPress}>
             <Paragraph
               testId={`${testId}-toast-action-text`}
               size="sm"
               weight="SemiBold"
-              style={[themedStyles.actionText, variantStyles.actionText]}
-            >
+              style={[themedStyles.actionText, variantStyles.actionText]}>
               {actionLabel}
             </Paragraph>
           </Pressable>
@@ -129,8 +122,7 @@ const Toast = ({
           <Pressable
             testID={`${testId}-toast-close`}
             style={themedStyles.closeButton}
-            onPress={onClose}
-          >
+            onPress={onClose}>
             <LucideIcon
               testId={`${testId}-toast-close-icon`}
               name="X"

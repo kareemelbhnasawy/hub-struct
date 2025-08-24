@@ -1,5 +1,8 @@
 import React, { createContext, useContext, ReactNode, useRef } from 'react';
-import { ToastProvider as ToastifyProvider, useToast } from 'toastify-react-native';
+import {
+  ToastProvider as ToastifyProvider,
+  useToast,
+} from 'toastify-react-native';
 import Toast from './index';
 import { ToastConfigOptions, ToastManagerRef, ToastVariant } from './interface';
 
@@ -71,16 +74,15 @@ const ToastProviderContent = ({ children }: ToastProviderProps) => {
     }
   };
 
-  const createVariantMethod = (variant: ToastVariant) => (
-    message: string,
-    options: Partial<ToastConfigOptions> = {}
-  ) => {
-    showCustomToast({
-      variant,
-      message,
-      ...options,
-    });
-  };
+  const createVariantMethod =
+    (variant: ToastVariant) =>
+    (message: string, options: Partial<ToastConfigOptions> = {}) => {
+      showCustomToast({
+        variant,
+        message,
+        ...options,
+      });
+    };
 
   const contextValue: ToastContextType = {
     show: showCustomToast,

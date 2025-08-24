@@ -25,11 +25,14 @@ const ToastDemo = () => {
   };
 
   const showInfoToast = () => {
-    toast.info('Additional content is written here in case the notification or alert needs explanation.', {
-      title: 'Information',
-      actionLabel: 'Learn More',
-      onActionPress: () => console.log('Learn more pressed'),
-    });
+    toast.info(
+      'Additional content is written here in case the notification or alert needs explanation.',
+      {
+        title: 'Information',
+        actionLabel: 'Learn More',
+        onActionPress: () => console.log('Learn more pressed'),
+      },
+    );
   };
 
   const showWarningToast = () => {
@@ -43,7 +46,8 @@ const ToastDemo = () => {
   const showCustomToast = () => {
     toast.show({
       variant: 'success',
-      message: 'يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح',
+      message:
+        'يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح',
       actionLabel: 'اكشن',
       onActionPress: () => console.log('RTL Action pressed'),
       showAction: true,
@@ -58,33 +62,33 @@ const ToastDemo = () => {
       <Paragraph size="lg" weight="Bold" style={styles.title}>
         Toast Component Demo
       </Paragraph>
-      
+
       <View style={styles.buttonContainer}>
-        <BaseButton 
+        <BaseButton
           onPress={showSuccessToast}
           variant="primary"
           label="Show Success Toast"
         />
-        
-        <BaseButton 
+
+        <BaseButton
           onPress={showErrorToast}
           variant="primary"
           label="Show Error Toast"
         />
-        
-        <BaseButton 
+
+        <BaseButton
           onPress={showInfoToast}
           variant="primary"
           label="Show Info Toast"
         />
-        
-        <BaseButton 
+
+        <BaseButton
           onPress={showWarningToast}
           variant="primary"
           label="Show Warning Toast"
         />
-        
-        <BaseButton 
+
+        <BaseButton
           onPress={showCustomToast}
           variant="secondary"
           label="Show RTL Toast"
