@@ -141,6 +141,7 @@ const Toast = ({
         <ToastIcon type={type} />
         <Paragraph
           testId={`${testId}-toast-message`}
+          text={message}
           size="md"
           weight="Regular"
           style={[
@@ -148,9 +149,7 @@ const Toast = ({
             isRTL && themedStyles.messageTextRTL,
           ]}
           {...messageProps}
-        >
-          {message}
-        </Paragraph>
+        />
       </View>
 
       {/* Actions area */}
@@ -169,13 +168,12 @@ const Toast = ({
             >
               <Paragraph
                 testId={`${testId}-toast-action-text`}
+                text={finalActionLabel}
                 size="sm"
                 weight="SemiBold"
                 style={themedStyles.actionText}
                 {...actionProps}
-              >
-                {finalActionLabel}
-              </Paragraph>
+              />
             </Pressable>
           )}
 
