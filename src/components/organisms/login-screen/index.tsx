@@ -1,11 +1,11 @@
 import { View } from 'react-native';
 import LoginScreenProps from './interface';
-import { BaseImage, Headline, Spacer } from '@/components/atoms';
-import { scale } from '@/store/theme/utils';
+import {  Headline, Spacer } from '@/components/atoms';
 import Form from '@/components/templates/form/form.component';
 import FormInputTypes from '@/components/templates/form/constants';
 import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
+import HRSDLogo from '@/components/molecules/hrsd-logo';
 
 const LoginScreen = ({ testId }: LoginScreenProps) => {
     const {getThemedStyles} = useThemeStore();
@@ -13,13 +13,7 @@ const LoginScreen = ({ testId }: LoginScreenProps) => {
   return (
     <View testID={`${testId}-LoginScreen`} style={themedStyles.wrapper}>
         <Spacer space={40} />
-      <BaseImage
-        testId={`${testId}-HRSD-Logo`}
-        // eslint-disable-next-line @typescript-eslint/no-require-imports
-        image={require('@/assets/images/HRSD-Logo.png')}
-        width={scale(40)}
-        height={scale(40)}
-      />
+      <HRSDLogo testId={`${testId}-HRSD-Logo`} size='md' />
       <Spacer />
       <Headline
         testId={`${testId}-LoginScreen-Title`}
