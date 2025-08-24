@@ -15,6 +15,7 @@ export type LinkButtonState =
 
 
 interface LinkButtonProps extends PressableProps {
+  testId: string,
   size?: 'xxl' | 'xl' | 'lg' | 'md' | 'sm';
   leftIcon?: LucideIconProps;
   rightIcon?: LucideIconProps;

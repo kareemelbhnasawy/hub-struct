@@ -9,6 +9,7 @@ import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 
 const LinkButton = (props: LinkButtonProps) => {
   const {
+    testId,
     textProps,
     disabled,
     loading,
@@ -34,6 +35,7 @@ const LinkButton = (props: LinkButtonProps) => {
 
   return (
     <Pressable
+      testID={`${testId}-link-button`}
       disabled={disabled || loading}
       onHoverIn={onHoverIn}
       onHoverOut={onHoverOut}
