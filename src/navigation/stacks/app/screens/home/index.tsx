@@ -11,6 +11,7 @@ import { Radius } from '@/style';
 import FormInputTypes from '@/components/templates/form/constants';
 import Form from '@/components/templates/form/form.component';
 import { AppStackParamList } from '../../types';
+import styles from './styles';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   AppStackParamList,
@@ -100,8 +101,8 @@ const HomeScreen = () => {
 
         <Pressable
           onPress={handleNavigateToProfile}
-          style={styles.profileButton}>
-          <Text style={styles.profileButtonText}>Go to Profile</Text>
+          style={styles.profileButton.base}>
+          <Text style={styles.profileButtonText.base}>Go to Profile</Text>
         </Pressable>
       </ScrollView>
     </>
