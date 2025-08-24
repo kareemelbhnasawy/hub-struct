@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { Button, View } from 'react-native';
 import { Formik, FormikProps, FormikValues } from 'formik';
 import FormType from './types/form.props';
@@ -28,6 +28,12 @@ const Form = forwardRef(
   ) => {
     const { getThemedStyles } = useThemeStore();
     const themedStyles = getThemedStyles(styles);
+
+    const validationSchema = useMemo(
+      () => generateValidationSchema(fields),
+      [fields],
+    );
+
     return (
       <View style={[themedStyles.container, style]}>
         <Formik
@@ -35,7 +41,7 @@ const Form = forwardRef(
           validateOnBlur={validateOnBlur}
           validateOnMount={validateOnMount}
           initialValues={initialValues}
-          validationSchema={generateValidationSchema(fields)}
+          validationSchema={validationSchema}
           {...formikProps}>
           {(props: FormikProps<FormikValues>) => (
             <>

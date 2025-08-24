@@ -9,16 +9,16 @@ export const generateValidationSchema = (fields: FormFieldType[]) => {
     } else {
       let validation =
         field?.validation?.type === 'number' ? Yup.number() : Yup.string();
-      if (field.validation?.required) {
+      if (field.validation?.required !== undefined) {
         validation = validation.required();
       }
-      if (field.validation?.digitsOnly) {
+      if (field.validation?.digitsOnly !== undefined) {
         validation = validation.digitsOnly();
       }
-      if (field.validation?.min) {
+      if (field.validation?.min !== undefined) {
         validation = validation.min(field.validation?.min);
       }
-      if (field.validation?.max) {
+      if (field.validation?.max !== undefined) {
         validation = validation.max(field.validation?.max);
       }
       schema[field.name] = validation;
