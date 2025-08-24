@@ -12,7 +12,6 @@ const LinkButton = (props: LinkButtonProps) => {
     testId,
     textProps,
     disabled,
-    loading,
     ...restProps
   } = props;
 
@@ -36,7 +35,7 @@ const LinkButton = (props: LinkButtonProps) => {
   return (
     <Pressable
       testID={`${testId}-link-button`}
-      disabled={disabled || loading}
+      disabled={disabled}
       onHoverIn={onHoverIn}
       onHoverOut={onHoverOut}
       onFocus={onFocus}
