@@ -22,6 +22,8 @@ const InputContainer = ({
 
   const themedStyles = getThemedStyles(styles);
 
+  const finalState = errorProps ? 'error' : state;
+
   return (
     <View style={containerStyle} testID={`${testId}-input-container`}>
       {labelProps ? (
@@ -42,7 +44,11 @@ const InputContainer = ({
       ) : null}
       <Pressable
         onPress={onPressContainer}
-        style={[themedStyles.inputContainer, themedStyles[state], inputStyle]}>
+        style={[
+          themedStyles.inputContainer,
+          themedStyles[finalState],
+          inputStyle,
+        ]}>
         {leadingIconProps && (
           <LucideIcon
             testId={`${testId}-input-leading-icon`}

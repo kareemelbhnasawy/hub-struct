@@ -2,9 +2,9 @@ import { useCallback, useState } from 'react';
 import DateInputProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
-import InputContainer from '@/components/molecules/input-container';
 import { Pressable } from 'react-native';
 import { Paragraph } from '@/components/atoms';
+import { InputContainer } from '@/components/molecules';
 
 type InputState =
   | 'default'

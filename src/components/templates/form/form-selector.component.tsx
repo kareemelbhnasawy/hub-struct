@@ -4,11 +4,9 @@ import { FormikProps, FormikValues } from 'formik';
 import FormFieldType from './types/form-field.props';
 import FormInputTypes from './constants';
 import SelectorType from './types/selector.props';
-import TextInput from '@/components/molecules/text-input';
-import PasswordInput from '@/components/organisms/password-input';
-import DateInput from '@/components/organisms/date-input';
-import SelectInput from '@/components/organisms/select-input';
 import { Paragraph, Spacer } from '@/components/atoms';
+import { TextInput } from '@/components/molecules';
+import { DateInput, PasswordInput, SelectInput } from '@/components/organisms';
 
 const handleErrorMessage = (
   field: FormFieldType,

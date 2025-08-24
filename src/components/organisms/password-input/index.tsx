@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SearchTextInputProps from './interface';
-import TextInput from '@/components/molecules/text-input';
+import { TextInput } from '@/components/molecules';
 
 const PasswordInput = ({
   defaultSecureTextEntry = true,

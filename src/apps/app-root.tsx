@@ -9,20 +9,11 @@ import {
 import { useTranslate } from '@/hooks';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
-import ListDemo from '@/components/molecules/list/demo';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
-import TextInput from '@/components/molecules/text-input';
-import SearchTextInput from '@/components/organisms/search-input';
-import PasswordInput from '@/components/organisms/password-input';
-import SelectInput from '@/components/organisms/select-input';
 import Form from '@/components/templates/form/form.component';
-import { FormikValues, FormikHelpers } from 'formik';
 import FormInputTypes from '@/components/templates/form/constants';
-import { Page } from '@/components/templates';
-import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { useCallback } from 'react';
-import { Yup } from '@/utilities';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -103,7 +94,6 @@ const AppRoot = () => {
           onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
           <Text>Toggle Lang</Text>
         </Pressable>
-        <ListDemo />
         {/* <BadgeDemo /> */}
       </ScrollView>
     </>

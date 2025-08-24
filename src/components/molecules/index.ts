@@ -2,3 +2,7 @@ export { default as Avatar } from './avatar';
 export { default as Badge } from './badge';
 export { default as BrandToggle } from './brand-toggle';
 export { default as DescriptiveIcon } from './descriptive-icon';
+export { default as List } from './list';
+export { default as BaseSheet } from './base-sheet';
+export { default as InputContainer } from './input-container';
+export { default as TextInput } from './text-input';

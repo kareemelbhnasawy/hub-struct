@@ -1,9 +1,9 @@
-import BaseTextInput from '@/components/atoms/base-text-input';
 import { useCallback, useRef, useState } from 'react';
-import InputContainer from '../input-container';
 import TextInputProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
+import { BaseTextInput } from '@/components/atoms';
+import InputContainer from '../input-container';
 
 type InputState =
   | 'default'

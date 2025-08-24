@@ -1,7 +1,6 @@
-import BaseSheet from '@/components/molecules/base-sheet';
-import List from '@/components/molecules/list';
 import { Paragraph } from '@/components/atoms';
 import ActionMenuProps from './interface';
+import { BaseSheet, List } from '@/components/molecules';
 
 const ActionMenu = ({
   testId,
@@ -34,13 +33,13 @@ const ActionMenu = ({
 
   return (
     <BaseSheet
-      testId={testId}
+      testId={`${testId}-action-menu`}
       modalVisible={modalVisible}
       setModalVisible={setModalVisible}
       enableDynamicSizing={false}
       {...bottomSheetProps}>
       <List
-        testId={''}
+        testId={`${testId}-action-menu`}
         renderItem={renderItem}
         data={items}
         scrollEnabled={false}
