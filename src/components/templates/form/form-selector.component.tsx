@@ -22,6 +22,7 @@ const handleErrorMessage = (
 };
 
 const select = (
+  testId: string,
   field: FormFieldType,
   formikProps: FormikProps<FormikValues>,
   showInputErrorMsg: boolean,
@@ -40,22 +41,35 @@ const select = (
   switch (field.type) {
     case FormInputTypes.TextInput:
       return (
-        <TextInput isRequired={field?.validation?.required} {...fieldProps} />
+        <TextInput
+          testId={`${testId}-${field.name}`}
+          isRequired={field?.validation?.required}
+          {...fieldProps}
+        />
       );
     case FormInputTypes.PasswordInput:
       return (
         <PasswordInput
+          testId={`${testId}-${field.name}`}
           isRequired={field?.validation?.required}
           {...fieldProps}
         />
       );
     case FormInputTypes.DateInput:
       return (
-        <DateInput isRequired={field?.validation?.required} {...fieldProps} />
+        <DateInput
+          testId={`${testId}-${field.name}`}
+          isRequired={field?.validation?.required}
+          {...fieldProps}
+        />
       );
     case FormInputTypes.SelectInput:
       return (
-        <SelectInput isRequired={field?.validation?.required} {...fieldProps} />
+        <SelectInput
+          testId={`${testId}-${field.name}`}
+          isRequired={field?.validation?.required}
+          {...fieldProps}
+        />
       );
     default:
       return (
@@ -79,7 +93,7 @@ const FormSelector = ({
       scrollEnabled={false}
       renderItem={({ item: field, index }) => (
         <View key={index}>
-          {select(field, formikProps, showInputErrorMsg)}
+          {select(testId, field, formikProps, showInputErrorMsg)}
           <Spacer testId={`${field.testId}-spacer`} space={space} />
         </View>
       )}

@@ -1,7 +1,9 @@
 import { FormikConfig, FormikProps, FormikValues } from 'formik';
-import { ButtonProps, FlatListProps, ViewStyle } from 'react-native';
+import { FlatListProps } from 'react-native';
 import FormFieldType from './form-field.props';
 import { SpacingValue } from '@/components/atoms/spacer/interface';
+import BaseButtonProps from '@/components/molecules/base-button/interface';
+import { RNStyle } from '@/types/themes';
 
 type FlatListPropsWithoutData = Omit<
   FlatListProps<FormFieldType>,
@@ -18,8 +20,8 @@ interface FormType extends FlatListPropsWithoutInitialValues {
   fields: FormFieldType[];
   testId: string;
   // TODO: change to our ButtonProps Comp
-  submitButtonProps?: ButtonProps;
-  style?: ViewStyle;
+  submitButtonProps?: Omit<BaseButtonProps, 'testId'>;
+  style?: RNStyle;
   space?: SpacingValue;
   ListFormBottom?: (props: FormikProps<FormikValues>) => React.ReactNode;
   selectorProps?: FlatListPropsWithoutData;

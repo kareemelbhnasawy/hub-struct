@@ -1,11 +1,12 @@
 import React, { forwardRef, useMemo } from 'react';
-import { Button, View } from 'react-native';
+import { View } from 'react-native';
 import { Formik, FormikProps, FormikValues } from 'formik';
 import FormType from './types/form.props';
 import FormSelector from './form-selector.component';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 import { generateValidationSchema } from './utils';
+import { BaseButton } from '@/components/molecules';
 
 // eslint-disable-next-line react/display-name
 const Form = forwardRef(
@@ -57,10 +58,11 @@ const Form = forwardRef(
                   />
                 ) : null}
               </View>
-              <Button
+              <BaseButton
                 onPress={() => props?.handleSubmit()}
-                testID={`${testId}-submit-btn`}
-                title="Submit"
+                testId={`${testId}-submit-btn`}
+                textProps={{ text: 'تسجيل الدخول' }}
+                size="lg"
                 {...submitButtonProps}
                 disabled={submitButtonProps?.disabled || !props.isValid}
               />
