@@ -12,37 +12,32 @@ const baseStyles = createThemedStyles({
   },
   xxl: {
     base: {
-      height: 38,
-      minWidth: 135,
-      borderRadius: 14,
-      paddingHorizontal: 28,
+      height: 96,
+      borderRadius: 16,
+      paddingHorizontal: 64,
       gap: 10,
     },
   },
   xl: {
     base: {
-      height: 34,
-      minWidth: 128,
+      height: 80,
       borderRadius: 12,
-      paddingHorizontal: 24,
+      paddingHorizontal: 48,
       gap: 10,
     },
   },
   lg: {
     base: {
       height: 56,
-      minWidth: 90,
-      borderRadius: 10,
+      borderRadius: 8,
       paddingHorizontal: 24,
-      paddingVertical: 16,
       gap: 6,
     },
   },
   md: {
     base: {
-      height: 26,
-      minWidth: 82,
-      borderRadius: 10,
+      height: 40,
+      borderRadius: 6,
       paddingHorizontal: 16,
       gap: 5,
     },
@@ -50,10 +45,8 @@ const baseStyles = createThemedStyles({
   sm: {
     base: {
       height: 32,
-      minWidth: 72,
-      borderRadius: 8,
+      borderRadius: 4,
       paddingHorizontal: 12,
-      paddingVertical: 8,
       gap: 5,
     },
   },
