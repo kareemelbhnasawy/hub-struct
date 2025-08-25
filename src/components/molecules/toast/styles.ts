@@ -94,7 +94,8 @@ const styles = createThemedStyles({
   // Close button
   closeButton: {
     base: {
-      padding: 4,
+      paddingVertical: 4,
+      paddingHorizontal: 4,
     },
   },
 
@@ -127,7 +128,7 @@ const styles = createThemedStyles({
     },
   },
 
-  warning: {
+  warn: {
     base: {
       backgroundColor: 'backgroundWarningLight',
       borderColor: 'borderWarningLight',

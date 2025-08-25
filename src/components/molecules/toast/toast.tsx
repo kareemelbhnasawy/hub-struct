@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, Pressable } from 'react-native';
 import { Paragraph, LucideIcon } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
@@ -9,17 +8,17 @@ import { icons } from 'lucide-react-native';
 
 // Map toast types to Lucide icons
 const TOAST_ICON_MAPPING: Record<string, keyof typeof icons> = {
-  success: 'CheckCircle',
-  error: 'XCircle',
+  success: 'CircleCheck',
+  error: 'CircleX',
   info: 'Info',
-  warning: 'AlertTriangle',
+  warn: 'TriangleAlert',
 };
 
 const TOAST_ICON_COLORS = {
   success: '#079455',
   error: '#D92D20',
   info: '#1570EF',
-  warning: '#DC6803',
+  warn: '#DC6803',
 } as const;
 
 const Toast = ({
@@ -38,12 +37,10 @@ const Toast = ({
 }: ToastProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-
   const defaultActionLabel = isRTL
     ? DEFAULT_ACTION_LABEL_AR
     : DEFAULT_ACTION_LABEL;
   const finalActionLabel = actionLabel || defaultActionLabel;
-
   return (
     <View
       testID={`${testId}-toast-container`}
@@ -86,7 +83,7 @@ const Toast = ({
                 testId={`${testId}-toast-action-text`}
                 text={finalActionLabel}
                 size="sm"
-                weight="SemiBold"
+                weight="Semibold"
                 style={themedStyles.actionText}
                 {...actionProps}
               />

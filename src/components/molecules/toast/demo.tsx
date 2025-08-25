@@ -1,8 +1,8 @@
-import React from 'react';
+/* eslint-disable no-console */
 import { View, StyleSheet, Pressable } from 'react-native';
 import { Paragraph } from '@/components/atoms';
 import Toast from './toast';
-import { ToastService } from './toast-provider';
+import { ToastService } from './toast-service';
 
 const ToastDemo = () => {
   const handleActionPress = () => {
@@ -14,45 +14,43 @@ const ToastDemo = () => {
   };
 
   const showToasts = () => {
-    ToastService.success('Operation completed successfully!', {
-      actionLabel: 'View Details',
-      onActionPress: () => console.log('Success action pressed'),
+    ToastService.success({
+      message: 'Saved',
+      actionLabel: 'Undo',
+      onActionPress: () => console.log('Undo changes'),
     });
 
     setTimeout(() => {
-      ToastService.error('Something went wrong. Please try again.', {
+      ToastService.error({
+        message: 'Failed to save',
         actionLabel: 'Retry',
-        onActionPress: () => console.log('Error action pressed'),
+        onActionPress: () => console.log('Retry saving'),
+        showClose: false,
       });
     }, 1000);
 
     setTimeout(() => {
-      ToastService.info('New updates are available for download.', {
-        actionLabel: 'Download',
-        onActionPress: () => console.log('Info action pressed'),
+      ToastService.info({
+        message: 'Updates available',
+        actionLabel: 'Install',
+        onActionPress: () => console.log('Install updates'),
       });
     }, 2000);
-
-    setTimeout(() => {
-      ToastService.warning('Your session will expire in 5 minutes.', {
-        actionLabel: 'Extend',
-        onActionPress: () => console.log('Warning action pressed'),
-      });
-    }, 3000);
   };
 
   const showRTLToasts = () => {
-    ToastService.success('تم إكمال العملية بنجاح!', {
-      isRTL: true,
-      actionLabel: 'عرض التفاصيل',
-      onActionPress: () => console.log('RTL Success action pressed'),
+    ToastService.success({
+      message: 'تم الحفظ',
+      actionLabel: 'تراجع',
+      onActionPress: () => console.log('Undo RTL'),
+      showClose: false,
     });
 
     setTimeout(() => {
-      ToastService.error('حدث خطأ ما. يرجى المحاولة مرة أخرى.', {
-        isRTL: true,
+      ToastService.error({
+        message: 'فشل الحفظ',
         actionLabel: 'إعادة المحاولة',
-        onActionPress: () => console.log('RTL Error action pressed'),
+        onActionPress: () => console.log('Retry RTL'),
       });
     }, 1000);
   };
@@ -63,7 +61,7 @@ const ToastDemo = () => {
         testId="demo-title"
         text="Toast Component Demo"
         size="lg"
-        weight="SemiBold"
+        weight="Semibold"
         style={styles.title}
       />
 
@@ -102,7 +100,7 @@ const ToastDemo = () => {
 
         <Toast
           testId="demo-warning"
-          type="warning"
+          type="warn"
           message="Additional content is written here in case the notification or alert"
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}

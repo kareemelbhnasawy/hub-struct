@@ -1,3 +1,4 @@
 export { default } from './toast';
-export { ToastService, ToastProvider } from './toast-provider';
+export { ToastProvider } from './toast-provider';
+export { ToastService } from './toast-service';
 export type { ToastProps, ToastType } from './interface';
