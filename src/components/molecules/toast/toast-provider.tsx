@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import ToastManager, { Toast as ToastifyToast } from 'toastify-react-native';
 import Toast from './toast';
 import { ToastType } from './interface';
@@ -15,39 +14,90 @@ interface ToastConfig {
   duration?: number;
 }
 
+// Custom toast components for each type
+const SuccessToast = ({ text1, text2, onHide, ...props }: any) => (
+  <Toast
+    testId="success-toast"
+    type="success"
+    message={text1 || text2 || 'Success'}
+    onClosePress={onHide}
+    showAction={props.showAction !== false}
+    showClose={props.showClose !== false}
+    isRTL={props.isRTL}
+    actionLabel={props.actionLabel}
+    onActionPress={props.onActionPress}
+  />
+);
+
+const ErrorToast = ({ text1, text2, onHide, ...props }: any) => (
+  <Toast
+    testId="error-toast"
+    type="error"
+    message={text1 || text2 || 'Error'}
+    onClosePress={onHide}
+    showAction={props.showAction !== false}
+    showClose={props.showClose !== false}
+    isRTL={props.isRTL}
+    actionLabel={props.actionLabel}
+    onActionPress={props.onActionPress}
+  />
+);
+
+const InfoToast = ({ text1, text2, onHide, ...props }: any) => (
+  <Toast
+    testId="info-toast"
+    type="info"
+    message={text1 || text2 || 'Info'}
+    onClosePress={onHide}
+    showAction={props.showAction !== false}
+    showClose={props.showClose !== false}
+    isRTL={props.isRTL}
+    actionLabel={props.actionLabel}
+    onActionPress={props.onActionPress}
+  />
+);
+
+const WarningToast = ({ text1, text2, onHide, ...props }: any) => (
+  <Toast
+    testId="warning-toast"
+    type="warning"
+    message={text1 || text2 || 'Warning'}
+    onClosePress={onHide}
+    showAction={props.showAction !== false}
+    showClose={props.showClose !== false}
+    isRTL={props.isRTL}
+    actionLabel={props.actionLabel}
+    onActionPress={props.onActionPress}
+  />
+);
+
 class ToastService {
-  private static generateId() {
-    return `toast-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-  }
-
   static show(config: ToastConfig) {
-    const toastId = this.generateId();
-
-    ToastifyToast.show({
-      data: {
-        title: config.message,
-        color: 'white',
-      },
-      autoHide: true,
+    const toastOptions = {
       duration: config.duration || 3000,
-      render: (toastOptions) => (
-        <View style={{ marginHorizontal: 16, marginVertical: 8 }}>
-          <Toast
-            testId={toastId}
-            type={config.type}
-            message={config.message}
-            isRTL={config.isRTL}
-            showAction={config.showAction}
-            showClose={config.showClose}
-            actionLabel={config.actionLabel}
-            onActionPress={config.onActionPress}
-            onClosePress={() => {
-              ToastifyToast.hide(toastOptions.id);
-            }}
-          />
-        </View>
-      ),
-    });
+      data: {
+        showAction: config.showAction,
+        showClose: config.showClose,
+        isRTL: config.isRTL,
+        actionLabel: config.actionLabel,
+        onActionPress: config.onActionPress,
+      },
+    };
+
+    switch (config.type) {
+      case 'success':
+        ToastifyToast.success(config.message, toastOptions);
+        break;
+      case 'error':
+        ToastifyToast.error(config.message, toastOptions);
+        break;
+      case 'info':
+        ToastifyToast.info(config.message, toastOptions);
+        break;
+      case 'warning':
+        ToastifyToast.warn(config.message, toastOptions);
+        break;
+    }
   }
 
   static success(message: string, options?: Partial<ToastConfig>) {
@@ -90,10 +140,17 @@ class ToastService {
 const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const toastConfig = {
+    success: SuccessToast,
+    error: ErrorToast,
+    info: InfoToast,
+    warn: WarningToast,
+  };
+
   return (
     <>
       {children}
-      <ToastManager />
+      <ToastManager config={toastConfig} />
     </>
   );
 };
