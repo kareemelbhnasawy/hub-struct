@@ -53,14 +53,14 @@ const ToastDemo = () => {
     }, 2000);
   };
 
-  const showRTLToasts = () => {
+  const showARToasts = () => {
     ToastService.success({
       props: {
         messageProps: { text: 'تم الحفظ' },
         actionProps: {
           text: 'تراجع',
         },
-        onActionPress: () => console.log('Undo RTL'),
+        onActionPress: () => console.log('Undo AR'),
         testId: '',
         showClose: false,
       },
@@ -73,7 +73,7 @@ const ToastDemo = () => {
           actionProps: {
             text: 'إعادة المحاولة',
           },
-          onActionPress: () => console.log('Retry RTL'),
+          onActionPress: () => console.log('Retry AR'),
           testId: '',
         },
       });
@@ -181,7 +181,7 @@ const ToastDemo = () => {
           />
         </Pressable>
 
-        <Pressable style={styles.button} onPress={showRTLToasts}>
+        <Pressable style={styles.button} onPress={showARToasts}>
           <Paragraph
             testId="demo-button-rtl"
             text="Show RTL Toast Notifications"
