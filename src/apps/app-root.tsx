@@ -1,29 +1,18 @@
 /* eslint-disable */
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import {
-  CurvedHeroImage,
-  Headline,
-  LucideIcon,
-  Paragraph,
-} from '@/components/atoms';
-import { useTranslate } from '@/hooks';
-import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
-import { useThemeStore } from '@/store/theme';
+import { CurvedHeroImage, Headline, LucideIcon } from '@/components/atoms';
 import { GlassContainer } from '@/components/atoms/glass-container';
-import { Radius } from '@/style';
-import Form from '@/components/templates/form/form.component';
 import FormInputTypes from '@/components/templates/form/constants';
-import { useCallback } from 'react';
+import Form from '@/components/templates/form/form.component';
+import { useTranslate } from '@/hooks';
+import { useThemeStore } from '@/store/theme';
+import { Radius } from '@/style';
+import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
   const crashlytics = getCrashlytics();
   const { toggleTheme } = useThemeStore();
-
-  const stickyBottom = useCallback(() => {
-    return <Paragraph testId="sticky-bottom" text="Sticky Bottom!" />;
-  }, []);
-
   return (
     <>
       <ScrollView>
@@ -94,7 +83,6 @@ const AppRoot = () => {
           onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
           <Text>Toggle Lang</Text>
         </Pressable>
-        {/* <BadgeDemo /> */}
       </ScrollView>
     </>
   );
