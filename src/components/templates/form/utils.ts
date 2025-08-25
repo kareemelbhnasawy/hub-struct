@@ -7,8 +7,21 @@ export const generateValidationSchema = (fields: FormFieldType[]) => {
     if (field.validation?.custom) {
       schema[field.name] = field.validation?.custom;
     } else {
-      let validation =
-        field?.validation?.type === 'number' ? Yup.number() : Yup.string();
+      let validation;
+      if (field?.validation?.type === 'number') {
+        validation = Yup.number();
+        if (field.validation?.min !== undefined) {
+          validation = validation.min(field.validation?.min);
+        }
+        if (field.validation?.max !== undefined) {
+          validation = validation.max(field.validation?.max);
+        }
+      } else {
+        validation = Yup.string();
+        if (field.validation?.email !== undefined) {
+          validation = validation.email();
+        }
+      }
       if (field.validation?.required !== undefined) {
         validation = validation.required();
       }

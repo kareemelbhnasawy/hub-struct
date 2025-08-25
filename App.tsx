@@ -8,6 +8,7 @@ import { requestNotifications } from 'react-native-permissions';
 import AppRoot from '@/apps/app-root';
 import { PortalProvider } from '@gorhom/portal';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import LoginScreen from '@/components/organisms/login-screen';
 
 const App = () => {
   const crashlytics = getCrashlytics();
@@ -24,7 +25,7 @@ const App = () => {
       <PortalProvider>
         <SafeAreaProvider
           style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
-          <AppRoot />
+          <LoginScreen />
         </SafeAreaProvider>
       </PortalProvider>
     </GestureHandlerRootView>

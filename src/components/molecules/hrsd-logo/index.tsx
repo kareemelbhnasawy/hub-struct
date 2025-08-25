@@ -7,7 +7,7 @@ const HRSDLogo = ({ testId, size }: HRSDLogoProps) => {
   const relativeSize = getRelativeSize(size);
   return (
     <BaseImage
-      testId={testId}
+      testId={`${testId}-HRSD-Logo`}
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       image={require('@/assets/images/HRSD-Logo.png')}
       width={scale(relativeSize.width)}

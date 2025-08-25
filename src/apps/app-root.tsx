@@ -11,7 +11,7 @@ import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { useThemeStore } from '@/store/theme';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Radius } from '@/style';
-import Form from '@/components/templates/form/form.component';
+import Form from '@/components/templates/form';
 import FormInputTypes from '@/components/templates/form/constants';
 import { useCallback } from 'react';
 

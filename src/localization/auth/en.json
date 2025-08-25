@@ -1,8 +1,5 @@
 {
-  "welcome": "Welcomeeeee {{name}} beeh",
-  "beeh": "beeh",
+  "welcome": "Welcome",
   "description": "This is your app.",
-  "obj": {
-    "obj1": "samya"
-  }
+  "login": "Login"
 }

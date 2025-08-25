@@ -12,6 +12,7 @@ type yupValidation = {
   digitsOnly?: boolean;
   min?: number;
   max?: number;
+  email?: boolean;
 };
 
 type commonInputType = {
