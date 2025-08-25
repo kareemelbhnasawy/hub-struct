@@ -16,12 +16,6 @@ const styles = createThemedStyles({
     },
   },
 
-  containerRTL: {
-    base: {
-      flexDirection: 'row-reverse',
-    },
-  },
-
   // Content area
   content: {
     base: {
@@ -38,25 +32,11 @@ const styles = createThemedStyles({
     },
   },
 
-  // Icon styles
-  icon: {
-    base: {
-      width: 20,
-      height: 20,
-    },
-  },
-
   // Text styles
   messageText: {
     base: {
       flex: 1,
       color: 'textDefault',
-    },
-  },
-
-  messageTextRTL: {
-    base: {
-      textAlign: 'right',
     },
   },
 
@@ -66,12 +46,6 @@ const styles = createThemedStyles({
       flexDirection: 'row',
       alignItems: 'center',
       gap: 0,
-    },
-  },
-
-  actionsRTL: {
-    base: {
-      flexDirection: 'row-reverse',
     },
   },
 
@@ -96,13 +70,6 @@ const styles = createThemedStyles({
     base: {
       paddingVertical: 4,
       paddingHorizontal: 4,
-    },
-  },
-
-  closeIcon: {
-    base: {
-      width: 24,
-      height: 24,
     },
   },
 

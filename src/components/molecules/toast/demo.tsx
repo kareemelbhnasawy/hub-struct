@@ -15,42 +15,72 @@ const ToastDemo = () => {
 
   const showToasts = () => {
     ToastService.success({
-      message: 'Saved',
-      actionLabel: 'Undo',
-      onActionPress: () => console.log('Undo changes'),
+      props: {
+        messageProps: { text: 'Saved' },
+        actionProps: {
+          text: 'Undo',
+        },
+        onActionPress: () => console.log('Undo changes'),
+        testId: '',
+        type: 'success',
+      },
     });
 
     setTimeout(() => {
       ToastService.error({
-        message: 'Failed to save',
-        actionLabel: 'Retry',
-        onActionPress: () => console.log('Retry saving'),
-        showClose: false,
+        props: {
+          messageProps: { text: 'Failed to save' },
+          actionProps: {
+            text: 'Retry',
+          },
+          onActionPress: () => console.log('Retry saving'),
+          testId: '',
+          type: 'error',
+          showClose: false,
+        },
       });
     }, 1000);
 
     setTimeout(() => {
       ToastService.info({
-        message: 'Updates available',
-        actionLabel: 'Install',
-        onActionPress: () => console.log('Install updates'),
+        props: {
+          messageProps: { text: 'Updates available' },
+          actionProps: {
+            text: 'Install',
+          },
+          onActionPress: () => console.log('Install updates'),
+          testId: '',
+          type: 'info',
+        },
       });
     }, 2000);
   };
 
   const showRTLToasts = () => {
     ToastService.success({
-      message: 'تم الحفظ',
-      actionLabel: 'تراجع',
-      onActionPress: () => console.log('Undo RTL'),
-      showClose: false,
+      props: {
+        messageProps: { text: 'تم الحفظ' },
+        actionProps: {
+          text: 'تراجع',
+        },
+        onActionPress: () => console.log('Undo RTL'),
+        testId: '',
+        type: 'success',
+        showClose: false,
+      },
     });
 
     setTimeout(() => {
       ToastService.error({
-        message: 'فشل الحفظ',
-        actionLabel: 'إعادة المحاولة',
-        onActionPress: () => console.log('Retry RTL'),
+        props: {
+          messageProps: { text: 'فشل الحفظ' },
+          actionProps: {
+            text: 'إعادة المحاولة',
+          },
+          onActionPress: () => console.log('Retry RTL'),
+          testId: '',
+          type: 'error',
+        },
       });
     }, 1000);
   };
@@ -77,7 +107,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-success"
           type="success"
-          message="Additional content is written here in case the notification or alert"
+          messageProps={{
+            text: 'Additional content is written here in case the notification or alert',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />
@@ -85,7 +117,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-error"
           type="error"
-          message="Additional content is written here in case the notification or alert"
+          messageProps={{
+            text: 'Additional content is written here in case the notification or alert',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />
@@ -93,7 +127,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-info"
           type="info"
-          message="Additional content is written here in case the notification or alert"
+          messageProps={{
+            text: 'Additional content is written here in case the notification or alert',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />
@@ -101,7 +137,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-warning"
           type="warn"
-          message="Additional content is written here in case the notification or alert"
+          messageProps={{
+            text: 'Additional content is written here in case the notification or alert',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />
@@ -119,9 +157,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-success-rtl"
           type="success"
-          message="يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح"
-          isRTL={true}
-          actionLabel="اكشن"
+          messageProps={{
+            text: 'يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />
@@ -129,9 +167,9 @@ const ToastDemo = () => {
         <Toast
           testId="demo-error-rtl"
           type="error"
-          message="يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح"
-          isRTL={true}
-          actionLabel="اكشن"
+          messageProps={{
+            text: 'يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح',
+          }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
         />

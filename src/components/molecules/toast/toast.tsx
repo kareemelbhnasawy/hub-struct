@@ -3,8 +3,8 @@ import { Paragraph, LucideIcon } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
 import ToastProps from './interface';
 import styles from './styles';
-import { DEFAULT_ACTION_LABEL, DEFAULT_ACTION_LABEL_AR } from './constants';
 import { icons } from 'lucide-react-native';
+import ToastManager from 'toastify-react-native/components/ToastManager';
 
 // Map toast types to Lucide icons
 const TOAST_ICON_MAPPING: Record<string, keyof typeof icons> = {
@@ -14,44 +14,37 @@ const TOAST_ICON_MAPPING: Record<string, keyof typeof icons> = {
   warn: 'TriangleAlert',
 };
 
-const TOAST_ICON_COLORS = {
-  success: '#079455',
-  error: '#D92D20',
-  info: '#1570EF',
-  warn: '#DC6803',
-} as const;
-
 const Toast = ({
   testId,
   type,
-  message,
-  isRTL = false,
-  showAction = true,
   showClose = true,
-  actionLabel,
   onActionPress,
   onClosePress,
   messageProps,
   actionProps,
   ...viewProps
 }: ToastProps) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const TOAST_ICON_COLORS = {
+    success: getThemeColor('backgroundSuccess'),
+    error: getThemeColor('backgroundError'),
+    info: getThemeColor('backgroundInfo'),
+    warn: getThemeColor('backgroundWarning'),
+  } as const;
   const themedStyles = getThemedStyles(styles);
-  const defaultActionLabel = isRTL
-    ? DEFAULT_ACTION_LABEL_AR
-    : DEFAULT_ACTION_LABEL;
-  const finalActionLabel = actionLabel || defaultActionLabel;
+
+  const handleClose = () => {
+    ToastManager.hide();
+    onClosePress?.();
+  };
+
   return (
     <View
       testID={`${testId}-toast-container`}
-      style={[
-        themedStyles.container,
-        themedStyles[type],
-        isRTL && themedStyles.containerRTL,
-      ]}
+      style={[themedStyles.container, themedStyles[type]]}
       {...viewProps}>
       {/* Content area with icon and text */}
-      <View style={[themedStyles.content, isRTL && themedStyles.contentRTL]}>
+      <View style={themedStyles.content}>
         <LucideIcon
           testId={`${testId}-toast-icon`}
           name={TOAST_ICON_MAPPING[type]}
@@ -60,28 +53,23 @@ const Toast = ({
         />
         <Paragraph
           testId={`${testId}-toast-message`}
-          text={message}
           size="md"
           weight="Regular"
-          style={[
-            themedStyles.messageText,
-            isRTL && themedStyles.messageTextRTL,
-          ]}
+          style={themedStyles.messageText}
           {...messageProps}
         />
       </View>
 
       {/* Actions area */}
-      {(showAction || showClose) && (
-        <View style={[themedStyles.actions, isRTL && themedStyles.actionsRTL]}>
-          {showAction && (
+      {(onActionPress || showClose) && (
+        <View style={themedStyles.actions}>
+          {onActionPress && actionProps && (
             <Pressable
               testID={`${testId}-toast-action`}
               style={themedStyles.actionButton}
               onPress={onActionPress}>
               <Paragraph
                 testId={`${testId}-toast-action-text`}
-                text={finalActionLabel}
                 size="sm"
                 weight="Semibold"
                 style={themedStyles.actionText}
@@ -94,12 +82,12 @@ const Toast = ({
             <Pressable
               testID={`${testId}-toast-close`}
               style={themedStyles.closeButton}
-              onPress={onClosePress}>
+              onPress={handleClose}>
               <LucideIcon
                 testId={`${testId}-toast-close-icon`}
                 name="X"
                 color="#111927"
-                size={24}
+                size={20}
               />
             </Pressable>
           )}

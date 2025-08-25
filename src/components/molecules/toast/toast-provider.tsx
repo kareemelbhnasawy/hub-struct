@@ -2,30 +2,16 @@
 import React from 'react';
 import ToastManager from 'toastify-react-native';
 import Toast from './toast';
-import type { ToastType } from './interface';
+import type { ToastProps, ToastType } from './interface';
 
 const renderToast = (type: ToastType) => {
   interface ToastRendererProps {
-    text1: string;
-    text2?: string;
-    onPress?: () => void;
-    hide?: () => void;
-    closeIcon?: boolean;
+    props: ToastProps;
   }
 
-  const ToastRenderer = (props: ToastRendererProps) => (
-    <Toast
-      testId={`${type}-toast`}
-      type={type}
-      message={props.text1}
-      // Map *from* supported keys to your component API
-      actionLabel={props.text2} // <-- comes from text2
-      onActionPress={props.onPress} // <-- comes from onPress
-      onClosePress={props.hide} // provided by the lib
-      // if you had a close toggle in the component, pass props.showClose
-      showClose={props.closeIcon}
-    />
-  );
+  const ToastRenderer = (toastConfig: ToastRendererProps) => {
+    return <Toast {...toastConfig.props} />;
+  };
   ToastRenderer.displayName = `ToastRenderer_${type}`;
   return ToastRenderer;
 };

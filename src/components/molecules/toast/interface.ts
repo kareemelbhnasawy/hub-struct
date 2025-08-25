@@ -6,15 +6,11 @@ export type ToastType = 'success' | 'error' | 'info' | 'warn';
 export interface ToastProps extends Omit<ViewProps, 'style' | 'testID'> {
   testId: string;
   type: ToastType;
-  message: string;
-  isRTL?: boolean;
-  showAction?: boolean;
   showClose?: boolean;
-  actionLabel?: string;
   onActionPress?: () => void;
   onClosePress?: () => void;
-  messageProps?: Omit<ParagraphProps, 'testId' | 'text'>;
-  actionProps?: Omit<ParagraphProps, 'testId' | 'text'>;
+  messageProps: Omit<ParagraphProps, 'testId'>;
+  actionProps?: Omit<ParagraphProps, 'testId'>;
 }
 
 export default ToastProps;
