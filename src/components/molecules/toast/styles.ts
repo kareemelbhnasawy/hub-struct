@@ -26,12 +26,6 @@ const styles = createThemedStyles({
     },
   },
 
-  contentRTL: {
-    base: {
-      flexDirection: 'row-reverse',
-    },
-  },
-
   // Text styles
   messageText: {
     base: {
