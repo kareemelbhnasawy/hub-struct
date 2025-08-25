@@ -194,7 +194,7 @@ export const themeColors = {
   },
   buttonPrimaryHoverBackground: {
     light: COLORS['primary-500'],
-    dark: COLORS['primary-500'],
+    dark: COLORS.white,
   },
   buttonPrimaryFocusedBackground: {
     light: COLORS['primary-600'],
@@ -204,83 +204,215 @@ export const themeColors = {
     light: COLORS['primary-800'],
     dark: COLORS['primary-800'],
   },
+  buttonPrimaryPressedBorder: {
+    light: COLORS['primary-500'],
+    dark: COLORS.white,
+  },
   buttonPrimaryDisabledBackground: {
-    light: COLORS['secondary-dark-gray-300'],
-    dark: COLORS['secondary-dark-gray-300'],
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
   },
   buttonPrimaryDisabledLabel: {
-    light: COLORS.white,
-    dark: COLORS.white,
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
   },
   buttonPrimaryDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryLoadingBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-600'],
+  },
+  buttonPrimaryLoadingLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryLoadingIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimarySuccessBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonPrimarySuccessLabel: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
+  },
+  buttonPrimarySuccessIcon: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
+  },
+  buttonPrimaryDangerDefaultBackground: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonPrimaryDangerDefaultLabel: {
     light: COLORS.white,
     dark: COLORS.white,
   },
-  buttonPrimaryLoadingBackground: {
-    light: COLORS['primary-300'],
-    dark: COLORS['primary-300'],
+  buttonPrimaryDangerDefaultIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerLoadingBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonPrimaryDangerLoadingLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryDangerLoadingIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryDangerHoverBackground: {
+    light: COLORS['error-500'],
+    dark: COLORS['error-500'],
+  },
+  buttonPrimaryDangerHoverLabel: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerHoverIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerFocusedBackground: {
+    light: COLORS['error-500'],
+    dark: COLORS['error-500'],
+  },
+  buttonPrimaryDangerFocusedLabel: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerFocusedIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerPressedBackground: {
+    light: COLORS['error-700'],
+    dark: COLORS['error-700'],
+  },
+  buttonPrimaryDangerPressedLabel: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerPressedIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryDangerDisabledBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonPrimaryDangerDisabledLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryDangerDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonPrimaryDangerSuccessBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonPrimaryDangerSuccessLabel: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
+  },
+  buttonPrimaryDangerSuccessIcon: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
   },
   buttonPrimaryErrorBackground: {
     light: COLORS['error-600'],
-    dark: COLORS['error-600'],
+    dark: COLORS.white,
+  },
+  buttonPrimaryErrorLabel: {
+    light: COLORS.white,
+    dark: COLORS.white,
+  },
+  buttonPrimaryErrorIcon: {
+    light: COLORS.white,
+    dark: COLORS.white,
   },
 
   // Button Secondary States
   buttonSecondaryDefaultBackground: {
     light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    dark: COLORS.white,
   },
   buttonSecondaryDefaultLabel: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonSecondaryDefaultIcon: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonSecondaryDefaultBorder: {
     light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+    dark: COLORS['neutral-300'],
   },
   buttonSecondaryHoverBackground: {
-    light: COLORS['neutral-100'],
-    dark: COLORS['neutral-700'],
+    light: COLORS['primary-25'],
+    dark: COLORS['primary-25'],
   },
   buttonSecondaryHoverLabel: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonSecondaryHoverIcon: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
+  },
+  buttonSecondaryHoverBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-300'],
   },
   buttonSecondaryFocusedBackground: {
-    light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    light: COLORS['primary-25'],
+    dark: COLORS['primary-25'],
   },
   buttonSecondaryFocusedLabel: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonSecondaryFocusedIcon: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
+  },
+  buttonSecondaryFocusedBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-300'],
   },
   buttonSecondaryPressedBackground: {
-    light: COLORS['neutral-200'],
-    dark: COLORS['neutral-600'],
+    light: COLORS['primary-50'],
+    dark: COLORS['primary-50'],
   },
   buttonSecondaryPressedLabel: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   buttonSecondaryPressedIcon: {
-    light: COLORS['neutral-900'],
-    dark: COLORS.white,
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
+  },
+  buttonSecondaryPressedBorder: {
+    light: COLORS['neutral-300'],
+    dark: COLORS['neutral-300'],
   },
   buttonSecondaryErrorIcon: {
     light: COLORS.white,
     dark: COLORS.white,
+  },
+  buttonSecondaryDisabledBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
   },
   buttonSecondaryDisabledLabel: {
     light: COLORS['neutral-400'],
@@ -295,28 +427,108 @@ export const themeColors = {
     dark: COLORS['neutral-500'],
   },
   buttonSecondaryLoadingBackground: {
-    light: COLORS.white,
-    dark: COLORS['neutral-800'],
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
   },
   buttonSecondaryLoadingLabel: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
   },
   buttonSecondaryLoadingIcon: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
   },
   buttonSecondaryLoadingBorder: {
     light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
-  },
-  buttonSecondaryErrorBackground: {
-    light: COLORS['error-600'],
     dark: COLORS.white,
   },
-  buttonSecondaryErrorLabel: {
+  buttonSecondaryDangerDefaultBackground: {
     light: COLORS.white,
     dark: COLORS.white,
+  },
+  buttonSecondaryDangerDefaultLabel: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerDefaultIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerLoadingBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonSecondaryDangerLoadingLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDangerLoadingIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDangerHoverBackground: {
+    light: COLORS['error-25'],
+    dark: COLORS['error-25'],
+  },
+  buttonSecondaryDangerHoverLabel: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerHoverIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerFocusedBackground: {
+    light: COLORS['error-25'],
+    dark: COLORS['error-25'],
+  },
+  buttonSecondaryDangerFocusedLabel: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerFocusedIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerPressedBackground: {
+    light: COLORS['error-50'],
+    dark: COLORS['error-50'],
+  },
+  buttonSecondaryDangerPressedLabel: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerPressedIcon: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+  buttonSecondaryDangerDisabledBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonSecondaryDangerDisabledLabel: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDangerDisabledIcon: {
+    light: COLORS['neutral-400'],
+    dark: COLORS['neutral-400'],
+  },
+  buttonSecondaryDangerSuccessBackground: {
+    light: COLORS['neutral-200'],
+    dark: COLORS['neutral-200'],
+  },
+  buttonSecondaryDangerSuccessLabel: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
+  },
+  buttonSecondaryDangerSuccessIcon: {
+    light: COLORS['success-600'],
+    dark: COLORS['success-600'],
+  },
+  buttonSecondaryDangerDefaultBorder: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
   },
 
   // Button Link States
@@ -1176,35 +1388,39 @@ export const themeColors = {
   // Link Colors
   linkPrimaryDefaultLabel: {
     light: COLORS['primary-600'],
-    dark: COLORS['secondary-yellow-400'],
+    dark: COLORS['primary-600'],
   },
   linkPrimaryDefaultIcon: {
     light: COLORS['primary-600'],
-    dark: COLORS['secondary-yellow-400'],
+    dark: COLORS['primary-600'],
   },
   linkPrimaryHoverLabel: {
     light: COLORS['primary-500'],
-    dark: COLORS['secondary-yellow-300'],
+    dark: COLORS['primary-500'],
   },
   linkPrimaryHoverIcon: {
     light: COLORS['primary-500'],
-    dark: COLORS['secondary-yellow-300'],
+    dark: COLORS['primary-500'],
   },
   linkPrimaryFocusedLabel: {
-    light: COLORS['primary-400'],
-    dark: COLORS['secondary-yellow-200'],
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   linkPrimaryFocusedIcon: {
-    light: COLORS['primary-400'],
-    dark: COLORS['secondary-yellow-200'],
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
+  },
+  linkPrimaryFocusedBorder: {
+    light: COLORS['primary-900'],
+    dark: COLORS['primary-900'],
   },
   linkPrimaryPressedLabel: {
     light: COLORS['primary-800'],
-    dark: COLORS['secondary-yellow-500'],
+    dark: COLORS['primary-800'],
   },
   linkPrimaryPressedIcon: {
     light: COLORS['primary-800'],
-    dark: COLORS['secondary-yellow-500'],
+    dark: COLORS['primary-800'],
   },
   linkPrimaryDisabledLabel: {
     light: COLORS['neutral-400'],
@@ -1317,6 +1533,12 @@ export const themeColors = {
   cardMeetingTagIcon: {
     light: COLORS['secondary-green-600'],
     dark: COLORS['secondary-yellow-400'],
+  },
+
+  //activityIndicator
+  activityIndicator: {
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
 
   // Additional Text Colors
@@ -1505,18 +1727,6 @@ export const themeColors = {
   buttonPrimaryPressedIcon: {
     light: COLORS.white,
     dark: COLORS.white,
-  },
-  buttonSecondaryHoverBorder: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
-  },
-  buttonSecondaryFocusedBorder: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
-  },
-  buttonSecondaryPressedBorder: {
-    light: COLORS['neutral-300'],
-    dark: COLORS['neutral-500'],
   },
 
   // Additional Card Icons
