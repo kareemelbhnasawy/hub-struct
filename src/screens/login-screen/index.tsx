@@ -31,7 +31,6 @@ const LoginScreen = () => {
           {
             name: 'mail',
             type: FormInputTypes.TextInput,
-            testId: 'email-input',
             placeholder: 'auth.email-prompt',
             labelProps: { text: 'auth.email' },
             validation: { required: true },
@@ -39,7 +38,6 @@ const LoginScreen = () => {
           {
             name: 'password',
             type: FormInputTypes.PasswordInput,
-            testId: 'password-input',
             placeholder: 'auth.password-prompt',
             labelProps: { text: 'auth.password' },
             validation: { required: true },
