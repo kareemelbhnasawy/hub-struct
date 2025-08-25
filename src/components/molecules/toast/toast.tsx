@@ -8,7 +8,7 @@ import { DEFAULT_ACTION_LABEL, DEFAULT_ACTION_LABEL_AR } from './constants';
 
 // Map toast types to Lucide icons
 const TOAST_ICON_MAPPING = {
-  success: 'CheckCircle2',
+  success: 'CheckCircle',
   error: 'XCircle',
   info: 'Info',
   warning: 'AlertTriangle',
