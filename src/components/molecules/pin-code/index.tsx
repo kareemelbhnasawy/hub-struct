@@ -10,6 +10,7 @@ const PinCode = ({
   pinLength = 6,
   onPinComplete,
   errorProps,
+  disabled,
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -77,6 +78,7 @@ const PinCode = ({
             onKeyPress={(e) => onKeyPressFn(e, index)}
             keyboardType="numeric"
             onFocus={() => setFocusedIndex(index)}
+            editable={disabled}
             maxLength={1}
             style={[
               themedStyles.pin,
