@@ -1,9 +1,9 @@
 import { BaseImage } from '@/components/atoms';
 import { scale } from 'react-native-size-matters';
 import getRelativeSize from './utils';
-import HRSDLogoProps from './interface';
+import LogoProps from './interface';
 
-const HRSDLogo = ({ testId, size }: HRSDLogoProps) => {
+const Logo = ({ testId, size }: LogoProps) => {
   const relativeSize = getRelativeSize(size);
   return (
     <BaseImage
@@ -16,4 +16,4 @@ const HRSDLogo = ({ testId, size }: HRSDLogoProps) => {
   );
 };
 
-export default HRSDLogo;
+export default Logo;

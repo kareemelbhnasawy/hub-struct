@@ -1,6 +1,6 @@
-type HRSDLogoProps = { 
+type LogoProps = { 
     testId: string;
     size: 'sm' | 'md' | 'lg';
 }
 
-export default HRSDLogoProps;
+export default LogoProps;
