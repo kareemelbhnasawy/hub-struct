@@ -18,7 +18,7 @@ const ToastDemo = () => {
       actionLabel: 'View Details',
       onActionPress: () => console.log('Success action pressed'),
     });
-    
+
     setTimeout(() => {
       ToastService.error('Something went wrong. Please try again.', {
         actionLabel: 'Retry',
@@ -47,11 +47,11 @@ const ToastDemo = () => {
       actionLabel: 'عرض التفاصيل',
       onActionPress: () => console.log('RTL Success action pressed'),
     });
-    
+
     setTimeout(() => {
       ToastService.error('حدث خطأ ما. يرجى المحاولة مرة أخرى.', {
         isRTL: true,
-        actionLabel: 'إعادة المحاولة', 
+        actionLabel: 'إعادة المحاولة',
         onActionPress: () => console.log('RTL Error action pressed'),
       });
     }, 1000);
@@ -59,23 +59,23 @@ const ToastDemo = () => {
 
   return (
     <View style={styles.container}>
-      <Paragraph 
+      <Paragraph
         testId="demo-title"
         text="Toast Component Demo"
-        size="lg" 
-        weight="SemiBold" 
+        size="lg"
+        weight="SemiBold"
         style={styles.title}
       />
 
       <View style={styles.section}>
-        <Paragraph 
+        <Paragraph
           testId="demo-section-static"
           text="Static Toasts (LTR)"
-          size="md" 
-          weight="Medium" 
+          size="md"
+          weight="Medium"
           style={styles.sectionTitle}
         />
-        
+
         <Toast
           testId="demo-success"
           type="success"
@@ -110,14 +110,14 @@ const ToastDemo = () => {
       </View>
 
       <View style={styles.section}>
-        <Paragraph 
+        <Paragraph
           testId="demo-section-rtl"
           text="Static Toasts (RTL)"
-          size="md" 
-          weight="Medium" 
+          size="md"
+          weight="Medium"
           style={styles.sectionTitle}
         />
-        
+
         <Toast
           testId="demo-success-rtl"
           type="success"
@@ -141,21 +141,21 @@ const ToastDemo = () => {
 
       <View style={styles.buttonSection}>
         <Pressable style={styles.button} onPress={showToasts}>
-          <Paragraph 
+          <Paragraph
             testId="demo-button-ltr"
             text="Show LTR Toast Notifications"
-            size="md" 
-            weight="Medium" 
+            size="md"
+            weight="Medium"
             style={styles.buttonText}
           />
         </Pressable>
 
         <Pressable style={styles.button} onPress={showRTLToasts}>
-          <Paragraph 
+          <Paragraph
             testId="demo-button-rtl"
             text="Show RTL Toast Notifications"
-            size="md" 
-            weight="Medium" 
+            size="md"
+            weight="Medium"
             style={styles.buttonText}
           />
         </Pressable>
