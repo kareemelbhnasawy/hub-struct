@@ -3,19 +3,26 @@ import FormInputTypes from '@/components/templates/form/constants';
 import Logo from '@/components/molecules/logo';
 import { Form, Page } from '@/components/templates';
 import { Alert } from 'react-native';
+import { styles } from './styles';
+import { useThemeStore } from '@/store/theme';
 
 const LoginScreen = () => {
   const screenTestId = 'login-screen';
+  const {getThemedStyles} = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+
   return (
     <Page testId={screenTestId} hasHeader={false}>
-      <Spacer space={40} />
+      <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
-      <Spacer />
+      <Spacer space={20}/>
       <Headline
         testId={`${screenTestId}-title`}
         text="auth.login"
         size="lg"
         weight="Semibold"
+        //todo: add color
+        style={themedStyles.defaultText}
       />
       <Headline
         testId={`${screenTestId}-subtitle`}

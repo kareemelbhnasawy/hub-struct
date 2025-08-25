@@ -7,4 +7,9 @@ export const styles = createThemedStyles({
       paddingHorizontal: 20,
     },
   },
+  defaultText: {
+    base: {
+      color: 'textDefault',
+    }
+  }
 });

@@ -52,7 +52,7 @@ const Form = forwardRef(
                   {...selectorProps}
                 />
               ) : null}
-              <Spacer />
+              <Spacer space={20}/>
               <BaseButton
                 onPress={() => props?.handleSubmit()}
                 testId={`${testId}-submit-btn`}

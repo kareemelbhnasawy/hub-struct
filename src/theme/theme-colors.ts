@@ -1559,7 +1559,7 @@ export const themeColors = {
     dark: COLORS['neutral-200'],
   },
   textTertiary: {
-    light: COLORS['secondary-yellow-600'],
+    light: COLORS['neutral-600'],
     dark: COLORS.white,
   },
   textToggleTitle: {
