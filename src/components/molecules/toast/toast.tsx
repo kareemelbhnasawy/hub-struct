@@ -5,14 +5,15 @@ import { useThemeStore } from '@/store/theme';
 import ToastProps from './interface';
 import styles from './styles';
 import { DEFAULT_ACTION_LABEL, DEFAULT_ACTION_LABEL_AR } from './constants';
+import { icons } from 'lucide-react-native';
 
 // Map toast types to Lucide icons
-const TOAST_ICON_MAPPING = {
+const TOAST_ICON_MAPPING: Record<string, keyof typeof icons> = {
   success: 'CheckCircle',
   error: 'XCircle',
   info: 'Info',
   warning: 'AlertTriangle',
-} as const;
+};
 
 const TOAST_ICON_COLORS = {
   success: '#079455',
