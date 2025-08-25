@@ -36,7 +36,6 @@ const LoginScreen = () => {
           {
             name: 'mail',
             type: FormInputTypes.TextInput,
-            testId: 'email-input',
             placeholder: 'Enter Your E-Mail',
             labelProps: { text: 'E-Mail' },
             validation: { required: true },
@@ -44,7 +43,6 @@ const LoginScreen = () => {
           {
             name: 'password',
             type: FormInputTypes.PasswordInput,
-            testId: 'password-input',
             placeholder: 'Enter Your Password',
             labelProps: { text: 'Password' },
             validation: { required: true },

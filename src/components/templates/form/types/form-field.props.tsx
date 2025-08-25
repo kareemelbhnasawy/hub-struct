@@ -21,11 +21,20 @@ type commonInputType = {
 };
 
 type FormFieldType =
-  | (commonInputType & { type: FormInputTypes.TextInput } & TextInputProps)
+  | (commonInputType & { type: FormInputTypes.TextInput } & Omit<
+        TextInputProps,
+        'testId'
+      >)
   | (commonInputType & {
       type: FormInputTypes.PasswordInput;
-    } & PasswordInputProps)
-  | (commonInputType & { type: FormInputTypes.SelectInput } & SelectInputProps)
-  | (commonInputType & { type: FormInputTypes.DateInput } & DateInputProps);
+    } & Omit<PasswordInputProps, 'testId'>)
+  | (commonInputType & { type: FormInputTypes.SelectInput } & Omit<
+        SelectInputProps,
+        'testId'
+      >)
+  | (commonInputType & { type: FormInputTypes.DateInput } & Omit<
+        DateInputProps,
+        'testId'
+      >);
 
 export default FormFieldType;

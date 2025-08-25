@@ -1,29 +1,18 @@
 /* eslint-disable */
-import { Pressable, ScrollView, Text, View } from 'react-native';
-import {
-  CurvedHeroImage,
-  Headline,
-  LucideIcon,
-  Paragraph,
-} from '@/components/atoms';
-import { useTranslate } from '@/hooks';
-import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
-import { useThemeStore } from '@/store/theme';
+import { CurvedHeroImage, Headline, LucideIcon } from '@/components/atoms';
 import { GlassContainer } from '@/components/atoms/glass-container';
-import { Radius } from '@/style';
-import Form from '@/components/templates/form';
+import { Form } from '@/components/templates';
 import FormInputTypes from '@/components/templates/form/constants';
-import { useCallback } from 'react';
+import { useTranslate } from '@/hooks';
+import { useThemeStore } from '@/store/theme';
+import { Radius } from '@/style';
+import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
   const crashlytics = getCrashlytics();
   const { toggleTheme } = useThemeStore();
-
-  const stickyBottom = useCallback(() => {
-    return <Paragraph testId="sticky-bottom" text="Sticky Bottom!" />;
-  }, []);
-
   return (
     <>
       <ScrollView>
@@ -45,7 +34,6 @@ const AppRoot = () => {
             {
               name: 'field1',
               type: FormInputTypes.TextInput,
-              testId: `field1-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
               validation: { required: true, digitsOnly: true, max: 0, min: 0 },
@@ -53,14 +41,12 @@ const AppRoot = () => {
             {
               name: 'field2',
               type: FormInputTypes.PasswordInput,
-              testId: `field2-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
             },
             {
               name: 'field3',
               type: FormInputTypes.SelectInput,
-              testId: `field2-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
               items: [
@@ -72,7 +58,6 @@ const AppRoot = () => {
             {
               name: 'field4',
               type: FormInputTypes.DateInput,
-              testId: `field2-input`,
               placeholder: 'placeholder',
               labelProps: { text: 'Text input label' },
             },
@@ -94,7 +79,6 @@ const AppRoot = () => {
           onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
           <Text>Toggle Lang</Text>
         </Pressable>
-        {/* <BadgeDemo /> */}
       </ScrollView>
     </>
   );

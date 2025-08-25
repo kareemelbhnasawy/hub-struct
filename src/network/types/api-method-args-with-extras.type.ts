@@ -3,7 +3,7 @@ import BaseAPIMethodArgs from './base-api-method-args.type';
 
 type APIMethodArgsWithExtras = BaseAPIMethodArgs & {
   method?: keyof typeof API_METHODS;
-  data?: { [key: string]: unknown };
+  data?: unknown;
 };
 
 export default APIMethodArgsWithExtras;
