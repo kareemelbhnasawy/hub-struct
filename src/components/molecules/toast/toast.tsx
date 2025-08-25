@@ -86,7 +86,7 @@ const Toast = ({
               <LucideIcon
                 testId={`${testId}-toast-close-icon`}
                 name="X"
-                color="#111927"
+                color={getThemeColor('textDefault')}
                 size={20}
               />
             </Pressable>
