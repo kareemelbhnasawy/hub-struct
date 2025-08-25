@@ -21,7 +21,7 @@ interface FormType extends FlatListPropsWithoutInitialValues {
   testId: string;
   // TODO: change to our ButtonProps Comp
   submitButtonProps?: Omit<BaseButtonProps, 'testId'>;
-  style?: RNStyle;
+  containerStyle?: RNStyle;
   space?: SpacingValue;
   ListFormBottom?: (props: FormikProps<FormikValues>) => React.ReactNode;
   selectorProps?: FlatListPropsWithoutData;
