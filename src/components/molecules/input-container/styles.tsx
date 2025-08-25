@@ -62,6 +62,11 @@ const styles = createThemedStyles({
       color: 'textError',
     },
   },
+  textDefault: {
+    base: {
+      color: 'textDefault',
+    },
+  }
 });
 
 export default styles;

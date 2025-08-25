@@ -1,8 +1,9 @@
 {
-  "welcome": "Welcomeeeee {{name}} beeh",
-  "beeh": "beeh",
-  "description": "This is your app.",
-  "obj": {
-    "obj1": "samya"
-  }
+  "welcome": "Login",
+  "description": "Welcome to the Hub app. Login to proceed with your daily tasks",
+  "email": "Email",
+  "email-prompt": "Enter your E-mail",
+  "password": "Password",
+  "password-prompt": "Enter your password",
+  "login": "Login"
 }

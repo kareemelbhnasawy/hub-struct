@@ -3,6 +3,7 @@ import createThemedStyles from '@/utilities/create-themed-styles';
 const baseStyles = createThemedStyles({
   button: {
     base: {
+      width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -11,45 +12,40 @@ const baseStyles = createThemedStyles({
   },
   xxl: {
     base: {
-      height: 38,
-      minWidth: 135,
-      borderRadius: 14,
-      paddingHorizontal: 28,
+      height: 96,
+      borderRadius: 16,
+      paddingHorizontal: 64,
       gap: 10,
     },
   },
   xl: {
     base: {
-      height: 34,
-      minWidth: 128,
+      height: 80,
       borderRadius: 12,
-      paddingHorizontal: 24,
+      paddingHorizontal: 48,
       gap: 10,
     },
   },
   lg: {
     base: {
-      height: 30,
-      minWidth: 90,
-      borderRadius: 10,
-      paddingHorizontal: 20,
+      height: 56,
+      borderRadius: 8,
+      paddingHorizontal: 24,
       gap: 6,
     },
   },
   md: {
     base: {
-      height: 26,
-      minWidth: 82,
-      borderRadius: 10,
+      height: 40,
+      borderRadius: 6,
       paddingHorizontal: 16,
       gap: 5,
     },
   },
   sm: {
     base: {
-      height: 22,
-      minWidth: 72,
-      borderRadius: 8,
+      height: 32,
+      borderRadius: 4,
       paddingHorizontal: 12,
       gap: 5,
     },
@@ -405,6 +401,10 @@ const secondaryDangerStyles = createThemedStyles({
   },
 });
 
-
-
-export { baseStyles, primaryStyles, primaryDangerStyles, secondaryStyles, secondaryDangerStyles };
+export {
+  baseStyles,
+  primaryStyles,
+  primaryDangerStyles,
+  secondaryStyles,
+  secondaryDangerStyles,
+};

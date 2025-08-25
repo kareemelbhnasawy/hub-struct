@@ -29,7 +29,7 @@ const InputContainer = ({
       {labelProps ? (
         <>
           <View style={themedStyles.labelContainer}>
-            <Headline testId={`${testId}-input-label`} {...labelProps} />
+            <Headline size='2xs' weight='Medium' testId={`${testId}-input-label`} {...labelProps} style={themedStyles.textDefault} />
             {isRequired && (
               <LucideIcon
                 testId={`${testId}-input-label-asterisk`}

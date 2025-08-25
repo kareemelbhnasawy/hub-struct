@@ -42,7 +42,7 @@ const BaseButton = (props: BaseButtonProps) => {
   const hasBorder = !disabled && !loading && !success;
   return (
     <Pressable
-      testID={testId}
+      testID={`${testId}-button`}
       disabled={disabled || loading || success}
       onHoverIn={onHoverInFn}
       onHoverOut={onHoverOutFn}
@@ -72,7 +72,8 @@ const BaseButton = (props: BaseButtonProps) => {
         </View>
       ) : null}
       <TextComponent
-        weight="Medium"
+        testId={testId}
+        weight="Semibold"
         size={textSize as ParagraphProps['size']}
         style={variantThemedStyles[state]}
         {...textProps}

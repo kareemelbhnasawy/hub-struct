@@ -1,11 +1,11 @@
 import React, { forwardRef, useMemo } from 'react';
-import { Button, View } from 'react-native';
+import { View } from 'react-native';
 import { Formik, FormikProps, FormikValues } from 'formik';
 import FormType from './types/form.props';
 import FormSelector from './form-selector.component';
-import styles from './styles';
-import { useThemeStore } from '@/store/theme';
 import { generateValidationSchema } from './utils';
+import { BaseButton } from '@/components/molecules';
+import { Spacer } from '@/components/atoms';
 
 // eslint-disable-next-line react/display-name
 const Form = forwardRef(
@@ -13,7 +13,7 @@ const Form = forwardRef(
     {
       fields,
       testId,
-      style,
+      containerStyle,
       submitButtonProps,
       validateOnMount = true,
       validateOnBlur = false,
@@ -26,16 +26,13 @@ const Form = forwardRef(
     }: FormType,
     ref: React.Ref<FormikProps<FormikValues>>,
   ) => {
-    const { getThemedStyles } = useThemeStore();
-    const themedStyles = getThemedStyles(styles);
-
     const validationSchema = useMemo(
       () => generateValidationSchema(fields),
       [fields],
     );
 
     return (
-      <View style={[themedStyles.container, style]}>
+      <View style={containerStyle}>
         <Formik
           innerRef={ref}
           validateOnBlur={validateOnBlur}
@@ -45,22 +42,22 @@ const Form = forwardRef(
           {...formikProps}>
           {(props: FormikProps<FormikValues>) => (
             <>
-              <View style={themedStyles.flexOne}>
-                {fields.filter((x) => !!x) ? (
-                  <FormSelector
-                    testId={`${testId}-form-selector`}
-                    fields={fields}
-                    formikProps={props}
-                    showInputErrorMsg={!showErrorsInForm}
-                    space={space}
-                    {...selectorProps}
-                  />
-                ) : null}
-              </View>
-              <Button
+              {fields.filter((x) => !!x) ? (
+                <FormSelector
+                  testId={`${testId}-form-selector`}
+                  fields={fields}
+                  formikProps={props}
+                  showInputErrorMsg={!showErrorsInForm}
+                  space={space}
+                  {...selectorProps}
+                />
+              ) : null}
+              <Spacer space={20}/>
+              <BaseButton
                 onPress={() => props?.handleSubmit()}
-                testID={`${testId}-submit-btn`}
-                title="Submit"
+                testId={`${testId}-submit-btn`}
+                textProps={{ text: 'تسجيل الدخول' }}
+                size="lg"
                 {...submitButtonProps}
                 disabled={submitButtonProps?.disabled || !props.isValid}
               />
