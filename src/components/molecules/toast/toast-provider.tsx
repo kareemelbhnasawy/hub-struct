@@ -14,74 +14,67 @@ interface ToastConfig {
   duration?: number;
 }
 
-// Custom toast components for each type
-const SuccessToast = ({ text1, text2, onHide, ...props }: any) => (
-  <Toast
-    testId="success-toast"
-    type="success"
-    message={text1 || text2 || 'Success'}
-    onClosePress={onHide}
-    showAction={props.showAction !== false}
-    showClose={props.showClose !== false}
-    isRTL={props.isRTL}
-    actionLabel={props.actionLabel}
-    onActionPress={props.onActionPress}
-  />
-);
+// Simple toast components that work with toastify's expected props
+const SuccessToast = ({ text1, text2, onHide }: any) => {
+  const message = text1 || text2 || 'Success';
+  return (
+    <Toast
+      testId="success-toast"
+      type="success"
+      message={message}
+      onClosePress={onHide}
+      showAction={true}
+      showClose={true}
+    />
+  );
+};
 
-const ErrorToast = ({ text1, text2, onHide, ...props }: any) => (
-  <Toast
-    testId="error-toast"
-    type="error"
-    message={text1 || text2 || 'Error'}
-    onClosePress={onHide}
-    showAction={props.showAction !== false}
-    showClose={props.showClose !== false}
-    isRTL={props.isRTL}
-    actionLabel={props.actionLabel}
-    onActionPress={props.onActionPress}
-  />
-);
+const ErrorToast = ({ text1, text2, onHide }: any) => {
+  const message = text1 || text2 || 'Error';
+  return (
+    <Toast
+      testId="error-toast"
+      type="error"
+      message={message}
+      onClosePress={onHide}
+      showAction={true}
+      showClose={true}
+    />
+  );
+};
 
-const InfoToast = ({ text1, text2, onHide, ...props }: any) => (
-  <Toast
-    testId="info-toast"
-    type="info"
-    message={text1 || text2 || 'Info'}
-    onClosePress={onHide}
-    showAction={props.showAction !== false}
-    showClose={props.showClose !== false}
-    isRTL={props.isRTL}
-    actionLabel={props.actionLabel}
-    onActionPress={props.onActionPress}
-  />
-);
+const InfoToast = ({ text1, text2, onHide }: any) => {
+  const message = text1 || text2 || 'Info';
+  return (
+    <Toast
+      testId="info-toast"
+      type="info"
+      message={message}
+      onClosePress={onHide}
+      showAction={true}
+      showClose={true}
+    />
+  );
+};
 
-const WarningToast = ({ text1, text2, onHide, ...props }: any) => (
-  <Toast
-    testId="warning-toast"
-    type="warning"
-    message={text1 || text2 || 'Warning'}
-    onClosePress={onHide}
-    showAction={props.showAction !== false}
-    showClose={props.showClose !== false}
-    isRTL={props.isRTL}
-    actionLabel={props.actionLabel}
-    onActionPress={props.onActionPress}
-  />
-);
+const WarningToast = ({ text1, text2, onHide }: any) => {
+  const message = text1 || text2 || 'Warning';
+  return (
+    <Toast
+      testId="warning-toast"
+      type="warning"
+      message={message}
+      onClosePress={onHide}
+      showAction={true}
+      showClose={true}
+    />
+  );
+};
 
 class ToastService {
   static show(config: ToastConfig) {
     const toastOptions = {
       duration: config.duration || 3000,
-      data: {
-        showAction: config.showAction,
-        showClose: config.showClose,
-        isRTL: config.isRTL,
-        actionLabel: config.actionLabel,
-        onActionPress: config.onActionPress,
-      },
     };
 
     switch (config.type) {
