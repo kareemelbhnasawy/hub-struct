@@ -1535,6 +1535,12 @@ export const themeColors = {
     dark: COLORS['secondary-yellow-400'],
   },
 
+  //activityIndicator
+  activityIndicator: {
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
+  },
+
   // Additional Text Colors
   textPrimarySaFlag: {
     light: COLORS['primary-600'],

@@ -16,7 +16,7 @@ const useTranslate = () => {
   };
 
   const translate = (string: string, options?: { [string]: string }) => {
-    const spaceSplitStr = string.split(' ');
+    const spaceSplitStr = string.toString().split(' ');
     const res: string[] = [];
     spaceSplitStr.forEach((str) => {
       if (!str.includes('.')) {
