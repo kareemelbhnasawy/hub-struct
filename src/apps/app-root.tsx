@@ -15,6 +15,7 @@ import Form from '@/components/templates/form/form.component';
 import FormInputTypes from '@/components/templates/form/constants';
 import { useCallback } from 'react';
 import ToastDemo from '@/components/molecules/toast/demo';
+import SimpleToastTest from '@/components/molecules/toast/test-simple';
 
 const AppRoot = () => {
   const { changeLanguage, locale } = useTranslate();
@@ -95,6 +96,7 @@ const AppRoot = () => {
           onPress={() => changeLanguage(locale === 'ar' ? 'en' : 'ar')}>
           <Text>Toggle Lang</Text>
         </Pressable>
+        <SimpleToastTest />
         <ToastDemo />
         {/* <BadgeDemo /> */}
       </ScrollView>
