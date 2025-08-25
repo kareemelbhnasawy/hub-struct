@@ -6,11 +6,12 @@ import type { ToastProps, ToastType } from './interface';
 
 const renderToast = (type: ToastType) => {
   interface ToastRendererProps {
+    type: ToastType;
     props: ToastProps;
   }
 
   const ToastRenderer = (toastConfig: ToastRendererProps) => {
-    return <Toast {...toastConfig.props} />;
+    return <Toast {...toastConfig.props} type={toastConfig.type} />;
   };
   ToastRenderer.displayName = `ToastRenderer_${type}`;
   return ToastRenderer;

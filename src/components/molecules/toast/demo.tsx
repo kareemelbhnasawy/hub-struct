@@ -22,7 +22,6 @@ const ToastDemo = () => {
         },
         onActionPress: () => console.log('Undo changes'),
         testId: '',
-        type: 'success',
       },
     });
 
@@ -35,7 +34,6 @@ const ToastDemo = () => {
           },
           onActionPress: () => console.log('Retry saving'),
           testId: '',
-          type: 'error',
           showClose: false,
         },
       });
@@ -50,7 +48,6 @@ const ToastDemo = () => {
           },
           onActionPress: () => console.log('Install updates'),
           testId: '',
-          type: 'info',
         },
       });
     }, 2000);
@@ -65,7 +62,6 @@ const ToastDemo = () => {
         },
         onActionPress: () => console.log('Undo RTL'),
         testId: '',
-        type: 'success',
         showClose: false,
       },
     });
@@ -79,7 +75,6 @@ const ToastDemo = () => {
           },
           onActionPress: () => console.log('Retry RTL'),
           testId: '',
-          type: 'error',
         },
       });
     }, 1000);
@@ -156,12 +151,12 @@ const ToastDemo = () => {
 
         <Toast
           testId="demo-success-rtl"
-          type="success"
           messageProps={{
             text: 'يكتب المحتوى الإضافي هنا في حال ان رسالة الاشعار أو التنبيه تحتاج الى شرح',
           }}
           onActionPress={handleActionPress}
           onClosePress={handleClosePress}
+          type={'success'}
         />
 
         <Toast

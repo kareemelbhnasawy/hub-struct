@@ -5,7 +5,7 @@ type ShowOpts = {
   type: 'success' | 'error' | 'info' | 'warn' | 'default';
   duration?: number;
   position?: 'top' | 'center' | 'bottom';
-  props: ToastProps;
+  props: Omit<ToastProps, 'type'>;
 };
 
 const baseShow = ({ type, duration, position, props }: ShowOpts) => {
