@@ -8,6 +8,7 @@ import { requestNotifications } from 'react-native-permissions';
 import AppRoot from '@/apps/app-root';
 import { PortalProvider } from '@gorhom/portal';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ToastProvider } from '@/components/molecules';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStack } from '@/navigation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -51,10 +52,12 @@ const App = () => {
             <NavigationContainer
               onStateChange={handleNavigationStateChange}
               onReady={handleNavigationReady}>
+              <ToastProvider>
               {/* Uncomment the line below to use the AppRoot for dev components */}
               {/* <AppRoot /> */}
               <RootStack />
               {/* <LoginScreen /> */}
+              </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>
         </PortalProvider>
