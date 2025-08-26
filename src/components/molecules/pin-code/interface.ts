@@ -6,4 +6,5 @@ export interface PinCodeProps {
   onPinComplete: (arg0: string) => void;
   errorProps?: Omit<ParagraphProps, 'testId'>;
   disabled?: boolean;
+  secureTextEntry?: boolean;
 }

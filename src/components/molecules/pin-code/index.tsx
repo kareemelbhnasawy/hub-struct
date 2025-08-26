@@ -4,6 +4,7 @@ import { PinCodeProps } from './interface';
 import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
 import { Paragraph, Spacer } from '@/components/atoms';
+import headlineStyles from '@/components/atoms/typography/headline/styles';
 
 const PinCode = ({
   testId,
@@ -11,9 +12,11 @@ const PinCode = ({
   onPinComplete,
   errorProps,
   disabled,
+  secureTextEntry = true,
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+  const headlineThemedStyles = getThemedStyles(headlineStyles);
   const [pin, setPin] = useState('');
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const pinRefs = useRef<TextInput[]>([]);
@@ -80,7 +83,10 @@ const PinCode = ({
             onFocus={() => setFocusedIndex(index)}
             editable={disabled}
             maxLength={1}
+            secureTextEntry={secureTextEntry}
             style={[
+              headlineThemedStyles.md,
+              headlineThemedStyles.Medium,
               themedStyles.pin,
               focusedIndex === index ? themedStyles.pinFocused : null,
               errorProps ? themedStyles.pinError : null,
