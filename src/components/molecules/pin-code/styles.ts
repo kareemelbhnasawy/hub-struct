@@ -9,7 +9,7 @@ export const styles = createThemedStyles({
       textAlign: 'center',
       width: 40,
       borderColor: 'borderNeutralPrimary',
-      lineHeight: 'auto',
+      lineHeight: undefined,
     },
   },
   pinFocused: {
