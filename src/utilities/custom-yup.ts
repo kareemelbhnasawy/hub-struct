@@ -393,9 +393,38 @@ Yup.addMethod(
   },
 );
 
+Yup.addMethod(
+  Yup.string,
+  'validHRSDMail',
+  function (text?: string, textProps?: { [x: string]: string }) {
+    return this.test({
+      name: 'test-valid-mail',
+      message: {
+        text: 'inputs.defaultInputValidations.string.validHRSDMail',
+      },
+      test(value) {
+        const { createError, path } = this;
+        const regex = /^[a-zA-Z0-9._%+-]+@hrsd\.gov\.sa$/;
+        if (value && regex.test(value)) {
+          return true;
+        }
+        return createError({
+          path,
+          message: text
+            ? { text, textProps }
+            : {
+                text: 'inputs.defaultInputValidations.string.validHRSDMail',
+              },
+        });
+      },
+    });
+  },
+);
+
 declare module 'yup' {
   interface StringSchema {
     digitsOnly(text?: string, textProps?: { [x: string]: string }): this;
+    validHRSDMail(text?: string, textProps?: { [x: string]: string }): this;
   }
 
   interface NumberSchema {

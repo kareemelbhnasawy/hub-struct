@@ -4,9 +4,11 @@ import { TextInput } from '@/components/molecules';
 
 const PasswordInput = ({
   defaultSecureTextEntry = true,
+  onChangeValue,
   ...textInputProps
 }: SearchTextInputProps) => {
   const [secureText, setSecureText] = useState(defaultSecureTextEntry);
+
   return (
     <TextInput
       {...textInputProps}
@@ -14,6 +16,7 @@ const PasswordInput = ({
         name: secureText ? 'Eye' : 'EyeOff',
         onPress: () => setSecureText((prevState) => !prevState),
       }}
+      onChangeValue={(value) => onChangeValue?.(value.trim())}
       secureTextEntry={secureText}
     />
   );

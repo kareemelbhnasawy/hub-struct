@@ -53,10 +53,10 @@ const App = () => {
               onStateChange={handleNavigationStateChange}
               onReady={handleNavigationReady}>
               <ToastProvider>
-              {/* Uncomment the line below to use the AppRoot for dev components */}
-              {/* <AppRoot /> */}
-              <RootStack />
-              {/* <LoginScreen /> */}
+                {/* Uncomment the line below to use the AppRoot for dev components */}
+                {/* <AppRoot /> */}
+                <RootStack />
+                {/* <LoginScreen /> */}
               </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>

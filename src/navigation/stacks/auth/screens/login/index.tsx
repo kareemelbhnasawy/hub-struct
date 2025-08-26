@@ -10,7 +10,9 @@ import { FormikValues } from 'formik';
 import { getMMKVStorage } from '@/store/mmkv-storage';
 import { useEffect, useState } from 'react';
 import { ToastService } from '@/components/molecules';
-import { LoginStartResponse } from '@/network/services/auth/types';
+import { useDeviceId } from '@/hooks/use-device-id';
+import { clientSetToken } from '@/network/utilities';
+import { getItem } from '@/utilities';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -20,43 +22,40 @@ const LoginScreen = () => {
   const mmkv = getMMKVStorage<string>();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [deviceId, setDeviceId] = useState<string>('');
-  const [mobile, setMobile] = useState<string>('');
-  const [expiresIn, setExpiresIn] = useState<string>('');
+  const { deviceId, isLoading } = useDeviceId();
   const [loginCount, setLoginCount] = useState<number>(0);
   const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
+  const savedMail = getItem('email')?.state || '';
+  const savedPassword = getItem('password')?.state || '';
 
-  const handleNavigateToApp = () => {
+  const handleNavigateToApp = (res: unknown) => {
+    if (!deviceId || isLoading) return;
     navigation.navigateToOTP({
       nextScreen: 'Home',
-      mobile: mobile,
+      mobile: res?.mobileNumber,
       resetAppNav: true,
       url: 'auth/v1/login',
       body: {
         email: email,
         password: password,
-        deviceId: deviceId,
+        deviceId,
       },
       onConfirmOtp: (responseFinish) => {
         clientSetToken(responseFinish?.accessToken, false);
         //set tokens
       },
-      expiresIn: expiresIn,
+      expiresIn: res?.expiresIn,
     });
   };
 
-  const onLoginSuccess = (data: LoginStartResponse) => {
-    if (isAccountSuspended) {
-      onLoginError();
-      return;
-    }
-    setExpiresIn(data.expiresIn);
-    setMobile(data.mobileNumber);
+  const onLoginSuccess = (res: unknown) => {
+    //save data
     mmkv.setItem('email', { state: email, version: Date.now() });
     mmkv.setItem('password', { state: password, version: Date.now() });
 
-    handleNavigateToApp();
+    //navigate to OTP
+
+    handleNavigateToApp(res);
   };
 
   const onLoginError = () => {
@@ -92,9 +91,8 @@ const LoginScreen = () => {
     const loginRequest = {
       email: values.mail,
       password: values.password,
-      deviceId: 'some-device-id', // Replace with actual deviceId logic if needed
+      deviceId, // Replace with actual deviceId logic if needed
     };
-
     login(loginRequest);
   };
 
@@ -125,6 +123,7 @@ const LoginScreen = () => {
       />
       <Spacer space={40} />
       <Form
+        initialValues={{ mail: savedMail, password: savedPassword }}
         testId={screenTestId}
         onSubmit={onSubmit}
         fields={[
@@ -133,7 +132,7 @@ const LoginScreen = () => {
             type: FormInputTypes.TextInput,
             placeholder: 'auth.email-prompt',
             labelProps: { text: 'auth.email' },
-            validation: { required: true },
+            validation: { required: true, validHRSDMail: true },
           },
           {
             name: 'password',

@@ -6,6 +6,7 @@ import FormInputTypes from '@/components/templates/form/constants';
 import { useTranslate } from '@/hooks';
 import { useThemeStore } from '@/store/theme';
 import { Radius } from '@/style';
+import PinCodeInput from '@/components/molecules/pin-code';
 import { crash, getCrashlytics } from '@react-native-firebase/crashlytics';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 
@@ -28,6 +29,11 @@ const AppRoot = () => {
           </View>
         </CurvedHeroImage>
         <Headline text="common.welcome" testId={''} />
+        <PinCodeInput
+          onPinComplete={(pin) => console.log(pin)}
+          testId={''}
+          errorProps={{ text: 'samya' }}
+        />
 
         <Form
           fields={[

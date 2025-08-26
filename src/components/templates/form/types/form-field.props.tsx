@@ -13,6 +13,7 @@ type yupValidation = {
   min?: number;
   max?: number;
   email?: boolean;
+  validHRSDMail?: boolean;
 };
 
 type commonInputType = {
