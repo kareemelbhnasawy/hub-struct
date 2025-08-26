@@ -53,8 +53,8 @@ const Toast = ({
         />
         <Paragraph
           testId={`${testId}-toast-message`}
-          size="md"
-          weight="Regular"
+          size="xl"
+          weight="Medium"
           style={themedStyles.messageText}
           {...messageProps}
         />
