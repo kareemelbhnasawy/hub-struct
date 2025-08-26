@@ -54,8 +54,8 @@ const App = () => {
               onReady={handleNavigationReady}>
               {/* Uncomment the line below to use the AppRoot for dev components */}
               {/* <AppRoot /> */}
-              {/* <RootStack /> */}
-              <LoginScreen />
+              <RootStack />
+              {/* <LoginScreen /> */}
             </NavigationContainer>
           </SafeAreaProvider>
         </PortalProvider>

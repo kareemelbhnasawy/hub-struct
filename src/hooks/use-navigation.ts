@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   useNavigation as useRNNavigation,
   useRoute as useRNRoute,
@@ -196,6 +197,37 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     return navigation.navigate(top as never, nested as never);
   };
 
+  const navigateToOTP = ({
+    nextScreen,
+    mobile,
+    nextScreenParams,
+    resetAppNav,
+    url,
+    body,
+    onConfirmOtp,
+    expiresIn,
+  }: {
+    nextScreen: ScreenName;
+    mobile?: string;
+    nextScreenParams?: object;
+    resetAppNav?: boolean;
+    url: string;
+    body: object;
+    onConfirmOtp?: (res: unknown) => void;
+    expiresIn?: number; // in seconds
+  }) => {
+    navigateTo('OTP', {
+      nextScreen,
+      mobile,
+      nextScreenParams,
+      resetAppNav,
+      url,
+      body,
+      onConfirmOtp,
+      expiresIn,
+    });
+  };
+
   const pop = (count = 1) => navigation.dispatch(StackActions.pop(count));
   const popToTop = () => navigation.dispatch(StackActions.popToTop());
   const goBack = () => navigation.goBack();
@@ -223,6 +255,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     canGoBack,
     getScreenStackPath,
     replaceToScreen,
+    navigateToOTP,
   };
 };
 

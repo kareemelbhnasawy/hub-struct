@@ -9,5 +9,9 @@ export type RootStackParamList = {
     nextScreenParams?: object;
     mobile?: string;
     resetAppNav?: boolean;
+    url: string;
+    body: object;
+    onConfirmOtp?: (res: unknown) => void;
+    expiresIn?: number; // in seconds
   };
 };

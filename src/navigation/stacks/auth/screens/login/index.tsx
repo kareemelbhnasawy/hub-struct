@@ -2,16 +2,31 @@ import { View, Text, Pressable } from 'react-native';
 import { Headline, Paragraph } from '@/components/atoms';
 import { useNavigation, useTranslate } from '@/hooks';
 import styles from './styles';
+import { useDeviceId } from '@/hooks/use-device-id';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const { locale } = useTranslate();
+  const { deviceId, isLoading } = useDeviceId();
 
   const handleNavigateToApp = () => {
-    navigation.navigate('OTP', {
+    if (!deviceId || isLoading) return;
+
+    navigation.navigateToOTP({
       nextScreen: 'Home',
       mobile: '01220293563',
       resetAppNav: true,
+      url: 'auth/v1/login',
+      body: {
+        email: 'amr@hotmail.com',
+        password: '12334',
+        deviceId,
+      },
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      onConfirmOtp: (responseFinish) => {
+        //set tokens
+      },
+      expiresIn: 120,
     });
   };
 
