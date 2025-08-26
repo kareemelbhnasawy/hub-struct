@@ -1,16 +1,16 @@
 import { ButtonSizes } from './interface';
 import { primaryDangerStyles, primaryStyles, secondaryDangerStyles, secondaryStyles } from './style';
 
-const getTextSize = (size?: ButtonSizes): 'lg' | 'sm' | 'xs' => {
+const getTextSize = (size?: ButtonSizes): 'xl' | 'lg' | 'sm' | 'xs' => {
   switch (size) {
     case 'sm':
       return 'sm';
     case 'md':
-      return 'sm';
-    case 'lg':
       return 'lg';
+    case 'lg':
+      return 'xl';
     case 'xl':
-      return 'xs';
+      return 'sm';
     case 'xxl':
       return 'sm';
     default:

@@ -9,6 +9,7 @@ import AppRoot from '@/apps/app-root';
 import { PortalProvider } from '@gorhom/portal';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ToastProvider } from '@/components/molecules';
+import LoginScreen from '@/screens/login';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStack } from '@/navigation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -55,7 +56,8 @@ const App = () => {
               <ToastProvider>
                 {/* Uncomment the line below to use the AppRoot for dev components */}
                 {/* <AppRoot /> */}
-                <RootStack />
+                {/* <RootStack /> */}
+                <LoginScreen />
               </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>
