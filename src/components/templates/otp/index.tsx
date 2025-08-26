@@ -11,6 +11,7 @@ import { GlassContainer } from '@/components/atoms/glass-container';
 import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
+import { useState } from 'react';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -38,6 +39,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     }
   };
   const themedStyles = getThemedStyles(styles);
+  const [error, setError] = useState<boolean | undefined>(undefined);
 
   const { isRTL } = useTranslate();
 
@@ -52,10 +54,16 @@ export default function OtpConfirmationScreen({ route }: Props) {
     reset();
   });
 
-  const { mutate: finishFlow } = useFinishFlow(url, (data) => {
-    onConfirmOtp?.(data);
-    navigateToNextScreen();
-  });
+  const { mutate: finishFlow } = useFinishFlow(
+    url,
+    (data) => {
+      onConfirmOtp?.(data);
+      navigateToNextScreen();
+    },
+    (error) => {
+      setError(true);
+    },
+  );
 
   const handleResendCode = () => {
     startFlow(body);
@@ -74,6 +82,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
       {/* {mobile && <Headline testId="" text={mobile} />} */}
       <Spacer space={50} />
       <View style={themedStyles.headerContainer}>
+        {/* Todo: glass icon component and lucide icon rtl handler */}
         <GlassContainer testId="icon" containerStyle={{ aspectRatio: 1 }}>
           <LucideIcon
             name={isRTL ? 'ChevronRight' : 'ChevronLeft'}
@@ -104,7 +113,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
         <PinCode
           onPinComplete={handlePinComplete}
           testId={screenTestId}
-          // errorProps={{ text: 'samya' }}
+          errorProps={error ? { text: 'otp.invalidCode' } : undefined}
         />
       </View>
       <Headline
@@ -131,7 +140,6 @@ export default function OtpConfirmationScreen({ route }: Props) {
           />
         </View>
       )}
-      <Button title="Confirm OTP" onPress={navigateToNextScreen} />
     </View>
   );
 }

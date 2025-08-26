@@ -1,7 +1,6 @@
 import { useCustomMutation } from '@/network/hooks';
 import { createAPIRequest } from '@/network/utilities';
 import { API_METHODS } from '@/network/constants';
-import { LoginStartResponse } from '../services/auth/types';
 
 export interface StartFlowRequest {
   [key: string]: unknown;
@@ -9,22 +8,22 @@ export interface StartFlowRequest {
 
 const startFlowService = async (
   url: string,
-  data: StartFlowRequest,
-): Promise<LoginStartResponse> => {
+  data: unknown,
+): Promise<unknown> => {
   const res = await createAPIRequest({
     method: API_METHODS.POST,
     url: `${url}/start`,
     data,
   });
-  return res.data as LoginStartResponse;
+  return res.data;
 };
 
 export const useStartFlow = (
   url: string,
-  onSuccess?: (data: LoginStartResponse) => void,
+  onSuccess?: (data: unknown) => void,
   onError?: (error: unknown) => void,
 ) => {
-  return useCustomMutation<StartFlowRequest, LoginStartResponse>({
+  return useCustomMutation<StartFlowRequest, unknown>({
     mutationKey: [`${url}_START`],
     mutationFn: (data) => startFlowService(url, data),
     onSuccess: onSuccess ?? (() => {}),

@@ -2,5 +2,6 @@
   "verify": "Verify your account",
   "sentOTP": "OTP has been sent to the mobile number ending with ****{{phoneNumber}}",
   "didNotReceive": "Did not receive the code,",
-  "resendCode": "click here to resend"
+  "resendCode": "click here to resend",
+  "invalidCode": "Invalid code"
 }
