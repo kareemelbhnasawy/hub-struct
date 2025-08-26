@@ -7,7 +7,6 @@ import { useThemeStore } from '@/store/theme';
 import { useNavigation } from '@/hooks';
 import useLoginStart from '@/network/services/auth/login-start/login-start.hook';
 import { FormikValues } from 'formik';
-import { getMMKVStorage } from '@/store/mmkv-storage';
 import { useEffect, useState } from 'react';
 import { ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
@@ -19,7 +18,6 @@ const LoginScreen = () => {
   const screenTestId = 'login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const mmkv = getMMKVStorage<string>();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const { deviceId, isLoading } = useDeviceId();
@@ -49,10 +47,6 @@ const LoginScreen = () => {
   };
 
   const onLoginSuccess = (res: unknown) => {
-    //save data
-    mmkv.setItem('email', { state: email, version: Date.now() });
-    mmkv.setItem('password', { state: password, version: Date.now() });
-
     //navigate to OTP
 
     handleNavigateToApp(res);
