@@ -18,14 +18,17 @@ export const generateValidationSchema = (fields: FormFieldType[]) => {
         }
       } else {
         validation = Yup.string();
-        if (field.validation?.email !== undefined) {
+        if (field.validation?.email) {
           validation = validation.email();
         }
+        if (field.validation?.validHRSDMail) {
+          validation = validation.validHRSDMail();
+        }
       }
-      if (field.validation?.required !== undefined) {
+      if (field.validation?.required) {
         validation = validation.required();
       }
-      if (field.validation?.digitsOnly !== undefined) {
+      if (field.validation?.digitsOnly) {
         validation = validation.digitsOnly();
       }
       if (field.validation?.min !== undefined) {

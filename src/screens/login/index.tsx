@@ -8,14 +8,14 @@ import { useThemeStore } from '@/store/theme';
 
 const LoginScreen = () => {
   const screenTestId = 'login-screen';
-  const {getThemedStyles} = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   return (
     <Page testId={screenTestId} hasHeader={false}>
       <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
-      <Spacer space={20}/>
+      <Spacer space={20} />
       <Headline
         testId={`${screenTestId}-title`}
         text="auth.login"
@@ -40,7 +40,7 @@ const LoginScreen = () => {
             type: FormInputTypes.TextInput,
             placeholder: 'auth.email-prompt',
             labelProps: { text: 'auth.email' },
-            validation: { required: true },
+            validation: { required: true, validHRSDMail: true },
           },
           {
             name: 'password',
