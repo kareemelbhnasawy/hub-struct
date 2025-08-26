@@ -5,5 +5,6 @@
   "email-prompt": "Enter your E-mail",
   "password": "Password",
   "password-prompt": "Enter your password",
-  "login": "Login"
+  "login": "Login",
+  "invalidData": "The email or password is incorrect. This is attempt 1 of 3. The account will be suspended after 3 failed attempts."
 }
