@@ -8,9 +8,9 @@ import { useNavigation } from '@/hooks';
 import useLoginStart from '@/network/services/auth/login-start/login-start.hook';
 import { FormikValues } from 'formik';
 import { getMMKVStorage } from '@/store/mmkv-storage';
-import { useState } from 'react';
-import { log } from '@/utilities';
+import { useEffect, useState } from 'react';
 import { ToastService } from '@/components/molecules';
+import { LoginStartResponse } from '@/network/services/auth/types';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -20,31 +20,66 @@ const LoginScreen = () => {
   const mmkv = getMMKVStorage<string>();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [deviceId, setDeviceId] = useState<string>('');
+  const [mobile, setMobile] = useState<string>('');
+  const [expiresIn, setExpiresIn] = useState<string>('');
+  const [loginCount, setLoginCount] = useState<number>(0);
+  const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
 
   const handleNavigateToApp = () => {
-    navigation.navigate('App');
+    navigation.navigateToOTP({
+      nextScreen: 'Home',
+      mobile: mobile,
+      resetAppNav: true,
+      url: 'auth/v1/login',
+      body: {
+        email: email,
+        password: password,
+        deviceId: deviceId,
+      },
+      onConfirmOtp: (responseFinish) => {
+        clientSetToken(responseFinish?.accessToken, false);
+        //set tokens
+      },
+      expiresIn: expiresIn,
+    });
   };
 
-  const onLoginSuccess = () => {
-    //save data
+  const onLoginSuccess = (data: LoginStartResponse) => {
+    if (isAccountSuspended) {
+      onLoginError();
+      return;
+    }
+    setExpiresIn(data.expiresIn);
+    setMobile(data.mobileNumber);
     mmkv.setItem('email', { state: email, version: Date.now() });
     mmkv.setItem('password', { state: password, version: Date.now() });
-    log(mmkv.getItem('email'));
-    log(mmkv.getItem('password'));
 
-    //navigate to OTP
     handleNavigateToApp();
   };
 
   const onLoginError = () => {
-    // Show Toast
+    const newLoginCount = loginCount + 1;
+    const loginCountAsString = isAccountSuspended
+      ? '3'
+      : newLoginCount.toString();
+    const errorMessage = isAccountSuspended
+      ? 'auth.accountSuspended'
+      : 'auth.invalidData';
+
+    setLoginCount(newLoginCount);
     ToastService.error({
-        props: {
-          messageProps: { text: 'auth.invalidData' },
-          testId: '',
+      props: {
+        messageProps: {
+          text: errorMessage,
+          textProps: { trialNumber: loginCountAsString },
         },
-        duration: 4000,
-      });
+        testId: '',
+      },
+      duration: 4000,
+    });
+    mmkv.setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
@@ -52,6 +87,8 @@ const LoginScreen = () => {
   const onSubmit = (values: FormikValues) => {
     setEmail(values.mail);
     setPassword(values.password);
+    setLoginCount(loginCount + 1);
+
     const loginRequest = {
       email: values.mail,
       password: values.password,
@@ -60,6 +97,12 @@ const LoginScreen = () => {
 
     login(loginRequest);
   };
+
+  useEffect(() => {
+    if (loginCount >= 3) {
+      setIsAccountSuspended(true);
+    }
+  }, [loginCount]);
 
   return (
     <Page testId={screenTestId} hasHeader={false}>
