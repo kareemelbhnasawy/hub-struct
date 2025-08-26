@@ -11,17 +11,21 @@ import enAuth from './auth/en.json';
 import arAuth from './auth/ar.json';
 import enInputs from './inputs/en.json';
 import arInputs from './inputs/ar.json';
+import arOTP from './otp/ar.json';
+import enOTP from './otp/en.json';
 
 export const resources = {
   en: {
     common: enCommon,
     auth: enAuth,
     inputs: enInputs,
+    otp: enOTP,
   },
   ar: {
     common: arCommon,
     auth: arAuth,
     inputs: arInputs,
+    otp: arOTP,
   },
 };
 

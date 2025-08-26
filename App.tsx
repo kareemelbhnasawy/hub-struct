@@ -56,8 +56,8 @@ const App = () => {
               <ToastProvider>
                 {/* Uncomment the line below to use the AppRoot for dev components */}
                 {/* <AppRoot /> */}
-                {/* <RootStack /> */}
-                <LoginScreen />
+                <RootStack />
+                {/* <LoginScreen /> */}
               </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>
