@@ -21,7 +21,7 @@ const sampleData: SampleItem[] = [
 
 // Sample renderItem function
 const renderSampleItem = ({ item }: { item: SampleItem }) => (
-  <Paragraph text={item.title} style={styles.itemText} />
+  <Paragraph text={item.title} style={styles.itemText} testId={''} />
 );
 
 const ListDemo = () => {
@@ -32,6 +32,7 @@ const ListDemo = () => {
         size="lg"
         weight="Bold"
         style={styles.title}
+        testId={''}
       />
 
       {/* Normal List */}
@@ -40,6 +41,7 @@ const ListDemo = () => {
           text="Normal List"
           weight="Semibold"
           style={styles.sectionTitle}
+          testId={''}
         />
         <List<SampleItem>
           testId="demo-normal"
@@ -56,13 +58,14 @@ const ListDemo = () => {
           text="Empty List"
           weight="Semibold"
           style={styles.sectionTitle}
+          testId={''}
         />
         <List<SampleItem>
           testId="demo-empty"
           data={[]}
           renderItem={renderSampleItem}
           listContainerStyle={styles.listContainer}
-          emptyComponentProps={{ text: 'Noitemsavailable' }}
+          emptyComponentProps={{ text: 'No items available' }}
         />
       </View>
 
@@ -72,6 +75,7 @@ const ListDemo = () => {
           text="Skeleton Loading (Initial)"
           weight="Semibold"
           style={styles.sectionTitle}
+          testId={''}
         />
         <List<SampleItem>
           testId="demo-skeleton-initial"
@@ -90,6 +94,7 @@ const ListDemo = () => {
           text="Load More Spinner"
           weight="Semibold"
           style={styles.sectionTitle}
+          testId={''}
         />
         <List<SampleItem>
           testId="demo-loadmore-spinner"
@@ -107,6 +112,7 @@ const ListDemo = () => {
           text="Load More Skeleton"
           weight="Semibold"
           style={styles.sectionTitle}
+          testId={''}
         />
         <List<SampleItem>
           testId="demo-loadmore-skeleton"

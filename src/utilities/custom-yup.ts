@@ -4,212 +4,212 @@ Yup.setLocale({
   mixed: {
     required(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.required',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.required',
+        textProps: params,
       };
     },
     oneOf(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.oneOf',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.oneOf',
+        textProps: params,
       };
     },
     default(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.default',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.default',
+        textProps: params,
       };
     },
     defined(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.default',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.default',
+        textProps: params,
       };
     },
     notNull(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.notNull',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.notNull',
+        textProps: params,
       };
     },
     notOneOf(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.notOneOf',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.notOneOf',
+        textProps: params,
       };
     },
     notType(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.mixed.notType',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.mixed.notType',
+        textProps: params,
       };
     },
   },
   string: {
     email(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.email',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.email',
+        textProps: params,
       };
     },
     trim(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.trim',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.trim',
+        textProps: params,
       };
     },
     uppercase(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.uppercase',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.uppercase',
+        textProps: params,
       };
     },
     url(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.url',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.url',
+        textProps: params,
       };
     },
     uuid(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.uuid',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.uuid',
+        textProps: params,
       };
     },
     datetime(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.datetime',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.datetime',
+        textProps: params,
       };
     },
     datetime_offset(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.datetime_offset',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.datetime_offset',
+        textProps: params,
       };
     },
     datetime_precision(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.datetime_precision',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.datetime_precision',
+        textProps: params,
       };
     },
     lowercase(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.lowercase',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.lowercase',
+        textProps: params,
       };
     },
     length(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.length',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.length',
+        textProps: params,
       };
     },
     matches(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.matches',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.matches',
+        textProps: params,
       };
     },
     max(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.max',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.max',
+        textProps: params,
       };
     },
     min(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.string.min',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.string.min',
+        textProps: params,
       };
     },
   },
   number: {
     integer(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.integer',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.integer',
+        textProps: params,
       };
     },
     positive(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.positive',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.positive',
+        textProps: params,
       };
     },
     lessThan(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.lessThan',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.lessThan',
+        textProps: params,
       };
     },
     negative(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.negative',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.negative',
+        textProps: params,
       };
     },
     max(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.max',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.max',
+        textProps: params,
       };
     },
     min(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.min',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.min',
+        textProps: params,
       };
     },
     moreThan(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.number.moreThan',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.number.moreThan',
+        textProps: params,
       };
     },
   },
   boolean: {
     isValue(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.boolean.isValue',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.boolean.isValue',
+        textProps: params,
       };
     },
   },
   date: {
     max(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.date.max',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.date.max',
+        textProps: params,
       };
     },
     min(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.date.min',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.date.min',
+        textProps: params,
       };
     },
   },
   array: {
     max(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.array.max',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.array.max',
+        textProps: params,
       };
     },
     min(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.array.min',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.array.min',
+        textProps: params,
       };
     },
   },
   object: {
     noUnknown(params) {
       return {
-        localeKey: 'inputs.defaultInputValidations.array.min',
-        localeProps: params,
+        text: 'inputs.defaultInputValidations.array.min',
+        textProps: params,
       };
     },
   },
@@ -219,13 +219,13 @@ Yup.setLocale({
 Yup.addMethod(
   Yup.object,
   'rangeMinMax',
-  function (localeKey?: string, localeProps?: { [x: string]: string }) {
+  function (text?: string, textProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-from-to',
-      message: localeKey
-        ? { localeKey, localeProps }
+      message: text
+        ? { text, textProps }
         : {
-            localeKey: 'inputs.customInputValidations.fromToAmount',
+            text: 'inputs.customInputValidations.fromToAmount',
           },
       test(value) {
         if (
@@ -247,13 +247,13 @@ Yup.addMethod(
   function (
     fromKey: string,
     toKey: string,
-    localeKey?: string,
-    localeProps?: { [x: string]: string },
+    text?: string,
+    textProps?: { [x: string]: string },
   ) {
     return this.test({
       name: 'test-from-to-spread',
       message: {
-        localeKey: 'inputs.customInputValidations.fromToAmount',
+        text: 'inputs.customInputValidations.fromToAmount',
       },
       test() {
         const fromAmount = parseFloat(this.resolve(Yup.ref(fromKey)));
@@ -262,10 +262,10 @@ Yup.addMethod(
         if (fromAmount && toAmount && fromAmount > toAmount) {
           return createError({
             path,
-            message: localeKey
-              ? { localeKey, localeProps }
+            message: text
+              ? { text, textProps }
               : {
-                  localeKey: 'inputs.customInputValidations.fromToAmount',
+                  text: 'inputs.customInputValidations.fromToAmount',
                 },
           });
         }
@@ -278,16 +278,12 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'startsWith',
-  function (
-    str: string[],
-    localeKey?: string,
-    localeProps?: { [x: string]: string },
-  ) {
+  function (str: string[], text?: string, textProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-starts-with',
       message: {
-        localeKey: 'inputs.customInputValidations.startsWith',
-        localeProps: { str: str.toString() },
+        text: 'inputs.customInputValidations.startsWith',
+        textProps: { str: str.toString() },
       },
       test(value) {
         const { createError, path } = this;
@@ -298,11 +294,11 @@ Yup.addMethod(
         ) {
           return createError({
             path,
-            message: localeKey
-              ? { localeKey, localeProps }
+            message: text
+              ? { text, textProps }
               : {
-                  localeKey: 'inputs.customInputValidations.startsWith',
-                  localeProps: { str: str.toString() },
+                  text: 'inputs.customInputValidations.startsWith',
+                  textProps: { str: str.toString() },
                 },
           });
         }
@@ -312,24 +308,24 @@ Yup.addMethod(
   },
 );
 
-Yup.addMethod(
+Yup.addMethod<Yup.StringSchema>(
   Yup.string,
   'digitsOnly',
-  function (localeKey?: string, localeProps?: { [x: string]: string }) {
+  function (text?: string, textProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-digits-only',
       message: {
-        localeKey: 'inputs.customInputValidations.digitsOnly',
+        text: 'inputs.customInputValidations.digitsOnly',
       },
       test(value) {
         const { createError, path } = this;
         if (value && !value?.match(/^[0-9]+$/)) {
           return createError({
             path,
-            message: localeKey
-              ? { localeKey, localeProps }
+            message: text
+              ? { text, textProps }
               : {
-                  localeKey: 'inputs.customInputValidations.digitsOnly',
+                  text: 'inputs.customInputValidations.digitsOnly',
                 },
           });
         }
@@ -342,16 +338,12 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'parseMoreThan',
-  function (
-    more: number,
-    localeKey?: string,
-    localeProps?: { [x: string]: string },
-  ) {
+  function (more: number, text?: string, textProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-parse-more',
       message: {
-        localeKey: 'inputs.defaultInputValidations.number.moreThan',
-        localeProps: { more },
+        text: 'inputs.defaultInputValidations.number.moreThan',
+        textProps: { more },
       },
       test(value) {
         const { createError, path } = this;
@@ -360,11 +352,11 @@ Yup.addMethod(
         }
         return createError({
           path,
-          message: localeKey
-            ? { localeKey, localeProps }
+          message: text
+            ? { text, textProps }
             : {
-                localeKey: 'inputs.defaultInputValidations.number.moreThan',
-                localeProps: { more },
+                text: 'inputs.defaultInputValidations.number.moreThan',
+                textProps: { more },
               },
         });
       },
@@ -375,16 +367,12 @@ Yup.addMethod(
 Yup.addMethod(
   Yup.string,
   'parseLessThan',
-  function (
-    less: number,
-    localeKey?: string,
-    localeProps?: { [x: string]: string },
-  ) {
+  function (less: number, text?: string, textProps?: { [x: string]: string }) {
     return this.test({
       name: 'test-parse-less',
       message: {
-        localeKey: 'inputs.defaultInputValidations.number.lessThan',
-        localeProps: { less },
+        text: 'inputs.defaultInputValidations.number.lessThan',
+        textProps: { less },
       },
       test(value) {
         const { createError, path } = this;
@@ -393,16 +381,26 @@ Yup.addMethod(
         }
         return createError({
           path,
-          message: localeKey
-            ? { localeKey, localeProps }
+          message: text
+            ? { text, textProps }
             : {
-                localeKey: 'inputs.defaultInputValidations.number.lessThan',
-                localeProps: { less },
+                text: 'inputs.defaultInputValidations.number.lessThan',
+                textProps: { less },
               },
         });
       },
     });
   },
 );
+
+declare module 'yup' {
+  interface StringSchema {
+    digitsOnly(text?: string, textProps?: { [x: string]: string }): this;
+  }
+
+  interface NumberSchema {
+    digitsOnly(text?: string, textProps?: { [x: string]: string }): this;
+  }
+}
 
 export default Yup;
