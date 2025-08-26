@@ -3,6 +3,7 @@ import { Headline, Paragraph } from '@/components/atoms';
 import { useNavigation, useTranslate } from '@/hooks';
 import styles from './styles';
 import { useDeviceId } from '@/hooks/use-device-id';
+import { clientSetToken } from '@/network/utilities';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -24,6 +25,7 @@ const LoginScreen = () => {
       },
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onConfirmOtp: (responseFinish) => {
+        clientSetToken(responseFinish?.accessToken, false);
         //set tokens
       },
       expiresIn: 120,
