@@ -5,11 +5,37 @@ import { Form, Page } from '@/components/templates';
 import { Alert } from 'react-native';
 import { styles } from './styles';
 import { useThemeStore } from '@/store/theme';
+import { useEffect } from 'react';
+import { getString } from '@/utilities';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
+import ReactNativeBiometrics from 'react-native-biometrics';
 
 const LoginScreen = () => {
   const screenTestId = 'login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+  // TODO: change to API response
+  const challenge = 'challenge';
+
+  useEffect(() => {
+    const bioType = getString(STORAGE_KEYS.BIO_TYPE);
+    if (bioType) {
+      const rnBiometrics = new ReactNativeBiometrics();
+
+      rnBiometrics
+        .createSignature({
+          promptMessage: 'Sign in',
+          payload: challenge,
+        })
+        .then((resultObject) => {
+          const { success, signature } = resultObject;
+
+          if (success) {
+            console.log(signature);
+          }
+        });
+    }
+  }, []);
 
   return (
     <Page testId={screenTestId} hasHeader={false}>
@@ -40,7 +66,7 @@ const LoginScreen = () => {
             type: FormInputTypes.TextInput,
             placeholder: 'auth.email-prompt',
             labelProps: { text: 'auth.email' },
-            validation: { required: true, validHRSDMail: true },
+            validation: { required: true },
           },
           {
             name: 'password',

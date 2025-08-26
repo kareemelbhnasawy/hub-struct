@@ -5,6 +5,7 @@ import { Pressable, View } from 'react-native';
 import { DEFAULT_ICON_SIZE } from './constants';
 import { scale } from '@/store/theme/utils';
 import { useThemeStore } from '@/store/theme';
+import { useTranslate } from '@/hooks';
 
 const LucideIcon = ({
   testId,
@@ -19,6 +20,7 @@ const LucideIcon = ({
   const LIcon = icons[name];
   const Wrapper = onPress ? Pressable : View;
   const { getThemedStyles } = useThemeStore();
+  const { isRTL } = useTranslate();
 
   const themedStyle = getThemedStyles(styles(size));
 
@@ -34,12 +36,18 @@ const LucideIcon = ({
 
   if (hasWrapper || isCircle || isOutline)
     return (
-      <Wrapper testID={`${testId}-icon-container`} onPress={onPress} style={appliedStyles}>
+      <Wrapper
+        testID={`${testId}-icon-container`}
+        onPress={onPress}
+        style={[appliedStyles, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}>
         <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
       </Wrapper>
-
     );
-  return <LIcon size={scale(size)} {...props} onPress={onPress} />;
+  return (
+    <View style={{ transform: [{ scaleX: isRTL ? -1 : 1 }] }}>
+      <LIcon size={scale(size)} {...props} onPress={onPress} />
+    </View>
+  );
 };
 
 export default LucideIcon;

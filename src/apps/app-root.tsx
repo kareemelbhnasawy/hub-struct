@@ -24,7 +24,7 @@ const AppRoot = () => {
               <Headline text="Test Glass Container" weight="Bold" testId={''} />
             </GlassContainer>
             <GlassContainer testId="icon" containerStyle={{ aspectRatio: 1 }}>
-              <LucideIcon name="X" testId={''} />
+              <LucideIcon name="ChevronLeft" testId={''} />
             </GlassContainer>
           </View>
         </CurvedHeroImage>
@@ -32,6 +32,7 @@ const AppRoot = () => {
         <PinCodeInput
           onPinComplete={(pin) => console.log(pin)}
           testId={''}
+          secureTextEntry={false}
           errorProps={{ text: 'samya' }}
         />
 
