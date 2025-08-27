@@ -135,6 +135,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
             text="otp.didNotReceive"
             testId={`${screenTestId}-did-not-receive-text`}
             size="lg"
+            style={themedStyles.defaultTextColor}
           />
           <Paragraph
             testId={`${screenTestId}-resend`}

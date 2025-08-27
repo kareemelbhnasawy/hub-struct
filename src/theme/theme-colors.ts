@@ -93,8 +93,8 @@ export const themeColors = {
     dark: COLORS.white,
   },
   textPrimary: {
-    light: COLORS['neutral-900'],
-    dark: COLORS['neutral-900'],
+    light: COLORS['primary-700'],
+    dark: COLORS['primary-700'],
   },
   textSecondary: {
     light: COLORS['secondary-green-600'],
@@ -123,8 +123,8 @@ export const themeColors = {
 
   // Border Colors
   borderPrimary: {
-    light: COLORS['secondary-yellow-600'],
-    dark: COLORS['secondary-yellow-300'],
+    light: COLORS['primary-600'],
+    dark: COLORS['primary-600'],
   },
   borderNeutralPrimary: {
     light: COLORS['neutral-300'],
