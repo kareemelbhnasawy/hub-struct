@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { getLocales } from 'react-native-localize';
-import { getString } from '../utilities/storage';
+import { getStorageItem } from '../utilities/storage';
 import { STORAGE_KEYS } from '../constants/storageKeys';
 import { I18nManager } from 'react-native';
 
@@ -32,7 +32,7 @@ export const resources = {
 const fallback = { languageTag: 'en', isRTL: false };
 
 const getDeviceLanguage = (): string => {
-  let languageTag = getString(STORAGE_KEYS.LANGUAGE);
+  let languageTag = getStorageItem(STORAGE_KEYS.LANGUAGE);
   if (!languageTag) {
     const locales = getLocales();
     languageTag = locales[0]?.languageTag || fallback.languageTag;

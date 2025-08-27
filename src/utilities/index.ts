@@ -1,12 +1,5 @@
 export { default as Yup } from './custom-yup';
-export {
-  storage,
-  getString,
-  setString,
-  deleteKey,
-  getItem,
-  setItem,
-} from './storage';
+export {  setStorageItem, getStorageItem, deleteKey } from './storage';
 
 //export all functions from utils
 export { default as wait } from './wait';
