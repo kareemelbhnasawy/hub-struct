@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
-import { getItem } from '@/utilities';
+import { getItem, setItem } from '@/utilities';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -45,7 +45,6 @@ const LoginScreen = () => {
       expiresIn: res?.expiresIn,
     });
   };
-
   const onLoginSuccess = (res: unknown) => {
     //navigate to OTP
 
@@ -72,7 +71,7 @@ const LoginScreen = () => {
       },
       duration: 4000,
     });
-    mmkv.setItem('loginCount', { state: loginCountAsString });
+    setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
@@ -137,6 +136,7 @@ const LoginScreen = () => {
           },
         ]}
       />
+      {/* <Paragraph text={error || 'hello'} testId={''} /> */}
     </Page>
   );
 };

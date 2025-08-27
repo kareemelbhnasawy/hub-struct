@@ -27,7 +27,7 @@ export const GlassContainer = ({
 
   useEffect(() => {
     translateX.value = withRepeat(
-      withTiming(200, { duration: 6000 }),
+      withTiming(200, { duration: 6000, easing: Easing.linear }), // ✅ move easing here
       -1,
       true,
     );
@@ -35,7 +35,6 @@ export const GlassContainer = ({
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: translateX.value }],
-    easing: Easing.linear,
   }));
 
   return (
