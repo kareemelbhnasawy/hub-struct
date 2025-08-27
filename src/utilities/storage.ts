@@ -1,16 +1,41 @@
 import { MMKV } from 'react-native-mmkv';
+import { Platform } from 'react-native';
 
-export const storage = new MMKV();
+let storage: MMKV | null = null;
 
-export const getString = (key: string) => storage.getString(key);
-export const setString = (key: string, value: string) =>
-  storage.set(key, value);
-export const deleteKey = (key: string) => storage.delete(key);
+try {
+  if (Platform.OS !== 'web') {
+    storage = new MMKV();
+  }
+} catch (error) {
+  console.warn('MMKV storage initialization failed:', error);
+}
 
-export const setItem = <T>(key: string, value: T) =>
-  storage.set(key, JSON.stringify(value));
-export const getItem = <T>(key: string) => {
-  const tempItem = storage.getString(key);
-  if (tempItem) return JSON.parse(tempItem) as T;
-  return undefined;
+export const getStorageItem = (key: string) => {
+  try {
+    if (!storage) return null;
+    const value = storage.getString(key);
+    return value ? JSON.parse(value) : null;
+  } catch (error) {
+    console.warn(`Failed to get item ${key}:`, error);
+    return null;
+  }
+};
+
+export const setStorageItem = (key: string, value: unknown) => {
+  try {
+    if (!storage) return;
+    storage.set(key, JSON.stringify(value));
+  } catch (error) {
+    console.warn(`Failed to set item ${key}:`, error);
+  }
+};
+
+export const deleteKey = (key: string) => {
+  try {
+    if (!storage) return;
+    storage.delete(key);
+  } catch (error) {
+    console.warn(`Failed to delete item ${key}:`, error);
+  }
 };
