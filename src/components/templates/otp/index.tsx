@@ -13,7 +13,6 @@ import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
 import { getMMKVStorage } from '@/store/mmkv-storage';
-import { setStorageItem } from '@/utilities';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -61,11 +60,8 @@ export default function OtpConfirmationScreen({ route }: Props) {
     url,
     (data) => {
       //save data
-      setStorageItem('email', { state: body?.email, version: Date.now() });
-      setStorageItem('password', {
-        state: body?.password,
-        version: Date.now(),
-      });
+      mmkv.setItem('email', { state: body?.email, version: Date.now() });
+      mmkv.setItem('password', { state: body?.password, version: Date.now() });
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },

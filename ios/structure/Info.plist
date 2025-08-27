@@ -32,9 +32,19 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>RCTNewArchEnabled</key>
-	<true/>
+	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>hrsdgov_bold.ttf</string>
+		<string>hrsdgov_light.ttf</string>
+		<string>hrsdgov_medium.ttf</string>
+		<string>hrsdgov_regular.ttf</string>
+		<string>hrsdgov_semibold.ttf</string>
+		<string>hrsdgov_thin.ttf</string>
+		<string>hrsdgov_title.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -49,15 +59,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>hrsdgov_bold.ttf</string>
-		<string>hrsdgov_light.ttf</string>
-		<string>hrsdgov_medium.ttf</string>
-		<string>hrsdgov_regular.ttf</string>
-		<string>hrsdgov_semibold.ttf</string>
-		<string>hrsdgov_thin.ttf</string>
-		<string>hrsdgov_title.ttf</string>
-	</array>
 </dict>
 </plist>

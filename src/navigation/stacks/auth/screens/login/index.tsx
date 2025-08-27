@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
-import { getStorageItem, setStorageItem } from '@/utilities/storage';
+import { getItem, setItem } from '@/utilities';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -23,8 +23,8 @@ const LoginScreen = () => {
   const { deviceId, isLoading } = useDeviceId();
   const [loginCount, setLoginCount] = useState<number>(0);
   const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
-  const savedMail = getStorageItem('email')?.state || '';
-  const savedPassword = getStorageItem('password')?.state || '';
+  const savedMail = getItem('email')?.state || '';
+  const savedPassword = getItem('password')?.state || '';
 
   const handleNavigateToApp = (res: unknown) => {
     if (!deviceId || isLoading) return;
@@ -71,7 +71,7 @@ const LoginScreen = () => {
       },
       duration: 4000,
     });
-    setStorageItem('loginCount', { state: loginCountAsString });
+    setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
