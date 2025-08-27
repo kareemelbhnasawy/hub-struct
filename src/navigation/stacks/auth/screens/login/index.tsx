@@ -136,7 +136,6 @@ const LoginScreen = () => {
           },
         ]}
       />
-      {/* <Paragraph text={error || 'hello'} testId={''} /> */}
     </Page>
   );
 };
