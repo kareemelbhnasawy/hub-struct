@@ -93,8 +93,8 @@ export const themeColors = {
     dark: COLORS.white,
   },
   textPrimary: {
-    light: COLORS['primary-600'],
-    dark: COLORS['secondary-yellow-400'],
+    light: COLORS['neutral-900'],
+    dark: COLORS['neutral-900'],
   },
   textSecondary: {
     light: COLORS['secondary-green-600'],

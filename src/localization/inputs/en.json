@@ -22,7 +22,8 @@
       "datetime_offset": "Field must be a valid ISO date-time with UTC \"Z\" timezone",
       "trim": "Field must be a trimmed string",
       "lowercase": "Field must be a lowercase string",
-      "uppercase": "Field must be a upper case string"
+      "uppercase": "Field must be a upper case string",
+      "validHRSDMail": "Field must be a valid HRSD email"
     },
     "number": {
       "min": "Field must be greater than or equal to {{min}}",

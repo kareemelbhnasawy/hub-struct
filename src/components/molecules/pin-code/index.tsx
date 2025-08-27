@@ -12,7 +12,7 @@ const PinCode = ({
   onPinComplete,
   errorProps,
   disabled,
-  secureTextEntry = true,
+  secureTextEntry,
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
