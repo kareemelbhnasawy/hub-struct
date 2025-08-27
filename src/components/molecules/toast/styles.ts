@@ -1,10 +1,11 @@
 import { createThemedStyles } from '@/utilities';
-
+import { SHADOWS } from '@/style';
 const styles = createThemedStyles({
   container: {
     base: {
       flexDirection: 'row',
       alignItems: 'center',
+      marginHorizontal: 12,
       paddingHorizontal: 16,
       paddingVertical: 12,
       borderRadius: 12,
@@ -13,9 +14,9 @@ const styles = createThemedStyles({
       borderColor: 'borderNeutralSecondary',
       gap: 8,
       minHeight: 56,
+      ...SHADOWS.md,
     },
   },
-
   // Content area
   content: {
     base: {
@@ -30,7 +31,7 @@ const styles = createThemedStyles({
   messageText: {
     base: {
       flex: 1,
-      color: 'textDefault',
+      color: 'textPrimary',
     },
   },
 

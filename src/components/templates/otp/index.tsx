@@ -12,11 +12,13 @@ import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
+import { getMMKVStorage } from '@/store/mmkv-storage';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
 export default function OtpConfirmationScreen({ route }: Props) {
-  const { replaceToScreen, resetToStack } = useNavigation();
+  const { replaceToScreen, resetToStack, goBack } = useNavigation();
+  const mmkv = getMMKVStorage<string>();
   const { getThemedStyles } = useThemeStore();
   const {
     nextScreen,
@@ -57,6 +59,9 @@ export default function OtpConfirmationScreen({ route }: Props) {
   const { mutate: finishFlow } = useFinishFlow(
     url,
     (data) => {
+      //save data
+      mmkv.setItem('email', { state: body?.email, version: Date.now() });
+      mmkv.setItem('password', { state: body?.password, version: Date.now() });
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },
@@ -87,6 +92,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
           <LucideIcon
             name={isRTL ? 'ChevronRight' : 'ChevronLeft'}
             testId={''}
+            onPress={() => goBack()}
           />
         </GlassContainer>
         <Logo testId={screenTestId} size="md" />
