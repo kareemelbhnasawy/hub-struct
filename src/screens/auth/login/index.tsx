@@ -6,36 +6,28 @@ import { Alert } from 'react-native';
 import { styles } from './styles';
 import { useThemeStore } from '@/store/theme';
 import { useEffect } from 'react';
-import { getString } from '@/utilities';
+import { getStorageString } from '@/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
-import ReactNativeBiometrics from 'react-native-biometrics';
 import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
+import { createBioSignature } from '@/utilities/biometrics';
 
 const LoginScreen = () => {
   const screenTestId = 'login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
-  const onSuccessChallenge = () => {
-    const rnBiometrics = new ReactNativeBiometrics();
-    rnBiometrics
-      .createSignature({
-        promptMessage: 'Sign in',
-        payload: dataChallenge?.challenge,
-      })
-      .then((resultObject) => {
-        const { success, signature } = resultObject;
-
-        if (success) {
-          console.log(signature);
-        }
-      });
+  const onSuccessChallenge = (data) => {
+    createBioSignature(data?.challenge).then((resultObject) => {
+      const { success, signature } = resultObject;
+      if (success && signature) {
+        // console.log(signature);
+      }
+    });
   };
-  const { mutate: mutateChallenge, data: dataChallenge } =
-    useGenerateChallenge(onSuccessChallenge);
+  const { mutate: mutateChallenge } = useGenerateChallenge(onSuccessChallenge);
 
   useEffect(() => {
-    const bioType = getString(STORAGE_KEYS.BIO_TYPE);
+    const bioType = getStorageString(STORAGE_KEYS.BIO_TYPE);
     if (bioType) {
       mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
     }

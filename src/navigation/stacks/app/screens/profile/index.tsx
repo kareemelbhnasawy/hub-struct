@@ -22,6 +22,13 @@ const ProfileScreen = () => {
         <Text style={styles.infoText.base}>Email: user@example.com</Text>
         <Text style={styles.infoText.base}>Current Language: {locale}</Text>
       </View>
+      <View style={styles.buttonContainer.base}>
+        <Pressable
+          style={styles.button.base}
+          onPress={() => nav.navigateTo('Biometrics')}>
+          <Text style={styles.buttonText.base}>Go to Quick Login</Text>
+        </Pressable>
+      </View>
 
       <View style={styles.buttonContainer.base}>
         <Pressable style={styles.button.base} onPress={handleGoBackToHome}>

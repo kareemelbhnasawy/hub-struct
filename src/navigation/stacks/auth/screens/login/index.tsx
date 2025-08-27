@@ -8,10 +8,14 @@ import { useNavigation } from '@/hooks';
 import useLoginStart from '@/network/services/auth/login-start/login-start.hook';
 import { FormikValues } from 'formik';
 import { useEffect, useState } from 'react';
-import { ToastService } from '@/components/molecules';
+import { BaseButton, ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
 import { getStorageItem, setStorageItem } from '@/utilities/storage';
+import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
+import useLoginBio from '@/network/services/auth/login-bio/login-bio.hook';
+import { createBioSignature } from '@/utilities/biometrics';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -25,6 +29,33 @@ const LoginScreen = () => {
   const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
   const savedMail = getStorageItem('email')?.state || '';
   const savedPassword = getStorageItem('password')?.state || '';
+  const bioType = getStorageItem(STORAGE_KEYS.BIO_TYPE);
+
+  const onSuccessBioLogin = (data) => {
+    clientSetToken(data?.accessToken, false);
+    navigation.resetToStack('App', 'Home');
+  };
+
+  const { mutate: mutateLoginBio, isPending: isPendingLoginBio } =
+    useLoginBio(onSuccessBioLogin);
+
+  const onSuccessChallenge = (data) => {
+    createBioSignature(data?.challenge).then((resultObject) => {
+      const { success, signature } = resultObject;
+
+      if (success) {
+        mutateLoginBio({ email: 'daniel@hrsd.gov.sa', signature });
+      }
+    });
+  };
+  const { mutate: mutateChallenge, isPending: isPendingChallenge } =
+    useGenerateChallenge(onSuccessChallenge);
+
+  useEffect(() => {
+    // if (bioType) {
+    // mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
+    // }
+  }, []);
 
   const handleNavigateToApp = (res: unknown) => {
     if (!deviceId || isLoading) return;
@@ -96,7 +127,10 @@ const LoginScreen = () => {
   }, [loginCount]);
 
   return (
-    <Page testId={screenTestId} hasHeader={false}>
+    <Page
+      testId={screenTestId}
+      hasHeader={false}
+      isLoading={isPendingLoginBio || isPendingChallenge}>
       <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
       <Spacer space={20} />
@@ -135,6 +169,28 @@ const LoginScreen = () => {
             validation: { required: true },
           },
         ]}
+      />
+      {bioType && (
+        <>
+          <Spacer isOrDivider />
+          <BaseButton
+            testId={screenTestId}
+            onPress={() => mutateChallenge({ email: 'daniel@hrsd.gov.sa' })}
+            variant="secondary"
+            size="lg"
+            textProps={{ text: 'سجّل الدخول باستخدام بصمة الوجه' }}
+            leftIcon={{ name: 'ScanFace' }}
+          />
+        </>
+      )}
+      <Spacer isOrDivider />
+      <BaseButton
+        testId={screenTestId}
+        onPress={() => navigation.navigateTo('PinLogin')}
+        variant="secondary"
+        size="lg"
+        textProps={{ text: 'سجل الدخول باستخدام ال PIN' }}
+        leftIcon={{ name: 'Lock' }}
       />
     </Page>
   );

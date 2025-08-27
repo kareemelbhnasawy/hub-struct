@@ -11,6 +11,26 @@ try {
   console.warn('MMKV storage initialization failed:', error);
 }
 
+export const getStorageString = (key: string) => {
+  try {
+    if (!storage) return null;
+    const value = storage.getString(key);
+    return value;
+  } catch (error) {
+    console.warn(`Failed to get item ${key}:`, error);
+    return null;
+  }
+};
+
+export const setStorageString = (key: string, value: string) => {
+  try {
+    if (!storage) return;
+    storage.set(key, value);
+  } catch (error) {
+    console.warn(`Failed to set item ${key}:`, error);
+  }
+};
+
 export const getStorageItem = (key: string) => {
   try {
     if (!storage) return null;

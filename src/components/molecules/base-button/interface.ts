@@ -17,8 +17,8 @@ export type ButtonState =
 interface BaseButtonProps extends PressableProps {
   testId: string;
   size?: ButtonSizes;
-  leftIcon?: LucideIconProps;
-  rightIcon?: LucideIconProps;
+  leftIcon?: Omit<LucideIconProps, 'testId'>;
+  rightIcon?: Omit<LucideIconProps, 'testId'>;
   textProps: Omit<BaseTextProps, 'testId'>;
   danger?: boolean;
   disabled?: boolean;

@@ -1,17 +1,17 @@
 import { useCustomMutation } from '@/network/hooks';
 import AUTH_QUERY_KEYS from '../auth.query-keys';
-import generateChallenge from './generate-challenge.service';
+import loginPin from './login-pin.service';
 
-const useGenerateChallenge = (
+const useLoginPin = (
   onSuccess: (data: unknown) => void,
   onError?: (error: unknown) => void,
 ) => {
   return useCustomMutation({
-    mutationKey: [AUTH_QUERY_KEYS.SET_BIO],
-    mutationFn: generateChallenge,
+    mutationKey: [AUTH_QUERY_KEYS.PIN_LOGIN],
+    mutationFn: loginPin,
     onSuccess: onSuccess,
     onError: onError ?? (() => {}),
   });
 };
 
-export default useGenerateChallenge;
+export default useLoginPin;

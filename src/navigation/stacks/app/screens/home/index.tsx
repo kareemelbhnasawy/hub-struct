@@ -7,16 +7,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   const handleNavigateToProfile = () => {
-    // navigation.navigate('Profile', { userId: '123' });
-    navigation.navigateToOTP({
-      nextScreen: 'Profile',
-      mobile: '01220293563',
-      nextScreenParams: { userId: '123' },
-      body: {},
-      url: 'auth/v1/home',
-      expiresIn: 120,
-      resetAppNav: false,
-    });
+    navigation.navigate('Profile', { userId: '123' });
   };
 
   return (

@@ -3,10 +3,10 @@ const AUTH_URLS = {
   LOGIN_FINISH: '/auth/v1/login/finish',
   CHALLENGE: 'auth/v1/challenge',
   BIO_LOGIN: 'auth/v1/biometric/login',
-  PIN_LOGIN: 'auth//v1/pin-code/login',
+  PIN_LOGIN: 'auth/v1/pin-code/login',
   // TODO: should it be in users urls or profile urls
-  SET_BIO: 'users/v1/users/public-key',
-  SET_PIN: 'users/v1/users/pin-code',
+  SET_BIO: 'auth/v1/users/public-key',
+  SET_PIN: 'auth/v1/users/pin-code',
 } as const;
 
 export default AUTH_URLS;

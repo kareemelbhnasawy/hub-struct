@@ -58,7 +58,11 @@ const BaseButton = (props: BaseButtonProps) => {
       ]}
       {...restProps}>
       {leftIcon ? (
-        <LucideIcon {...leftIcon} style={variantThemedStyles[`${state}Icon`]} />
+        <LucideIcon
+          testId={`${testId}-button-left-icon`}
+          {...leftIcon}
+          style={variantThemedStyles[`${state}Icon`]}
+        />
       ) : null}
       {loading ? (
         <View>
@@ -80,6 +84,7 @@ const BaseButton = (props: BaseButtonProps) => {
       />
       {rightIcon ? (
         <LucideIcon
+          testId={`${testId}-button-right-icon`}
           {...rightIcon}
           style={variantThemedStyles[`${state}Icon`]}
         />

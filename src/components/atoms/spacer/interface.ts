@@ -22,6 +22,7 @@ interface SpacerProps {
   testId?: string;
   space?: SpacingValue;
   isDivider?: boolean;
+  isOrDivider?: boolean;
   spaceTop?: SpacingValue;
   spaceBottom?: SpacingValue;
 }

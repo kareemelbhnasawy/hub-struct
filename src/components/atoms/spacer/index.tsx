@@ -3,11 +3,13 @@ import SpacerProps, { SpacingValue } from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 import { scale, verticalScale } from '@/store/theme/utils';
+import Paragraph from '../typography/paragraph';
 
 const Spacer = ({
   testId,
   space = 'md',
   isDivider = false,
+  isOrDivider = false,
   spaceTop,
   spaceBottom,
 }: SpacerProps) => {
@@ -29,6 +31,30 @@ const Spacer = ({
       />
     );
   };
+
+  if (isDivider) {
+    return (
+      <>
+        {generateSpacerView(spaceTop)}
+        <View style={themedStyle.divider} />
+        {generateSpacerView(spaceBottom)}
+      </>
+    );
+  } else if (isOrDivider) {
+    return (
+      <>
+        {generateSpacerView(spaceTop)}
+        <View style={themedStyle.orDividerContainer}>
+          <View style={themedStyle.orDivider} />
+          <Paragraph testId="spacer-or-divider" text="Or" />
+          <View style={themedStyle.orDivider} />
+        </View>
+        {generateSpacerView(spaceBottom)}
+      </>
+    );
+  } else {
+    generateSpacerView(space);
+  }
 
   return isDivider ? (
     <>

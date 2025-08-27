@@ -3,9 +3,22 @@ import { createThemedStyles } from '@/utilities';
 const styles = createThemedStyles({
   divider: {
     base: {
-      backgroundColor: 'iconNeutral',
+      backgroundColor: 'borderNeutralPrimary',
       height: 1,
-      width: '100%',
+    },
+  },
+  orDividerContainer: {
+    base: {
+      flexDirection: 'row',
+      gap: 12,
+      alignItems: 'center',
+    },
+  },
+  orDivider: {
+    base: {
+      backgroundColor: 'borderNeutralPrimary',
+      flex: 1,
+      height: 1,
     },
   },
   xxs: {

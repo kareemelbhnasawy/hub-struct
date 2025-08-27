@@ -55,8 +55,8 @@ const App = () => {
               onReady={handleNavigationReady}>
               <ToastProvider>
                 {/* Uncomment the line below to use the AppRoot for dev components */}
-                {/* <RootStack /> */}
-                <BiometricsScreen />
+                <RootStack />
+                {/* <BiometricsScreen /> */}
               </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>
