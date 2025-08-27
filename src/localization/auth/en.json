@@ -1,7 +1,7 @@
 {
   "welcome": "Login",
   "description": "Welcome to the Hub app. Login to proceed with your daily tasks",
-  "email": "Email",
+  "email": "Email Address",
   "email-prompt": "Enter your E-mail",
   "password": "Password",
   "password-prompt": "Enter your password",
