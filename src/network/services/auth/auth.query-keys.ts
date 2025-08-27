@@ -1,6 +1,14 @@
 const AUTH_QUERY_KEYS = {
   LOGIN_START: 'LOGIN_START',
   LOGIN_FINISH: 'LOGIN_FINISH',
+  CHALLENGE: 'CHALLENGE',
+  BIO_LOGIN: 'BIO_LOGIN',
+  PIN_LOGIN: 'PIN_LOGIN',
+  // TODO: should it be in users urls or profile urls
+  SET_BIO: 'SET_BIO',
+  SET_PIN: 'SET_PIN',
+  REMOVE_BIO: 'REMOVE_BIO',
+  REMOVE_PIN: 'REMOVE_PIN',
 } as const;
 
 export default AUTH_QUERY_KEYS;

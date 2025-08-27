@@ -9,31 +9,35 @@ import { useEffect } from 'react';
 import { getString } from '@/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 import ReactNativeBiometrics from 'react-native-biometrics';
+import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
 
 const LoginScreen = () => {
   const screenTestId = 'login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  // TODO: change to API response
-  const challenge = 'challenge';
+
+  const onSuccessChallenge = () => {
+    const rnBiometrics = new ReactNativeBiometrics();
+    rnBiometrics
+      .createSignature({
+        promptMessage: 'Sign in',
+        payload: dataChallenge?.challenge,
+      })
+      .then((resultObject) => {
+        const { success, signature } = resultObject;
+
+        if (success) {
+          console.log(signature);
+        }
+      });
+  };
+  const { mutate: mutateChallenge, data: dataChallenge } =
+    useGenerateChallenge(onSuccessChallenge);
 
   useEffect(() => {
     const bioType = getString(STORAGE_KEYS.BIO_TYPE);
     if (bioType) {
-      const rnBiometrics = new ReactNativeBiometrics();
-
-      rnBiometrics
-        .createSignature({
-          promptMessage: 'Sign in',
-          payload: challenge,
-        })
-        .then((resultObject) => {
-          const { success, signature } = resultObject;
-
-          if (success) {
-            console.log(signature);
-          }
-        });
+      mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
     }
   }, []);
 

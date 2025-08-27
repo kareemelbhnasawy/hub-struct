@@ -57,7 +57,7 @@ const App = () => {
               <ToastProvider>
                 {/* Uncomment the line below to use the AppRoot for dev components */}
                 {/* <RootStack /> */}
-                <AppRoot />
+                <BiometricsScreen />
               </ToastProvider>
             </NavigationContainer>
           </SafeAreaProvider>

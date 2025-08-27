@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { BaseButton } from '@/components/molecules';
 import { deleteKey, getString, setString } from '@/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
+import useSetBio from '@/network/services/auth/set-bio/set-bio.hook';
+import useRemoveBio from '@/network/services/auth/remove-bio/remove-bio.hook';
 
 const BiometricsScreen = () => {
   const screenTestId = 'biometrics-screen';
@@ -12,20 +14,38 @@ const BiometricsScreen = () => {
   const [bioEnabled, setBioEnabled] = useState(
     getString(STORAGE_KEYS.BIO_TYPE) ? true : false,
   );
-  const [bioType, setBioType] = useState<string | null>(null);
+  const [biometricType, setBiometricType] = useState<string | null>(null);
+
+  const onSetBioSuccess = () => {
+    setString(STORAGE_KEYS.BIO_TYPE, biometricType || '');
+    // TODO: change to user name
+    setString(STORAGE_KEYS.USER_NAME, 'Daniel');
+    setBioEnabled(true);
+  };
+
+  const deleteBioKey = () => {
+    rnBiometrics.deleteKeys();
+    deleteKey(STORAGE_KEYS.BIO_TYPE);
+    setBioEnabled(false);
+  };
+
+  const { mutate: mutateSetBio, isPending: isSetPending } =
+    useSetBio(onSetBioSuccess);
+  const { mutate: mutateRemoveBio, isPending: isRemovePending } =
+    useRemoveBio(deleteBioKey);
 
   useEffect(() => {
-    getBioType();
+    getBiometricType();
   }, []);
 
-  const getBioType = () => {
+  const getBiometricType = () => {
     rnBiometrics.isSensorAvailable().then((resultObject) => {
       const { available, biometryType } = resultObject;
       if (available) {
         if (biometryType === BiometryTypes.FaceID) {
-          setBioType('FACE_ID');
+          setBiometricType('FACE_ID');
         } else {
-          setBioType('TOUCH_ID');
+          setBiometricType('TOUCH_ID');
         }
       }
     });
@@ -37,51 +57,33 @@ const BiometricsScreen = () => {
       .then((resultObject) => {
         const { success } = resultObject;
         if (success) {
-          console.log('successful biometrics provided');
           rnBiometrics.createKeys().then((resultObject) => {
             const { publicKey } = resultObject;
-            console.log(publicKey);
-            // TODO: move to onSuccess save public key
-            setString(STORAGE_KEYS.BIO_TYPE, bioType || '');
-            // TODO: change to user name
-            setString(STORAGE_KEYS.USER_NAME, 'Daniel');
-            setBioEnabled(true);
+            mutateSetBio({
+              // TODO: change to user email
+              email: 'daniel@hrsd.gov.sa',
+              publicKey,
+              biometricType,
+            });
           });
-        } else {
-          console.log('user cancelled biometric prompt');
         }
-      })
-      .catch(() => {
-        console.log('biometrics failed');
       });
-  };
-
-  // TODO: move to onSuccess delete public key
-  const deleteBioKey = () => {
-    rnBiometrics.deleteKeys().then((resultObject) => {
-      const { keysDeleted } = resultObject;
-
-      if (keysDeleted) {
-        deleteKey(STORAGE_KEYS.BIO_TYPE);
-        setBioEnabled(false);
-      } else {
-        console.log(
-          'Unsuccessful deletion because there were no keys to delete',
-        );
-      }
-    });
   };
 
   const onPressBio = () => {
     if (bioEnabled) {
-      deleteBioKey();
+      // TODO: change to user email
+      mutateRemoveBio({ email: 'daniel@hrsd.gov.sa' });
     } else {
       getBioKey();
     }
   };
 
   return (
-    <Page testId={screenTestId} hasHeader={false}>
+    <Page
+      testId={screenTestId}
+      hasHeader={false}
+      isLoading={isSetPending || isRemovePending}>
       <Spacer space={50} />
       <Headline
         testId={`${screenTestId}-title`}
@@ -96,7 +98,7 @@ const BiometricsScreen = () => {
         weight="Medium"
       />
       <Spacer space={40} />
-      {bioType === 'FACE_ID' && (
+      {biometricType === 'FACE_ID' && (
         <>
           <BaseButton
             testId={screenTestId}
@@ -106,7 +108,7 @@ const BiometricsScreen = () => {
           <Spacer />
         </>
       )}
-      {bioType === 'TOUCH_ID' && (
+      {biometricType === 'TOUCH_ID' && (
         <>
           <BaseButton
             testId={screenTestId}
