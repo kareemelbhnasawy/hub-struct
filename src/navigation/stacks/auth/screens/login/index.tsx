@@ -119,6 +119,9 @@ const LoginScreen = () => {
         initialValues={{ mail: savedMail, password: savedPassword }}
         testId={screenTestId}
         onSubmit={onSubmit}
+        submitButtonProps={{
+          textProps: { text: 'auth.login' },
+        }}
         fields={[
           {
             name: 'mail',
