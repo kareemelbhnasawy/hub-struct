@@ -1,12 +1,11 @@
 import axios from 'axios';
 import Config from 'react-native-config';
-import { API_HEADER_ACCEPT_LANGUAGE, API_HEADER_DEVICE } from '../constants';
-import {
-  onRequestFulfilled,
-  onRequestReject,
-  onResponseFulfilled,
-  onResponseReject,
-} from '../interceptors';
+import API_HEADER_ACCEPT_LANGUAGE from '../constants/api-header-accept-lang.constant';
+import API_HEADER_DEVICE from '../constants/api-header-device.constant';
+import onRequestFulfilled from '../interceptors/request-fullfil.interceptor';
+import onRequestReject from '../interceptors/request-reject.interceptor';
+import onResponseFulfilled from '../interceptors/response-fullfil.interceptor';
+import onResponseReject from '../interceptors/response-reject.interceptor';
 import DEFAULT_LANGUAGE from '@/constants/default_language';
 
 const APIHeaderLanguage: { key: string } = DEFAULT_LANGUAGE;
