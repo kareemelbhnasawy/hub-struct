@@ -12,13 +12,14 @@ import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
-import { setItem } from '@/utilities/storage';
+import { useAuthStore } from '@/store/auth';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
 export default function OtpConfirmationScreen({ route }: Props) {
   const { replaceToScreen, resetToStack, goBack } = useNavigation();
   const { getThemedStyles } = useThemeStore();
+  const { setLoginCredentials } = useAuthStore();
   const {
     nextScreen,
     nextScreenParams,
@@ -59,8 +60,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     url,
     (data) => {
       //save data
-      setItem('email', { state: body?.email, version: Date.now() });
-      setItem('password', { state: body?.password, version: Date.now() });
+      setLoginCredentials({ email: body?.email, password: body?.password });
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },
