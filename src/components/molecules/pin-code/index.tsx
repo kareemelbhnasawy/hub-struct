@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FlatList, TextInput, TextInputKeyPressEvent } from 'react-native';
 import { PinCodeProps } from './interface';
 import { useThemeStore } from '@/store/theme';
@@ -20,6 +20,13 @@ const PinCode = ({
   const [pin, setPin] = useState('');
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const pinRefs = useRef<TextInput[]>([]);
+
+  useEffect(() => {
+    if (errorProps) {
+      setPin('');
+      focusInput(0);
+    }
+  }, [errorProps]);
 
   const focusInput = (index: number) => {
     if (index < pinLength && index >= 0) {
