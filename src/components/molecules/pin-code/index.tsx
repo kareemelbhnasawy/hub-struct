@@ -49,8 +49,8 @@ const PinCode = ({
 
   const onKeyPressFn = (e: TextInputKeyPressEvent, index: number) => {
     if (e.nativeEvent.key === 'Backspace') {
-      setPin('');
-      focusInput(0);
+      setPin((prev) => prev.slice(0, -1));
+      focusInput(index - 1);
     } else if (pin.charAt(index)) {
       setPinFn(e.nativeEvent.key, index + 1);
       focusInput(index + 2);
