@@ -31,6 +31,7 @@ const PinCode = ({
   const focusInput = (index: number) => {
     if (index < pinLength && index >= 0) {
       pinRefs.current[index].focus();
+      setFocusedIndex(index);
     }
   };
 
@@ -57,7 +58,7 @@ const PinCode = ({
   const onKeyPressFn = (e: TextInputKeyPressEvent, index: number) => {
     if (e.nativeEvent.key === 'Backspace') {
       setPin((prev) => prev.slice(0, -1));
-      focusInput(index - 1);
+      focusInput(Math.max(index - 1, 0));
     } else if (pin.charAt(index)) {
       setPinFn(e.nativeEvent.key, index + 1);
       focusInput(index + 2);
@@ -87,7 +88,13 @@ const PinCode = ({
             testID={`${testId}-code-pin-${index}`}
             onKeyPress={(e) => onKeyPressFn(e, index)}
             keyboardType="numeric"
-            onFocus={() => setFocusedIndex(index)}
+            onFocus={() => {
+              if (focusedIndex === null) {
+                setFocusedIndex(index);
+              } else if (index !== focusedIndex) {
+                focusInput(focusedIndex);
+              }
+            }}
             editable={disabled}
             maxLength={1}
             secureTextEntry={secureTextEntry}
