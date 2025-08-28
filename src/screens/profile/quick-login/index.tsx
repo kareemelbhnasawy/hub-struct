@@ -15,8 +15,8 @@ import {
 } from '@/utilities/biometrics';
 import { useNavigation } from '@/hooks';
 
-const BiometricsScreen = () => {
-  const screenTestId = 'biometrics-screen';
+const QuickLoginScreen = () => {
+  const screenTestId = 'quick-login-screen';
   const navigation = useNavigation();
   const [bioEnabled, setBioEnabled] = useState(
     getString(STORAGE_KEYS.BIO_TYPE) ? true : false,
@@ -135,4 +135,4 @@ const BiometricsScreen = () => {
   );
 };
 
-export default BiometricsScreen;
+export default QuickLoginScreen;

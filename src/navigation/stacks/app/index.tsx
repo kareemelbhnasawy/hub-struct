@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppStackParamList } from './types';
 import {
-  BiometricsScreen,
+  QuickLoginScreen,
   ConfirmPinScreen,
   HomeScreen,
   ProfileScreen,
@@ -21,7 +21,7 @@ const AppStack = () => {
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Biometrics" component={BiometricsScreen} />
+      <Stack.Screen name="QuickLogin" component={QuickLoginScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
     </Stack.Navigator>

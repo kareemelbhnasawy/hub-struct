@@ -25,7 +25,7 @@ const ProfileScreen = () => {
       <View style={styles.buttonContainer.base}>
         <Pressable
           style={styles.button.base}
-          onPress={() => nav.navigateTo('Biometrics')}>
+          onPress={() => nav.navigateTo('QuickLogin')}>
           <Text style={styles.buttonText.base}>Go to Quick Login</Text>
         </Pressable>
       </View>
