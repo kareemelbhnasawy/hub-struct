@@ -1,0 +1,31 @@
+interface AuthState {
+    email: string;
+    password: string;
+    username: string;
+    accessToken: string;
+    refreshToken: string;
+    quickLoginType: string;
+    biometricType: string;
+    setEmail: (email: string) => void;
+    getEmail: () => string;
+    setPassword: (password: string) => void;
+    getPassword: () => string;
+    setLoginCredentials: (credentials: { email: string; password: string }) => void;
+    setUsername: (username: string) => void;
+    getUsername: () => string;
+    setAccessToken: (token: string) => void;
+    getAccessToken: () => string;
+    setRefreshToken: (token: string) => void;
+    getRefreshToken: () => string;
+    setQuickLoginType: (type: string) => void;
+    getQuickLoginType: () => string;
+    setBiometricType: (enabled: string) => void;
+    getBiometricType: () => string;
+    resetLoginCredentials: () => void;
+    getLoginCredentials: () => { email: string; password: string; username: string };
+    setTokens: (tokens: { accessToken: string; refreshToken: string }) => void;
+    resetTokens: () => void;
+    getTokens: () => { accessToken: string; refreshToken: string };
+    resetStore: () => void;
+}
+export default AuthState;
