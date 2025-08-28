@@ -46,7 +46,7 @@ const Spacer = ({
         {generateSpacerView(spaceTop)}
         <View style={themedStyle.orDividerContainer}>
           <View style={themedStyle.orDivider} />
-          <Paragraph testId="spacer-or-divider" text="Or" />
+          <Paragraph testId="spacer-or-divider" text="common.or" />
           <View style={themedStyle.orDivider} />
         </View>
         {generateSpacerView(spaceBottom)}
