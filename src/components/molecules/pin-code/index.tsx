@@ -57,15 +57,20 @@ const PinCode = ({
   };
 
   const onKeyPressFn = (e: TextInputKeyPressEvent, index: number) => {
-    if (e.nativeEvent.key === 'Backspace') {
-      setPin((prev) => prev.slice(0, -1));
-      focusInput(Math.max(index - 1, 0));
+    const key = e.nativeEvent.key;
+    if (key === 'Backspace') {
+      setPin((prev) => {
+        const current = prev.slice(0, -1);
+        const nextFocus = Math.min(current.length, pinLength - 1);
+        focusInput(nextFocus);
+        return current;
+      });
     } else if (pin.charAt(index)) {
-      setPinFn(e.nativeEvent.key, index + 1);
+      setPinFn(key, index + 1);
       focusInput(index + 2);
-    } else if (/^\d+$/.test(e.nativeEvent.key)) {
+    } else if (/^\d+$/.test(key)) {
       onTyping?.();
-      setPinFn(e.nativeEvent.key, index);
+      setPinFn(key, index);
       focusInput(index + 1);
     }
   };
