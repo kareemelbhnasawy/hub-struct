@@ -1,5 +1,5 @@
-import { API_METHOD_SERVICE_MAPPING } from '../constants';
-import { APIMethodArgsWithExtras } from '../types';
+import API_METHOD_SERVICE_MAPPING from '../constants/api-method-service-mapping.constant';
+import APIMethodArgsWithExtras from '../types/api-method-args-with-extras.type';
 import { AxiosResponse } from 'axios';
 
 const createAPIRequest = async ({

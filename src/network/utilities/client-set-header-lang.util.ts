@@ -1,4 +1,4 @@
-import { API_HEADER_ACCEPT_LANGUAGE } from '../constants';
+import API_HEADER_ACCEPT_LANGUAGE from '../constants/api-header-accept-lang.constant';
 import client from './client.util';
 
 const clientSetHeadersLang = (langKey: string) => {

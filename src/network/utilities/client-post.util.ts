@@ -1,4 +1,4 @@
-import { APIMethodArgsWithExtras } from '../types';
+import APIMethodArgsWithExtras from '../types/api-method-args-with-extras.type';
 import { AxiosResponse } from 'axios';
 import client from './client.util';
 

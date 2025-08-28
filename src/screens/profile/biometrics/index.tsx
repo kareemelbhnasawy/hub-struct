@@ -3,7 +3,7 @@ import { Page } from '@/components/templates';
 import { BiometryTypes } from 'react-native-biometrics';
 import { useEffect, useState } from 'react';
 import { BaseButton } from '@/components/molecules';
-import { deleteKey, getStorageString, setStorageString } from '@/utilities';
+import { deleteKey, getString, setString } from '@/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useSetBio from '@/network/services/auth/set-bio/set-bio.hook';
 import useRemoveBio from '@/network/services/auth/remove-bio/remove-bio.hook';
@@ -19,14 +19,14 @@ const BiometricsScreen = () => {
   const screenTestId = 'biometrics-screen';
   const navigation = useNavigation();
   const [bioEnabled, setBioEnabled] = useState(
-    getStorageString(STORAGE_KEYS.BIO_TYPE) ? true : false,
+    getString(STORAGE_KEYS.BIO_TYPE) ? true : false,
   );
   const [biometricType, setBiometricType] = useState<string | null>(null);
 
   const onSetBioSuccess = () => {
-    setStorageString(STORAGE_KEYS.BIO_TYPE, biometricType || '');
+    setString(STORAGE_KEYS.BIO_TYPE, biometricType || '');
     // TODO: change to user name
-    setStorageString(STORAGE_KEYS.USER_NAME, 'Daniel');
+    setString(STORAGE_KEYS.USER_NAME, 'Daniel');
     setBioEnabled(true);
   };
 

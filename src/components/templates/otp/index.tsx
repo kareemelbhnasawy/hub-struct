@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@/navigation';
 import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
@@ -12,14 +12,12 @@ import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
-import { getMMKVStorage } from '@/store/mmkv-storage';
-import { setStorageItem } from '@/utilities';
+import { setItem } from '@/utilities/storage';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
 export default function OtpConfirmationScreen({ route }: Props) {
   const { replaceToScreen, resetToStack, goBack } = useNavigation();
-  const mmkv = getMMKVStorage<string>();
   const { getThemedStyles } = useThemeStore();
   const {
     nextScreen,
@@ -61,11 +59,8 @@ export default function OtpConfirmationScreen({ route }: Props) {
     url,
     (data) => {
       //save data
-      setStorageItem('email', { state: body?.email, version: Date.now() });
-      setStorageItem('password', {
-        state: body?.password,
-        version: Date.now(),
-      });
+      setItem('email', { state: body?.email, version: Date.now() });
+      setItem('password', { state: body?.password, version: Date.now() });
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },
