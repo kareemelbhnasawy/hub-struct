@@ -147,6 +147,12 @@ const QuickLoginScreen = () => {
         onPress={onPressPin}
       />
       <Spacer />
+
+      <BaseButton
+        testId={screenTestId}
+        textProps={{ text: 'Go Back' }}
+        onPress={() => navigation.goBack()}
+      />
     </Page>
   );
 };

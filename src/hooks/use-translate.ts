@@ -2,13 +2,21 @@ import { useTranslation } from 'react-i18next';
 import i18n, { resources } from '@/localization';
 import { STORAGE_KEYS } from '../constants/storageKeys';
 import { I18nManager } from 'react-native';
-import { setString } from '../utilities/storage';
+import { getString, setString } from '../utilities/storage';
 import RNRestart from 'react-native-restart';
 
 const useTranslate = () => {
   const { t } = useTranslation();
 
   const changeLanguage = (lang: string) => {
+    setString(STORAGE_KEYS.LANGUAGE, lang);
+    I18nManager.forceRTL(lang === 'ar');
+    i18n.changeLanguage(lang);
+    RNRestart.Restart();
+  };
+  const toggleLanguage = () => {
+    const locale = getString(STORAGE_KEYS.LANGUAGE);
+    const lang = locale === 'ar' ? 'en' : 'ar';
     setString(STORAGE_KEYS.LANGUAGE, lang);
     I18nManager.forceRTL(lang === 'ar');
     i18n.changeLanguage(lang);
@@ -45,6 +53,7 @@ const useTranslate = () => {
     isRTL: I18nManager.isRTL,
     changeLanguage,
     locale: i18n.language,
+    toggleLanguage,
   };
 };
 

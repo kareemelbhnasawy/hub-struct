@@ -1,5 +1,5 @@
 export type AuthStackParamList = {
-  Login: undefined;
+  Login: { enableQuickLogin: boolean } | undefined;
   Splash: undefined;
   PinLogin: undefined;
 };

@@ -30,7 +30,7 @@ const SplashScreen = () => {
         setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
         navigation.resetToStack('App', 'Home');
       } else {
-        navigation.resetToStack('Auth', 'Login');
+        navigation.resetToStack('Auth', 'Login', { enableQuickLogin: true });
       }
   };
 

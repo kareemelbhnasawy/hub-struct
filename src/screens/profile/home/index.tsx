@@ -1,12 +1,13 @@
 /* eslint-disable */
 import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
-import { useNavigation } from '@/hooks';
+import { useNavigation, useTranslate } from '@/hooks';
 import { BaseButton } from '@/components/molecules';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useLogout from '@/network/services/auth/logout/logout.hook';
 import { useAuthStore } from '@/store/auth';
 import { deleteKey } from '@/utilities';
+import { useThemeStore } from '@/store/theme';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -18,12 +19,21 @@ const HomeScreen = () => {
     deleteKey(STORAGE_KEYS.REFRESH_TOKEN);
     navigation.resetToStack('Auth', 'Login');
   };
+  const { toggleLanguage } = useTranslate();
+  // const { toggleTheme } = useThemeStore();
 
   const { mutate: logout } = useLogout(onLogoutSuccess);
 
   return (
     <View style={styles.container.base}>
       <Text>This is Home</Text>
+
+      {/* <Pressable onPress={toggleTheme}>
+        <Text style={styles.profileButtonText.base}>Toggle Theme</Text>
+      </Pressable> */}
+      <Pressable onPress={toggleLanguage}>
+        <Text style={styles.profileButtonText.base}>Toggle Lang</Text>
+      </Pressable>
 
       <Pressable
         onPress={handleNavigateToProfile}

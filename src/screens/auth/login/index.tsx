@@ -19,7 +19,7 @@ import { setString } from '@/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<'Login'>();
   const screenTestId = 'login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -57,7 +57,7 @@ const LoginScreen = () => {
     useGenerateChallenge(onSuccessChallenge);
 
   useEffect(() => {
-    if (quickLoginType) {
+    if (quickLoginType && navigation?.params?.enableQuickLogin) {
       onPressQuickLogin();
     }
   }, []);
