@@ -53,9 +53,9 @@ const LoginScreen = () => {
     useGenerateChallenge(onSuccessChallenge);
 
   useEffect(() => {
-    // if (bioType) {
-    // mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
-    // }
+    if (quickLoginType) {
+      onPressQuickLogin();
+    }
   }, []);
 
   const handleNavigateToApp = (res: unknown) => {
@@ -89,8 +89,8 @@ const LoginScreen = () => {
       ? '3'
       : newLoginCount.toString();
     const errorMessage = isAccountSuspended
-      ? 'auth.accountSuspended'
-      : 'auth.invalidData';
+      ? 'auth.account-suspended'
+      : 'auth.invalid-data';
 
     setLoginCount(newLoginCount);
     ToastService.error({
@@ -103,7 +103,7 @@ const LoginScreen = () => {
       },
       duration: 4000,
     });
-    setItem('loginCount', { state: loginCountAsString });
+    // setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
@@ -168,6 +168,7 @@ const LoginScreen = () => {
         initialValues={{ mail: savedMail, password: savedPassword }}
         testId={screenTestId}
         onSubmit={onSubmit}
+        submitButtonProps={{ textProps: { text: 'auth.signIn' } }}
         fields={[
           {
             name: 'mail',
@@ -194,7 +195,7 @@ const LoginScreen = () => {
             variant="secondary"
             size="lg"
             // auth.FACE_ID, TOUCH_ID, CODE_PIN
-            textProps={{ text: quickLoginType }}
+            textProps={{ text: `auth.${quickLoginType}` }}
             leftIcon={{ name: quickLoginIcon }}
           />
         </>

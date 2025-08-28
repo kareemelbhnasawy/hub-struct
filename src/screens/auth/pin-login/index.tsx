@@ -8,13 +8,14 @@ import { BaseButton, PinCode } from '@/components/molecules';
 import { clientSetToken } from '@/network/utilities';
 import useLoginPin from '@/network/services/auth/login-pin/login-pin.hook';
 import { View } from 'react-native';
+import { useAuthStore } from '@/store/auth';
 
 const PinLoginScreen = () => {
   const navigation = useNavigation();
   const screenTestId = 'pin-login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-
+  const { username, email } = useAuthStore();
   const onSuccessPinLogin = (data) => {
     clientSetToken(data?.accessToken, false);
     navigation.resetToStack('App', 'Home');
@@ -27,37 +28,38 @@ const PinLoginScreen = () => {
       <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
       <Spacer space={20} />
-      <Paragraph testId={screenTestId} text="هلا" />
+      <Paragraph testId={screenTestId} weight="Medium" text="auth.hello" />
       <Headline
         testId={`${screenTestId}-title`}
-        text="أبو عبدالرحمن"
+        text={username}
         size="xs"
         weight="Bold"
         style={themedStyles.defaultText}
       />
+      <Spacer />
+
       <Headline
         testId={`${screenTestId}-subtitle`}
-        text="أدخل رمز الـ PIN لتكمل مهامك اليومية."
+        text="auth.enter-pin"
         size="xs"
         weight="Medium"
         style={themedStyles.defaultText}
       />
-      <Spacer space={40} />
+      <Spacer space={30} />
       <View>
         <PinCode
           secureTextEntry
           testId={screenTestId}
-          onPinComplete={(pinCode) =>
-            mutate({ email: 'daniel@hrsd.gov.sa', pinCode })
-          }
+          onPinComplete={(pinCode) => mutate({ email, pinCode })}
         />
       </View>
-      <Spacer isOrDivider space="4xl" />
+      <Spacer isOrDivider spaceBottom={30} spaceTop={60} />
       <BaseButton
         testId={screenTestId}
         size="lg"
         variant="secondary"
-        textProps={{ text: 'سجّل الدخول بالبريد الإلكتروني' }}
+        onPress={() => navigation.goBack()}
+        textProps={{ text: 'auth.login-with-email' }}
       />
     </Page>
   );
