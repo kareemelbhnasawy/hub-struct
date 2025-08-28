@@ -13,6 +13,8 @@ import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
 import { useAuthStore } from '@/store/auth';
+import { setString } from '@/utilities';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -61,6 +63,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     (data) => {
       //save data
       setLoginCredentials({ email: body?.email, password: body?.password });
+      setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },

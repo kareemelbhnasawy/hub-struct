@@ -7,15 +7,14 @@ import { useThemeStore } from '@/store/theme';
 import { useNavigation } from '@/hooks';
 import useLoginStart from '@/network/services/auth/login-start/login-start.hook';
 import { FormikValues } from 'formik';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BaseButton, ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
-import { getItem, setItem } from '@/utilities/storage';
 import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
-import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useLoginBio from '@/network/services/auth/login-bio/login-bio.hook';
 import { createBioSignature } from '@/utilities/biometrics';
+import { useAuthStore } from '@/store/auth';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -27,9 +26,11 @@ const LoginScreen = () => {
   const { deviceId, isLoading } = useDeviceId();
   const [loginCount, setLoginCount] = useState<number>(0);
   const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
-  const savedMail = getItem('email')?.state || '';
-  const savedPassword = getItem('password')?.state || '';
-  const bioType = getItem(STORAGE_KEYS.BIO_TYPE);
+  const {
+    email: savedMail,
+    password: savedPassword,
+    quickLoginType,
+  } = useAuthStore();
 
   const onSuccessBioLogin = (data) => {
     clientSetToken(data?.accessToken, false);
@@ -126,6 +127,20 @@ const LoginScreen = () => {
     }
   }, [loginCount]);
 
+  const quickLoginIcon = useMemo(() => {
+    if (quickLoginType === 'FACE_ID') return 'ScanFace';
+    if (quickLoginType === 'TOUCH_ID') return 'Fingerprint';
+    return 'Lock';
+  }, [quickLoginType]);
+
+  const onPressQuickLogin = () => {
+    if (quickLoginType === 'PIN_CODE') {
+      navigation.navigateTo('PinLogin');
+    } else {
+      mutateChallenge({ email: savedMail });
+    }
+  };
+
   return (
     <Page
       testId={screenTestId}
@@ -170,28 +185,20 @@ const LoginScreen = () => {
           },
         ]}
       />
-      {bioType && (
+      {quickLoginType && (
         <>
           <Spacer isOrDivider />
           <BaseButton
             testId={screenTestId}
-            onPress={() => mutateChallenge({ email: 'daniel@hrsd.gov.sa' })}
+            onPress={onPressQuickLogin}
             variant="secondary"
             size="lg"
-            textProps={{ text: 'سجّل الدخول باستخدام بصمة الوجه' }}
-            leftIcon={{ name: 'ScanFace' }}
+            // auth.FACE_ID, TOUCH_ID, CODE_PIN
+            textProps={{ text: quickLoginType }}
+            leftIcon={{ name: quickLoginIcon }}
           />
         </>
       )}
-      <Spacer isOrDivider />
-      <BaseButton
-        testId={screenTestId}
-        onPress={() => navigation.navigateTo('PinLogin')}
-        variant="secondary"
-        size="lg"
-        textProps={{ text: 'سجل الدخول باستخدام ال PIN' }}
-        leftIcon={{ name: 'Lock' }}
-      />
     </Page>
   );
 };
