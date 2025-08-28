@@ -13,6 +13,7 @@ import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
 import { getMMKVStorage } from '@/store/mmkv-storage';
+import { useAuthStore } from '@/store/auth';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -20,6 +21,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
   const { replaceToScreen, resetToStack, goBack } = useNavigation();
   const mmkv = getMMKVStorage<string>();
   const { getThemedStyles } = useThemeStore();
+  const { setLoginCredentials} = useAuthStore();
   const {
     nextScreen,
     nextScreenParams,
@@ -60,8 +62,8 @@ export default function OtpConfirmationScreen({ route }: Props) {
     url,
     (data) => {
       //save data
-      mmkv.setItem('email', { state: body?.email, version: Date.now() });
-      mmkv.setItem('password', { state: body?.password, version: Date.now() });
+      setLoginCredentials({ email: body?.email, password: body?.password });
+
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },

@@ -12,9 +12,10 @@ import { BaseButton, ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
 import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
-// import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useLoginBio from '@/network/services/auth/login-bio/login-bio.hook';
 import { createBioSignature } from '@/utilities/biometrics';
+import { useAuthStore } from '@/store/auth';
+import { isEmpty } from '@/utilities';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -24,11 +25,14 @@ const LoginScreen = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const { deviceId, isLoading } = useDeviceId();
-  const [loginCount, setLoginCount] = useState<number>(0);
-  const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
-  // const savedMail = getStorageItem('email')?.state || '';
-  // const savedPassword = getStorageItem('password')?.state || '';
-  // const bioType = getStorageItem(STORAGE_KEYS.BIO_TYPE);
+  const {
+    biometricType,
+    getInvalidAttemptCount,
+    getLoginCredentials,
+    incrementInvalidAttemptCount,
+    isAccountSuspended,
+    setIsAccountSuspended,
+  } = useAuthStore();
 
   const onSuccessBioLogin = (data) => {
     clientSetToken(data?.accessToken, false);
@@ -50,12 +54,6 @@ const LoginScreen = () => {
   const { mutate: mutateChallenge, isPending: isPendingChallenge } =
     useGenerateChallenge(onSuccessChallenge);
 
-  useEffect(() => {
-    // if (bioType) {
-    // mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
-    // }
-  }, []);
-
   const handleNavigateToApp = (res: unknown) => {
     if (!deviceId || isLoading) return;
     navigation.navigateToOTP({
@@ -70,27 +68,28 @@ const LoginScreen = () => {
       },
       onConfirmOtp: (responseFinish) => {
         clientSetToken(responseFinish?.accessToken, false);
-        //set tokens
       },
       expiresIn: res?.expiresIn,
     });
   };
+
   const onLoginSuccess = (res: unknown) => {
     //navigate to OTP
-
     handleNavigateToApp(res);
   };
 
   const onLoginError = () => {
-    const newLoginCount = loginCount + 1;
-    const loginCountAsString = isAccountSuspended
-      ? '3'
-      : newLoginCount.toString();
+    const invalidAttempts = getInvalidAttemptCount();
+    if (invalidAttempts >= 3) {
+      setIsAccountSuspended(true);
+    } else {
+      incrementInvalidAttemptCount();
+    }
+    const loginCountAsString = getInvalidAttemptCount().toString();
     const errorMessage = isAccountSuspended
       ? 'auth.accountSuspended'
       : 'auth.invalidData';
 
-    setLoginCount(newLoginCount);
     ToastService.error({
       props: {
         messageProps: {
@@ -101,29 +100,35 @@ const LoginScreen = () => {
       },
       duration: 4000,
     });
-    setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
 
   const onSubmit = (values: FormikValues) => {
-    setEmail(values.mail);
-    setPassword(values.password);
-    setLoginCount(loginCount + 1);
-
     const loginRequest = {
       email: values.mail,
       password: values.password,
-      deviceId, // Replace with actual deviceId logic if needed
+      deviceId: '', // Replace with actual deviceId logic if needed
     };
     login(loginRequest);
   };
 
   useEffect(() => {
-    if (loginCount >= 3) {
+    if (biometricType) {
+      mutateChallenge({ email: 'daniel@hrsd.gov.sa' });
+    }
+  }, [mutateChallenge, biometricType]);
+
+  useEffect(() => {
+    const loginCredentials = getLoginCredentials();
+    if (getInvalidAttemptCount() >= 3) {
       setIsAccountSuspended(true);
     }
-  }, [loginCount]);
+    if (!isEmpty(loginCredentials)) {
+      setEmail(loginCredentials.email);
+      setPassword(loginCredentials.password);
+    }
+  }, [getLoginCredentials, getInvalidAttemptCount]);
 
   return (
     <Page
@@ -149,7 +154,7 @@ const LoginScreen = () => {
       />
       <Spacer space={40} />
       <Form
-        initialValues={{ mail: savedMail, password: savedPassword }}
+        initialValues={{ mail: email, password: password }}
         testId={screenTestId}
         onSubmit={onSubmit}
         fields={[
@@ -169,7 +174,7 @@ const LoginScreen = () => {
           },
         ]}
       />
-      {bioType && (
+      {biometricType && (
         <>
           <Spacer isOrDivider />
           <BaseButton
