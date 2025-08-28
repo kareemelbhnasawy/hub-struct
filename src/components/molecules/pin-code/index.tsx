@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FlatList, TextInput, TextInputKeyPressEvent } from 'react-native';
 import { PinCodeProps } from './interface';
 import { useThemeStore } from '@/store/theme';
@@ -15,6 +15,7 @@ const PinCode = ({
   errorProps,
   disabled,
   secureTextEntry,
+  onTyping
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -23,9 +24,17 @@ const PinCode = ({
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const pinRefs = useRef<TextInput[]>([]);
 
+  useEffect(() => {
+    if (errorProps) {
+      setPin('');
+      focusInput(0);
+    }
+  }, [errorProps]);
+
   const focusInput = (index: number) => {
     if (index < pinLength && index >= 0) {
       pinRefs.current[index].focus();
+      setFocusedIndex(index);
     }
   };
 
@@ -50,14 +59,20 @@ const PinCode = ({
   };
 
   const onKeyPressFn = (e: TextInputKeyPressEvent, index: number) => {
-    if (e.nativeEvent.key === 'Backspace') {
-      setPin('');
-      focusInput(0);
+    const key = e.nativeEvent.key;
+    if (key === 'Backspace') {
+      setPin((prev) => {
+        const current = prev.slice(0, -1);
+        const nextFocus = Math.min(current.length, pinLength - 1);
+        focusInput(nextFocus);
+        return current;
+      });
     } else if (pin.charAt(index)) {
-      setPinFn(e.nativeEvent.key, index + 1);
+      setPinFn(key, index + 1);
       focusInput(index + 2);
-    } else if (/^\d+$/.test(e.nativeEvent.key)) {
-      setPinFn(e.nativeEvent.key, index);
+    } else if (/^\d+$/.test(key)) {
+      onTyping?.();
+      setPinFn(key, index);
       focusInput(index + 1);
     }
   };
@@ -87,7 +102,13 @@ const PinCode = ({
             testID={`${testId}-code-pin-${index}`}
             onKeyPress={(e) => onKeyPressFn(e, index)}
             keyboardType="numeric"
-            onFocus={() => setFocusedIndex(index)}
+            onFocus={() => {
+              if (focusedIndex === null) {
+                setFocusedIndex(index);
+              } else if (index !== focusedIndex) {
+                focusInput(focusedIndex);
+              }
+            }}
             editable={disabled}
             maxLength={1}
             secureTextEntry={secureTextEntry}
