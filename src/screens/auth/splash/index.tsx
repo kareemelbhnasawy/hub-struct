@@ -20,26 +20,26 @@ const SplashScreen = () => {
   const refreshToken = getString(STORAGE_KEYS.REFRESH_TOKEN);
   const [enabled, setEnabled] = useState<boolean>(false);
 
-  const { isSuccess, isError, data, isLoading } = useRefresh(enabled);
-
-  const navigateToAuth = () => {
-    if (!isLoading)
-      if (isSuccess) {
-        // Navigation logic to Auth stack
-        clientSetToken(data?.accessToken, false);
-        setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
-        navigation.resetToStack('App', 'Home');
-      } else {
-        navigation.resetToStack('Auth', 'Login', { enableQuickLogin: true });
-      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const navigateToApp = (data) => {
+    clientSetToken(data?.accessToken, false);
+    setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
+    navigation.resetToStack('App', 'Home');
   };
+  const navigateToAuth = () => {
+    navigation.resetToStack('Auth', 'Login', { enableQuickLogin: true });
+  };
+  useRefresh(enabled, navigateToApp, navigateToAuth);
 
   useEffect(() => {
-    if (refreshToken) {
-      setEnabled(true);
-    }
-    wait(4000).then(navigateToAuth);
-  }, [isError, isSuccess, navigation]);
+    wait(4000).then(() => {
+      if (refreshToken) {
+        setEnabled(true);
+      } else {
+        navigateToAuth();
+      }
+    });
+  }, []);
 
   return (
     <View testID={`${testId}-wrapper`} style={themedStyles.wrapper}>
