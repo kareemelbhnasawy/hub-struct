@@ -45,7 +45,7 @@ const LoginScreen = () => {
       const { success, signature } = resultObject;
 
       if (success) {
-        mutateLoginBio({ email: 'daniel@hrsd.gov.sa', signature });
+        mutateLoginBio({ email: savedMail, signature });
       }
     });
   };
