@@ -13,6 +13,7 @@ const PinCode = ({
   errorProps,
   disabled,
   secureTextEntry,
+  onTyping
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -63,6 +64,7 @@ const PinCode = ({
       setPinFn(e.nativeEvent.key, index + 1);
       focusInput(index + 2);
     } else if (/^\d+$/.test(e.nativeEvent.key)) {
+      onTyping?.();
       setPinFn(e.nativeEvent.key, index);
       focusInput(index + 1);
     }

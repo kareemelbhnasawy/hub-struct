@@ -81,6 +81,10 @@ export default function OtpConfirmationScreen({ route }: Props) {
     });
   };
 
+  const handlePinTyping = () => {
+    if (error) setError(undefined);
+  };
+
   return (
     <View>
       {/* Your PinCode + Typography components here */}
@@ -120,6 +124,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
           onPinComplete={handlePinComplete}
           testId={screenTestId}
           errorProps={error ? { text: 'otp.invalidCode' } : undefined}
+          onTyping={handlePinTyping}
         />
       </View>
       <Headline
