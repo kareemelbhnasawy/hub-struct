@@ -15,7 +15,8 @@ import useGenerateChallenge from '@/network/services/auth/generate-challenge/gen
 import useLoginBio from '@/network/services/auth/login-bio/login-bio.hook';
 import { createBioSignature } from '@/utilities/biometrics';
 import { useAuthStore } from '@/store/auth';
-import { isEmpty } from '@/utilities';
+import { isEmpty, setString } from '@/utilities';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -24,7 +25,11 @@ const LoginScreen = () => {
   const themedStyles = getThemedStyles(styles);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const { email: savedMail, password: savedPassword } = useAuthStore();
+  const {
+    email: savedMail,
+    password: savedPassword,
+    setLoginCredentials,
+  } = useAuthStore();
   const { deviceId, isLoading } = useDeviceId();
   const {
     biometricType,
@@ -68,6 +73,8 @@ const LoginScreen = () => {
         deviceId,
       },
       onConfirmOtp: (responseFinish) => {
+        setLoginCredentials({ email: email, password: password });
+        setString(STORAGE_KEYS.REFRESH_TOKEN, responseFinish?.refreshToken);
         clientSetToken(responseFinish?.accessToken, false);
       },
       expiresIn: res?.expiresIn,
