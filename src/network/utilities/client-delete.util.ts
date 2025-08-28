@@ -1,4 +1,4 @@
-import { BaseAPIMethodArgs } from '../types';
+import BaseAPIMethodArgs from '../types/base-api-method-args.type';
 import { AxiosResponse } from 'axios';
 import client from './client.util';
 

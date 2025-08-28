@@ -11,9 +11,8 @@ import { useEffect, useState } from 'react';
 import { BaseButton, ToastService } from '@/components/molecules';
 import { useDeviceId } from '@/hooks/use-device-id';
 import { clientSetToken } from '@/network/utilities';
-import { getStorageItem, setStorageItem } from '@/utilities/storage';
 import useGenerateChallenge from '@/network/services/auth/generate-challenge/generate-challenge.hook';
-import { STORAGE_KEYS } from '@/constants/storageKeys';
+// import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useLoginBio from '@/network/services/auth/login-bio/login-bio.hook';
 import { createBioSignature } from '@/utilities/biometrics';
 
@@ -27,9 +26,9 @@ const LoginScreen = () => {
   const { deviceId, isLoading } = useDeviceId();
   const [loginCount, setLoginCount] = useState<number>(0);
   const [isAccountSuspended, setIsAccountSuspended] = useState<boolean>(false);
-  const savedMail = getStorageItem('email')?.state || '';
-  const savedPassword = getStorageItem('password')?.state || '';
-  const bioType = getStorageItem(STORAGE_KEYS.BIO_TYPE);
+  // const savedMail = getStorageItem('email')?.state || '';
+  // const savedPassword = getStorageItem('password')?.state || '';
+  // const bioType = getStorageItem(STORAGE_KEYS.BIO_TYPE);
 
   const onSuccessBioLogin = (data) => {
     clientSetToken(data?.accessToken, false);
@@ -102,7 +101,7 @@ const LoginScreen = () => {
       },
       duration: 4000,
     });
-    setStorageItem('loginCount', { state: loginCountAsString });
+    setItem('loginCount', { state: loginCountAsString });
   };
 
   const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
