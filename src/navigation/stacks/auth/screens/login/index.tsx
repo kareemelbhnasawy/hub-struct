@@ -93,8 +93,8 @@ const LoginScreen = () => {
     }
     const loginCountAsString = getInvalidAttemptCount().toString();
     const errorMessage = isAccountSuspended
-      ? 'auth.accountSuspended'
-      : 'auth.invalidData';
+      ? 'auth.account-suspended'
+      : 'auth.invalid-data';
 
     ToastService.error({
       props: {

@@ -88,8 +88,8 @@ const LoginScreen = () => {
       ? '3'
       : newLoginCount.toString();
     const errorMessage = isAccountSuspended
-      ? 'auth.accountSuspended'
-      : 'auth.invalidData';
+      ? 'auth.account-suspended'
+      : 'auth.invalid-data';
 
     setLoginCount(newLoginCount);
     ToastService.error({
@@ -189,7 +189,7 @@ const LoginScreen = () => {
         onPress={() => navigation.navigateTo('PinLogin')}
         variant="secondary"
         size="lg"
-        textProps={{ text: 'سجل الدخول باستخدام ال PIN' }}
+        textProps={{ text: 'auth.login-with-pin' }}
         leftIcon={{ name: 'Lock' }}
       />
     </Page>

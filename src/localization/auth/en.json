@@ -6,6 +6,10 @@
   "password": "Password",
   "password-prompt": "Enter your password",
   "login": "Login",
-  "invalidData": "The email or password is incorrect. This is attempt {{trialNumber}} of 3. The account will be suspended after 3 failed attempts.",
-  "accountSuspended": "The account has been temporarily suspended after 3 failed attempts. Please contact support."
+  "invalid-data": "The email or password is incorrect. This is attempt {{trialNumber}} of 3. The account will be suspended after 3 failed attempts.",
+  "account-suspended": "The account has been temporarily suspended after 3 failed attempts. Please contact support.",
+  "hello": "Hello",
+  "enter-pin": "Enter your PIN to proceed with your daily tasks.",
+  "login-with-email": "Login with Email",
+  "login-with-pin": "Login with PIN"
 }
