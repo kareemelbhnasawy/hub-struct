@@ -24,6 +24,7 @@ const LoginScreen = () => {
   const themedStyles = getThemedStyles(styles);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const { email: savedMail, password: savedPassword } = useAuthStore();
   const { deviceId, isLoading } = useDeviceId();
   const {
     biometricType,
@@ -108,7 +109,7 @@ const LoginScreen = () => {
     const loginRequest = {
       email: values.mail,
       password: values.password,
-      deviceId: '', // Replace with actual deviceId logic if needed
+      deviceId: deviceId || '<DEVICE_ID>', // Replace with actual deviceId logic if needed
     };
     login(loginRequest);
   };
@@ -154,7 +155,7 @@ const LoginScreen = () => {
       />
       <Spacer space={40} />
       <Form
-        initialValues={{ mail: email, password: password }}
+        initialValues={{ mail: savedMail, password: savedPassword }}
         testId={screenTestId}
         onSubmit={onSubmit}
         fields={[

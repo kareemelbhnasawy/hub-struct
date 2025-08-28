@@ -21,3 +21,12 @@ export interface AuthorizationTokenResponse {
   expiresIn: string;
   scope: string;
 }
+
+export interface LogoutRequest {
+  email: string;
+}
+
+export interface LogoutResponse {
+  // Add any response fields if needed
+  success: boolean;
+}

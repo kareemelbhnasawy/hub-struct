@@ -1,30 +1,69 @@
 import { API_UNAUTHORIZED_STATUS } from '../constants';
+import refreshToken from '../services/auth/refresh-token/refresh-token.service';
+import clientSetToken from '../utilities/client-set-token.util';
+import RetryQueueManager from '../utilities/retry-queue.util';
+import client from '../utilities/client.util';
+import { ToastService } from '@/components/molecules/toast/toast-service';
 
-// the returned type is onRejected?: ((error: any) => any) | null): number
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const onResponseReject = (error: any): any => {
-  if (
-    // check if disableAPIError exists (if it doesn't then do default error handling)
-    !error.config.disableAPIError ||
-    // if it exists, check if we should disable default error handling
-    !error.config.disableAPIError?.(error)
-  ) {
-    /**
-     * here you can change the configuration for the toast through Toast.show({any_configuration_in_package})
-     * like visibilityTime, swipeable, etc.
-     */
+const onResponseReject = async (error: any): Promise<any> => {
+  const originalRequest = error.config;
 
-    /**
-     * intercept 401 status
-     */
-    if (error?.response?.status === API_UNAUTHORIZED_STATUS) {
-      // handleLogoutStates();
+  if (
+    error?.response?.status === API_UNAUTHORIZED_STATUS &&
+    !originalRequest._retry
+  ) {
+    if (RetryQueueManager.getIsRefreshing()) {
+      return new Promise((resolve, reject) => {
+        RetryQueueManager.addToQueue({
+          resolve,
+          reject,
+          config: originalRequest,
+        });
+      });
     }
 
-    //TODO: Handle Default Response Rejection
+    originalRequest._retry = true;
+    RetryQueueManager.setIsRefreshing(true);
+
+    try {
+      const { accessToken } = await refreshToken();
+      clientSetToken(accessToken);
+
+      RetryQueueManager.processQueue(null);
+      return client(originalRequest);
+    } catch (refreshError) {
+      RetryQueueManager.processQueue(refreshError);
+      ToastService.error({
+        props: {
+          messageProps: { text: 'Session expired. Please login again.' },
+          testId: 'refresh-token-error',
+        },
+        duration: 4000,
+      });
+      // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
+      return Promise.reject(refreshError);
+    } finally {
+      RetryQueueManager.setIsRefreshing(false);
+    }
   }
+
+  // Show toast for non-401 errors
+  if (!error.config.disableAPIError) {
+    ToastService.error({
+      props: {
+        messageProps: {
+          text: error?.response?.data?.message || 'Something went wrong',
+        },
+        testId: 'api-error',
+      },
+      duration: 4000,
+    });
+  }
+
   return Promise.reject(
     error instanceof Error ? error : new Error(JSON.stringify(error)),
   );
 };
+
 export default onResponseReject;

@@ -9,6 +9,7 @@ const AUTH_QUERY_KEYS = {
   SET_PIN: 'SET_PIN',
   REMOVE_BIO: 'REMOVE_BIO',
   REMOVE_PIN: 'REMOVE_PIN',
+  LOGOUT: 'LOGOUT',
 } as const;
 
 export default AUTH_QUERY_KEYS;

@@ -1,14 +1,25 @@
 /* eslint-disable */
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
 import { useNavigation } from '@/hooks';
+import { BaseButton } from '@/components/molecules';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
+import useLogout from '@/network/services/auth/logout/logout.hook';
+import { useAuthStore } from '@/store/auth';
+import { deleteKey } from '@/utilities';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-
+  const { getEmail } = useAuthStore();
   const handleNavigateToProfile = () => {
     navigation.navigate('Profile', { userId: '123' });
   };
+  const onLogoutSuccess = () => {
+    deleteKey(STORAGE_KEYS.REFRESH_TOKEN);
+    navigation.resetToStack('Auth', 'Login');
+  };
+
+  const { mutate: logout } = useLogout(onLogoutSuccess);
 
   return (
     <View style={styles.container.base}>
@@ -24,6 +35,14 @@ const HomeScreen = () => {
         style={styles.profileButton.base}>
         <Text style={styles.profileButtonText.base}>Go Back</Text>
       </Pressable>
+      <BaseButton
+        onPress={() => logout({ email: getEmail() })}
+        variant="secondary"
+        size="lg"
+        textProps={{ text: 'Logout' }}
+        leftIcon={{ name: 'LogOut' }}
+        testId={'logout-button'}
+      />
     </View>
   );
 };
