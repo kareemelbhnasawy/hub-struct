@@ -2,7 +2,7 @@
   "defaultInputValidations": {
     "mixed": {
       "default": " غير صالح",
-      "required": " حقل مطلوب",
+      "required": " هذا الحقل مطلوب",
       "defined": "يجب تعريف ",
       "notNull": "لا يمكن أن يكون  فارغًا",
       "oneOf": " يجب أن يكون إحدى القيم التالية: {{values}}",

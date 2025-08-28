@@ -34,6 +34,12 @@ export const styles = createThemedStyles({
   timer: {
     base: {
       textAlign: 'center',
+      color: 'textPrimary'
+    },
+  },
+  defaultTextColor: {
+    base: {
+      color: 'textDefault',
     },
   },
   pinCodeWrapper: {

@@ -2,7 +2,7 @@
   "defaultInputValidations": {
     "mixed": {
       "default": "Field is invalid",
-      "required": "Field is a required field",
+      "required": "This field is required",
       "defined": "Field must be defined",
       "notNull": "Field cannot be null",
       "oneOf": "Field must be one of the following values: {{values}}",
