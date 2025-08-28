@@ -11,23 +11,24 @@ const useAuthStore = create<AuthState>()(
       password: '',
       username: '',
       quickLoginType: '',
-      biometricType: '',
       invalidAttemptCount: 0,
       isAccountSuspended: false,
       setIsAccountSuspended: (value) => set({ isAccountSuspended: value }),
-      incrementInvalidAttemptCount: () => set((state) => ({ invalidAttemptCount: state.invalidAttemptCount + 1 })),
+      incrementInvalidAttemptCount: () =>
+        set((state) => ({
+          invalidAttemptCount: state.invalidAttemptCount + 1,
+        })),
       getInvalidAttemptCount: () => get().invalidAttemptCount,
       setEmail: (email) => set({ email }),
       getEmail: () => get().email,
       setPassword: (password) => set({ password }),
       getPassword: () => get().password,
-      setLoginCredentials: (credentials) => set({ email: credentials.email, password: credentials.password }),  
+      setLoginCredentials: (credentials) =>
+        set({ email: credentials.email, password: credentials.password }),
       setUsername: (username) => set({ username }),
       getUsername: () => get().username,
       setQuickLoginType: (quickLoginType) => set({ quickLoginType }),
       getQuickLoginType: () => get().quickLoginType,
-      setBiometricType: (biometricType) => set({ biometricType }),
-      getBiometricType: () => get().biometricType,
       resetAllCredentials: () => set({ email: '', password: '', username: '' }),
       resetAllUserData: () =>
         set({
@@ -35,16 +36,15 @@ const useAuthStore = create<AuthState>()(
           password: '',
           username: '',
           quickLoginType: '',
-          biometricType: '',
         }),
-      resetLoginCredentials: () => set({ email: '', password: '', username: '' }),
+      resetLoginCredentials: () =>
+        set({ email: '', password: '', username: '' }),
       resetStore: () =>
         set({
           email: '',
           password: '',
           username: '',
           quickLoginType: '',
-          biometricType: '',
           invalidAttemptCount: 0,
         }),
       getLoginCredentials: () => ({

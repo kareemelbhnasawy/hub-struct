@@ -8,6 +8,7 @@ interface RefreshTokenResponse {
   expiresIn: number;
 }
 const useRefresh = (
+  enabled = true,
   onSuccess?: (data: RefreshTokenResponse) => void,
   onError?: (error: unknown) => void,
 ) => {
@@ -16,6 +17,7 @@ const useRefresh = (
     queryFn: refresh,
     onSuccess: onSuccess ?? (() => {}),
     onError: onError ?? (() => {}),
+    enabled,
   });
 };
 

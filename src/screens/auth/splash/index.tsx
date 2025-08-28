@@ -6,8 +6,8 @@ import splashBgAnimation from '@/assets/animations/splash-bg-animation.json';
 import { BlurView } from '@react-native-community/blur';
 import Logo from '@/components/molecules/logo';
 import { useNavigation } from '@/hooks';
-import { useEffect } from 'react';
-import { setString, wait } from '@/utilities';
+import { useEffect, useState } from 'react';
+import { getString, setString, wait } from '@/utilities';
 import useRefresh from '@/network/services/auth/refresh-token/refresh-token.hook';
 import { clientSetToken } from '@/network/utilities';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
@@ -17,31 +17,29 @@ const SplashScreen = () => {
   const themedStyles = getThemedStyles(styles);
   const navigation = useNavigation();
   const testId = 'splash-login';
+  const refreshToken = getString(STORAGE_KEYS.REFRESH_TOKEN);
+  const [enabled, setEnabled] = useState<boolean>(false);
 
-  const { isSuccess, isError, data, error } = useRefresh();
-
-  useEffect(() => {
-    if (isSuccess) {
-      clientSetToken(data?.accessToken, false);
-      setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
-      navigation.resetToStack('App', 'Home');
-    }
-  }, [isSuccess, data, navigation]);
-
-  useEffect(() => {
-    if (isError) {
-      navigation.resetToStack('Auth', 'Login');
-    }
-  }, [isError, error, navigation]);
+  const { isSuccess, isError, data, isLoading } = useRefresh(enabled);
 
   const navigateToAuth = () => {
-    // Navigation logic to Auth stack
-    navigation.navigate('Login');
+    if (!isLoading)
+      if (isSuccess) {
+        // Navigation logic to Auth stack
+        clientSetToken(data?.accessToken, false);
+        setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
+        navigation.resetToStack('App', 'Home');
+      } else {
+        navigation.resetToStack('Auth', 'Login');
+      }
   };
 
   useEffect(() => {
+    if (refreshToken) {
+      setEnabled(true);
+    }
     wait(4000).then(navigateToAuth);
-  }, []);
+  }, [isError, isSuccess, navigation]);
 
   return (
     <View testID={`${testId}-wrapper`} style={themedStyles.wrapper}>

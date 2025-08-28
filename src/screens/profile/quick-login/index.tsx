@@ -3,8 +3,6 @@ import { Page } from '@/components/templates';
 import { BiometryTypes } from 'react-native-biometrics';
 import { useEffect, useState } from 'react';
 import { BaseButton } from '@/components/molecules';
-import { deleteKey, getStorageString, setStorageString } from '@/utilities';
-import { STORAGE_KEYS } from '@/constants/storageKeys';
 import useSetBio from '@/network/services/auth/set-bio/set-bio.hook';
 import useRemoveBio from '@/network/services/auth/remove-bio/remove-bio.hook';
 import {
@@ -14,32 +12,44 @@ import {
   getBioType,
 } from '@/utilities/biometrics';
 import { useNavigation } from '@/hooks';
+import { useAuthStore } from '@/store/auth';
+import useRemovePin from '@/network/services/auth/remove-pin/remove-pin.hook';
 
-const BiometricsScreen = () => {
-  const screenTestId = 'biometrics-screen';
+const QuickLoginScreen = () => {
+  const screenTestId = 'quick-login-screen';
   const navigation = useNavigation();
-  const [bioEnabled, setBioEnabled] = useState(
-    getStorageString(STORAGE_KEYS.BIO_TYPE) ? true : false,
-  );
+  const { quickLoginType, setQuickLoginType, setUsername, email } =
+    useAuthStore();
   const [biometricType, setBiometricType] = useState<string | null>(null);
+  const [bioEnabled, setBioEnabled] = useState(
+    quickLoginType === 'FACE_ID' || quickLoginType === 'TOUCH_ID',
+  );
+  const [pinEnabled, setPinEnabled] = useState(quickLoginType === 'PIN_CODE');
 
   const onSetBioSuccess = () => {
-    setStorageString(STORAGE_KEYS.BIO_TYPE, biometricType || '');
-    // TODO: change to user name
-    setStorageString(STORAGE_KEYS.USER_NAME, 'Daniel');
+    setQuickLoginType(biometricType || '');
+    setUsername('Daniel');
     setBioEnabled(true);
+    setPinEnabled(false);
   };
 
   const deleteBioKey = () => {
     deleteBioKeys();
-    deleteKey(STORAGE_KEYS.BIO_TYPE);
+    setQuickLoginType('');
     setBioEnabled(false);
+  };
+
+  const deletePinKey = () => {
+    setQuickLoginType('');
+    setPinEnabled(false);
   };
 
   const { mutate: mutateSetBio, isPending: isSetPending } =
     useSetBio(onSetBioSuccess);
   const { mutate: mutateRemoveBio, isPending: isRemovePending } =
     useRemoveBio(deleteBioKey);
+  const { mutate: mutateRemovePin, isPending: isRemovePinPending } =
+    useRemovePin(deletePinKey);
 
   useEffect(() => {
     getBiometricType();
@@ -65,8 +75,7 @@ const BiometricsScreen = () => {
         generateBioKeys().then((resultObject) => {
           const { publicKey } = resultObject;
           mutateSetBio({
-            // TODO: change to user email
-            email: 'daniel@hrsd.gov.sa',
+            email,
             publicKey,
             biometricType,
           });
@@ -77,10 +86,17 @@ const BiometricsScreen = () => {
 
   const onPressBio = () => {
     if (bioEnabled) {
-      // TODO: change to user email
-      mutateRemoveBio({ email: 'daniel@hrsd.gov.sa' });
+      mutateRemoveBio({ email });
     } else {
       getBioKey();
+    }
+  };
+
+  const onPressPin = () => {
+    if (pinEnabled) {
+      mutateRemovePin({ email });
+    } else {
+      navigation.navigateTo('SetPin');
     }
   };
 
@@ -88,17 +104,17 @@ const BiometricsScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={false}
-      isLoading={isSetPending || isRemovePending}>
+      isLoading={isSetPending || isRemovePending || isRemovePinPending}>
       <Spacer space={50} />
       <Headline
         testId={`${screenTestId}-title`}
-        text="Profile Bio Screen"
+        text="Quick Login Screen"
         size="lg"
         weight="Semibold"
       />
       <Headline
         testId={`${screenTestId}-subtitle`}
-        text="Set Bio Here"
+        text="Set Quick Login Here"
         size="xs"
         weight="Medium"
       />
@@ -127,12 +143,12 @@ const BiometricsScreen = () => {
       )}
       <BaseButton
         testId={screenTestId}
-        textProps={{ text: 'Set Pin' }}
-        onPress={() => navigation.navigateTo('SetPin')}
+        textProps={{ text: pinEnabled ? 'Remove Pin' : 'Set Pin' }}
+        onPress={onPressPin}
       />
       <Spacer />
     </Page>
   );
 };
 
-export default BiometricsScreen;
+export default QuickLoginScreen;

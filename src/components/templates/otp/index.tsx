@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@/navigation';
 import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
@@ -18,7 +18,6 @@ type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 export default function OtpConfirmationScreen({ route }: Props) {
   const { replaceToScreen, resetToStack, goBack } = useNavigation();
   const { getThemedStyles } = useThemeStore();
-
   const {
     nextScreen,
     nextScreenParams,
