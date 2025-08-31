@@ -13,7 +13,7 @@ import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { FlatList } from 'react-native-gesture-handler';
-import { useNavigation } from '@/hooks/use-navigation';
+import { useNavigation } from '@/hooks';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -85,7 +85,7 @@ const ProfileScreen = () => {
               size="lg"
               image={defaultAvatar}
               testId={screenTestId}
-              containerStyle={themedStyles.avatar}
+              containerStyle={{ marginTop: 'auto' }}
             />
           </CurvedHeroImage>
         </View>
