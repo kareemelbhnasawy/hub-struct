@@ -24,16 +24,6 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
-  listItemContainer: {
-    base: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingHorizontal: 8,
-      paddingVertical: 16,
-      width: '100%',
-    }
-  },
 });
 
 export default styles;
