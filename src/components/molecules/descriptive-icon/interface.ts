@@ -1,10 +1,11 @@
 import LucideIconProps from '@/components/atoms/lucide-icon/interface';
-import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import HeadlineProps from '@/components/atoms/typography/headline/interface';
 
 interface DescriptiveIconProps {
   testId: string;
-  textProps: Omit<ParagraphProps, 'testId'>;
+  textProps: Omit<HeadlineProps, 'testId'>;
   iconProps: Omit<LucideIconProps, 'testId'>;
+  isRow? : boolean
 }
 
 export default DescriptiveIconProps;
