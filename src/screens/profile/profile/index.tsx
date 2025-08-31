@@ -18,7 +18,7 @@ const ProfileScreen = () => {
   const { userId } = nav.params; // strongly typed
   const { locale } = useTranslate();
   const { email } = useAuthStore();
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const error = false;
   const [modalVisible, setModalVisible] = useState(false);
@@ -53,12 +53,7 @@ const ProfileScreen = () => {
             testId={`${screenTestId}-edit-address`}
             name="MapPin"
             isCircle
-            // ToDo: change to theme colors
-            // eslint-disable-next-line react-native/no-inline-styles
-            // containerStyle={{ backgroundColor: '#FEF4E8' }}
-            containerStyle={{
-              backgroundColor: getThemeColor('backgroundWarningLight'),
-            }}
+            containerStyle={themedStyles.iconContainer}
           />
           <Spacer />
           <View>
@@ -126,17 +121,25 @@ const ProfileScreen = () => {
           renderItem={({ item }) => (
             <AddressCard
               testId={`${screenTestId}-${item.addressId}`}
-              addressId={item.addressId}
-              addressDesc={item.addressDesc}
-              badgeText={item?.badgeText}
+              addressIdProps={{ text: item.addressId }}
+              addressDescProps={{ text: item.addressDesc }}
+              badgeProps={
+                item?.badgeText
+                  ? { paragraphProps: { text: item.badgeText } }
+                  : undefined
+              }
             />
           )}
           renderSelectedItem={({ item }) => (
             <AddressCard
               testId={`${screenTestId}-${item.addressId}`}
-              addressId={item.addressId}
-              addressDesc={item.addressDesc}
-              badgeText={item?.badgeText}
+              addressIdProps={{ text: item.addressId }}
+              addressDescProps={{ text: item.addressDesc }}
+              badgeProps={
+                item?.badgeText
+                  ? { paragraphProps: { text: item.badgeText } }
+                  : undefined
+              }
               isFocused
             />
           )}

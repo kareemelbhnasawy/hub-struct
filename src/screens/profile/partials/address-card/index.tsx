@@ -7,9 +7,9 @@ import { Badge } from '@/components/molecules';
 
 const AddressCard = ({
   testId,
-  addressId,
-  addressDesc,
-  badgeText,
+  addressIdProps,
+  addressDescProps,
+  badgeProps,
   isFocused,
 }: AddressCardProps) => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
@@ -26,31 +26,28 @@ const AddressCard = ({
         <View style={themedStyles.centerRow}>
           <Paragraph
             testId={`${testId}-address-card`}
-            text={addressId}
             weight="Medium"
             size="xl"
+            {...addressIdProps}
           />
           <Spacer space="md" />
-          {badgeText && (
-            <Badge
-              testId={`${testId}-address-card`}
-              paragraphProps={{ text: badgeText }}
-            />
+          {badgeProps?.paragraphProps && (
+            <Badge testId={`${testId}-address-card`} {...badgeProps} />
           )}
         </View>
         <Spacer space="xs" />
         <Headline
           testId={`${testId}-address-card`}
-          text={addressDesc}
           weight="Medium"
           size="2xs"
+          {...addressDescProps}
         />
       </View>
       {isFocused && (
         <LucideIcon
           name="Check"
           testId={`${testId}-address-card`}
-          color={getThemeColor('iconSuccessRing')}
+          color={getThemeColor('foregroundSuccess')}
         />
       )}
     </View>

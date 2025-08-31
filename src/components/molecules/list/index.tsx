@@ -27,7 +27,7 @@ const List = <TItem,>({
   keyField,
   ...flashListProps
 }: ListProps<TItem>) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const keyExtractor = useCallback(
@@ -95,8 +95,7 @@ const List = <TItem,>({
           testId={`${testId}-list-empty`}
           name="ListX"
           size={52}
-          // ToDo: change to theme colors
-          color={'#9DA4AE'}
+          color={getThemeColor('foregroundQuinary')}
           {...componentProps?.iconProps}
         />
         <Headline

@@ -24,7 +24,7 @@ export const themeColors = {
   },
   backgroundPrimary: {
     light: COLORS.white,
-    dark: COLORS.black
+    dark: COLORS.black,
   },
   backgroundSecondary: {
     light: COLORS['neutral-25'],
@@ -151,121 +151,121 @@ export const themeColors = {
   },
 
   // Foreground Colors
-  fgPrimary: {
+  foregroundPrimary: {
     light: COLORS['neutral-900'],
     dark: COLORS['neutral-25'],
   },
-  fgSecondary: {
+  foregroundSecondary: {
     light: COLORS['neutral-800'],
     dark: COLORS['neutral-50'],
   },
-  fgTertiary: {
+  foregroundTertiary: {
     light: COLORS['neutral-700'],
     dark: COLORS['neutral-100'],
   },
-  fgQuaternary: {
+  foregroundQuaternary: {
     light: COLORS['neutral-500'],
     dark: COLORS['neutral-200'],
   },
-  fgQuinary: {
+  foregroundQuinary: {
     light: COLORS['neutral-400'],
     dark: COLORS['neutral-300'],
   },
-  fgSenary: {
+  foregroundSenary: {
     light: COLORS['neutral-300'],
     dark: COLORS['neutral-400'],
   },
 
-  fgError: {
+  foregroundError: {
     light: COLORS['error-600'],
     dark: COLORS['error-600'],
   },
-  fgErrorLight: {
+  foregroundErrorLight: {
     light: COLORS['error-100'],
     dark: COLORS['error-900'],
   },
 
-  fgWarning: {
+  foregroundWarning: {
     light: COLORS['warning-600'],
     dark: COLORS['warning-600'],
   },
-  fgWarningLight: {
+  foregroundWarningLight: {
     light: COLORS['warning-100'],
     dark: COLORS['warning-900'],
   },
 
-  fgSuccess: {
+  foregroundSuccess: {
     light: COLORS['success-600'],
     dark: COLORS['success-600'],
   },
-  fgSuccessLight: {
+  foregroundSuccessLight: {
     light: COLORS['success-100'],
     dark: COLORS['success-900'],
   },
 
-  fgInfo: {
+  foregroundInfo: {
     light: COLORS['info-600'],
     dark: COLORS['info-600'],
   },
-  fgInfoLight: {
+  foregroundInfoLight: {
     light: COLORS['info-50'],
     dark: COLORS['info-900'],
   },
 
-  fgBrandPrimary: {
+  foregroundBrandPrimary: {
     light: COLORS['primary-600'],
     dark: COLORS['primary-600'],
   },
-  fgBrandPrimaryLight: {
+  foregroundBrandPrimaryLight: {
     light: COLORS['primary-100'],
     dark: COLORS['primary-900'],
   },
 
-  fgBrandYellow: {
+  foregroundBrandYellow: {
     light: COLORS['secondary-yellow-600'],
     dark: COLORS['secondary-yellow-600'],
   },
-  fgBrandYellowLight: {
+  foregroundBrandYellowLight: {
     light: COLORS['secondary-yellow-100'],
     dark: COLORS['secondary-yellow-900'],
   },
 
-  fgBrandGreen: {
+  foregroundBrandGreen: {
     light: COLORS['secondary-green-600'],
     dark: COLORS['secondary-green-600'],
   },
-  fgBrandGreenLight: {
+  foregroundBrandGreenLight: {
     light: COLORS['secondary-green-100'],
     dark: COLORS['secondary-green-900'],
   },
 
-  fgBrandOrange: {
+  foregroundBrandOrange: {
     light: COLORS['secondary-orange-600'],
     dark: COLORS['secondary-orange-600'],
   },
-  fgBrandOrangeLight: {
+  foregroundBrandOrangeLight: {
     light: COLORS['secondary-orange-100'],
     dark: COLORS['secondary-orange-900'],
   },
 
-  fgBrandTeal: {
+  foregroundBrandTeal: {
     light: COLORS['secondary-teal-600'],
     dark: COLORS['secondary-teal-600'],
   },
-  fgBrandTealLight: {
+  foregroundBrandTealLight: {
     light: COLORS['secondary-teal-100'],
     dark: COLORS['secondary-teal-900'],
   },
 
-  fgWhite: {
+  foregroundWhite: {
     light: COLORS.white,
     dark: COLORS.white,
   },
-  fgBlack: {
+  foregroundBlack: {
     light: COLORS.black,
     dark: COLORS.black,
   },
-  fgGrayLight: {
+  foregroundGrayLight: {
     light: COLORS['neutral-200'],
     dark: COLORS.black,
   },
@@ -1098,7 +1098,7 @@ export const themeColors = {
     light: COLORS['primary-700'],
     dark: COLORS.white,
   },
-    iconBorderDefault: {
+  iconBorderDefault: {
     light: COLORS['primary-700'],
     dark: COLORS['primary-700'],
   },

@@ -8,7 +8,7 @@ const styles = createThemedStyles({
       paddingVertical: 16,
       borderRadius: Radius.SM,
       borderWidth: 1,
-      borderColor: 'borderNeutralSecondary',
+      borderColor: 'borderSecondary',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -16,7 +16,7 @@ const styles = createThemedStyles({
   },
   cardContainerFocused: {
     base: {
-      borderColor: 'borderPrimary',
+      borderColor: 'borderBrandPrimary',
     },
   },
   centerRow: {

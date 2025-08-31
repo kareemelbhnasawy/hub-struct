@@ -56,6 +56,11 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundWarningLight',
     },
   },
+  iconContainer: {
+    base: {
+      backgroundColor: 'backgroundBrandOrangeLight',
+    },
+  },
 });
 
 export default styles;
