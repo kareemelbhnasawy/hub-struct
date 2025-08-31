@@ -10,7 +10,7 @@ export const COLORS = {
   'primary-200': '#B5BFC5',
   'primary-300': '#91A0A9',
   'primary-400': '#5E7582',
-  'primary-500': '#3F5A69',
+  'primary-500': '#14455D',
   'primary-600': '#0F3144',
   'primary-700': '#0E2D3E',
   'primary-800': '#0B2330',
@@ -148,6 +148,7 @@ export const COLORS = {
   'error-900': '#7A271A',
   'error-950': '#55160C',
 
+  'alpha-white-0': '#FFFFFF00',
   'alpha-white-5': '#FFFFFF0D',
   'alpha-white-10': '#FFFFFF1A',
   'alpha-white-20': '#FFFFFF33',
@@ -158,7 +159,9 @@ export const COLORS = {
   'alpha-white-70': '#FFFFFFB3',
   'alpha-white-80': '#FFFFFFCC',
   'alpha-white-90': '#FFFFFFE6',
+  'alpha-white-100': '#FFFFFFFF',
 
+  'alpha-black-0': '#16161600',
   'alpha-black-5': '#1616160D',
   'alpha-black-10': '#1616161A',
   'alpha-black-20': '#16161633',
@@ -169,7 +172,9 @@ export const COLORS = {
   'alpha-black-70': '#161616B3',
   'alpha-black-80': '#161616CC',
   'alpha-black-90': '#161616E6',
+  'alpha-black-100': '#161616FF',
 
+  'alpha-600-primary-0': '#1B835400',
   'alpha-600-primary-5': '#1B83540D',
   'alpha-600-primary-10': '#1B83541A',
   'alpha-600-primary-20': '#1B835433',
@@ -180,6 +185,7 @@ export const COLORS = {
   'alpha-600-primary-70': '#1B8354B3',
   'alpha-600-primary-80': '#1B8354CC',
   'alpha-600-primary-90': '#1B8354E6',
+  'alpha-600-primary-100': '#1B8354FF',
 
   'alpha-yellow-5': '#DC68030D',
   'alpha-yellow-10': '#DC68031A',
@@ -224,6 +230,15 @@ export const COLORS = {
   'alpha-green-70': '#079455B3',
   'alpha-green-80': '#079455CC',
   'alpha-green-90': '#079455E6',
+
+  'alpha-success-10': '#0676471A',
+  'alpha-info-10': '#175CD31A',
+  'alpha-warning-10': '#B547081A',
+  'alpha-error-10': '#B423181A',
+  'alpha-warning-20': '#B5470833',
+  'alpha-error-20':   '#B4231833',
+  'alpha-info-20':    '#175CD333',
+  'alpha-success-20': '#06764733',
 
   // Shadow colors for light mode
   'shadow-xs-light': '#1018280D', // rgba(16, 24, 40, 0.05)
