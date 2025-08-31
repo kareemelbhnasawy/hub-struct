@@ -6,6 +6,7 @@ interface TextInputProps extends BaseTextInputProps, InputContainerProps {
   style?: RNStyle;
   error?: boolean;
   disabled?: boolean;
+  isBottomSheet?: boolean;
 }
 
 export default TextInputProps;

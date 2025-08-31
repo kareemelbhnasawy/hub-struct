@@ -6,6 +6,7 @@ import styles from '../typography/headline/styles';
 import { useThemeStore } from '@/store/theme';
 import { fontWeights } from '@/theme/theme-fonts';
 import { getFont } from '@/utilities';
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
 
 // using forward ref to use it in the pin code so i can focus and blur next and previous inputs
 // eslint-disable-next-line react/display-name
@@ -17,6 +18,7 @@ const BaseTextInput = forwardRef(
       placeholderProps,
       onChangeValue,
       style,
+      inBottomSheet = false,
       ...textInputProps
     }: BaseTextInputProps,
     ref,
@@ -24,8 +26,9 @@ const BaseTextInput = forwardRef(
     const { translate, isRTL } = useTranslate();
     const { getThemeColor, getThemedStyles } = useThemeStore();
     const themedStyles = getThemedStyles(styles);
+    const Comp = inBottomSheet ? BottomSheetTextInput : TextInput;
     return (
-      <TextInput
+      <Comp
         ref={ref}
         testID={`${testId}-base-input`}
         textAlign={isRTL ? 'right' : 'left'}

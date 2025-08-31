@@ -8,6 +8,7 @@ import useLogout from '@/network/services/auth/logout/logout.hook';
 import { useAuthStore } from '@/store/auth';
 import { deleteKey } from '@/utilities';
 import { useThemeStore } from '@/store/theme';
+import BaseSheetDemo from '@/components/molecules/base-sheet/demo';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -53,6 +54,7 @@ const HomeScreen = () => {
         leftIcon={{ name: 'LogOut' }}
         testId={'logout-button'}
       />
+      <BaseSheetDemo />
     </View>
   );
 };

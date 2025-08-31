@@ -2,6 +2,7 @@ import HeadlineProps from '@/components/atoms/typography/headline/interface';
 import { BottomSheetProps } from '@gorhom/bottom-sheet';
 import { SnapPoints } from './constants';
 import { RNStyle } from '@/types/themes';
+import BaseButtonProps from '../base-button/interface';
 
 interface BaseSheetProps
   extends Omit<BottomSheetProps, 'snapPoints' | 'children'> {
@@ -13,6 +14,11 @@ interface BaseSheetProps
   containerStyle?: RNStyle;
   modalVisible: boolean;
   setModalVisible: (arg0: boolean) => void;
+  buttonProps?: BaseButtonProps;
+  keyboardBehavior?: 'extend' | 'fillParent' | 'interactive';
+  keyboardBlurBehavior?: 'none' | 'restore';
+  enableBlurKeyboardOnGesture?: boolean;
+  android_keyboardInputMode?: 'adjustPan' | 'adjustResize';
 }
 
 export default BaseSheetProps;

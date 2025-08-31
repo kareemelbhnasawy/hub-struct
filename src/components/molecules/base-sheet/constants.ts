@@ -1,6 +1,7 @@
 export enum SnapPoints {
   SM = '25%',
   MD = '50%',
-  LG = '70%',
-  XL = '100%',
-};
+  LG = '75%',
+  XL = '90%',
+  FULL = '95%',
+}

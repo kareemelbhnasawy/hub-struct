@@ -29,6 +29,7 @@ const TextInput = ({
   error,
   disabled,
   errorProps,
+  isBottomSheet = false,
   ...props
 }: TextInputProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -75,6 +76,7 @@ const TextInput = ({
         placeholderProps={placeholderProps}
         value={value}
         onChangeValue={onChangeValue}
+        inBottomSheet={isBottomSheet}
         {...props}
       />
     </InputContainer>

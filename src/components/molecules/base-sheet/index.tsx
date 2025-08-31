@@ -6,10 +6,12 @@ import BottomSheet, {
 } from '@gorhom/bottom-sheet';
 import { styles } from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
-import { Button, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
 import { PropsWithChildren, useCallback, useEffect, useRef } from 'react';
 import { Portal } from '@gorhom/portal';
+import BaseButton from '../base-button';
+import { SnapPoints } from './constants';
 
 const BaseSheet = ({
   testId,
@@ -17,11 +19,16 @@ const BaseSheet = ({
   hasCloseButton = true,
   hasSubmitButton = false,
   children,
-  snapPoints,
+  snapPoints = SnapPoints.MD,
   containerStyle,
   modalVisible,
   setModalVisible,
   onClose,
+  buttonProps,
+  keyboardBehavior = 'extend',
+  keyboardBlurBehavior = 'restore',
+  enableBlurKeyboardOnGesture = true,
+  android_keyboardInputMode = 'adjustResize',
   ...props
 }: PropsWithChildren<BaseSheetProps>) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
@@ -70,14 +77,19 @@ const BaseSheet = ({
     <Portal>
       <BottomSheet
         ref={sheetRef}
-        snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
+        snapPoints={
+          Array.isArray(snapPoints) ? snapPoints : [snapPoints, SnapPoints.LG]
+        }
         enablePanDownToClose={true}
-        enableDynamicSizing={false}
         enableContentPanningGesture={true}
         index={modalVisible ? 0 : -1}
         style={[containerStyle, themedStyles.containerWrapper]}
         onClose={onCloseFn}
         backdropComponent={renderBackdrop}
+        keyboardBehavior={keyboardBehavior}
+        keyboardBlurBehavior={keyboardBlurBehavior}
+        enableBlurKeyboardOnGesture={enableBlurKeyboardOnGesture}
+        android_keyboardInputMode={android_keyboardInputMode}
         {...props}>
         <BottomSheetView
           testID={`${testId}-bottom-sheet`}
@@ -100,7 +112,7 @@ const BaseSheet = ({
           {/* //TODO: replace with actual Button */}
           {/* //TODO: make place for 2 buttons instead of one */}
           <View testID={`${testId}-bottom-sheet-footer-container`}>
-            {hasSubmitButton && <Button title="Submit" />}
+            {hasSubmitButton && <BaseButton {...buttonProps} />}
           </View>
         </BottomSheetView>
       </BottomSheet>

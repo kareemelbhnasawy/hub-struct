@@ -5,6 +5,7 @@ interface BaseTextInputProps
   testId: string;
   placeholderProps?: { [x: string]: string };
   onChangeValue?: (arg0: string) => void;
+  inBottomSheet?: boolean;
 }
 
 export default BaseTextInputProps;
