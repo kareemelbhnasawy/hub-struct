@@ -1,20 +1,29 @@
 import React, { useCallback, useMemo } from 'react';
-import { FlashList } from '@shopify/flash-list';
-import { Paragraph, Spacer } from '@/components/atoms';
-import { ActivityIndicator, View } from 'react-native';
+import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
+import {
+  ActivityIndicator,
+  FlatList,
+  ListRenderItemInfo,
+  Pressable,
+  View,
+} from 'react-native';
 import { ListProps } from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
+import BaseButton from '../base-button';
 
 const List = <TItem,>({
   testId,
   renderItem,
+  onListItemPress,
   isLoading = false,
   isSkeleton = false,
   listContainerStyle,
   loadingItemCount = 4,
   spacerProps,
   emptyComponentProps,
+  errorComponentProps,
+  isError,
   keyField,
   ...flashListProps
 }: ListProps<TItem>) => {
@@ -28,6 +37,12 @@ const List = <TItem,>({
       return key ? String(key) : String(index); // Use index if key is undefined
     },
     [keyField],
+  );
+
+  const renderItemFn = (arg: ListRenderItemInfo<TItem>) => (
+    <Pressable onPress={() => onListItemPress?.(arg.item)}>
+      {renderItem(arg)}
+    </Pressable>
   );
 
   const renderSpacer = useCallback(
@@ -68,32 +83,59 @@ const List = <TItem,>({
     themedStyles.loadMoreSpinnerStyle,
   ]);
 
-  const renderEmptyComponent = useCallback(
-    () =>
-      isLoading ? null : (
-        // Dummy Empty Component To Be Changed With The Design Empty Component
-        <Paragraph
-          testId={`${testId}-list`}
-          style={themedStyles.defaultEmptyComponentStyle}
-          {...emptyComponentProps}
-          text="Empty Component"
+  const renderEmptyComponent = useCallback(() => {
+    if (isLoading) {
+      return null;
+    }
+    const componentProps = isError ? errorComponentProps : emptyComponentProps;
+
+    return (
+      <View style={themedStyles.emptyComponentContainer}>
+        <LucideIcon
+          testId={`${testId}-list-empty`}
+          name="ListX"
+          size={52}
+          // ToDo: change to theme colors
+          color={'#9DA4AE'}
+          {...componentProps?.iconProps}
         />
-      ),
-    [
-      emptyComponentProps,
-      isLoading,
-      testId,
-      themedStyles.defaultEmptyComponentStyle,
-    ],
-  );
+        <Headline
+          style={themedStyles.textAlignCenter}
+          testId={`${testId}-list-empty`}
+          text="common.noRecords"
+          size="2xs"
+          weight="Medium"
+          {...componentProps?.headlineProps}
+        />
+        {componentProps?.paragraphProps && (
+          <Paragraph
+            style={themedStyles.textAlignCenter}
+            testId={`${testId}-list-empty`}
+            size="xl"
+            {...componentProps?.paragraphProps}
+          />
+        )}
+        {componentProps?.buttonProps && (
+          <BaseButton
+            testId={`${testId}-list-empty`}
+            variant="secondary"
+            fullWidth={false}
+            containerStyle={themedStyles.alignSelfCenter}
+            {...componentProps.buttonProps}
+          />
+        )}
+      </View>
+    );
+  }, [emptyComponentProps, isLoading, testId]);
 
   return (
     <View testID={`${testId}-list-container`} style={listContainerStyle}>
-      <FlashList
+      <FlatList
         {...flashListProps}
         keyExtractor={keyExtractor}
         ListEmptyComponent={renderEmptyComponent}
         testID={`${testId}-list`}
+        renderItem={renderItemFn}
         /**
          * Item separator, if not specified from consumer, a default is used
          */
@@ -104,12 +146,7 @@ const List = <TItem,>({
          * renderItem is always passed by the consumer
          * it is then passed as renderContent prop to ListItem
          */
-        renderItem={({ item, index }) =>
-          renderItem({
-            index,
-            item,
-          })
-        }
+        // renderItem={({i})=>}
         /**
          * ListFooterComponent, if showFooter && !isLoading -> show footer
          */

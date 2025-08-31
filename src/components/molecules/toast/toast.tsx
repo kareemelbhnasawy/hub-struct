@@ -22,6 +22,7 @@ const Toast = ({
   onClosePress,
   messageProps,
   actionProps,
+  iconProps,
   ...viewProps
 }: ToastProps) => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
@@ -50,6 +51,7 @@ const Toast = ({
           name={TOAST_ICON_MAPPING[type]}
           color={TOAST_ICON_COLORS[type]}
           size={20}
+          {...iconProps}
         />
         <Paragraph
           testId={`${testId}-toast-message`}
