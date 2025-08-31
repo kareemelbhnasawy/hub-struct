@@ -13,8 +13,10 @@ import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { FlatList } from 'react-native-gesture-handler';
+import { useNavigation } from '@/hooks/use-navigation';
 
 const ProfileScreen = () => {
+  const navigation = useNavigation();
   const name = 'محمد مصطفى';
   const kunya = 'أبو ألفطي';
   const displayName = kunya ? `${kunya} (${name})` : name;
@@ -22,22 +24,27 @@ const ProfileScreen = () => {
   const screenTestId = 'profile-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+
+  const handleNavigateToAccountDetails = () => {
+    navigation.navigate('PersonalAccount');
+  };
+
   const data = [
     {
       id: '1',
       title: 'profile.account',
       iconProps: {
         name: 'User',
-        bgColor: 'iconDescriptiveYellow'
+        bgColor: 'iconDescriptiveYellow',
       },
-      onPress: () => log('Personal Account pressed'),
+      onPress: handleNavigateToAccountDetails,
     },
     {
       id: '2',
       title: 'profile.digitalCard',
       iconProps: {
         name: 'IdCard',
-        bgColor: 'iconDescriptiveGreen'
+        bgColor: 'iconDescriptiveGreen',
       },
       onPress: () => log('Work Account pressed'),
     },
@@ -46,7 +53,7 @@ const ProfileScreen = () => {
       title: 'profile.team',
       iconProps: {
         name: 'Users',
-        bgColor: 'iconDescriptiveOrange'
+        bgColor: 'iconDescriptiveOrange',
       },
       onPress: () => log('Team Account pressed'),
     },
@@ -55,7 +62,7 @@ const ProfileScreen = () => {
       title: 'profile.personalize',
       iconProps: {
         name: 'HousePlus',
-        bgColor: 'iconDescriptiveTeal'
+        bgColor: 'iconDescriptiveTeal',
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -64,7 +71,7 @@ const ProfileScreen = () => {
       title: 'profile.settings',
       iconProps: {
         name: 'Settings',
-        bgColor: 'iconDescriptiveBlue'
+        bgColor: 'iconDescriptiveBlue',
       },
       onPress: () => log('Settings pressed'),
     },
@@ -97,7 +104,7 @@ const ProfileScreen = () => {
             testId={screenTestId}
           />
         </View>
-        <Spacer space={15}/>
+        <Spacer space={15} />
         <FlatList
           data={data}
           renderItem={({ item }) => (
@@ -110,7 +117,6 @@ const ProfileScreen = () => {
                 testId={screenTestId}
                 onPress={item.onPress}
               />
-              <Spacer isDivider />
             </>
           )}
           keyExtractor={(item) => item.id}
