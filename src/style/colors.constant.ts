@@ -10,7 +10,7 @@ export const COLORS = {
   'primary-200': '#B5BFC5',
   'primary-300': '#91A0A9',
   'primary-400': '#5E7582',
-  'primary-500': '#3F5A69',
+  'primary-500': '#14455D',
   'primary-600': '#0F3144',
   'primary-700': '#0E2D3E',
   'primary-800': '#0B2330',
@@ -224,6 +224,15 @@ export const COLORS = {
   'alpha-green-70': '#079455B3',
   'alpha-green-80': '#079455CC',
   'alpha-green-90': '#079455E6',
+
+  'alpha-success-10': '#0676471A',
+  'alpha-info-10': '#175CD31A',
+  'alpha-warning-10': '#B547081A',
+  'alpha-error-10': '#B423181A',
+  'alpha-warning-20': '#B5470833',
+  'alpha-error-20':   '#B4231833',
+  'alpha-info-20':    '#175CD333',
+  'alpha-success-20': '#06764733',
 
   // Shadow colors for light mode
   'shadow-xs-light': '#1018280D', // rgba(16, 24, 40, 0.05)
