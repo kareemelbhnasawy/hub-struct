@@ -1353,6 +1353,21 @@ export const themeColors = {
     dark: COLORS['neutral-50'],
   },
 
+  // avatar status colors
+  avatarStatusActive: {
+    light: COLORS['secondary-green-600'],
+    dark: COLORS['secondary-green-600'],
+  },
+  avatarStatusAway: {
+    light: COLORS['secondary-yellow-600'],
+    dark: COLORS['secondary-yellow-600'],
+  },
+  avatarStatusOffline: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
+
+
   // Icon Additional Colors
   iconSecondaryLight: {
     light: COLORS['secondary-green-25'],

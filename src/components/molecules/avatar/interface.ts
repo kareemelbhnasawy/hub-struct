@@ -4,6 +4,7 @@ interface AvatarPropsBase extends Omit<TextProps, 'testID'> {
   testId: string;
   size: 'sm' | 'md' | 'lg' | 'xl';
   containerStyle?: StyleProp<ViewStyle>;
+  status?: 'active' | 'away' | 'offline';
 }
 
 interface AvatarWithName extends AvatarPropsBase {

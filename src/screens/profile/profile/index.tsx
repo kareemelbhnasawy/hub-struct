@@ -84,6 +84,7 @@ const ProfileScreen = () => {
             <Avatar
               size="lg"
               image={defaultAvatar}
+              status="offline"
               testId={screenTestId}
               containerStyle={themedStyles.avatar}
             />

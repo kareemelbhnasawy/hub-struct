@@ -6,7 +6,14 @@ import { styles } from './styles';
 import { Paragraph } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
 
-const Avatar = ({ testId, size, name, image, containerStyle }: AvatarProps) => {
+const Avatar = ({
+  testId,
+  size,
+  name,
+  image,
+  containerStyle,
+  status,
+}: AvatarProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
@@ -30,6 +37,16 @@ const Avatar = ({ testId, size, name, image, containerStyle }: AvatarProps) => {
           weight="Bold"
           text={getInitialsFromName(name ?? '')}
           style={themedStyles.textWhite}
+        />
+      )}
+      {status && (
+        <View
+          style={[
+            themedStyles.statusBase,
+            themedStyles.roundedFull,
+            themedStyles[`${size}Status`],
+            status ? themedStyles[`${status}`] : null,
+          ]}
         />
       )}
     </View>
