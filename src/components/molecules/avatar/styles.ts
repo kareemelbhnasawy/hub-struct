@@ -15,6 +15,7 @@ export const styles = createThemedStyles({
   itemsCenter: {
     base: {
       alignItems: 'center',
+      alignSelf: 'center',
     }
   },
   justifyCenter: {
