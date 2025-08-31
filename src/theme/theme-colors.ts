@@ -1331,6 +1331,28 @@ export const themeColors = {
     dark: COLORS['error-600'],
   },
 
+  // Descriptive Icon Colors
+  iconDescriptiveYellow: {
+    light: COLORS['secondary-yellow-100'],
+    dark: COLORS['secondary-yellow-100'],
+  },
+  iconDescriptiveGreen: {
+    light: COLORS['secondary-green-100'],
+    dark: COLORS['secondary-green-100'],
+  },
+  iconDescriptiveOrange: {
+    light: COLORS['secondary-orange-100'],
+    dark: COLORS['secondary-orange-100'],
+  },
+  iconDescriptiveTeal: {
+    light: COLORS['secondary-teal-100'],
+    dark: COLORS['secondary-teal-100'],
+  },
+  iconDescriptiveBlue: {
+    light: COLORS['neutral-50'],
+    dark: COLORS['neutral-50'],
+  },
+
   // Icon Additional Colors
   iconSecondaryLight: {
     light: COLORS['secondary-green-25'],

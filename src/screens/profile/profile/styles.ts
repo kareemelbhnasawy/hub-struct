@@ -4,47 +4,35 @@ const styles = createThemedStyles({
   container: {
     base: {
       flex: 1,
-      justifyContent: 'center',
       alignItems: 'center',
-      padding: 20,
       backgroundColor: 'backgroundBody',
     },
   },
-  content: {
+  banner: {
     base: {
-      marginVertical: 30,
       alignItems: 'center',
-      gap: 10,
+      justifyContent: 'flex-end',
+      flexDirection: 'column'
     },
   },
-  infoText: {
+  avatar: {
     base: {
-      fontSize: 16,
-      color: 'textSecondaryParagraph',
-      marginBottom: 5,
     },
   },
-  buttonContainer: {
+  titleWrapper: {
     base: {
-      marginTop: 20,
-    },
-  },
-  button: {
-    base: {
-      backgroundColor: 'buttonPrimaryDefaultBackground',
-      paddingHorizontal: 30,
-      paddingVertical: 15,
-      borderRadius: 8,
-      minWidth: 200,
       alignItems: 'center',
     },
   },
-  buttonText: {
+  listItemContainer: {
     base: {
-      color: 'buttonPrimaryDefaultLabel',
-      fontSize: 16,
-      fontWeight: '600',
-    },
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: 8,
+      paddingVertical: 16,
+      width: '100%',
+    }
   },
 });
 
