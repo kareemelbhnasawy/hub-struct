@@ -148,7 +148,6 @@ export const COLORS = {
   'error-900': '#7A271A',
   'error-950': '#55160C',
 
-  'alpha-white-0': '#FFFFFF00',
   'alpha-white-5': '#FFFFFF0D',
   'alpha-white-10': '#FFFFFF1A',
   'alpha-white-20': '#FFFFFF33',
@@ -159,9 +158,7 @@ export const COLORS = {
   'alpha-white-70': '#FFFFFFB3',
   'alpha-white-80': '#FFFFFFCC',
   'alpha-white-90': '#FFFFFFE6',
-  'alpha-white-100': '#FFFFFFFF',
 
-  'alpha-black-0': '#16161600',
   'alpha-black-5': '#1616160D',
   'alpha-black-10': '#1616161A',
   'alpha-black-20': '#16161633',
@@ -172,9 +169,7 @@ export const COLORS = {
   'alpha-black-70': '#161616B3',
   'alpha-black-80': '#161616CC',
   'alpha-black-90': '#161616E6',
-  'alpha-black-100': '#161616FF',
 
-  'alpha-600-primary-0': '#1B835400',
   'alpha-600-primary-5': '#1B83540D',
   'alpha-600-primary-10': '#1B83541A',
   'alpha-600-primary-20': '#1B835433',
@@ -185,7 +180,6 @@ export const COLORS = {
   'alpha-600-primary-70': '#1B8354B3',
   'alpha-600-primary-80': '#1B8354CC',
   'alpha-600-primary-90': '#1B8354E6',
-  'alpha-600-primary-100': '#1B8354FF',
 
   'alpha-yellow-5': '#DC68030D',
   'alpha-yellow-10': '#DC68031A',

@@ -1346,10 +1346,6 @@ export const themeColors = {
   },
 
   // Alpha Colors
-  alphaWhite0: {
-    light: COLORS['alpha-white-0'],
-    dark: COLORS['alpha-white-0'],
-  },
   alphaWhite5: {
     light: COLORS['alpha-white-5'],
     dark: COLORS['alpha-white-5'],
@@ -1389,15 +1385,6 @@ export const themeColors = {
   alphaWhite90: {
     light: COLORS['alpha-white-90'],
     dark: COLORS['alpha-white-90'],
-  },
-  alphaWhite100: {
-    light: COLORS['alpha-white-100'],
-    dark: COLORS['alpha-white-100'],
-  },
-
-  alphaBlack0: {
-    light: COLORS['alpha-black-0'],
-    dark: COLORS['alpha-black-0'],
   },
   alphaBlack5: {
     light: COLORS['alpha-black-5'],
@@ -1439,11 +1426,6 @@ export const themeColors = {
     light: COLORS['alpha-black-90'],
     dark: COLORS['alpha-black-90'],
   },
-  alphaBlack100: {
-    light: COLORS['alpha-black-100'],
-    dark: COLORS['alpha-black-100'],
-  },
-
   alphaPrimary10: {
     light: COLORS['alpha-600-primary-10'],
     dark: COLORS['alpha-600-primary-10'],
