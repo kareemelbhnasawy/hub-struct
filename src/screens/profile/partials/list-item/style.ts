@@ -7,7 +7,7 @@ export const styles = createThemedStyles({
       justifyContent: 'space-between',
       alignItems: 'center',
       paddingHorizontal: 8,
-      paddingVertical: 8,
+      paddingVertical: 16,
       width: '100%',
     },
   },
