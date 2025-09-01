@@ -17,17 +17,15 @@ const LucideIcon = ({
   isRTLMirrored = false,
   containerStyle,
   onPress,
-  bgColor,
   ...props
 }: LucideIconProps) => {
   const LIcon = icons[name];
   const Wrapper = onPress ? Pressable : View;
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const { isRTL } = useTranslate();
 
   const themedStyle = getThemedStyles(styles(size));
 
-  const iconColor = getThemeColor(bgColor ?? 'transparent');
   const appliedStyles = [
     themedStyle.wrapperBase,
     themedStyle.wrapper,
@@ -44,7 +42,7 @@ const LucideIcon = ({
       <Wrapper
         testID={`${testId}-icon-container`}
         onPress={onPress}
-        style={[appliedStyles, { backgroundColor: iconColor }, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}>
+        style={[appliedStyles, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}>
         <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
       </Wrapper>
     );

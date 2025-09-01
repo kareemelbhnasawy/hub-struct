@@ -36,7 +36,7 @@ const MyProfile = () => {
       title: 'profile.personal-details',
       iconProps: {
         name: 'User',
-        bgColor: 'iconDescriptiveYellow',
+        containerStyle: { backgroundColor: 'iconDescriptiveYellow' },
       },
       onPress: () => log('Personal Account pressed'),
     },
@@ -45,7 +45,7 @@ const MyProfile = () => {
       title: 'profile.job-details',
       iconProps: {
         name: 'Building2',
-        bgColor: 'iconDescriptiveGreen',
+        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
       },
       onPress: () => log('job pressed'),
     },
@@ -54,7 +54,7 @@ const MyProfile = () => {
       title: 'profile.career-history',
       iconProps: {
         name: 'CalendarClock',
-        bgColor: 'iconDescriptiveTeal',
+        containerStyle: { backgroundColor: 'iconDescriptiveTeal' },
       },
       onPress: () => log('career history pressed'),
     },
@@ -63,7 +63,7 @@ const MyProfile = () => {
       title: 'profile.holidays-record',
       iconProps: {
         name: 'TreePalm',
-        bgColor: 'iconDescriptiveOrange',
+        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -72,7 +72,7 @@ const MyProfile = () => {
       title: 'profile.qualifications',
       iconProps: {
         name: 'FileBadge2',
-        bgColor: 'iconDescriptiveBlue',
+        containerStyle: { backgroundColor: 'iconDescriptiveBlue' },
       },
       onPress: () => log('qualifications pressed'),
     },
@@ -81,7 +81,7 @@ const MyProfile = () => {
       title: 'profile.skills',
       iconProps: {
         name: 'Medal',
-        bgColor: 'iconDescriptiveGreen',
+        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
       },
       onPress: () => log('skills pressed'),
     },
@@ -90,7 +90,7 @@ const MyProfile = () => {
       title: 'profile.custodies',
       iconProps: {
         name: 'Vault',
-        bgColor: 'iconDescriptiveOrange',
+        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
       },
       onPress: () => log('custodies pressed'),
     },

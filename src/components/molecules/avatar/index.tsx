@@ -45,7 +45,7 @@ const Avatar = ({
             themedStyles.statusBase,
             themedStyles.roundedFull,
             themedStyles[`${size}Status`],
-            status ? themedStyles[`${status}`] : null,
+            status ? themedStyles[status] : null,
           ]}
         />
       )}
