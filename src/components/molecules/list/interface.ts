@@ -1,10 +1,13 @@
-import BaseTextProps from '@/components/atoms/base-text/interface';
+import LucideIconProps from '@/components/atoms/lucide-icon/interface';
 import SpacerProps from '@/components/atoms/spacer/interface';
-import { FlashListProps, ListRenderItemInfo } from '@shopify/flash-list';
-import { ViewStyle } from 'react-native';
+import HeadlineProps from '@/components/atoms/typography/headline/interface';
+import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import { RNStyle } from '@/types/themes';
+import { FlatListProps } from 'react-native';
+import BaseButtonProps from '../base-button/interface';
 
 interface ListProps<TItem>
-  extends Omit<FlashListProps<TItem>, 'testID' | 'renderItem'> {
+  extends Omit<FlatListProps<TItem>, 'testID' | 'renderItem'> {
   testId: string;
   /**
    * The component responsible for rendering the data
@@ -17,8 +20,20 @@ interface ListProps<TItem>
    */
   isSkeleton?: boolean;
   spacerProps?: SpacerProps;
-  listContainerStyle?: ViewStyle;
-  emptyComponentProps?: BaseTextProps;
+  listContainerStyle?: RNStyle;
+  emptyComponentProps?: {
+    iconProps?: Omit<LucideIconProps, 'testId'>;
+    headlineProps?: Omit<HeadlineProps, 'testId'>;
+    paragraphProps?: Omit<ParagraphProps, 'testId'>;
+    buttonProps?: Omit<BaseButtonProps, 'testId'>;
+  };
+  errorComponentProps?: {
+    iconProps?: Omit<LucideIconProps, 'testId'>;
+    headlineProps?: Omit<HeadlineProps, 'testId'>;
+    paragraphProps?: Omit<ParagraphProps, 'testId'>;
+    buttonProps?: Omit<BaseButtonProps, 'testId'>;
+  };
+  isError?: boolean;
   /**
    * Used to determine how many skeleton components
    * should be rendered in case of loading
@@ -34,7 +49,7 @@ interface ListProps<TItem>
   /**
    * on list item press added to list props so it can be supported throughout the reusable list components
    */
-  onListItemPress?: (renderItemInfo: ListRenderItemInfo<TItem>) => void;
+  onListItemPress?: (renderItemInfo: TItem) => void;
   keyField?: string;
 }
 

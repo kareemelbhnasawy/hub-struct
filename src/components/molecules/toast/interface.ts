@@ -1,5 +1,6 @@
 import { ViewProps } from 'react-native';
 import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import LucideIconProps from '@/components/atoms/lucide-icon/interface';
 
 export type ToastType = 'success' | 'error' | 'info' | 'warn';
 
@@ -11,6 +12,7 @@ export interface ToastProps extends Omit<ViewProps, 'style' | 'testID'> {
   onClosePress?: () => void;
   messageProps: Omit<ParagraphProps, 'testId'>;
   actionProps?: Omit<ParagraphProps, 'testId'>;
+  iconProps?: Omit<LucideIconProps, 'testId'>;
 }
 
 export default ToastProps;

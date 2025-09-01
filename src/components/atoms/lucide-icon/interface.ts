@@ -1,3 +1,4 @@
+import { RNStyle } from '@/types/themes';
 import { icons, LucideProps } from 'lucide-react-native';
 
 interface LucideIconProps extends Omit<LucideProps, 'testID'> {
@@ -8,6 +9,8 @@ interface LucideIconProps extends Omit<LucideProps, 'testID'> {
   isCircle?: boolean;
   isOutline?: boolean;
   hasWrapper?: boolean;
+  isRTLMirrored?: boolean;
+  containerStyle?: RNStyle;
 }
 
 export default LucideIconProps;
