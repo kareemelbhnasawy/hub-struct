@@ -23,7 +23,8 @@
       "trim": "Field must be a trimmed string",
       "lowercase": "Field must be a lowercase string",
       "uppercase": "Field must be a upper case string",
-      "validHRSDMail": "Field must be a valid HRSD email"
+      "validHRSDMail": "Field must be a valid HRSD email",
+      "validSaudiPhoneNumber": "Field must be a valid Saudi phone number"
     },
     "number": {
       "min": "Field must be greater than or equal to {{min}}",

@@ -13,6 +13,8 @@ import enInputs from './inputs/en.json';
 import arInputs from './inputs/ar.json';
 import arOTP from './otp/ar.json';
 import enOTP from './otp/en.json';
+import arProfileDetails from './profile-details/ar.json';
+import enProfileDetails from './profile-details/en.json';
 
 export const resources = {
   en: {
@@ -20,12 +22,14 @@ export const resources = {
     auth: enAuth,
     inputs: enInputs,
     otp: enOTP,
+    profileDetails: enProfileDetails,
   },
   ar: {
     common: arCommon,
     auth: arAuth,
     inputs: arInputs,
     otp: arOTP,
+    profileDetails: arProfileDetails,
   },
 };
 

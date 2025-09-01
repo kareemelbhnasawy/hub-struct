@@ -14,6 +14,7 @@ type yupValidation = {
   max?: number;
   email?: boolean;
   validHRSDMail?: boolean;
+  validSaudiPhoneNumber?: boolean;
 };
 
 type commonInputType = {

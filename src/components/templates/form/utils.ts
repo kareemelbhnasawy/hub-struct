@@ -24,6 +24,9 @@ export const generateValidationSchema = (fields: FormFieldType[]) => {
         if (field.validation?.validHRSDMail) {
           validation = validation.validHRSDMail();
         }
+        if (field.validation?.validSaudiPhoneNumber) {
+          validation = validation.validSaudiPhoneNumber();
+        }
       }
       if (field.validation?.required) {
         validation = validation.required();

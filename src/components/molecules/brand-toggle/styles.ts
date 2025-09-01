@@ -12,6 +12,7 @@ const styles = createThemedStyles({
     base: {
       flex: 1,
       marginStart: 16,
+      justifyContent: 'center',
     },
   },
   description: {
@@ -22,7 +23,8 @@ const styles = createThemedStyles({
   },
   title: {
     base: {
-      color: 'textToggleTitle',
+      color: 'textDefault',
+      flex: 1,
     },
   },
 });

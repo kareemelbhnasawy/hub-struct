@@ -11,6 +11,8 @@ import { useThemeStore } from '@/store/theme';
 import BaseSheetDemo from '@/components/molecules/base-sheet/demo';
 
 const HomeScreen = () => {
+  const { theme } = useThemeStore();
+  console.log(theme);
   const navigation = useNavigation();
   const { getEmail } = useAuthStore();
   const handleNavigateToProfile = () => {

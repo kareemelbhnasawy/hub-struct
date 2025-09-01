@@ -17,12 +17,34 @@ export const styles = createThemedStyles({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'center',
     },
   },
   hasVerticalGap: {
     base: {
       rowGap: 20,
       flex: 1,
+    },
+  },
+  headerCenterWithClose: {
+    base: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'relative',
+    },
+  },
+  headerCenter: {
+    base: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  },
+  closeButtonAbsolute: {
+    base: {
+      position: 'absolute',
+      end: 0,
     },
   },
 });

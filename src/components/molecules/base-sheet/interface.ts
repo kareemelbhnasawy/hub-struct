@@ -4,10 +4,11 @@ import { SnapPoints } from './constants';
 import { RNStyle } from '@/types/themes';
 import BaseButtonProps from '../base-button/interface';
 
+export type HeaderVariant = 'default' | 'centerWithClose' | 'center';
 interface BaseSheetProps
   extends Omit<BottomSheetProps, 'snapPoints' | 'children'> {
   testId: string;
-  snapPoints: SnapPoints[] | SnapPoints;
+  snapPoints?: SnapPoints[] | SnapPoints;
   titleProps?: Omit<HeadlineProps, 'testId'>;
   hasCloseButton?: boolean;
   hasSubmitButton?: boolean;
@@ -19,6 +20,7 @@ interface BaseSheetProps
   keyboardBlurBehavior?: 'none' | 'restore';
   enableBlurKeyboardOnGesture?: boolean;
   android_keyboardInputMode?: 'adjustPan' | 'adjustResize';
+  headerVariant?: HeaderVariant;
 }
 
 export default BaseSheetProps;

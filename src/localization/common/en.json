@@ -1,3 +1,5 @@
 {
-  "or": "Or"
+  "or": "Or",
+  "defaultSubmit": "Submit",
+  "save": "Save",
 }

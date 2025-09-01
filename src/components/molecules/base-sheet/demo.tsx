@@ -1,14 +1,105 @@
 /* eslint-disable */
 import { useState } from 'react';
-import { View, Pressable, Switch } from 'react-native';
+import { View, Pressable } from 'react-native';
 import BaseSheet from './index';
 import { Paragraph } from '@/components/atoms';
 import TextInput from '../text-input';
+import BrandToggle from '../brand-toggle';
+import { useThemeStore } from '@/store/theme';
+import { maskPhoneNumber } from '@/utilities/maskings';
+import { getPhoneError, validateSaudiNumber } from '@/utilities/validations';
+import { formatPhoneNumber } from '@/utilities/formats';
 
 const BaseSheetDemo = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [phone, setPhone] = useState('05XXXXXXXXX');
+  const [phone, setPhone] = useState('');
+  const [extension, setExtension] = useState('');
   const [showForAll, setShowForAll] = useState(false);
+  const { getThemeColor } = useThemeStore();
+  const [type, setType] = useState<'mobile' | 'extension'>('extension');
+  const [extensionError, setExtensionError] = useState<string | null>(null);
+
+  const handleExtensionChange = (value: string) => {
+    setExtension(value);
+    setExtensionError(getExtensionError(value));
+  };
+
+  const getExtensionError = (value: string): string | null => {
+    if (!value) return 'inputs.defaultInputValidations.mixed.required';
+    // if (!/^[0-9]{4}$/.test(value))
+    //   return 'inputs.defaultInputValidations.string.length';
+    return null;
+  };
+
+  const handlePhoneChange = (value: string) => {
+    const formattedValue = formatPhoneNumber(value);
+    setPhone(formattedValue);
+  };
+
+  const mobileNumberRender = (
+    <View>
+      <TextInput
+        value={showForAll ? phone : maskPhoneNumber(phone)}
+        onChangeText={handlePhoneChange}
+        keyboardType="phone-pad"
+        maxLength={13} // Adjust for "+966" format
+        style={{
+          borderWidth: 1,
+          borderRadius: 8,
+          padding: 12,
+          marginTop: 8,
+          marginBottom: 16,
+          fontSize: 18,
+        }}
+        isRequired
+        labelProps={{
+          text: 'profileDetails.mobileNumber',
+        }}
+        placeholder="05XXXXXXXXX"
+        errorProps={getPhoneError(phone)}
+        isBottomSheet={true}
+        testId="demo-base-sheet-input"
+        editable={showForAll}
+      />
+      <BrandToggle
+        testId="demo-base-sheet-brand-toggle"
+        value={showForAll}
+        onValueChange={setShowForAll}
+        titleProps={{
+          text: 'profileDetails.showNumber',
+        }}
+      />
+    </View>
+  );
+
+  const extensionRender = (
+    <View>
+      <TextInput
+        value={extension}
+        onChangeText={handleExtensionChange}
+        keyboardType="number-pad"
+        maxLength={4}
+        isRequired
+        style={{
+          borderWidth: 1,
+          borderColor: getThemeColor('borderBackgroundNeutral'),
+          borderRadius: 8,
+          padding: 12,
+          marginTop: 8,
+          marginBottom: 16,
+          fontSize: 18,
+        }}
+        labelProps={{
+          text: 'profileDetails.extension',
+        }}
+        placeholder="1234"
+        isBottomSheet={true}
+        errorProps={extensionError ? { text: extensionError } : undefined}
+        testId="demo-base-sheet-input"
+        editable={true}
+      />
+    </View>
+  );
 
   return (
     <View
@@ -29,116 +120,36 @@ const BaseSheetDemo = () => {
         <Paragraph
           style={{ color: 'white', fontWeight: 'bold' }}
           text="تعديل التليفون الشخصي"
+          testId="demo-base-sheet-open-button"
         />
       </Pressable>
 
       <BaseSheet
         testId="demo-base-sheet"
+        headerVariant="centerWithClose"
         titleProps={{
-          text: 'تعديل التليفون شخصي 1',
-          size: 'lg',
+          text:
+            type === 'mobile'
+              ? 'profileDetails.editPersonalPhone1'
+              : 'profileDetails.editExtension',
+          size: 'md',
           weight: 'Semibold',
-          style: { textAlign: 'right', writingDirection: 'rtl' },
         }}
         hasCloseButton={true}
         hasSubmitButton={true}
         buttonProps={{
-          textProps: { text: 'حفظ', style: { writingDirection: 'rtl' } },
-          variant: 'primary',
+          textProps: { text: 'common.save' },
           onPress: () => setModalVisible(false),
-          disabled: phone.length < 10,
-          style: { marginTop: 16 },
+          disabled:
+            type === 'mobile'
+              ? !validateSaudiNumber(phone)
+              : extension.length < 1,
           testId: 'demo-base-sheet-button',
         }}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         containerStyle={{ borderTopLeftRadius: 16, borderTopRightRadius: 16 }}>
-        <View style={{ padding: 16 }}>
-          <Paragraph
-            text="رقم الجوال"
-            size="md"
-            weight="Medium"
-            style={{
-              color: '#344054',
-              marginBottom: 4,
-              textAlign: 'right',
-              writingDirection: 'rtl',
-            }}
-          />
-          <Paragraph
-            text="*"
-            size="xs"
-            weight="Regular"
-            style={{
-              color: '#F04438',
-              fontSize: 12,
-              textAlign: 'right',
-              writingDirection: 'rtl',
-            }}
-          />
-          <TextInput
-            value={phone}
-            onChangeText={setPhone}
-            keyboardType="number-pad"
-            maxLength={10}
-            style={{
-              borderWidth: 1,
-              borderColor: '#D0D5DD',
-              borderRadius: 8,
-              padding: 12,
-              marginTop: 8,
-              marginBottom: 16,
-              textAlign: 'right',
-              writingDirection: 'rtl',
-              fontSize: 18,
-              backgroundColor: '#fff',
-            }}
-            placeholder="05XXXXXXXXX"
-            placeholderTextColor="#98A2B3"
-            isBottomSheet={true}
-            testId="demo-base-sheet-input"
-          />
-          <View
-            style={{
-              flexDirection: 'row-reverse',
-              alignItems: 'center',
-              marginBottom: 16,
-            }}>
-            <Paragraph
-              text="T Text"
-              size="sm"
-              weight="Medium"
-              style={{
-                backgroundColor: '#7F56D9',
-                color: '#fff',
-                paddingHorizontal: 8,
-                borderRadius: 4,
-                marginLeft: 8,
-                fontSize: 14,
-              }}
-            />
-            <Paragraph
-              text="اظهار الرقم للجميع"
-              size="sm"
-              weight="Medium"
-              style={{
-                color: '#7F56D9',
-                borderWidth: 2,
-                borderColor: '#7F56D9',
-                borderRadius: 4,
-                paddingHorizontal: 8,
-                paddingVertical: 2,
-                fontSize: 14,
-                marginLeft: 8,
-              }}
-            />
-            <Switch
-              value={showForAll}
-              onValueChange={setShowForAll}
-              style={{ transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }] }}
-            />
-          </View>
-        </View>
+        {type === 'mobile' ? mobileNumberRender : extensionRender}
       </BaseSheet>
     </View>
   );
