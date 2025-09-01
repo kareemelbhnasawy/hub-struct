@@ -7,13 +7,13 @@ import {
 } from '@/components/atoms';
 import styles from './styles';
 import Page from '@/components/templates/page';
-import { Avatar } from '@/components/molecules';
+import { Avatar, List } from '@/components/molecules';
 import defaultAvatar from '@/assets/images/HRSD-Logo.png';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
-import { FlatList } from 'react-native-gesture-handler';
 import { useNavigation } from '@/hooks';
+import { listItemDataType } from '../partials/list-item/interface';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -29,7 +29,7 @@ const ProfileScreen = () => {
     navigation.navigate('MyProfile');
   };
 
-  const data = [
+  const data: listItemDataType[] = [
     {
       id: '1',
       title: 'profile.account',
@@ -76,6 +76,20 @@ const ProfileScreen = () => {
       onPress: () => log('Settings pressed'),
     },
   ];
+
+  const renderListItem = ({ item }: { item: listItemDataType; index: number }) => {
+    return (
+      <ListItem
+        iconProps={item.iconProps}
+        textProps={{
+          text: item.title,
+        }}
+        testId={screenTestId}
+        onPress={item.onPress}
+      />
+    );
+  };
+
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
@@ -106,36 +120,13 @@ const ProfileScreen = () => {
           />
         </View>
         <Spacer space={15} />
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <>
-              <ListItem
-                iconProps={item.iconProps}
-                textProps={{
-                  text: item.title,
-                }}
-                testId={screenTestId}
-                onPress={item.onPress}
-              />
-            </>
-          )}
-          keyExtractor={(item) => item.id}
-        />
-        {/* <List
-          data={[
-            { id: '1', title: 'Item 1' },
-            { id: '2', title: 'Item 2' },
-            { id: '3', title: 'Item 3' },
-          ]}
-          renderItem={({ item }) => (
-            <List.Item
-              title={item.title}
-              onPress={() => console.log(item.id)}
-            />
-          )}
+
+        <List<listItemDataType>
           testId={screenTestId}
-        /> */}
+          data={data}
+          renderItem={renderListItem}
+          keyField="title"
+        />
       </View>
     </Page>
   );

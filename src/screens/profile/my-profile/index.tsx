@@ -5,12 +5,32 @@ import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { FlatList } from 'react-native-gesture-handler';
+import { listItemDataType } from '../partials/list-item/interface';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const data = [
+
+  const renderListItem = ({
+    item,
+  }: {
+    item: listItemDataType;
+    index: number;
+  }) => {
+    return (
+      <ListItem
+        iconProps={item.iconProps}
+        textProps={{
+          text: item.title,
+        }}
+        testId={screenTestId}
+        onPress={item.onPress}
+      />
+    );
+  };
+
+  const data: listItemDataType[] = [
     {
       id: '1',
       title: 'profile.personal-details',
@@ -80,19 +100,7 @@ const MyProfile = () => {
       <View style={themedStyles.container}>
         <FlatList
           data={data}
-          renderItem={({ item }) => (
-            <>
-              <ListItem
-                iconProps={item.iconProps}
-                textProps={{
-                  text: item.title,
-                }}
-                testId={screenTestId}
-                onPress={item.onPress}
-              />
-              
-            </>
-          )}
+          renderItem={renderListItem}
           keyExtractor={(item) => item.id}
         />
       </View>
