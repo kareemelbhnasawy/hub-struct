@@ -17,6 +17,7 @@ const styles = createThemedStyles({
   },
   avatar: {
     base: {
+      marginTop: 'auto',
     },
   },
   titleWrapper: {

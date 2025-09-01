@@ -22,7 +22,7 @@ const styles = (imageWidth: number, imageHeight: number) =>
       base: {
         width: imageWidth,
         height: imageHeight,
-        ...StyleSheet.absoluteFillObject,
+        // ...StyleSheet.absoluteFillObject,
       },
       options: { skipScale: true },
     },

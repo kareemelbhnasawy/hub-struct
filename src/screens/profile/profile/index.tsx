@@ -80,13 +80,13 @@ const ProfileScreen = () => {
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
         <View>
-          <CurvedHeroImage testId={screenTestId} style={themedStyles.banner}>
+          <CurvedHeroImage testId={screenTestId}>
             <Avatar
               size="lg"
               image={defaultAvatar}
               status="offline"
               testId={screenTestId}
-              containerStyle={{ marginTop: 'auto' }}
+              containerStyle={themedStyles.avatar}
             />
           </CurvedHeroImage>
         </View>
