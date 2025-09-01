@@ -5,7 +5,6 @@ import { useNavigation } from '@/hooks';
 import useSetPin from '@/network/services/auth/set-pin/set-pin.hook';
 import { useAuthStore } from '@/store/auth';
 import { useState } from 'react';
-import { View } from 'react-native';
 
 const ConfirmPinScreen = () => {
   const screenTestId = 'confirm-pin-screen';
@@ -45,13 +44,11 @@ const ConfirmPinScreen = () => {
         weight="Medium"
       />
       <Spacer space={40} />
-      <View>
-        <PinCode
-          testId={screenTestId}
-          onPinComplete={onConfirmPin}
-          errorProps={error ? { text: 'Pin mismatch' } : undefined}
-        />
-      </View>
+      <PinCode
+        testId={screenTestId}
+        onPinComplete={onConfirmPin}
+        errorProps={error ? { text: 'Pin mismatch' } : undefined}
+      />
       <Spacer />
     </Page>
   );

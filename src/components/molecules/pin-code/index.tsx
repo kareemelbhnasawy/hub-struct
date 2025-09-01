@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { FlatList, TextInput, TextInputKeyPressEvent } from 'react-native';
+import {
+  FlatList,
+  TextInput,
+  TextInputKeyPressEvent,
+  View,
+} from 'react-native';
 import { PinCodeProps } from './interface';
 import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
 import { Paragraph, Spacer } from '@/components/atoms';
 import headlineStyles from '@/components/atoms/typography/headline/styles';
-import { getString } from '@/utilities';
-import { STORAGE_KEYS } from '@/constants/storageKeys';
+// import { getString } from '@/utilities';
+// import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 const PinCode = ({
   testId,
@@ -15,7 +20,8 @@ const PinCode = ({
   errorProps,
   disabled,
   secureTextEntry,
-  onTyping
+  onTyping,
+  containerStyle,
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -84,18 +90,18 @@ const PinCode = ({
     return '';
   };
 
-  const isDirectionInverted = () : boolean => {
-    const locale = getString(STORAGE_KEYS.LANGUAGE);
-    return locale === 'ar';
-  };
+  // const isDirectionInverted = (): boolean => {
+  //   const locale = getString(STORAGE_KEYS.LANGUAGE);
+  //   return locale === 'ar';
+  // };
   return (
-    <>
+    <View style={containerStyle}>
       <FlatList
         key={`${testId}-pin-flatlist`}
         testID={`${testId}-pin-flatlist`}
         data={Array(pinLength).fill(null)}
         horizontal
-        inverted={isDirectionInverted()}
+        // inverted={isDirectionInverted()}
         contentContainerStyle={themedStyles.pinContainer}
         renderItem={({ index }) => (
           <TextInput
@@ -135,7 +141,7 @@ const PinCode = ({
           {...errorProps}
         />
       ) : undefined}
-    </>
+    </View>
   );
 };
 export default PinCode;

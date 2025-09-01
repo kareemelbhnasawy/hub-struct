@@ -7,10 +7,10 @@ import { useNavigation } from '@/hooks';
 import { BaseButton, PinCode } from '@/components/molecules';
 import { clientSetToken } from '@/network/utilities';
 import useLoginPin from '@/network/services/auth/login-pin/login-pin.hook';
-import { View } from 'react-native';
 import { useAuthStore } from '@/store/auth';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 import { setString } from '@/utilities';
+import { useState } from 'react';
 
 const PinLoginScreen = () => {
   const navigation = useNavigation();
@@ -18,13 +18,18 @@ const PinLoginScreen = () => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const { username, email } = useAuthStore();
+  const [error, setError] = useState(false);
   const onSuccessPinLogin = (data) => {
     clientSetToken(data?.accessToken, false);
     setString(STORAGE_KEYS.REFRESH_TOKEN, data?.refreshToken);
     navigation.resetToStack('App', 'Home');
   };
 
-  const { mutate, isPending } = useLoginPin(onSuccessPinLogin);
+  const onErrorPinLogin = () => {
+    setError(true);
+  };
+
+  const { mutate, isPending } = useLoginPin(onSuccessPinLogin, onErrorPinLogin);
 
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={isPending}>
@@ -49,13 +54,12 @@ const PinLoginScreen = () => {
         style={themedStyles.defaultText}
       />
       <Spacer space={30} />
-      <View>
-        <PinCode
-          secureTextEntry
-          testId={screenTestId}
-          onPinComplete={(pinCode) => mutate({ email, pinCode })}
-        />
-      </View>
+      <PinCode
+        secureTextEntry
+        testId={screenTestId}
+        onPinComplete={(pinCode) => mutate({ email, pinCode })}
+        errorProps={error ? { text: 'otp.invalidCode' } : undefined}
+      />
       <Spacer isOrDivider spaceBottom={30} spaceTop={60} />
       <BaseButton
         testId={screenTestId}
