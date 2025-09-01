@@ -14,11 +14,13 @@ import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { listItemDataType } from '../partials/list-item/interface';
+import { useAuthStore } from '@/store/auth';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const name = 'محمد مصطفى';
-  const kunya = 'أبو ألفطي';
+  const { getUsername, getNickname } = useAuthStore();
+  const name = getUsername();
+  const kunya = getNickname();
   const displayName = kunya ? `${kunya} (${name})` : name;
   const jobTitle = 'مهندس برمجيات';
   const screenTestId = 'profile-screen';
@@ -77,7 +79,12 @@ const ProfileScreen = () => {
     },
   ];
 
-  const renderListItem = ({ item }: { item: listItemDataType; index: number }) => {
+  const renderListItem = ({
+    item,
+  }: {
+    item: listItemDataType;
+    index: number;
+  }) => {
     return (
       <ListItem
         iconProps={item.iconProps}
@@ -126,6 +133,7 @@ const ProfileScreen = () => {
           data={data}
           renderItem={renderListItem}
           keyField="title"
+          scrollEnabled={false}
         />
       </View>
     </Page>

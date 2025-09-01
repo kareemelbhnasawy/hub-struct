@@ -1,5 +1,6 @@
 import LucideIconProps from '@/components/atoms/lucide-icon/interface';
 import HeadlineProps from '@/components/atoms/typography/headline/interface';
+import { themeColors } from '@/theme/theme-colors';
 import { icons } from 'lucide-react-native';
 
 interface ListItemProps {
@@ -14,7 +15,7 @@ export type listItemDataType = {
   title: string;
   iconProps: {
     name: keyof typeof icons;
-    bgColor: string;
+    bgColor: keyof typeof themeColors;
   };
   onPress: () => void;
 };

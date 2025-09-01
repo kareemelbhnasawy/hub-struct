@@ -4,8 +4,8 @@ import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
-import { FlatList } from 'react-native-gesture-handler';
 import { listItemDataType } from '../partials/list-item/interface';
+import { List } from '@/components/molecules';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
@@ -98,10 +98,12 @@ const MyProfile = () => {
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
-        <FlatList
+        <List<listItemDataType>
+          testId={screenTestId}
           data={data}
           renderItem={renderListItem}
           keyExtractor={(item) => item.id}
+          scrollEnabled={false}
         />
       </View>
     </Page>
