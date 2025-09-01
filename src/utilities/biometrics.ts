@@ -1,3 +1,4 @@
+import { I18nManager } from 'react-native';
 import ReactNativeBiometrics from 'react-native-biometrics';
 
 const rnBiometrics = new ReactNativeBiometrics();
@@ -19,7 +20,8 @@ export const deleteBioKeys = () => {
 
 export const createBioSignature = (challenge: string) => {
   return rnBiometrics.createSignature({
-    promptMessage: 'Sign in',
+    promptMessage: I18nManager.isRTL ? 'تطبيق الوزارة' : 'Ministry application',
     payload: challenge,
+    cancelButtonText: I18nManager.isRTL ? 'إلغاء' : 'Cancel',
   });
 };

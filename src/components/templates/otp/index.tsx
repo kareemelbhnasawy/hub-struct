@@ -115,14 +115,13 @@ export default function OtpConfirmationScreen({ route }: Props) {
         style={themedStyles.subText}
       />
       <Spacer space={84} />
-      <View style={themedStyles.pinCodeWrapper}>
-        <PinCode
-          onPinComplete={handlePinComplete}
-          testId={screenTestId}
-          errorProps={error ? { text: 'otp.invalidCode' } : undefined}
-          onTyping={handlePinTyping}
-        />
-      </View>
+      <PinCode
+        onPinComplete={handlePinComplete}
+        testId={screenTestId}
+        errorProps={error ? { text: 'otp.invalidCode' } : undefined}
+        onTyping={handlePinTyping}
+        containerStyle={themedStyles.pinCodeWrapper}
+      />
       <Headline
         testId={`${screenTestId}-timer`}
         text={formattedTime}

@@ -1,6 +1,5 @@
 import { List } from '@/components/molecules';
 import SelectionGroupProps from './interface';
-import { ListRenderItemInfo } from '@shopify/flash-list';
 
 const SelectionGroup = ({
   testId,
@@ -12,7 +11,7 @@ const SelectionGroup = ({
   renderSelectedItem,
   ...listProps
 }: SelectionGroupProps) => {
-  const onListItemPressFn = (item: ListRenderItemInfo<TItem>) => {
+  const onListItemPressFn = (item: TItem) => {
     onChangeValue?.(item[valueKey]);
     onListItemPress?.(item);
   };

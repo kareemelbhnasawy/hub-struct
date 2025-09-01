@@ -1,4 +1,5 @@
 import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import { RNStyle } from '@/types/themes';
 
 export interface PinCodeProps {
   testId: string;
@@ -8,4 +9,5 @@ export interface PinCodeProps {
   disabled?: boolean;
   secureTextEntry?: boolean;
   onTyping?: () => void;
+  containerStyle?: RNStyle;
 }

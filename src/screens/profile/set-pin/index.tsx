@@ -2,6 +2,7 @@ import { Headline, Spacer } from '@/components/atoms';
 import { PinCode } from '@/components/molecules';
 import { Page } from '@/components/templates';
 import { useNavigation } from '@/hooks';
+import { View } from 'react-native';
 
 const SetPinScreen = () => {
   const screenTestId = 'set-pin-screen';
@@ -24,10 +25,12 @@ const SetPinScreen = () => {
         weight="Medium"
       />
       <Spacer space={40} />
-      <PinCode
-        testId={screenTestId}
-        onPinComplete={(pin) => navigation.navigateTo('ConfirmPin', { pin })}
-      />
+      <View>
+        <PinCode
+          testId={screenTestId}
+          onPinComplete={(pin) => navigation.navigateTo('ConfirmPin', { pin })}
+        />
+      </View>
       <Spacer />
     </Page>
   );
