@@ -4,7 +4,7 @@ import { ProfileScreenParams } from '@/screens/profile/profile/interface';
 
 export type AppStackParamList = {
   Home: HomeScreenParams;
-  Profile: ProfileScreenParams;
+  ProfileStack: ProfileScreenParams;
   QuickLogin: undefined;
   SetPin: undefined;
   ConfirmPin: SetPinScreenParams;
