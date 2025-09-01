@@ -13,12 +13,14 @@ import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { listItemDataType } from '../partials/list-item/interface';
+import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
+import { useEffect, useState } from 'react';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const avatarImageId = '';
-  const name = 'محمد مصطفى';
-  const kunya = 'أبو ألفطي';
+  const [name, setName] = useState<string>('');
+  const [kunya, setKunya] = useState<string>('');
   const displayName = kunya ? `${kunya} (${name})` : name;
   const jobTitle = 'مهندس برمجيات';
   const screenTestId = 'profile-screen';
@@ -29,13 +31,13 @@ const ProfileScreen = () => {
     navigation.navigate('MyProfile');
   };
 
-  const data: listItemDataType[] = [
+  const listItemData: listItemDataType[] = [
     {
       id: '1',
       title: 'profile.account',
       iconProps: {
         name: 'User',
-        bgColor: 'iconDescriptiveYellow',
+        containerStyle: { backgroundColor: 'iconDescriptiveYellow' },
       },
       onPress: handleNavigateToAccountDetails,
     },
@@ -44,7 +46,7 @@ const ProfileScreen = () => {
       title: 'profile.digitalCard',
       iconProps: {
         name: 'IdCard',
-        bgColor: 'iconDescriptiveGreen',
+        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
       },
       onPress: () => log('Work Account pressed'),
     },
@@ -53,7 +55,7 @@ const ProfileScreen = () => {
       title: 'profile.team',
       iconProps: {
         name: 'Users',
-        bgColor: 'iconDescriptiveOrange',
+        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
       },
       onPress: () => log('Team Account pressed'),
     },
@@ -62,7 +64,7 @@ const ProfileScreen = () => {
       title: 'profile.personalize',
       iconProps: {
         name: 'HousePlus',
-        bgColor: 'iconDescriptiveTeal',
+        containerStyle: { backgroundColor: 'iconDescriptiveTeal' },
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -71,7 +73,7 @@ const ProfileScreen = () => {
       title: 'profile.settings',
       iconProps: {
         name: 'Settings',
-        bgColor: 'iconDescriptiveBlue',
+        containerStyle: { backgroundColor: 'iconDescriptiveBlue' },
       },
       onPress: () => log('Settings pressed'),
     },
@@ -95,8 +97,17 @@ const ProfileScreen = () => {
     );
   };
 
+  const { data, isSuccess, isLoading } = useProfileHeader();
+
+  useEffect(() => {
+    if (isSuccess) {
+      setName(data?.name);
+      setKunya(data?.nickname);
+    }
+  }, [data, isSuccess]);
+
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={false}>
+    <Page testId={screenTestId} hasHeader={false} isLoading={isLoading}>
       <View style={themedStyles.container}>
         <View>
           <CurvedHeroImage testId={screenTestId}>
@@ -129,7 +140,7 @@ const ProfileScreen = () => {
 
         <List<listItemDataType>
           testId={screenTestId}
-          data={data}
+          data={listItemData}
           renderItem={renderListItem}
           keyField="title"
           scrollEnabled={false}
