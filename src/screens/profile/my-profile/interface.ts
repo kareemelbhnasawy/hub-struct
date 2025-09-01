@@ -1,4 +1,4 @@
 //example of known screen params
-export type PersonalAccountScreenParams = {
+export type MyProfileScreenParams = {
   userId?: string;
 };

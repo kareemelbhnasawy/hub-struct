@@ -26,7 +26,8 @@ const ListItem = ({ testId, textProps, iconProps, onPress }: ListItemProps) => {
         />
         <LucideIcon
           testId={testId}
-          name='ChevronRight'
+          name="ChevronRight"
+          isRTLMirrored
           size={24}
         />
       </Pressable>

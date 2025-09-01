@@ -10,5 +10,9 @@
   "holidays-record": "Holidays Record",
   "qualifications": "Qualifications",
   "skills": "My Skills",
-  "custodies": "Custodies"
+  "custodies": "Custodies",
+  "editAddress": "Edit address",
+  "contractAddress": "The address registered in the contract",
+  "chooseAddress": "Choose another title from your titles in Sabil",
+  "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil."
 }

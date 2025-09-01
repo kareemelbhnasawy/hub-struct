@@ -26,7 +26,7 @@ const ProfileScreen = () => {
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
-    navigation.navigate('PersonalAccount');
+    navigation.navigate('MyProfile');
   };
 
   const data = [

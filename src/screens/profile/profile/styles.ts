@@ -25,6 +25,7 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
+
 });
 
 export default styles;

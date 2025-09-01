@@ -14,6 +14,8 @@ const LucideIcon = ({
   isOutline,
   isCircle,
   hasWrapper = false,
+  isRTLMirrored = false,
+  containerStyle,
   onPress,
   bgColor,
   ...props
@@ -31,6 +33,7 @@ const LucideIcon = ({
     themedStyle.wrapper,
     isCircle ? themedStyle.circleBackground : null,
     isOutline ? themedStyle.outline : null,
+    containerStyle,
   ];
 
   // question: should we add onPress to the following condition so icon always
@@ -46,7 +49,7 @@ const LucideIcon = ({
       </Wrapper>
     );
   return (
-    <View style={{ transform: [{ scaleX: isRTL ? -1 : 1 }] }}>
+    <View style={{ transform: [{ scaleX: isRTLMirrored && isRTL ? -1 : 1 }] }}>
       <LIcon size={scale(size)} {...props} onPress={onPress} />
     </View>
   );

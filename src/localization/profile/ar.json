@@ -10,5 +10,9 @@
   "holidays-record": "رصيد الإجازات",
   "qualifications": "المؤهلات",
   "skills": "مهاراتي",
-  "custodies": "العُهد"
+  "custodies": "العُهد",
+  "editAddress": "تعديل العنوان",
+  "contractAddress": "العنوان المسجل في العقد",
+  "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
+  "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل."
 }

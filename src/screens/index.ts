@@ -6,4 +6,4 @@ export { default as ProfileScreen } from './profile/profile';
 export { default as QuickLoginScreen } from './profile/quick-login';
 export { default as SetPinScreen } from './profile/set-pin';
 export { default as ConfirmPinScreen } from './profile/confirm-pin';
-export { default as PersonalAccountScreen } from './profile/personal-account';
+export { default as MyProfileScreen } from './profile/my-profile';

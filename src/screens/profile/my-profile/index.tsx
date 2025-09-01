@@ -6,8 +6,8 @@ import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { FlatList } from 'react-native-gesture-handler';
 
-const PersonalAccountScreen = () => {
-  const screenTestId = 'personal-account-screen';
+const MyProfile = () => {
+  const screenTestId = 'my-profile-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const data = [
@@ -100,4 +100,4 @@ const PersonalAccountScreen = () => {
   );
 };
 
-export default PersonalAccountScreen;
+export default MyProfile;

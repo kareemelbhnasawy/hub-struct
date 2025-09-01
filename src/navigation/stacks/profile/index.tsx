@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   ProfileScreen,
-  PersonalAccountScreen,
+  MyProfileScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
 
@@ -17,7 +17,7 @@ const ProfileStack = () => {
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="PersonalAccount" component={PersonalAccountScreen} />
+      <Stack.Screen name="MyProfile" component={MyProfileScreen} />
     </Stack.Navigator>
   );
 };

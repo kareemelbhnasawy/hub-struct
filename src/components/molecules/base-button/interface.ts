@@ -1,6 +1,7 @@
 import { PressableProps } from 'react-native';
 import BaseTextProps from '../../atoms/base-text/interface';
 import LucideIconProps from '../../atoms/lucide-icon/interface';
+import { RNStyle } from '@/types/themes';
 
 type ButtonVariant = 'primary' | 'secondary';
 
@@ -25,6 +26,8 @@ interface BaseButtonProps extends PressableProps {
   success?: boolean;
   loading?: boolean;
   variant?: ButtonVariant;
+  fullWidth?: boolean;
+  containerStyle?: RNStyle;
 }
 
 export default BaseButtonProps;
