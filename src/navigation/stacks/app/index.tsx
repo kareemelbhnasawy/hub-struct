@@ -7,6 +7,7 @@ import {
   SetPinScreen,
 } from '@/screens';
 import ProfileStack from '../profile';
+import PersonDetails from '@/screens/profile/person-details';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -24,6 +25,7 @@ const AppStack = () => {
       <Stack.Screen name="QuickLogin" component={QuickLoginScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
+      <Stack.Screen name="PersonDetails" component={PersonDetails} />
     </Stack.Navigator>
   );
 };

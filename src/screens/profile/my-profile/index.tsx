@@ -6,11 +6,13 @@ import ListItem from '../partials/profile-setting-item';
 import { log } from '@/utilities';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { List } from '@/components/molecules';
+import { useNavigation } from '@react-navigation/native';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+  const navigation = useNavigation();
 
   const renderListItem = ({
     item,
@@ -40,7 +42,7 @@ const MyProfile = () => {
           backgroundColor: getThemeColor('iconDescriptiveYellow'),
         },
       },
-      onPress: () => log('Personal Account pressed'),
+      onPress: () => navigation.navigate('PersonDetails'),
     },
     {
       id: '2',

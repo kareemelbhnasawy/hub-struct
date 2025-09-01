@@ -8,4 +8,5 @@ export type AppStackParamList = {
   QuickLogin: undefined;
   SetPin: undefined;
   ConfirmPin: SetPinScreenParams;
+  PersonDetails: undefined;
 };

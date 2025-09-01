@@ -16,6 +16,9 @@ import enOTP from './otp/en.json';
 import enProfile from './profile/en.json';
 import arProfile from './profile/ar.json';
 
+import enPersonDetails from './profile/person-details/en.json';
+import arPersonDetails from './profile/person-details/ar.json';
+
 export const resources = {
   en: {
     common: enCommon,
@@ -23,6 +26,7 @@ export const resources = {
     inputs: enInputs,
     otp: enOTP,
     profile: enProfile,
+    personDetails: enPersonDetails
   },
   ar: {
     common: arCommon,
@@ -30,6 +34,7 @@ export const resources = {
     inputs: arInputs,
     otp: arOTP,
     profile: arProfile,
+    personDetails: arPersonDetails
   },
 };
 
