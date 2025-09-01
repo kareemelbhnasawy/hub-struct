@@ -24,7 +24,7 @@ const BaseSheetDemo = () => {
   const { deviceId } = useDeviceId();
 
   // Use Yup schema for Saudi phone validation
-  const phoneSchema = Yup.string().validSaudiPhoneNumber();
+  const phoneSchema = Yup.string().required().validSaudiPhoneNumber();
 
   const getPhoneError = (value: string) => {
     try {
