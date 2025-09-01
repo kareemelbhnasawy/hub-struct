@@ -3,5 +3,7 @@
   "extension": "Extension",
   "mobileNumber": "Mobile Number",
   "showNumber": "Show number to everyone",
-  "editExtension": "Edit Extension"
+  "editExtension": "Edit Extension",
+  "mobileSuccessfulEdit": "Personal Number 1 edited successfully!",
+  "extensionSuccessfulEdit": "Extension edited successfully!"
 }

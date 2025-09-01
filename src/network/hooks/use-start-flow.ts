@@ -22,9 +22,10 @@ export const useStartFlow = (
   url: string,
   onSuccess?: (data: unknown) => void,
   onError?: (error: unknown) => void,
+  mutationKey?: string,
 ) => {
   return useCustomMutation<StartFlowRequest, unknown>({
-    mutationKey: [`${url}_START`],
+    mutationKey: [`${url}_START`, mutationKey],
     mutationFn: (data) => startFlowService(url, data),
     onSuccess: onSuccess ?? (() => {}),
     onError: onError ?? (() => {}),

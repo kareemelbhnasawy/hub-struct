@@ -9,15 +9,67 @@ import { useThemeStore } from '@/store/theme';
 import { maskPhoneNumber } from '@/utilities/maskings';
 import { getPhoneError, validateSaudiNumber } from '@/utilities/validations';
 import { formatPhoneNumber } from '@/utilities/formats';
+import { useNavigation } from '@/hooks';
+import { useStartFlow } from '@/network/hooks';
+import { useDeviceId } from '@/hooks/use-device-id';
 
 const BaseSheetDemo = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [phone, setPhone] = useState('');
-  const [extension, setExtension] = useState('');
+  const { navigateToOTP } = useNavigation();
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [extensionNumber, setExtension] = useState('');
   const [showForAll, setShowForAll] = useState(false);
   const { getThemeColor } = useThemeStore();
-  const [type, setType] = useState<'mobile' | 'extension'>('extension');
+  const [type, setType] = useState<'mobile' | 'extension'>('mobile');
   const [extensionError, setExtensionError] = useState<string | null>(null);
+  const { deviceId } = useDeviceId();
+
+  const onSuccessStartPhone = (data: unknown) => {
+    setModalVisible(false);
+    navigateToOTP({
+      body: { mobileNumber, deviceId },
+      nextScreen: 'Home',
+      url: 'profile/v1/mobile-number/edit',
+      expiresIn: data?.expiresIn,
+      mobile: data?.mobileNumber,
+      nextScreenParams: {
+        showSuccessToast: true,
+        successToastMessage: 'profileDetails.mobileSuccessfulEdit',
+      },
+    });
+  };
+  const onSuccessStartExtension = (data: unknown) => {
+    setModalVisible(false);
+    navigateToOTP({
+      body: { extensionNumber, deviceId },
+      nextScreen: 'Home',
+      url: 'profile/v1/extension-number/edit',
+      expiresIn: data?.expiresIn,
+      mobile: data?.mobileNumber,
+      nextScreenParams: {
+        showSuccessToast: true,
+        successToastMessage: 'profileDetails.extensionSuccessfulEdit',
+      },
+    });
+  };
+  const onErrorStartPhone = () => {
+    setModalVisible(false);
+  };
+  const onErrorStartExtension = () => {
+    setModalVisible(false);
+  };
+  const { mutate: mutatePhone } = useStartFlow(
+    'profile/v1/mobile-number/edit',
+    onSuccessStartPhone,
+    onErrorStartPhone,
+    'PHONE_START',
+  );
+  const { mutate: mutateExtension } = useStartFlow(
+    'profile/v1/extension-number/edit',
+    onSuccessStartExtension,
+    onErrorStartExtension,
+    'EXTENSION_START',
+  );
 
   const handleExtensionChange = (value: string) => {
     setExtension(value);
@@ -33,13 +85,13 @@ const BaseSheetDemo = () => {
 
   const handlePhoneChange = (value: string) => {
     const formattedValue = formatPhoneNumber(value);
-    setPhone(formattedValue);
+    setMobileNumber(formattedValue);
   };
 
   const mobileNumberRender = (
     <View>
       <TextInput
-        value={showForAll ? phone : maskPhoneNumber(phone)}
+        value={mobileNumber}
         onChangeText={handlePhoneChange}
         keyboardType="phone-pad"
         maxLength={13} // Adjust for "+966" format
@@ -56,10 +108,10 @@ const BaseSheetDemo = () => {
           text: 'profileDetails.mobileNumber',
         }}
         placeholder="05XXXXXXXXX"
-        errorProps={getPhoneError(phone)}
+        errorProps={getPhoneError(mobileNumber)}
         isBottomSheet={true}
         testId="demo-base-sheet-input"
-        editable={showForAll}
+        editable={true}
       />
       <BrandToggle
         testId="demo-base-sheet-brand-toggle"
@@ -75,7 +127,7 @@ const BaseSheetDemo = () => {
   const extensionRender = (
     <View>
       <TextInput
-        value={extension}
+        value={extensionNumber}
         onChangeText={handleExtensionChange}
         keyboardType="number-pad"
         maxLength={4}
@@ -139,11 +191,14 @@ const BaseSheetDemo = () => {
         hasSubmitButton={true}
         buttonProps={{
           textProps: { text: 'common.save' },
-          onPress: () => setModalVisible(false),
+          onPress: () =>
+            type === 'mobile'
+              ? mutatePhone({ mobileNumber, deviceId })
+              : mutateExtension({ extensionNumber, deviceId }),
           disabled:
             type === 'mobile'
-              ? !validateSaudiNumber(phone)
-              : extension.length < 1,
+              ? !validateSaudiNumber(mobileNumber)
+              : extensionNumber.length < 1,
           testId: 'demo-base-sheet-button',
         }}
         modalVisible={modalVisible}
