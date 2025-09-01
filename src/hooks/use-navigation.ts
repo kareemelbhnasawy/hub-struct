@@ -48,6 +48,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   ProfileStack: ['App'],
   Profile: ['App', 'ProfileStack'],
   MyProfile: ['App', 'ProfileStack'],
+  PersonDetails: ['App', 'ProfileStack'],
 
   // Example deeper nesting (uncomment & adjust to your app)
   // Products: ['App', 'ShopStack'],

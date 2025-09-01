@@ -5,6 +5,7 @@ import styles from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
 import PageHeaderProps from './interface';
 import { useNavigation } from '@/hooks';
+import { GlassContainer } from '@/components/atoms/glass-container';
 
 const PageHeader = ({
   isTitleCentered,
@@ -47,14 +48,14 @@ const PageHeader = ({
       {/* Start Icon */}
       <View style={[themedStyles.startIconsWrapper, themedStyles.iconWrapper]}>
         {hasBackIcon || startIcon ? (
-          <LucideIcon
-            testId={`${prefixTestId}-`}
-            color={getThemeColor('textDefault')}
-            name="ArrowLeft"
-            hasWrapper
-            onPress={() => navigation.goBack()}
-            {...startIcon}
-          />
+          <GlassContainer testId="back-icon">
+            <LucideIcon
+              name="ChevronLeft"
+              isRTLMirrored
+              testId="back"
+              onPress={navigation.goBack}
+            />
+          </GlassContainer>
         ) : null}
       </View>
       {/* Start Icon */}
