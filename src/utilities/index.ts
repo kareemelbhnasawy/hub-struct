@@ -18,3 +18,4 @@ export { default as isEmpty } from './is-empty';
 export { default as createThemedStyles } from './create-themed-styles';
 export { default as getFont } from './get-font';
 export { isAndroid, isIOS } from './is-os';
+export { openLink } from './open-link';

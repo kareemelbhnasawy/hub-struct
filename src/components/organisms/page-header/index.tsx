@@ -4,6 +4,7 @@ import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 import { Headline, LucideIcon } from '@/components/atoms';
 import PageHeaderProps from './interface';
+import { useNavigation } from '@/hooks';
 
 const PageHeader = ({
   isTitleCentered,
@@ -16,6 +17,7 @@ const PageHeader = ({
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const prefixTestId = `${testId}-page-header`;
+  const navigation = useNavigation();
 
   const renderEndIcons = useCallback(() => {
     if (!endIcon) return null;
@@ -50,7 +52,7 @@ const PageHeader = ({
             color={getThemeColor('textDefault')}
             name="ArrowLeft"
             hasWrapper
-            // onPress={() => console.log('TODO: Go back!!')} TODO
+            onPress={() => navigation.goBack()}
             {...startIcon}
           />
         ) : null}

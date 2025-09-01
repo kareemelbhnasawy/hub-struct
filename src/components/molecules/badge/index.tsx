@@ -6,7 +6,7 @@ import styles from './styles';
 
 const Badge = ({
   testId,
-  variant,
+  variant = 'label',
   color = 'brand',
   size = 'md',
   paragraphProps,

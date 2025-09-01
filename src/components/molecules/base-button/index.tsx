@@ -20,6 +20,8 @@ const BaseButton = (props: BaseButtonProps) => {
     leftIcon,
     rightIcon,
     variant = 'primary',
+    fullWidth = true,
+    containerStyle,
     ...restProps
   } = props;
   const {
@@ -52,9 +54,11 @@ const BaseButton = (props: BaseButtonProps) => {
       onPressOut={onPressOutFn}
       style={[
         baseThemedStyles.button,
+        fullWidth && baseThemedStyles.fullWidth,
         baseThemedStyles[size],
         variantThemedStyles[state],
         hasBorder ? variantThemedStyles.border : null,
+        containerStyle,
       ]}
       {...restProps}>
       {leftIcon ? (

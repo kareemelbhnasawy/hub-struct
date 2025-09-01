@@ -3,11 +3,15 @@ import createThemedStyles from '@/utilities/create-themed-styles';
 const baseStyles = createThemedStyles({
   button: {
     base: {
-      width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
+    },
+  },
+  fullWidth: {
+    base: {
+      width: '100%',
     },
   },
   xxl: {
