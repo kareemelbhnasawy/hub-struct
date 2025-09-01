@@ -19,8 +19,9 @@ const BaseSheetDemo = () => {
   const [extensionNumber, setExtension] = useState('');
   const [showForAll, setShowForAll] = useState(false);
   const { getThemeColor } = useThemeStore();
-  const [type, setType] = useState<'mobile' | 'extension'>('extension');
+  const [type, setType] = useState<'mobile' | 'extension'>('mobile');
   const { deviceId } = useDeviceId();
+  const [error, setError] = useState();
 
   // Use Yup schema for Saudi phone validation
   const phoneSchema = Yup.string().required().validSaudiPhoneNumber();
@@ -102,11 +103,13 @@ const BaseSheetDemo = () => {
   );
 
   const handleExtensionChange = (value: string) => {
+    setError(getExtensionError(value));
     setExtension(value);
   };
 
   const handlePhoneChange = (value: string) => {
     const formattedValue = formatPhoneNumber(value);
+    setError(getPhoneError(formattedValue));
     setMobileNumber(formattedValue);
   };
 
@@ -130,7 +133,7 @@ const BaseSheetDemo = () => {
           text: 'profileDetails.mobileNumber',
         }}
         placeholder="05XXXXXXXXX"
-        errorProps={getPhoneError(mobileNumber)}
+        errorProps={error}
         isBottomSheet={true}
         testId="demo-base-sheet-input"
         editable={true}
@@ -168,7 +171,7 @@ const BaseSheetDemo = () => {
         }}
         placeholder="1234"
         isBottomSheet={true}
-        errorProps={getExtensionError(extensionNumber)}
+        errorProps={error}
         testId="demo-base-sheet-input"
         editable={true}
       />
@@ -209,6 +212,7 @@ const BaseSheetDemo = () => {
           size: 'md',
           weight: 'Semibold',
         }}
+        // onClose={() => setError(undefined)}
         hasCloseButton={true}
         hasSubmitButton={true}
         buttonProps={{
