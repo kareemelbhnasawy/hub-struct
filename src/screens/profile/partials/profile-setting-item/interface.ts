@@ -3,14 +3,14 @@ import HeadlineProps from '@/components/atoms/typography/headline/interface';
 import { RNStyle } from '@/types/themes';
 import { icons } from 'lucide-react-native';
 
-interface ListItemProps {
+interface ProfileSettingItemProps {
   testId: string;
   textProps: Omit<HeadlineProps, 'testId'>;
   iconProps: Omit<LucideIconProps, 'testId'>;
   onPress: () => void;
 }
 
-export type listItemDataType = {
+export type ProfileSettingItemDataType = {
   id: string;
   title: string;
   iconProps: {
@@ -20,4 +20,4 @@ export type listItemDataType = {
   onPress: () => void;
 };
   
-export default ListItemProps;
+export default ProfileSettingItemProps;

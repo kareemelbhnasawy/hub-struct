@@ -9,10 +9,10 @@ import styles from './styles';
 import Page from '@/components/templates/page';
 import { Avatar, List } from '@/components/molecules';
 import { useThemeStore } from '@/store/theme';
-import ListItem from '../partials/list-item';
+import ListItem from '../partials/profile-setting-item';
 import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
-import { listItemDataType } from '../partials/list-item/interface';
+import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
 import { useEffect, useState } from 'react';
 
@@ -33,13 +33,15 @@ const ProfileScreen = () => {
     navigation.navigate('MyProfile');
   };
 
-  const listItemData: listItemDataType[] = [
+  const listItemData: ProfileSettingItemDataType[] = [
     {
       id: '1',
       title: 'profile.account',
       iconProps: {
         name: 'User',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveYellow') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveYellow'),
+        },
       },
       onPress: handleNavigateToAccountDetails,
     },
@@ -48,7 +50,9 @@ const ProfileScreen = () => {
       title: 'profile.digitalCard',
       iconProps: {
         name: 'IdCard',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveGreen'),
+        },
       },
       onPress: () => log('Work Account pressed'),
     },
@@ -57,7 +61,9 @@ const ProfileScreen = () => {
       title: 'profile.team',
       iconProps: {
         name: 'Users',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveOrange'),
+        },
       },
       onPress: () => log('Team Account pressed'),
     },
@@ -66,7 +72,9 @@ const ProfileScreen = () => {
       title: 'profile.personalize',
       iconProps: {
         name: 'HousePlus',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveTeal') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveTeal'),
+        },
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -75,7 +83,9 @@ const ProfileScreen = () => {
       title: 'profile.settings',
       iconProps: {
         name: 'Settings',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveBlue') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveBlue'),
+        },
       },
       onPress: () => log('Settings pressed'),
     },
@@ -84,7 +94,7 @@ const ProfileScreen = () => {
   const renderListItem = ({
     item,
   }: {
-    item: listItemDataType;
+    item: ProfileSettingItemDataType;
     index: number;
   }) => {
     return (
@@ -116,7 +126,9 @@ const ProfileScreen = () => {
     <Page testId={screenTestId} hasHeader={false} isLoading={isLoading}>
       <View style={themedStyles.container}>
         <View>
-          <CurvedHeroImage testId={screenTestId} source={bannerUrl ? { uri: bannerUrl } : undefined}>
+          <CurvedHeroImage
+            testId={screenTestId}
+            source={bannerUrl ? { uri: bannerUrl } : undefined}>
             <Avatar
               size="lg"
               image={avatarUrl ?? null}
@@ -144,7 +156,7 @@ const ProfileScreen = () => {
         </View>
         <Spacer space={15} />
 
-        <List<listItemDataType>
+        <List<ProfileSettingItemDataType>
           testId={screenTestId}
           data={listItemData}
           renderItem={renderListItem}

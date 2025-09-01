@@ -5,7 +5,7 @@ import { DescriptiveIcon } from '@/components/molecules';
 import { LucideIcon, Spacer } from '@/components/atoms';
 import ListItemProps from './interface';
 
-const ListItem = ({ testId, textProps, iconProps, onPress }: ListItemProps) => {
+const ProfileSettingItem = ({ testId, textProps, iconProps, onPress }: ListItemProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
@@ -36,4 +36,4 @@ const ListItem = ({ testId, textProps, iconProps, onPress }: ListItemProps) => {
   );
 };
 
-export default ListItem;
+export default ProfileSettingItem;

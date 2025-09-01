@@ -2,9 +2,9 @@ import { View } from 'react-native';
 import styles from './styles';
 import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
-import ListItem from '../partials/list-item';
+import ListItem from '../partials/profile-setting-item';
 import { log } from '@/utilities';
-import { listItemDataType } from '../partials/list-item/interface';
+import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { List } from '@/components/molecules';
 
 const MyProfile = () => {
@@ -15,7 +15,7 @@ const MyProfile = () => {
   const renderListItem = ({
     item,
   }: {
-    item: listItemDataType;
+    item: ProfileSettingItemDataType;
     index: number;
   }) => {
     return (
@@ -30,13 +30,15 @@ const MyProfile = () => {
     );
   };
 
-  const data: listItemDataType[] = [
+  const data: ProfileSettingItemDataType[] = [
     {
       id: '1',
       title: 'profile.personal-details',
       iconProps: {
         name: 'User',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveYellow') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveYellow'),
+        },
       },
       onPress: () => log('Personal Account pressed'),
     },
@@ -45,7 +47,9 @@ const MyProfile = () => {
       title: 'profile.job-details',
       iconProps: {
         name: 'Building2',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveGreen'),
+        },
       },
       onPress: () => log('job pressed'),
     },
@@ -54,7 +58,9 @@ const MyProfile = () => {
       title: 'profile.career-history',
       iconProps: {
         name: 'CalendarClock',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveTeal') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveTeal'),
+        },
       },
       onPress: () => log('career history pressed'),
     },
@@ -63,7 +69,9 @@ const MyProfile = () => {
       title: 'profile.holidays-record',
       iconProps: {
         name: 'TreePalm',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveOrange'),
+        },
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -72,7 +80,9 @@ const MyProfile = () => {
       title: 'profile.qualifications',
       iconProps: {
         name: 'FileBadge2',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveBlue') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveBlue'),
+        },
       },
       onPress: () => log('qualifications pressed'),
     },
@@ -81,7 +91,9 @@ const MyProfile = () => {
       title: 'profile.skills',
       iconProps: {
         name: 'Medal',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveGreen'),
+        },
       },
       onPress: () => log('skills pressed'),
     },
@@ -90,7 +102,9 @@ const MyProfile = () => {
       title: 'profile.custodies',
       iconProps: {
         name: 'Vault',
-        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveOrange'),
+        },
       },
       onPress: () => log('custodies pressed'),
     },
@@ -98,7 +112,7 @@ const MyProfile = () => {
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
-        <List<listItemDataType>
+        <List<ProfileSettingItemDataType>
           testId={screenTestId}
           data={data}
           renderItem={renderListItem}
