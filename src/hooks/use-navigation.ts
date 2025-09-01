@@ -12,11 +12,13 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@/navigation';
 import { AppStackParamList } from '@/navigation/stacks/app/types';
 import { AuthStackParamList } from '@/navigation/stacks/auth/types';
+import { ProfileStackParamList } from '@/navigation/stacks/profile/types';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
   AppStackParamList &
-  AuthStackParamList;
+  AuthStackParamList &
+  ProfileStackParamList;
 
 /** All valid screen names across the app */
 export type ScreenName = keyof CombinedParamList;
@@ -43,7 +45,9 @@ const stackMap: Record<ScreenName, StackPath> = {
 
   // App flow
   Home: ['App'],
-  Profile: ['App'],
+  ProfileStack: ['App'],
+  Profile: ['App', 'ProfileStack'],
+  MyProfile: ['App', 'ProfileStack'],
 
   // Example deeper nesting (uncomment & adjust to your app)
   // Products: ['App', 'ShopStack'],

@@ -4,9 +4,9 @@ import {
   QuickLoginScreen,
   ConfirmPinScreen,
   HomeScreen,
-  ProfileScreen,
   SetPinScreen,
 } from '@/screens';
+import ProfileStack from '../profile';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -20,7 +20,7 @@ const AppStack = () => {
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Profile" component={ProfileStack} />
       <Stack.Screen name="QuickLogin" component={QuickLoginScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />

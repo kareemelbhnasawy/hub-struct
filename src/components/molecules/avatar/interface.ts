@@ -1,9 +1,11 @@
-import { ImageSourcePropType, TextProps, ViewStyle, StyleProp } from 'react-native';
+import { RNStyle } from '@/types/themes';
+import { ImageSourcePropType, TextProps } from 'react-native';
 
 interface AvatarPropsBase extends Omit<TextProps, 'testID'> {
   testId: string;
   size: 'sm' | 'md' | 'lg' | 'xl';
-  containerStyle: StyleProp<ViewStyle>;
+  containerStyle?: RNStyle;
+  status?: 'active' | 'away' | 'offline';
 }
 
 interface AvatarWithName extends AvatarPropsBase {

@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { LucideIcon, Paragraph } from '@/components/atoms';
+import { Headline, LucideIcon } from '@/components/atoms';
 import DescriptiveIconProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
@@ -8,6 +8,7 @@ const DescriptiveIcon = ({
   testId,
   iconProps,
   textProps,
+  isRow = true
 }: DescriptiveIconProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -34,14 +35,14 @@ const DescriptiveIcon = ({
   return (
     <View
       testID={`${testId}-descriptive-icon-container`}
-      style={wrapperAppliedStyles}>
+      style={[wrapperAppliedStyles, isRow ? themedStyles.isRow : themedStyles.isColumn]}>
       <LucideIcon
         testId={`${testId}-descriptive`}
         isOutline={_isOutline}
         {...iconProps}
       />
       <View style={themedStyles.textWrapper}>
-        <Paragraph
+        <Headline
           testId={`${testId}-descriptive-icon`}
           {...textProps}
           size="sm"

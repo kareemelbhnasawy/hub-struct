@@ -1902,6 +1902,41 @@ export const themeColors = {
     dark: COLORS['error-600'],
   },
 
+  // Descriptive Icon Colors
+  iconDescriptiveYellow: {
+    light: COLORS['secondary-yellow-100'],
+    dark: COLORS['secondary-yellow-100'],
+  },
+  iconDescriptiveGreen: {
+    light: COLORS['secondary-green-100'],
+    dark: COLORS['secondary-green-100'],
+  },
+  iconDescriptiveOrange: {
+    light: COLORS['secondary-orange-100'],
+    dark: COLORS['secondary-orange-100'],
+  },
+  iconDescriptiveTeal: {
+    light: COLORS['secondary-teal-100'],
+    dark: COLORS['secondary-teal-100'],
+  },
+  iconDescriptiveBlue: {
+    light: COLORS['neutral-50'],
+    dark: COLORS['neutral-50'],
+  },
+
+  // avatar status colors
+  avatarStatusActive: {
+    light: COLORS['secondary-green-600'],
+    dark: COLORS['secondary-green-600'],
+  },
+  avatarStatusAway: {
+    light: COLORS['secondary-yellow-600'],
+    dark: COLORS['secondary-yellow-600'],
+  },
+  avatarStatusOffline: {
+    light: COLORS['error-600'],
+    dark: COLORS['error-600'],
+  },
   // Link Colors
   linkPrimaryDefaultLabel: {
     light: COLORS['primary-600'],

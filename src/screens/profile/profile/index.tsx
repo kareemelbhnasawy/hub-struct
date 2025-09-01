@@ -1,168 +1,169 @@
-import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
-import { useNavigation, useTranslate } from '@/hooks';
-import { Page } from '@/components/templates';
-import { useAuthStore } from '@/store/auth';
-import { BaseButton, BaseSheet } from '@/components/molecules';
-import { useState } from 'react';
-import { SnapPoints } from '@/components/molecules/base-sheet/constants';
-import { SelectionGroup } from '@/components/organisms';
-import { AddressCard } from '../partials';
-import { useThemeStore } from '@/store/theme';
-import styles from './styles';
 import { View } from 'react-native';
-import { openLink } from '@/utilities';
+import {
+  CurvedHeroImage,
+  Headline,
+  Paragraph,
+  Spacer,
+} from '@/components/atoms';
+import styles from './styles';
+import Page from '@/components/templates/page';
+import { Avatar, List } from '@/components/molecules';
+import { useThemeStore } from '@/store/theme';
+import ListItem from '../partials/profile-setting-item';
+import { log } from '@/utilities';
+import { useNavigation } from '@/hooks';
+import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
+import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
+import { useEffect, useState } from 'react';
 
 const ProfileScreen = () => {
-  const nav = useNavigation<'Profile'>(); // TRoute is 'Profile'
+  const navigation = useNavigation();
+  const [avatarUrl, setAvatarUrl] = useState<string>('');
+  const [bannerUrl, setBannerUrl] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [kunya, setKunya] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
+  const [displayTitle, setDisplayTitle] = useState<string>('');
+  const displayName = kunya ? `${kunya} (${name})` : name;
   const screenTestId = 'profile-screen';
-  const { userId } = nav.params; // strongly typed
-  const { locale } = useTranslate();
-  const { email } = useAuthStore();
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const error = false;
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState('RRRD2929');
 
-  const data = [
+  const handleNavigateToAccountDetails = () => {
+    navigation.navigate('MyProfile');
+  };
+
+  const listItemData: ProfileSettingItemDataType[] = [
     {
-      addressId: 'RRRD2929',
-      addressDesc: '2929, ريحانة بنت زيد، حي العارض، الرياض',
-      badgeText: 'العنوان المسجل في العقد',
+      id: '1',
+      title: 'profile.account',
+      iconProps: {
+        name: 'User',
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveYellow'),
+        },
+      },
+      onPress: handleNavigateToAccountDetails,
     },
     {
-      addressId: 'RRRD8416',
-      addressDesc: '8416 شارع الملك فهد، حي المروج، الرياض',
+      id: '2',
+      title: 'profile.digitalCard',
+      iconProps: {
+        name: 'IdCard',
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveGreen'),
+        },
+      },
+      onPress: () => log('Work Account pressed'),
     },
     {
-      addressId: 'RRRD5431',
-      addressDesc: '5431 شارع التخصصي، حي العليا، الرياض',
+      id: '3',
+      title: 'profile.team',
+      iconProps: {
+        name: 'Users',
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveOrange'),
+        },
+      },
+      onPress: () => log('Team Account pressed'),
+    },
+    {
+      id: '4',
+      title: 'profile.personalize',
+      iconProps: {
+        name: 'HousePlus',
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveTeal'),
+        },
+      },
+      onPress: () => log('Personalize Account pressed'),
+    },
+    {
+      id: '5',
+      title: 'profile.settings',
+      iconProps: {
+        name: 'Settings',
+        containerStyle: {
+          backgroundColor: getThemeColor('iconDescriptiveBlue'),
+        },
+      },
+      onPress: () => log('Settings pressed'),
     },
   ];
 
-  return (
-    <Page testId={screenTestId}>
-      <BaseSheet
-        testId={`${screenTestId}-edit-address`}
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        snapPoints={SnapPoints.XL}
-        titleProps={{ text: 'profile.editAddress' }}>
-        <View style={themedStyles.warningContainer}>
-          <LucideIcon
-            testId={`${screenTestId}-edit-address`}
-            name="MapPin"
-            isCircle
-            containerStyle={themedStyles.iconContainer}
-          />
-          <Spacer />
-          <View>
-            <Paragraph
-              testId={`${screenTestId}-edit-address-warning`}
-              text="profile.contractAddress"
-            />
-            <Spacer space="xs" />
-            <Headline
-              testId={`${screenTestId}-edit-address-warning`}
-              size="xs"
-              text="2929, ريحانة بنت زيد، حي العارض، الرياض"
-            />
-          </View>
-        </View>
-        <Spacer space="xs" />
+  const renderListItem = ({
+    item,
+  }: {
+    item: ProfileSettingItemDataType;
+    index: number;
+  }) => {
+    return (
+      <ListItem
+        iconProps={item.iconProps}
+        textProps={{
+          text: item.title,
+        }}
+        testId={screenTestId}
+        onPress={item.onPress}
+      />
+    );
+  };
 
-        <Headline
-          testId={`${screenTestId}-edit-address`}
-          text="profile.chooseAddress"
-          size="xs"
-          weight="Medium"
-        />
-        <Spacer space="xs" />
-        <Paragraph
-          testId={`${screenTestId}-edit-address`}
-          text="profile.chooseAddressDesc"
-          size="xl"
-        />
-        <Spacer space="xl" />
-        <SelectionGroup
-          testId={`${screenTestId}-edit-address`}
-          data={data}
-          emptyComponentProps={{
-            iconProps: { name: 'MapPinX' },
-            headlineProps: {
-              text: 'لا يوجد لديك عناوين مسجلة في سبل',
-            },
-            paragraphProps: {
-              text: 'برجاء اضافة عنوانك الوطني في سبل ثم اختياره من هنا لكي يظهر في ملفك الشخصي',
-            },
-            buttonProps: {
-              textProps: { text: 'إضافة عنوان جديد عبر سبل' },
-              leftIcon: { name: 'ExternalLink' },
-              onPress: () => {
-                openLink('https://www.google.com/');
-              },
-            },
-          }}
-          errorComponentProps={{
-            iconProps: { name: 'Unlink' },
-            headlineProps: {
-              text: 'تعذر تحميل العناوين',
-            },
-            paragraphProps: {
-              text: 'حدث خطأ أثناء جلب بيانات العناوين من سبل. يرجى المحاولة لاحقاً.',
-            },
-          }}
-          isError={error}
-          value={selectedAddress}
-          onChangeValue={setSelectedAddress}
-          valueKey={'addressId'}
-          spacerProps={{ space: 'xl' }}
-          keyExtractor={({ item }) => item.addressId}
-          renderItem={({ item }) => (
-            <AddressCard
-              testId={`${screenTestId}-${item.addressId}`}
-              addressIdProps={{ text: item.addressId }}
-              addressDescProps={{ text: item.addressDesc }}
-              badgeProps={
-                item?.badgeText
-                  ? { paragraphProps: { text: item.badgeText } }
-                  : undefined
-              }
+  const { data, isSuccess, isLoading } = useProfileHeader();
+
+  useEffect(() => {
+    if (isSuccess) {
+      setName(data?.name);
+      setKunya(data?.nickname);
+      setAvatarUrl(data?.profileImage);
+      setBannerUrl(data?.banner);
+      setStatus(data?.status.toLowerCase());
+      setDisplayTitle(`${data?.jobTitle} - ${data?.department}`);
+    }
+  }, [data, isSuccess]);
+
+  return (
+    <Page testId={screenTestId} hasHeader={false} isLoading={isLoading}>
+      <View style={themedStyles.container}>
+        <View>
+          <CurvedHeroImage
+            testId={screenTestId}
+            source={bannerUrl ? { uri: bannerUrl } : undefined}>
+            <Avatar
+              size="lg"
+              image={avatarUrl ?? null}
+              name={name}
+              status={status}
+              testId={screenTestId}
+              containerStyle={themedStyles.avatar}
             />
-          )}
-          renderSelectedItem={({ item }) => (
-            <AddressCard
-              testId={`${screenTestId}-${item.addressId}`}
-              addressIdProps={{ text: item.addressId }}
-              addressDescProps={{ text: item.addressDesc }}
-              badgeProps={
-                item?.badgeText
-                  ? { paragraphProps: { text: item.badgeText } }
-                  : undefined
-              }
-              isFocused
-            />
-          )}
+          </CurvedHeroImage>
+        </View>
+        <Spacer />
+        <View style={themedStyles.titleWrapper}>
+          <Headline
+            text={displayName}
+            weight="Bold"
+            size="xs"
+            testId={screenTestId}
+          />
+          <Paragraph
+            text={displayTitle}
+            weight="Medium"
+            size="lg"
+            testId={screenTestId}
+          />
+        </View>
+        <Spacer space={15} />
+
+        <List<ProfileSettingItemDataType>
+          testId={screenTestId}
+          data={listItemData}
+          renderItem={renderListItem}
+          keyField="title"
+          scrollEnabled={false}
         />
-      </BaseSheet>
-      <Headline text="Profile Screen" weight="Bold" testId="profile-title" />
-      <Paragraph text="This is your profile page!" testId="profile-subtitle" />
-      <Paragraph testId="" text={'User ID: ' + userId} />
-      <Paragraph testId={''} text={'Email: ' + email} />
-      <Paragraph testId="" text={'Current Language: ' + locale} />
-      <Spacer />
-      <BaseButton
-        testId={''}
-        textProps={{ text: 'Go to Quick Login' }}
-        onPress={() => nav.navigateTo('QuickLogin')}
-      />
-      <Spacer />
-      <BaseButton
-        testId={''}
-        textProps={{ text: 'Edit address' }}
-        onPress={() => setModalVisible(true)}
-      />
-      <Spacer />
+      </View>
     </Page>
   );
 };

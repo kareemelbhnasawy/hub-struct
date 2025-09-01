@@ -13,8 +13,8 @@ import enInputs from './inputs/en.json';
 import arInputs from './inputs/ar.json';
 import arOTP from './otp/ar.json';
 import enOTP from './otp/en.json';
-import arProfile from './profile/ar.json';
 import enProfile from './profile/en.json';
+import arProfile from './profile/ar.json';
 
 export const resources = {
   en: {
