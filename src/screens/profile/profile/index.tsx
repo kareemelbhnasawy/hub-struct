@@ -18,13 +18,15 @@ import { useEffect, useState } from 'react';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const avatarImageId = '';
+  const [avatarUrl, setAvatarUrl] = useState<string>('');
+  const [bannerUrl, setBannerUrl] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [kunya, setKunya] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
+  const [displayTitle, setDisplayTitle] = useState<string>('');
   const displayName = kunya ? `${kunya} (${name})` : name;
-  const jobTitle = 'مهندس برمجيات';
   const screenTestId = 'profile-screen';
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
@@ -37,7 +39,7 @@ const ProfileScreen = () => {
       title: 'profile.account',
       iconProps: {
         name: 'User',
-        containerStyle: { backgroundColor: 'iconDescriptiveYellow' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveYellow') },
       },
       onPress: handleNavigateToAccountDetails,
     },
@@ -46,7 +48,7 @@ const ProfileScreen = () => {
       title: 'profile.digitalCard',
       iconProps: {
         name: 'IdCard',
-        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
       },
       onPress: () => log('Work Account pressed'),
     },
@@ -55,7 +57,7 @@ const ProfileScreen = () => {
       title: 'profile.team',
       iconProps: {
         name: 'Users',
-        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
       },
       onPress: () => log('Team Account pressed'),
     },
@@ -64,7 +66,7 @@ const ProfileScreen = () => {
       title: 'profile.personalize',
       iconProps: {
         name: 'HousePlus',
-        containerStyle: { backgroundColor: 'iconDescriptiveTeal' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveTeal') },
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -73,7 +75,7 @@ const ProfileScreen = () => {
       title: 'profile.settings',
       iconProps: {
         name: 'Settings',
-        containerStyle: { backgroundColor: 'iconDescriptiveBlue' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveBlue') },
       },
       onPress: () => log('Settings pressed'),
     },
@@ -103,6 +105,10 @@ const ProfileScreen = () => {
     if (isSuccess) {
       setName(data?.name);
       setKunya(data?.nickname);
+      setAvatarUrl(data?.profileImage);
+      setBannerUrl(data?.banner);
+      setStatus(data?.status.toLowerCase());
+      setDisplayTitle(`${data?.jobTitle} - ${data?.department}`);
     }
   }, [data, isSuccess]);
 
@@ -110,12 +116,12 @@ const ProfileScreen = () => {
     <Page testId={screenTestId} hasHeader={false} isLoading={isLoading}>
       <View style={themedStyles.container}>
         <View>
-          <CurvedHeroImage testId={screenTestId}>
+          <CurvedHeroImage testId={screenTestId} source={bannerUrl ? { uri: bannerUrl } : undefined}>
             <Avatar
               size="lg"
-              image={avatarImageId ?? null}
+              image={avatarUrl ?? null}
               name={name}
-              status="offline"
+              status={status}
               testId={screenTestId}
               containerStyle={themedStyles.avatar}
             />
@@ -130,7 +136,7 @@ const ProfileScreen = () => {
             testId={screenTestId}
           />
           <Paragraph
-            text={jobTitle}
+            text={displayTitle}
             weight="Medium"
             size="lg"
             testId={screenTestId}

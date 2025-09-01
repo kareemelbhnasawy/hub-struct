@@ -9,7 +9,7 @@ import { List } from '@/components/molecules';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const renderListItem = ({
@@ -36,7 +36,7 @@ const MyProfile = () => {
       title: 'profile.personal-details',
       iconProps: {
         name: 'User',
-        containerStyle: { backgroundColor: 'iconDescriptiveYellow' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveYellow') },
       },
       onPress: () => log('Personal Account pressed'),
     },
@@ -45,7 +45,7 @@ const MyProfile = () => {
       title: 'profile.job-details',
       iconProps: {
         name: 'Building2',
-        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
       },
       onPress: () => log('job pressed'),
     },
@@ -54,7 +54,7 @@ const MyProfile = () => {
       title: 'profile.career-history',
       iconProps: {
         name: 'CalendarClock',
-        containerStyle: { backgroundColor: 'iconDescriptiveTeal' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveTeal') },
       },
       onPress: () => log('career history pressed'),
     },
@@ -63,7 +63,7 @@ const MyProfile = () => {
       title: 'profile.holidays-record',
       iconProps: {
         name: 'TreePalm',
-        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -72,7 +72,7 @@ const MyProfile = () => {
       title: 'profile.qualifications',
       iconProps: {
         name: 'FileBadge2',
-        containerStyle: { backgroundColor: 'iconDescriptiveBlue' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveBlue') },
       },
       onPress: () => log('qualifications pressed'),
     },
@@ -81,7 +81,7 @@ const MyProfile = () => {
       title: 'profile.skills',
       iconProps: {
         name: 'Medal',
-        containerStyle: { backgroundColor: 'iconDescriptiveGreen' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveGreen') },
       },
       onPress: () => log('skills pressed'),
     },
@@ -90,7 +90,7 @@ const MyProfile = () => {
       title: 'profile.custodies',
       iconProps: {
         name: 'Vault',
-        containerStyle: { backgroundColor: 'iconDescriptiveOrange' },
+        containerStyle: { backgroundColor: getThemeColor('iconDescriptiveOrange') },
       },
       onPress: () => log('custodies pressed'),
     },
