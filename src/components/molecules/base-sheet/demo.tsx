@@ -19,23 +19,28 @@ const BaseSheetDemo = () => {
   const [extensionNumber, setExtension] = useState('');
   const [showForAll, setShowForAll] = useState(false);
   const { getThemeColor } = useThemeStore();
-  const [type, setType] = useState<'mobile' | 'extension'>('mobile');
-  const [extensionError, setExtensionError] = useState<string | null>(null);
+  const [type, setType] = useState<'mobile' | 'extension'>('extension');
   const { deviceId } = useDeviceId();
 
   // Use Yup schema for Saudi phone validation
   const phoneSchema = Yup.string().required().validSaudiPhoneNumber();
+  const extensionSchema = Yup.string().required();
 
   const getPhoneError = (value: string) => {
     try {
       phoneSchema.validateSync(value);
       return undefined;
-    } catch (err: any) {
-      return (
-        err?.message || {
-          text: 'inputs.defaultInputValidations.string.validSaudiPhoneNumber',
-        }
-      );
+    } catch (err: unknown) {
+      return err?.message;
+    }
+  };
+
+  const getExtensionError = (value: string): string | null => {
+    try {
+      extensionSchema.validateSync(value);
+      return undefined;
+    } catch (err: unknown) {
+      return err?.message;
     }
   };
 
@@ -98,14 +103,6 @@ const BaseSheetDemo = () => {
 
   const handleExtensionChange = (value: string) => {
     setExtension(value);
-    setExtensionError(getExtensionError(value));
-  };
-
-  const getExtensionError = (value: string): string | null => {
-    if (!value) return 'inputs.defaultInputValidations.mixed.required';
-    // if (!/^[0-9]{4}$/.test(value))
-    //   return 'inputs.defaultInputValidations.string.length';
-    return null;
   };
 
   const handlePhoneChange = (value: string) => {
@@ -171,7 +168,7 @@ const BaseSheetDemo = () => {
         }}
         placeholder="1234"
         isBottomSheet={true}
-        errorProps={extensionError ? { text: extensionError } : undefined}
+        errorProps={getExtensionError(extensionNumber)}
         testId="demo-base-sheet-input"
         editable={true}
       />
