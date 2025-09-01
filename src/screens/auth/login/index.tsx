@@ -33,8 +33,6 @@ const LoginScreen = () => {
     password: savedPassword,
     quickLoginType,
     setLoginCredentials,
-    setUsername,
-    setNickname
   } = useAuthStore();
 
   const onSuccessBioLogin = (data) => {
@@ -78,8 +76,6 @@ const LoginScreen = () => {
       },
       onConfirmOtp: (responseFinish) => {
         setLoginCredentials({ email: email, password: password });
-        setUsername(res?.name);
-        setNickname(res?.nickname);
         setString(STORAGE_KEYS.REFRESH_TOKEN, responseFinish?.refreshToken);
         clientSetToken(responseFinish?.accessToken, false);
         //set tokens

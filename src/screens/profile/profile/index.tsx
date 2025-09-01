@@ -14,13 +14,11 @@ import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { listItemDataType } from '../partials/list-item/interface';
-import { useAuthStore } from '@/store/auth';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const { getUsername, getNickname } = useAuthStore();
-  const name = getUsername();
-  const kunya = getNickname();
+  const name = 'aaa';
+  const kunya = 'aaa';
   const displayName = kunya ? `${kunya} (${name})` : name;
   const jobTitle = 'مهندس برمجيات';
   const screenTestId = 'profile-screen';
