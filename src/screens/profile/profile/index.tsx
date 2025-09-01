@@ -11,6 +11,7 @@ import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 import { View } from 'react-native';
 import { openLink } from '@/utilities';
+// import useGetAddresses from '@/network/services/profile/get-addresses/get-addresses.hook';
 
 const ProfileScreen = () => {
   const nav = useNavigation<'Profile'>(); // TRoute is 'Profile'
@@ -23,7 +24,7 @@ const ProfileScreen = () => {
   const error = false;
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState('RRRD2929');
-
+  // const { data: addresses } = useGetAddresses();
   const data = [
     {
       addressId: 'RRRD2929',
