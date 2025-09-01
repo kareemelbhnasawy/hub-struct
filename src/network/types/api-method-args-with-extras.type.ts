@@ -1,9 +1,13 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { API_METHODS } from '../constants';
 import BaseAPIMethodArgs from './base-api-method-args.type';
 
 interface Config extends AxiosRequestConfig {
-  suppressErrorToast: (arg0: AxiosResponse) => boolean;
+  hideErrorToast?: (arg0: AxiosError) => boolean;
+  showSuccessToast?: (arg0: AxiosResponse) => {
+    text: string;
+    textProps?: object;
+  };
 }
 
 type APIMethodArgsWithExtras = BaseAPIMethodArgs & {

@@ -8,7 +8,7 @@ const loginPin = async (data) => {
     url: AUTH_URLS.PIN_LOGIN,
     data,
     config: {
-      suppressErrorToast: (err) => err.status === 401,
+      hideErrorToast: (err) => err.status === 401,
     },
   });
   return res.data;

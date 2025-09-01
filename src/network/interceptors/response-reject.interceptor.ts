@@ -8,12 +8,7 @@ import { ToastService } from '@/components/molecules/toast/toast-service';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const onResponseReject = async (error: any): Promise<any> => {
   const originalRequest = error.config;
-  if (
-    !(
-      originalRequest.suppressErrorToast &&
-      error.config.suppressErrorToast(error)
-    )
-  ) {
+  if (!(originalRequest.hideErrorToast && error.config.hideErrorToast(error))) {
     ToastService.error({
       props: {
         messageProps: {
