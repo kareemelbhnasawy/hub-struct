@@ -31,6 +31,30 @@ const styles = createThemedStyles({
       flexDirection: 'row',
     },
   },
+  mobileInput: {
+    base: {
+      borderWidth: 1,
+      borderRadius: 8,
+      padding: 12,
+      marginTop: 8,
+      marginBottom: 16,
+      fontSize: 18,
+    },
+  },
+  maskedNumber: {
+    base: {
+      marginBottom: 8,
+      fontSize: 16,
+      color: 'textSecondary',
+      letterSpacing: 2,
+    },
+  },
+  bottomSheetContainer: {
+    base: {
+      borderTopLeftRadius: 16,
+      borderTopRightRadius: 16,
+    },
+  },
 });
 
 export default styles;

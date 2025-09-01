@@ -1,5 +1,11 @@
 import { LucideIcon, Paragraph, Spacer } from '@/components/atoms';
-import { DescriptiveIcon, List } from '@/components/molecules';
+import {
+  BaseSheet,
+  BrandToggle,
+  DescriptiveIcon,
+  List,
+  TextInput,
+} from '@/components/molecules';
 import { Page } from '@/components/templates';
 import { Pressable, View } from 'react-native';
 import styles from './styles';
@@ -8,6 +14,12 @@ import { InfoItem, PersonDetailsResponse } from './interface';
 import { useThemeStore } from '@/store/theme';
 import { basicInfoDataHandler, contactInfoDataHandler } from './constants';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
+import { useState } from 'react';
+import { useDeviceId } from '@/hooks/use-device-id';
+import { useNavigation } from '@/hooks';
+import { getExtensionError, getPhoneError, isPhoneValid } from './utils';
+import { formatPhoneNumber } from '@/utilities/formats';
+import { useStartFlow } from '@/network/hooks';
 
 const PersonDetails = () => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
@@ -18,13 +30,86 @@ const PersonDetails = () => {
     data: PersonDetailsResponse | undefined;
     isLoading: boolean;
   };
+  const [modalVisible, setModalVisible] = useState(false);
+  const { navigateToOTP } = useNavigation();
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [extensionNumber, setExtension] = useState('');
+  const [showForAll, setShowForAll] = useState(false);
+  const [type, setType] = useState<'mobile' | 'extension'>('mobile');
+  const { deviceId } = useDeviceId();
+  const [error, setError] = useState();
 
   const basicInfoData = basicInfoDataHandler(data);
 
   const contactInfoData = contactInfoDataHandler(data);
 
+  const showPhoneToast = () => {
+    return {
+      text: 'profileDetails.mobileSuccessfulEdit',
+    };
+  };
+  const showExtensionToast = () => {
+    return {
+      text: 'profileDetails.extensionSuccessfulEdit',
+    };
+  };
+
+  const onSuccessStartPhone = (data: unknown) => {
+    setModalVisible(false);
+    navigateToOTP({
+      body: { mobileNumber, deviceId, isShown: showForAll },
+      nextScreen: 'PersonDetails',
+      url: 'profile/v1/mobile-number/edit',
+      expiresIn: data?.expiresIn,
+      mobile: data?.mobileNumber,
+      showSuccessToast: showPhoneToast,
+      isBack: true,
+    });
+  };
+  const onSuccessStartExtension = (data: unknown) => {
+    setModalVisible(false);
+    navigateToOTP({
+      body: { extensionNumber, deviceId },
+      nextScreen: 'PersonDetails',
+      url: 'profile/v1/extension-number/edit',
+      expiresIn: data?.expiresIn,
+      mobile: data?.mobileNumber,
+      showSuccessToast: showExtensionToast,
+      isBack: true,
+    });
+  };
+  const onErrorStartPhone = () => {
+    setModalVisible(false);
+  };
+  const onErrorStartExtension = () => {
+    setModalVisible(false);
+  };
+  const { mutate: mutatePhone } = useStartFlow(
+    'profile/v1/mobile-number/edit',
+    onSuccessStartPhone,
+    onErrorStartPhone,
+    'PHONE_START',
+  );
+  const { mutate: mutateExtension } = useStartFlow(
+    'profile/v1/extension-number/edit',
+    onSuccessStartExtension,
+    onErrorStartExtension,
+    'EXTENSION_START',
+  );
+
+  const handleExtensionChange = (value: string) => {
+    setError(getExtensionError(value));
+    setExtension(value);
+  };
+
+  const handlePhoneChange = (value: string) => {
+    const formattedValue = formatPhoneNumber(value);
+    setError(getPhoneError(formattedValue));
+    setMobileNumber(formattedValue);
+  };
+
   const renderBasicInfoItem = ({ item }: { item: InfoItem }) => (
-    <View style={styles.info.base}>
+    <View style={themedStyle.info}>
       <Paragraph
         text={item.label}
         size="md"
@@ -40,7 +125,17 @@ const PersonDetails = () => {
   );
 
   const renderContactInfoItem = ({ item }: { item: InfoItem }) => (
-    <Pressable style={themedStyle.info}>
+    <Pressable
+      style={themedStyle.info}
+      onPress={() => {
+        if (item.type === 'mobile') {
+          setType('mobile');
+          setModalVisible(true);
+        } else if (item.type === 'extension') {
+          setType('extension');
+          setModalVisible(true);
+        }
+      }}>
       <Paragraph
         text={item.label}
         size="md"
@@ -62,6 +157,64 @@ const PersonDetails = () => {
       </View>
     </Pressable>
   );
+
+  const mobileNumberRender = (
+    <View>
+      {showForAll && (
+        <Paragraph
+          text={mobileNumber}
+          style={themedStyle.maskedNumber}
+          testId="person-details-masked-number"
+        />
+      )}
+      <TextInput
+        value={mobileNumber}
+        onChangeText={handlePhoneChange}
+        keyboardType="phone-pad"
+        maxLength={13}
+        style={themedStyle.mobileInput}
+        isRequired
+        labelProps={{
+          text: 'profileDetails.mobileNumber',
+        }}
+        placeholder="05XXXXXXXXX"
+        errorProps={error}
+        isBottomSheet={true}
+        testId="demo-base-sheet-input"
+        editable={true}
+      />
+      <BrandToggle
+        testId="demo-base-sheet-brand-toggle"
+        value={showForAll}
+        onValueChange={setShowForAll}
+        titleProps={{
+          text: 'profileDetails.showNumber',
+        }}
+      />
+    </View>
+  );
+
+  const extensionRender = (
+    <View>
+      <TextInput
+        value={extensionNumber}
+        onChangeText={handleExtensionChange}
+        keyboardType="number-pad"
+        maxLength={4}
+        isRequired
+        style={themedStyle.mobileInput}
+        labelProps={{
+          text: 'profileDetails.extension',
+        }}
+        placeholder="1234"
+        isBottomSheet={true}
+        errorProps={error}
+        testId="demo-base-sheet-input"
+        editable={true}
+      />
+    </View>
+  );
+
   return (
     <Page
       testId={screenTestId}
@@ -130,6 +283,37 @@ const PersonDetails = () => {
           spacerProps={{ isDivider: true, space: 0 }}
         />
       </View>
+      <BaseSheet
+        testId="demo-base-sheet"
+        headerVariant="centerWithClose"
+        titleProps={{
+          text:
+            type === 'mobile'
+              ? 'profileDetails.editPersonalPhone1'
+              : 'profileDetails.editExtension',
+          size: 'md',
+          weight: 'Semibold',
+        }}
+        // onClose={() => setError(undefined)}
+        hasCloseButton={true}
+        hasSubmitButton={true}
+        buttonProps={{
+          textProps: { text: 'common.save' },
+          onPress: () =>
+            type === 'mobile'
+              ? mutatePhone({ mobileNumber, deviceId, isShown: showForAll })
+              : mutateExtension({ extensionNumber, deviceId }),
+          disabled:
+            type === 'mobile'
+              ? !isPhoneValid(mobileNumber)
+              : extensionNumber.length < 1,
+          testId: 'demo-base-sheet-button',
+        }}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        containerStyle={themedStyle.bottomSheetContainer}>
+        {type === 'mobile' ? mobileNumberRender : extensionRender}
+      </BaseSheet>
     </Page>
   );
 };

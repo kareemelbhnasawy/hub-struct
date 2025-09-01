@@ -10,10 +10,11 @@ import { deleteKey } from '@/utilities';
 import { useThemeStore } from '@/store/theme';
 
 const HomeScreen = () => {
+  const { theme } = useThemeStore();
   const navigation = useNavigation();
   const { getEmail } = useAuthStore();
   const handleNavigateToProfile = () => {
-    navigation.navigate('Profile', { userId: '123' });
+    navigation.navigate('ProfileStack', { userId: '123' });
   };
   const onLogoutSuccess = () => {
     deleteKey(STORAGE_KEYS.REFRESH_TOKEN);

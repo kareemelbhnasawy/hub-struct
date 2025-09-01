@@ -13,6 +13,7 @@ import { RootStackParamList } from '@/navigation';
 import { AppStackParamList } from '@/navigation/stacks/app/types';
 import { AuthStackParamList } from '@/navigation/stacks/auth/types';
 import { ProfileStackParamList } from '@/navigation/stacks/profile/types';
+import { AxiosResponse } from 'axios';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -202,7 +203,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     return navigation.navigate(top as never, nested as never);
   };
 
-  const navigateToOTP = ({
+  const navigateToOTP = <K extends ScreenName>({
     nextScreen,
     mobile,
     nextScreenParams,
@@ -211,15 +212,22 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     body,
     onConfirmOtp,
     expiresIn,
+    showSuccessToast,
+    isBack = false,
   }: {
-    nextScreen: ScreenName;
+    nextScreen: K;
     mobile?: string;
-    nextScreenParams?: object;
+    nextScreenParams?: CombinedParamList[K];
     resetAppNav?: boolean;
     url: string;
     body: object;
     onConfirmOtp?: (res: unknown) => void;
     expiresIn?: number; // in seconds
+    showSuccessToast?: (arg0: AxiosResponse) => {
+      text: string;
+      textProps?: object;
+    };
+    isBack?: boolean;
   }) => {
     navigateTo('OTP', {
       nextScreen,
@@ -230,6 +238,8 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
       body,
       onConfirmOtp,
       expiresIn,
+      showSuccessToast,
+      isBack,
     });
   };
 

@@ -5,11 +5,28 @@ import BottomSheet, {
   BottomSheetView,
 } from '@gorhom/bottom-sheet';
 import { styles } from './styles';
-import { Headline, LucideIcon } from '@/components/atoms';
-import { Button, Pressable, View } from 'react-native';
+import { Headline, LucideIcon, Spacer } from '@/components/atoms';
+import { Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
 import { PropsWithChildren, useCallback, useEffect, useRef } from 'react';
 import { Portal } from '@gorhom/portal';
+import BaseButton from '../base-button';
+import { SnapPoints } from './constants';
+
+// Helper to get next larger snapPoint from SnapPoints enum
+const snapPointOrder = [
+  SnapPoints.SM,
+  SnapPoints.MD,
+  SnapPoints.LG,
+  SnapPoints.XL,
+  SnapPoints.FULL,
+];
+const getSnapPoints = (snapPoint: string | string[]) => {
+  if (Array.isArray(snapPoint)) return snapPoint;
+  const idx = snapPointOrder.indexOf(snapPoint as SnapPoints);
+  const next = snapPointOrder[Math.min(idx + 1, snapPointOrder.length - 1)];
+  return [snapPoint, next];
+};
 
 const BaseSheet = ({
   testId,
@@ -17,11 +34,17 @@ const BaseSheet = ({
   hasCloseButton = true,
   hasSubmitButton = false,
   children,
-  snapPoints,
+  snapPoints = SnapPoints.MD,
   containerStyle,
   modalVisible,
   setModalVisible,
   onClose,
+  buttonProps,
+  keyboardBehavior = 'extend',
+  keyboardBlurBehavior = 'restore',
+  enableBlurKeyboardOnGesture = true,
+  android_keyboardInputMode = 'adjustResize',
+  headerVariant = 'default',
   ...props
 }: PropsWithChildren<BaseSheetProps>) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
@@ -48,7 +71,7 @@ const BaseSheet = ({
       <LucideIcon
         testId={`${testId}-bottom-sheet-close-icon`}
         name="X"
-        color={getThemeColor('iconDefault')}
+        color={getThemeColor('textPrimary')}
       />
     </Pressable>
   );
@@ -65,26 +88,41 @@ const BaseSheet = ({
     ),
     [],
   );
-
-  return (
-    <Portal>
-      <BottomSheet
-        ref={sheetRef}
-        snapPoints={Array.isArray(snapPoints) ? snapPoints : [snapPoints]}
-        enablePanDownToClose={true}
-        enableDynamicSizing={false}
-        enableContentPanningGesture={true}
-        index={modalVisible ? 0 : -1}
-        style={[containerStyle, themedStyles.containerWrapper]}
-        onClose={onCloseFn}
-        backdropComponent={renderBackdrop}
-        {...props}>
-        <BottomSheetView
-          testID={`${testId}-bottom-sheet`}
-          style={themedStyles.hasVerticalGap}>
-          <View
-            testID={`${testId}-bottom-sheet-header-container`}
-            style={themedStyles.heading}>
+  const renderHeader = () => {
+    switch (headerVariant) {
+      case 'centerWithClose':
+        return (
+          <View style={themedStyles.headerCenterWithClose}>
+            {titleProps && (
+              <Headline
+                testId={`${testId}-bottom-sheet-header`}
+                {...titleProps}
+                style={titleProps?.style}
+              />
+            )}
+            {hasCloseButton && (
+              <View style={themedStyles.closeButtonAbsolute}>
+                {closeButton}
+              </View>
+            )}
+          </View>
+        );
+      case 'center':
+        return (
+          <View style={themedStyles.headerCenter}>
+            {titleProps && (
+              <Headline
+                testId={`${testId}-bottom-sheet-header`}
+                {...titleProps}
+                style={titleProps?.style}
+              />
+            )}
+          </View>
+        );
+      case 'default':
+      default:
+        return (
+          <View style={themedStyles.heading}>
             {titleProps && (
               <Headline
                 testId={`${testId}-bottom-sheet-header`}
@@ -93,6 +131,30 @@ const BaseSheet = ({
             )}
             {hasCloseButton && closeButton}
           </View>
+        );
+    }
+  };
+
+  return (
+    <Portal>
+      <BottomSheet
+        ref={sheetRef}
+        snapPoints={getSnapPoints(snapPoints)}
+        enablePanDownToClose={true}
+        enableContentPanningGesture={true}
+        index={modalVisible ? 0 : -1}
+        style={[containerStyle, themedStyles.containerWrapper]}
+        onClose={onCloseFn}
+        backdropComponent={renderBackdrop}
+        keyboardBehavior={keyboardBehavior}
+        keyboardBlurBehavior={keyboardBlurBehavior}
+        enableBlurKeyboardOnGesture={enableBlurKeyboardOnGesture}
+        android_keyboardInputMode={android_keyboardInputMode}
+        {...props}>
+        <BottomSheetView
+          testID={`${testId}-bottom-sheet`}
+          style={themedStyles.hasVerticalGap}>
+          {renderHeader()}
           <View testID={`${testId}-bottom-sheet-body-container`}>
             {children}
           </View>
@@ -100,8 +162,17 @@ const BaseSheet = ({
           {/* //TODO: replace with actual Button */}
           {/* //TODO: make place for 2 buttons instead of one */}
           <View testID={`${testId}-bottom-sheet-footer-container`}>
-            {hasSubmitButton && <Button title="Submit" />}
+            {hasSubmitButton && (
+              <BaseButton
+                testId={`${testId}-submit-btn`}
+                textProps={{ text: 'common.defaultSubmit' }}
+                size="lg"
+                {...buttonProps}
+                // disabled={submitButtonProps?.disabled || !props.isValid}
+              />
+            )}
           </View>
+          <Spacer space={24} />
         </BottomSheetView>
       </BottomSheet>
     </Portal>

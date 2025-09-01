@@ -421,10 +421,60 @@ Yup.addMethod(
   },
 );
 
+Yup.addMethod(
+  Yup.string,
+  'validSaudiPhoneNumber',
+  function (text?: string, textProps?: { [x: string]: string }) {
+    return this.test({
+      name: 'test-valid-saudi-phonenumber',
+      message: {
+        text: 'inputs.defaultInputValidations.string.validSaudiPhoneNumber',
+      },
+      test(value) {
+        const { createError, path } = this;
+
+        if (!value) return true; // Skip empty values, let required() handle this
+
+        // Remove any whitespace
+        const cleanValue = value.replace(/\s/g, '');
+
+        // Define valid formats and their expected lengths
+        const formats = {
+          '05': { length: 10, regex: /^05[0-9]{8}$/ },
+          '966': { length: 12, regex: /^966[0-9]{9}$/ },
+          '+966': { length: 13, regex: /^\+966[0-9]{9}$/ },
+        };
+
+        // Check if it matches any valid format
+        const isValid = Object.values(formats).some(
+          (format) =>
+            format.regex.test(cleanValue) &&
+            cleanValue.length === format.length,
+        );
+
+        if (isValid) return true;
+
+        return createError({
+          path,
+          message: text
+            ? { text, textProps }
+            : {
+                text: 'inputs.defaultInputValidations.string.validSaudiPhoneNumber',
+              },
+        });
+      },
+    });
+  },
+);
+
 declare module 'yup' {
   interface StringSchema {
     digitsOnly(text?: string, textProps?: { [x: string]: string }): this;
     validHRSDMail(text?: string, textProps?: { [x: string]: string }): this;
+    validSaudiPhoneNumber(
+      text?: string,
+      textProps?: { [x: string]: string },
+    ): this;
   }
 
   interface NumberSchema {

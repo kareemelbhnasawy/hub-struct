@@ -21,7 +21,7 @@ const AppStack = () => {
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Profile" component={ProfileStack} />
+      <Stack.Screen name="ProfileStack" component={ProfileStack} />
       <Stack.Screen name="QuickLogin" component={QuickLoginScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />

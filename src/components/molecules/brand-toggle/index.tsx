@@ -53,7 +53,7 @@ const BrandToggle = ({
         {titleProps && (
           <Paragraph
             testId={`${testId}-brand-toggle-title`}
-            size="md"
+            size="xl"
             style={themedStyles.title}
             {...titleProps}
           />

@@ -18,8 +18,9 @@ export type PersonDetailsResponse = {
   };
 };
 
-export type InfoItem = { 
-    key: string; 
-    label: string; 
-    value: string 
+export type InfoItem = {
+  key: string;
+  label: string;
+  value: string;
+  type?: string;
 };

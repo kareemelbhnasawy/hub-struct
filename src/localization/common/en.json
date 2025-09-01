@@ -1,4 +1,6 @@
 {
   "or": "Or",
+  "defaultSubmit": "Submit",
+  "save": "Save",
   "noRecords": "No Records"
 }

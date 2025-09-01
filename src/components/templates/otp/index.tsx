@@ -27,10 +27,16 @@ export default function OtpConfirmationScreen({ route }: Props) {
     onConfirmOtp,
     body,
     expiresIn,
+    showSuccessToast,
+    isBack,
   } = route.params;
   const screenTestId = 'otp-screen';
   const lastDigits = mobile?.slice(-4) ?? '****';
   const navigateToNextScreen = () => {
+    if (isBack) {
+      goBack();
+      return;
+    }
     if (!nextScreen) return;
     if (resetAppNav) {
       resetToStack('App', 'Home');
@@ -64,6 +70,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     (error) => {
       setError(true);
     },
+    showSuccessToast,
   );
 
   const handleResendCode = () => {

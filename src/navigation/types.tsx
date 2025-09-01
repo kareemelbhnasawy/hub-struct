@@ -1,4 +1,5 @@
 import { ScreenName } from '@/hooks/use-navigation';
+import { AxiosResponse } from 'axios';
 
 // Root stack parameter list for the super app
 export type RootStackParamList = {
@@ -13,5 +14,10 @@ export type RootStackParamList = {
     body: object;
     onConfirmOtp?: (res: unknown) => void;
     expiresIn?: number; // in seconds
+    showSuccessToast?: (arg0: AxiosResponse) => {
+      text: string;
+      textProps?: object;
+    };
+    isBack?: boolean;
   };
 };

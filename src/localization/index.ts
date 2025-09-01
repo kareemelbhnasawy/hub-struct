@@ -13,9 +13,10 @@ import enInputs from './inputs/en.json';
 import arInputs from './inputs/ar.json';
 import arOTP from './otp/ar.json';
 import enOTP from './otp/en.json';
-import enProfile from './profile/en.json';
+import arProfileDetails from './profile-details/ar.json';
+import enProfileDetails from './profile-details/en.json';
 import arProfile from './profile/ar.json';
-
+import enProfile from './profile/en.json';
 import enPersonDetails from './profile/person-details/en.json';
 import arPersonDetails from './profile/person-details/ar.json';
 
@@ -25,16 +26,18 @@ export const resources = {
     auth: enAuth,
     inputs: enInputs,
     otp: enOTP,
+    profileDetails: enProfileDetails,
     profile: enProfile,
-    personDetails: enPersonDetails
+    personDetails: enPersonDetails,
   },
   ar: {
     common: arCommon,
     auth: arAuth,
     inputs: arInputs,
     otp: arOTP,
+    profileDetails: arProfileDetails,
     profile: arProfile,
-    personDetails: arPersonDetails
+    personDetails: arPersonDetails,
   },
 };
 
