@@ -6,12 +6,11 @@ import { Paragraph } from '@/components/atoms';
 import TextInput from '../text-input';
 import BrandToggle from '../brand-toggle';
 import { useThemeStore } from '@/store/theme';
-import { maskPhoneNumber } from '@/utilities/maskings';
-import { getPhoneError, validateSaudiNumber } from '@/utilities/validations';
 import { formatPhoneNumber } from '@/utilities/formats';
 import { useNavigation } from '@/hooks';
 import { useStartFlow } from '@/network/hooks';
 import { useDeviceId } from '@/hooks/use-device-id';
+import Yup from '@/utilities/custom-yup';
 
 const BaseSheetDemo = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -24,10 +23,36 @@ const BaseSheetDemo = () => {
   const [extensionError, setExtensionError] = useState<string | null>(null);
   const { deviceId } = useDeviceId();
 
+  // Use Yup schema for Saudi phone validation
+  const phoneSchema = Yup.string().validSaudiPhoneNumber();
+
+  const getPhoneError = (value: string) => {
+    try {
+      phoneSchema.validateSync(value);
+      return undefined;
+    } catch (err: any) {
+      return (
+        err?.message || {
+          text: 'inputs.defaultInputValidations.string.validSaudiPhoneNumber',
+        }
+      );
+    }
+  };
+
+  // For disabling the button
+  const isPhoneValid = (value: string) => {
+    try {
+      phoneSchema.validateSync(value);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const onSuccessStartPhone = (data: unknown) => {
     setModalVisible(false);
     navigateToOTP({
-      body: { mobileNumber, deviceId },
+      body: { mobileNumber, deviceId, isShown: showForAll },
       nextScreen: 'Home',
       url: 'profile/v1/mobile-number/edit',
       expiresIn: data?.expiresIn,
@@ -193,11 +218,11 @@ const BaseSheetDemo = () => {
           textProps: { text: 'common.save' },
           onPress: () =>
             type === 'mobile'
-              ? mutatePhone({ mobileNumber, deviceId })
+              ? mutatePhone({ mobileNumber, deviceId, isShown: showForAll })
               : mutateExtension({ extensionNumber, deviceId }),
           disabled:
             type === 'mobile'
-              ? !validateSaudiNumber(mobileNumber)
+              ? !isPhoneValid(mobileNumber)
               : extensionNumber.length < 1,
           testId: 'demo-base-sheet-button',
         }}
