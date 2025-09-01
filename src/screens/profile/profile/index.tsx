@@ -8,7 +8,6 @@ import {
 import styles from './styles';
 import Page from '@/components/templates/page';
 import { Avatar, List } from '@/components/molecules';
-import defaultAvatar from '@/assets/images/HRSD-Logo.png';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/list-item';
 import { log } from '@/utilities';
@@ -17,8 +16,9 @@ import { listItemDataType } from '../partials/list-item/interface';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const name = 'aaa';
-  const kunya = 'aaa';
+  const avatarImageId = '';
+  const name = 'محمد مصطفى';
+  const kunya = 'أبو ألفطي';
   const displayName = kunya ? `${kunya} (${name})` : name;
   const jobTitle = 'مهندس برمجيات';
   const screenTestId = 'profile-screen';
@@ -102,7 +102,8 @@ const ProfileScreen = () => {
           <CurvedHeroImage testId={screenTestId}>
             <Avatar
               size="lg"
-              image={defaultAvatar}
+              image={avatarImageId ?? null}
+              name={name}
               status="offline"
               testId={screenTestId}
               containerStyle={themedStyles.avatar}
