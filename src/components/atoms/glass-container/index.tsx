@@ -19,6 +19,7 @@ export const GlassContainer = ({
   testId,
   borderRadius = Radius.FULL,
   containerStyle,
+  isContentCentered = true,
   children,
 }: PropsWithChildren<GlassContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -65,7 +66,10 @@ export const GlassContainer = ({
       </MaskedView>
       <View
         testID={`${testId}-glass-container-inner`}
-        style={themedStyles.innerBox}>
+        style={[
+          isContentCentered && themedStyles.centerContent,
+          themedStyles.width100,
+        ]}>
         {children}
       </View>
     </View>

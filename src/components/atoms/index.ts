@@ -7,4 +7,5 @@ export { default as CurvedHeroImage } from './curved-hero-banner';
 export { default as Headline } from './typography/headline';
 export { default as Paragraph } from './typography/paragraph';
 export { default as Spacer } from './spacer';
+export { default as BaseModal } from './base-modal';
 export { default as BaseTextInput } from './base-text-input';
