@@ -23,6 +23,7 @@ const useProfileStore = create<ProfileState>()(
       getJobTitle: () => get().jobTitle,
       getDepartment: () => get().department,
       setName: (name) => set({ name }),
+      setKunya: (kunya) => set({ kunya }),
       setFullName: (name, kunya) => set({ name, kunya }),
       setAvatarUrl: (url) => set({ avatarUrl: url }),
       setBannerId: (id) => set({ bannerId: id }),

@@ -19,5 +19,8 @@
   "activateKunyaSubtitle": "You can activate Kunya to appear in your personal account and for others",
   "kunyaPrompt": "What is your Kunya",
   "howKunyaAppears": "This is how it will appear in your profile",
+  "kunyaActivated": "Your Kunya has been activated successfully",
+  "kunyaUpdated": "Your Kunya has been updated successfully",
+  "kunyaDeactivated": "Your Kunya has been deactivated successfully",
   "saveChanges": "Save Changes"
 }

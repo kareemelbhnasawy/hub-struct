@@ -9,14 +9,60 @@ import {
   BrandToggle,
   TextInput,
 } from '@/components/molecules';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useProfileStore } from '@/store/profile';
+import useEditKunya from '@/network/services/profile/edit-kunya/edit-kunya.hook';
+import { useAuthStore } from '@/store/auth';
+import { useNavigation } from '@/hooks';
+import log from '@/utilities/log';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
+  const { getFullName, getAvatarUrl, getDepartment, getJobTitle, setKunya } =
+    useProfileStore();
+  const { getEmail } = useAuthStore();
+  const { name, kunya } = getFullName();
+  const [kunyaValue, setKunyaValue] = useState<string>(kunya);
+  const avatarUrl = getAvatarUrl();
+  const department = getDepartment();
+  const jobTitle = getJobTitle();
+  const [displayName, setDisplayName] = useState<string>(
+    kunya ? `${kunya} (${name})` : name,
+  );
+  const displayTitle = `${jobTitle} - ${department}`;
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const [isToggleActive, setIsToggleActive] = useState(false);
-  //   const { navigate } = useNavigation();
+  const [isToggleActive, setIsToggleActive] = useState(!!kunya);
+  const isKunyaActivated = !!kunya;
+  const { navigate } = useNavigation();
+
+  const navigateToSettings = () => {
+    navigate('Profile', {});
+  };
+
+  const showSuccessToast = () => {
+    return {
+      text: isKunyaActivated ? 'profile.kunyaUpdated' : 'profile.kunyaActivated',
+      textProps: { size: 'xl', weight: 'Medium' },
+    };
+  };
+
+  const { mutate: editKunya } = useEditKunya(
+    navigateToSettings,
+    (error) => {
+      log(error);
+    },
+    showSuccessToast,
+  );
+
+  const handleOnSavePress = () => {
+    setKunya(kunyaValue);
+    editKunya({ email: getEmail(), nickname: kunyaValue });
+  };
+
+  useEffect(() => {
+    setDisplayName(kunyaValue ? `${kunyaValue} (${name})` : name);
+  }, [kunyaValue, name]);
 
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
@@ -43,52 +89,60 @@ const KunyaCrudScreen = () => {
         </View>
 
         <Spacer space={30} />
-        {isToggleActive && <View>
-          <TextInput
-            testId={screenTestId}
-            labelProps={{
-              text: 'profile.kunyaPrompt',
-              size: '2xs',
-              weight: 'Medium',
-            }}
-            isRequired
-            placeholder="ابو ألفطي"
-          />
-
-          <Spacer space={30} />
-
-          <View style={themedStyles.kunyaPreviewWrapper}>
-            <Headline
-              text="profile.howKunyaAppears"
-              weight="Medium"
-              size="2xs"
-              testId={''}
-            />
-            <Avatar
-              size="lg"
-              // image={avatarUrl ?? null}
-              name={'name aboo'}
-              status={'active'}
+        {isToggleActive && (
+          <View>
+            <TextInput
               testId={screenTestId}
+              value={kunyaValue}
+              onChangeValue={setKunyaValue}
+              labelProps={{
+                text: 'profile.kunyaPrompt',
+                size: '2xs',
+                weight: 'Medium',
+              }}
+              isRequired
+              placeholder="ابو ألفطي"
             />
-            <View style={themedStyles.isCentered}>
+
+            <Spacer space={30} />
+
+            <View style={themedStyles.kunyaPreviewWrapper}>
               <Headline
-                text={'displayName'}
-                weight="Bold"
-                size="xs"
-                testId={screenTestId}
-              />
-              <Paragraph
-                text={'displayTitle'}
+                text="profile.howKunyaAppears"
                 weight="Medium"
-                size="lg"
+                size="2xs"
                 testId={screenTestId}
               />
+              <Avatar
+                size="lg"
+                image={avatarUrl ?? null}
+                name={name}
+                status={'active'}
+                testId={screenTestId}
+              />
+              <View style={themedStyles.isCentered}>
+                <Headline
+                  text={displayName}
+                  weight="Bold"
+                  size="xs"
+                  testId={screenTestId}
+                />
+                <Paragraph
+                  text={displayTitle}
+                  weight="Medium"
+                  size="lg"
+                  testId={screenTestId}
+                />
+              </View>
             </View>
+            <Spacer space={40} />
+            <BaseButton
+              testId={screenTestId}
+              textProps={{ text: 'Save' }}
+              onPress={handleOnSavePress}
+            />
           </View>
-          <Spacer space={40} />
-          <BaseButton testId={screenTestId} textProps={{ text: 'Save' }} />
-        </View>}
+        )}
       </View>
     </Page>
   );

@@ -15,6 +15,7 @@ interface ProfileState {
   getJobTitle: () => string;
   getDepartment: () => string;
   setName: (name: string) => void;
+  setKunya: (kunya: string) => void;
   setFullName: (name: string, kunya: string) => void;
   setAvatarUrl: (url: string) => void;
   setBannerId: (id: string) => void;

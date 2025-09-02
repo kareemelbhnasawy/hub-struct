@@ -15,15 +15,32 @@ import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
 import { useEffect, useState } from 'react';
+import { useProfileStore } from '@/store/profile';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const [avatarUrl, setAvatarUrl] = useState<string>('');
-  const [bannerUrl, setBannerUrl] = useState<string>('');
-  const [name, setName] = useState<string>('');
-  const [kunya, setKunya] = useState<string>('');
-  const [status, setStatus] = useState<string>('');
-  const [displayTitle, setDisplayTitle] = useState<string>('');
+  const {
+    setFullName,
+    setAvatarUrl,
+    setBannerId,
+    setStatus,
+    setJobTitle,
+    setDepartment,
+    getFullName,
+    getAvatarUrl,
+    getBannerId,
+    getJobTitle,
+    getDepartment,
+    getStatus,
+  } = useProfileStore();
+  const [avatarUrl, setLocalAvatarUrl] = useState<string>(getAvatarUrl());
+  const [bannerUrl, setLocalBannerUrl] = useState<string>(getBannerId());
+  const [name, setLocalName] = useState<string>(getFullName().name);
+  const [kunya, setLocalKunya] = useState<string>(getFullName().kunya);
+  const [status, setLocalStatus] = useState<string>(getStatus());
+  const [displayTitle, setLocalDisplayTitle] = useState<string>(
+    `${getJobTitle()} - ${getDepartment()}`,
+  );
   const displayName = kunya ? `${kunya} (${name})` : name;
   const screenTestId = 'profile-screen';
   const { getThemedStyles, getThemeColor } = useThemeStore();
@@ -87,7 +104,7 @@ const ProfileScreen = () => {
           backgroundColor: getThemeColor('iconDescriptiveBlue'),
         },
       },
-      onPress: () => log('Settings pressed'),
+      onPress: () => navigation.navigate('KunyaCrud'),
     },
   ];
 
@@ -113,13 +130,21 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setName(data?.name);
-      setKunya(data?.nickname);
+      setFullName(data?.name, data?.nickname);
       setAvatarUrl(data?.profileImage);
-      setBannerUrl(data?.banner);
+      setBannerId(data?.banner);
       setStatus(data?.status.toLowerCase());
-      setDisplayTitle(`${data?.jobTitle} - ${data?.department}`);
+      setDepartment(data?.department);
+      setJobTitle(data?.jobTitle);
+
+      setLocalAvatarUrl(getAvatarUrl());
+      setLocalBannerUrl(getBannerId());
+      setLocalName(getFullName().name);
+      setLocalKunya(getFullName().kunya);
+      setLocalStatus(getStatus());
+      setLocalDisplayTitle(`${getJobTitle()} - ${getDepartment()}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, isSuccess]);
 
   return (
