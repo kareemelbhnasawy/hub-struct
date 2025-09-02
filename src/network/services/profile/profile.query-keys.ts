@@ -2,6 +2,7 @@ const PROFILE_QUERY_KEYS = {
   HEADER: 'PROFILE_HEADER',
   GET_PROFILE_DETAILS: 'GET_PROFILE_DETAILS',
   GET_ADDRESSES: 'GET_ADDRESSES',
+  ADDRESS_START: 'ADDRESS_START',
   // Add other profile-related query keys here
 } as const;
 

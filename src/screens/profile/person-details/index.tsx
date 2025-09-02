@@ -315,7 +315,7 @@ const PersonDetails = () => {
         testId={screenTestId}
         modalVisible={addressModalVisible}
         setModalVisible={setAddressModalVisible}
-        defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+      // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
       />
     </Page>
   );

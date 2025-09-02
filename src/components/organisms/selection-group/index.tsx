@@ -13,19 +13,22 @@ const SelectionGroup = ({
   spread,
   ...listProps
 }: SelectionGroupProps) => {
-  const onListItemPressFn = (item: object) => {
+  const onListItemPressFn = (item: Record<string, unknown>) => {
     if (spread) {
       onChangeValue?.(item);
     } else {
-      onChangeValue?.(item[valueKey]);
+      onChangeValue?.(item[valueKey] as string | object);
     }
     onListItemPress?.(item);
   };
 
   const renderItemFn = useCallback(
-    (arg: { item: object; index: number }) => {
+    (arg: { item: Record<string, unknown>; index: number }) => {
       if (
-        (spread && arg.item[valueKey] === value[valueKey]) ||
+        (spread &&
+          value &&
+          typeof value === 'object' &&
+          arg.item[valueKey] === (value as Record<string, unknown>)[valueKey]) ||
         (!spread && arg.item[valueKey] === value)
       ) {
         return renderSelectedItem(arg);

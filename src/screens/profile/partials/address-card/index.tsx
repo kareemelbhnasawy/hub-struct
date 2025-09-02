@@ -34,7 +34,7 @@ const AddressCard = ({
           {isPrimaryAddress && (
             <Badge
               testId={`${testId}-address-card`}
-              paragraphProps={{ text: 'العنوان المسجل في العقد' }}
+              paragraphProps={{ text: 'profile.contractAddress' }}
             />
           )}
         </View>

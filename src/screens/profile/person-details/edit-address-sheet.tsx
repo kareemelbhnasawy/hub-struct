@@ -9,6 +9,8 @@ import { useState } from 'react';
 import { useStartFlow } from '@/network/hooks';
 import { useNavigation } from '@/hooks';
 import { useDeviceId } from '@/hooks/use-device-id';
+import PROFILE_URLS from '@/network/services/profile/profile.urls';
+import PROFILE_QUERY_KEYS from '@/network/services/profile/profile.query-keys';
 
 const EditAddressSheet = ({
   testId,
@@ -34,22 +36,22 @@ const EditAddressSheet = ({
     navigateToOTP({
       body: { ...selectedAddress, deviceId },
       nextScreen: 'PersonDetails',
-      url: 'profile/v1/address/edit',
+      url: PROFILE_URLS.EDIT_ADDRESS,
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
       showSuccessToast: () => {
         return {
-          text: 'تم تعديل العنوان بنجاح!',
+          text: 'profile.editAddressSuccess',
         };
       },
       isBack: true,
     });
   };
   const { mutate } = useStartFlow(
-    'profile/v1/address/edit',
+    PROFILE_URLS.EDIT_ADDRESS,
     onSuccessStartExtension,
-    () => {},
-    'ADDRESS_START',
+    () => { },
+    PROFILE_QUERY_KEYS.ADDRESS_START,
   );
 
   return (
@@ -78,13 +80,13 @@ const EditAddressSheet = ({
         emptyComponentProps={{
           iconProps: { name: 'MapPinX' },
           headlineProps: {
-            text: 'لا يوجد لديك عناوين مسجلة في سبل',
+            text: 'profile.noAddressesTitle',
           },
           paragraphProps: {
-            text: 'برجاء اضافة عنوانك الوطني في سبل ثم اختياره من هنا لكي يظهر في ملفك الشخصي',
+            text: 'profile.noAddressesDesc',
           },
           buttonProps: {
-            textProps: { text: 'إضافة عنوان جديد عبر سبل' },
+            textProps: { text: 'profile.addNewAddressViaSPL' },
             leftIcon: { name: 'ExternalLink' },
             onPress: () => {
               openLink('https://www.google.com/');
@@ -94,10 +96,10 @@ const EditAddressSheet = ({
         errorComponentProps={{
           iconProps: { name: 'Unlink' },
           headlineProps: {
-            text: 'تعذر تحميل العناوين',
+            text: 'profile.addressesLoadErrorTitle',
           },
           paragraphProps: {
-            text: 'حدث خطأ أثناء جلب بيانات العناوين من سبل. يرجى المحاولة لاحقاً.',
+            text: 'profile.addressesLoadErrorDesc',
           },
         }}
         isError={isError}
@@ -128,7 +130,7 @@ const EditAddressSheet = ({
       <Spacer space="3xl" />
       <BaseButton
         testId={testId}
-        textProps={{ text: 'Save' }}
+        textProps={{ text: 'common.save' }}
         onPress={() => mutate({ ...selectedAddress, deviceId })}
       />
     </BaseSheet>
