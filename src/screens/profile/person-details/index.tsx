@@ -22,7 +22,7 @@ import { formatPhoneNumber } from '@/utilities/formats';
 import { useStartFlow } from '@/network/hooks';
 
 const PersonDetails = () => {
-  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const screenTestId = 'person-details-screen';
   const themedStyle = getThemedStyles(styles);
   // fetch data
@@ -215,7 +215,7 @@ const PersonDetails = () => {
       hasHeader
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
-        titleProps: { text: 'personDetails.personalInfo' },
+        titleProps: { text: 'profile.personDetails.personalInfo' },
         isTitleCentered: true,
       }}>
       <Spacer space={'xl'} />
@@ -225,12 +225,10 @@ const PersonDetails = () => {
           name: 'User',
           size: 18,
           isCircle: true,
-          containerStyle: {
-            backgroundColor: getThemeColor('iconDescriptiveYellow'),
-          },
+          containerStyle: themedStyle.iconDescriptiveYellow,
         }}
         textProps={{
-          text: 'personDetails.basicInfo',
+          text: 'profile.personDetails.basicInfo',
           size: '2xs',
           weight: 'Bold',
         }}
@@ -254,12 +252,10 @@ const PersonDetails = () => {
           name: 'Phone',
           size: 18,
           isCircle: true,
-          containerStyle: {
-            backgroundColor: getThemeColor('iconDescriptiveGreen'),
-          },
+          containerStyle: themedStyle.iconDescriptiveGreen,
         }}
         textProps={{
-          text: 'personDetails.basicInfo',
+          text: 'profile.personDetails.basicInfo',
           size: '2xs',
           weight: 'Bold',
         }}

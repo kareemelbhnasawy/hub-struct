@@ -16,6 +16,9 @@ const HomeScreen = () => {
   const handleNavigateToProfile = () => {
     navigation.navigate('ProfileStack', { userId: '123' });
   };
+  const goToSetPin = () => {
+    navigation.navigate('SetPin');
+  };
   const onLogoutSuccess = () => {
     deleteKey(STORAGE_KEYS.REFRESH_TOKEN);
     navigation.resetToStack('Auth', 'Login');
@@ -36,6 +39,11 @@ const HomeScreen = () => {
         <Text style={styles.profileButtonText.base}>Toggle Lang</Text>
       </Pressable>
 
+      <Pressable
+        onPress={goToSetPin}
+        style={styles.profileButton.base}>
+        <Text style={styles.profileButtonText.base}>Go to set pin</Text>
+      </Pressable>
       <Pressable
         onPress={handleNavigateToProfile}
         style={styles.profileButton.base}>

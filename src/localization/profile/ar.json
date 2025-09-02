@@ -15,12 +15,37 @@
   "contractAddress": "العنوان المسجل في العقد",
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
   "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
-  "activateKunya": "تفعيل الكنية",
-  "activateKunyaSubtitle": "يمكنك تفعيل الكنية لتظهر في حسابك الشخصي و للآخرين",
-  "kunyaPrompt": "ما هي كنيتك",
-  "howKunyaAppears": "هكذا ستظهر في ملفك الشخصي",
-  "kunyaActivated": "تم تفعيل كنيتك بنجاح",
-  "kunyaUpdated": "تم تعديل كنيتك بنجاح",
-  "kunyaDeactivated": "تم إلغاء تفعيل كنيتك بنجاح",
-  "saveChanges": "حفظ التغييرات"
+  "saveChanges": "حفظ التغييرات",
+  "kunya" : {
+    "activateKunya": "تفعيل الكنية",
+    "activateKunyaSubtitle": "يمكنك تفعيل الكنية لتظهر في حسابك الشخصي و للآخرين",
+    "kunyaPrompt": "ما هي كنيتك",
+    "howKunyaAppears": "هكذا ستظهر في ملفك الشخصي",
+    "kunyaActivated": "تم تفعيل كنيتك بنجاح",
+    "kunyaUpdated": "تم تعديل كنيتك بنجاح",
+    "kunyaDeactivated": "تم إلغاء تفعيل كنيتك بنجاح",
+  },
+  "setPin" :{
+    "createTitle": "أنشئ رمزك السري (PIN)",
+    "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
+    "avoidPatterns": "تجنب الأنماط السهلة مثل 123456 أو 000000."
+  },
+  "confirmPin" :{
+    "confirmTitle": "أعد إدخال الرمز للتأكيد",
+    "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته."
+  },
+  "personDetails" : {
+    "personalInfo": "البيانات الشخصية",
+    "basicInfo": "البيانات الأساسية",
+    "name": "الاسم",
+    "birthDate": "تاريخ الميلاد",
+    "age": "العمر",
+    "gender": "الجنس",
+    "nationality": "الجنسية",
+    "nationalId": "رقم الهوية الوطنية",
+    "contactInfo": "بيانات التواصل",
+    "mobile1": "هاتف شخصي ١",
+    "extension": "تحويلة",
+    "address": "العنوان المسجل في العقد"
+  }
 }

@@ -17,10 +17,35 @@
   "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil.",
   "activateKunya": "Activate Kunya",
   "activateKunyaSubtitle": "You can activate Kunya to appear in your personal account and for others",
-  "kunyaPrompt": "What is your Kunya",
-  "howKunyaAppears": "This is how it will appear in your profile",
-  "kunyaActivated": "Your Kunya has been activated successfully",
-  "kunyaUpdated": "Your Kunya has been updated successfully",
-  "kunyaDeactivated": "Your Kunya has been deactivated successfully",
-  "saveChanges": "Save Changes"
+  "saveChanges": "Save Changes",
+  "kunya": {
+    "kunyaPrompt": "What is your Kunya",
+    "howKunyaAppears": "This is how it will appear in your profile",
+    "kunyaActivated": "Your Kunya has been activated successfully",
+    "kunyaUpdated": "Your Kunya has been updated successfully",
+    "kunyaDeactivated": "Your Kunya has been deactivated successfully",
+  },
+  "setPin" :{
+    "createTitle": "Create your PIN",
+    "chooseSixDigits": "Choose a 6-digit code.",
+    "avoidPatterns": "Avoid easy patterns like 123456 or 000000."
+  },
+  "confirmPin" :{
+    "confirmTitle": "Re-enter your PIN to confirm",
+    "confirmSubtitle": "To make sure the PIN you chose is correct."
+  },
+  "personDetails" : {
+    "personalInfo": "Personal information",
+    "basicInfo": "Basic information",
+    "name": "Name",
+    "birthDate": "Date of birth",
+    "age": "Age",
+    "gender": "Gender",
+    "nationality": "Nationality",
+    "nationalId": "National ID number",
+    "contactInfo": "Contact information",
+    "mobile1": "Personal phone 1",
+    "extension": "Extension",
+    "address": "Registered address (in contract)"
+  }
 }

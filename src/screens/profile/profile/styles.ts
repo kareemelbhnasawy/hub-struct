@@ -12,7 +12,7 @@ const styles = createThemedStyles({
     base: {
       alignItems: 'center',
       justifyContent: 'flex-end',
-      flexDirection: 'column'
+      flexDirection: 'column',
     },
   },
   avatar: {
@@ -25,7 +25,31 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
-
+  iconDescriptiveYellow: {
+    base: {
+      backgroundColor: 'iconDescriptiveYellow',
+    },
+  },
+  iconDescriptiveGreen: {
+    base: {
+      backgroundColor: 'iconDescriptiveGreen',
+    },
+  },
+  iconDescriptiveOrange: {
+    base: {
+      backgroundColor: 'iconDescriptiveOrange',
+    },
+  },
+  iconDescriptiveTeal: {
+    base: {
+      backgroundColor: 'iconDescriptiveTeal',
+    },
+  },
+  iconDescriptiveBlue: {
+    base: {
+      backgroundColor: 'iconDescriptiveBlue',
+    },
+  },
 });
 
 export default styles;

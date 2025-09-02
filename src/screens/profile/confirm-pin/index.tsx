@@ -1,5 +1,5 @@
 import { Headline, Spacer } from '@/components/atoms';
-import { PinCode } from '@/components/molecules';
+import { PinCode, Logo } from '@/components/molecules';
 import { Page } from '@/components/templates';
 import { useNavigation } from '@/hooks';
 import useSetPin from '@/network/services/auth/set-pin/set-pin.hook';
@@ -29,22 +29,26 @@ const ConfirmPinScreen = () => {
   };
 
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={isPending}>
+    <Page testId={screenTestId} hasHeader={true} isLoading={isPending}>
       <Spacer space={50} />
+      <Logo testId={screenTestId} size="md" />
+      <Spacer space={24} />
       <Headline
         testId={`${screenTestId}-title`}
-        text="Confirm Pin Screen"
-        size="lg"
+        text="profile.confirmPin.confirmTitle"
+        size="sm"
         weight="Semibold"
       />
+      <Spacer space={'xl'} />
       <Headline
         testId={`${screenTestId}-subtitle`}
-        text="Confirm Pin Here"
+        text="profile.confirmPin.confirmSubtitle"
         size="xs"
         weight="Medium"
       />
       <Spacer space={40} />
       <PinCode
+        secureTextEntry={true}
         testId={screenTestId}
         onPinComplete={onConfirmPin}
         errorProps={error ? { text: 'Pin mismatch' } : undefined}
