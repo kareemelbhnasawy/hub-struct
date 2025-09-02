@@ -4,9 +4,9 @@ import {
   MyProfileScreen,
   PersonDetailsScreen,
   KunyaCrudScreen,
+  EditBackgroundScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
-import EditBackgroundScreen from '@/screens/profile/edit-background';
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 

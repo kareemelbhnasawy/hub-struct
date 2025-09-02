@@ -8,12 +8,19 @@ export interface HeaderResponse {
   status: string;
 }
 
-
 export interface EditKunyaRequest {
   email: string;
   nickname: string;
 }
 
 export interface EditKunyaResponse {
+  success: boolean;
+}
+
+export interface DeleteKunyaRequest {
+  email: string;
+}
+
+export interface DeleteKunyaResponse {
   success: boolean;
 }

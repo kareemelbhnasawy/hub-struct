@@ -16,6 +16,8 @@ import useEditKunya from '@/network/services/profile/edit-kunya/edit-kunya.hook'
 import { useAuthStore } from '@/store/auth';
 import { useNavigation } from '@/hooks';
 import log from '@/utilities/log';
+import useDeleteKunya from '@/network/services/profile/delete-kunya/delete-kunya.hook';
+import GlassIcon from '@/components/molecules/glass-icon';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
@@ -36,37 +38,52 @@ const KunyaCrudScreen = () => {
   const [isToggleActive, setIsToggleActive] = useState(!!kunya);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const isKunyaActivated = !!kunya;
-  const { navigate } = useNavigation();
+  const { goBack } = useNavigation();
 
-  const navigateToSettings = () => {
-    navigate('Profile', {});
+  const navigateBack = () => {
+    goBack();
   };
 
   const showSuccessToast = () => {
     return {
-      text: isKunyaActivated
-        ? 'profile.kunya.kunyaUpdated'
-        : 'profile.kunya.kunyaActivated',
+      text: isToggleActive
+        ? isKunyaActivated
+          ? 'profile.kunya.kunyaUpdated'
+          : 'profile.kunya.kunyaActivated'
+        : 'profile.kunya.kunyaDeactivated',
       textProps: { size: 'xl', weight: 'Medium' },
     };
   };
 
   const { mutate: editKunya } = useEditKunya(
-    navigateToSettings,
+    navigateBack,
     (error) => {
       log(error);
     },
     showSuccessToast,
   );
 
-  const handleOnSavePress = () => {
+  const { mutate: deleteKunya } = useDeleteKunya(
+    navigateBack,
+    (error) => {
+      log(error);
+    },
+    showSuccessToast,
+  );
+
+  const onSavePress = () => {
     setKunya(kunyaValue);
     editKunya({ email: getEmail(), nickname: kunyaValue });
   };
 
   const handleDeleteKunya = () => {
     setKunya('');
-    //integrate with delete modal
+    deleteKunya({ email: getEmail() });
+  };
+
+  const onModalBackClick = () => {
+    setIsModalVisible(false);
+    setIsToggleActive(true);
   };
 
   useEffect(() => {
@@ -82,7 +99,16 @@ const KunyaCrudScreen = () => {
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
-        <Spacer space={40} />
+        <Spacer space={20} />
+
+        <GlassIcon
+          testId={screenTestId}
+          name="ArrowLeft"
+          onPress={navigateBack}
+        />
+
+        <Spacer space={20} />
+
         <View style={themedStyles.toggleSectionWrapper}>
           <View style={themedStyles.headlineWrapper}>
             <Headline
@@ -115,7 +141,6 @@ const KunyaCrudScreen = () => {
                 size: '2xs',
                 weight: 'Medium',
               }}
-              isRequired
               placeholder="ابو ألفطي"
             />
 
@@ -152,9 +177,10 @@ const KunyaCrudScreen = () => {
             </View>
             <Spacer space={40} />
             <BaseButton
+              disabled={!kunyaValue}
               testId={screenTestId}
-              textProps={{ text: 'Save' }}
-              onPress={handleOnSavePress}
+              textProps={{ text: 'profile.saveChanges' }}
+              onPress={onSavePress}
             />
           </View>
         )}
@@ -175,17 +201,17 @@ const KunyaCrudScreen = () => {
         }}
         buttonProps={{
           textProps: {
-            text: 'profile.deactivate'
+            text: 'profile.deactivate',
           },
-          onPress: handleDeleteKunya
+          onPress: handleDeleteKunya,
         }}
         secondaryButtonProps={{
           textProps: {
-            text: 'profile.back'
+            text: 'profile.back',
           },
-          onPress: () => setIsModalVisible(false)
-        }} title={''}        // isVisible={isModalVisible}
-        // onBackdropPress={() => setIsModalVisible(false)}
+          onPress: () => onModalBackClick(),
+        }}
+        title={''}
       />
     </Page>
   );
