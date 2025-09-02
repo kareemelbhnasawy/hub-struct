@@ -12,4 +12,5 @@ export { default as PinCode } from './pin-code';
 export { default as Tag } from './tag';
 export { default as Logo } from './logo';
 export { default as GlassModal } from './glass-modal';
+export { default as GlassIcon } from './glass-icon';
 export { default as Toast, ToastService, ToastProvider } from './toast';
