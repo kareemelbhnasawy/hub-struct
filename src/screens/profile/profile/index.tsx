@@ -15,11 +15,12 @@ import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
 import { useEffect, useState } from 'react';
+import { getBackgroundImageById } from '../edit-background/constants';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const [avatarUrl, setAvatarUrl] = useState<string>('');
-  const [bannerUrl, setBannerUrl] = useState<string>('');
+  const [bannerId, setBannerId] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [kunya, setKunya] = useState<string>('');
   const [status, setStatus] = useState<string>('');
@@ -106,7 +107,7 @@ const ProfileScreen = () => {
       setName(data?.name);
       setKunya(data?.nickname);
       setAvatarUrl(data?.profileImage);
-      setBannerUrl(data?.banner);
+      setBannerId(data?.banner);
       setStatus(data?.status.toLowerCase());
       setDisplayTitle(`${data?.jobTitle} - ${data?.department}`);
     }
@@ -118,7 +119,7 @@ const ProfileScreen = () => {
         <View>
           <CurvedHeroImage
             testId={screenTestId}
-            source={bannerUrl ? { uri: bannerUrl } : undefined}>
+            source={getBackgroundImageById(bannerId)}>
             <Avatar
               size="lg"
               image={avatarUrl ?? null}

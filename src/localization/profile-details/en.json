@@ -5,5 +5,8 @@
   "showNumber": "Show number to everyone",
   "editExtension": "Edit Extension",
   "mobileSuccessfulEdit": "Personal Number 1 edited successfully!",
-  "extensionSuccessfulEdit": "Extension edited successfully!"
+  "extensionSuccessfulEdit": "Extension edited successfully!",
+  "editBackgroundTitle": "Edit Background Image",
+  "editBackgroundDesc": "You can choose any image from the images to be your background",
+  "editBackgroundSuccess": "Background image edited successfully"
 }

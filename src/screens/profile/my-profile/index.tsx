@@ -94,7 +94,7 @@ const MyProfile = () => {
         name: 'Vault',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
-      onPress: () => log('custodies pressed'),
+      onPress: () => navigate('EditBackground'),
     },
   ];
   return (

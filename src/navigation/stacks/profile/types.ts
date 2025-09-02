@@ -6,4 +6,5 @@ export type ProfileStackParamList = {
   Profile: ProfileScreenParams;
   MyProfile: MyProfileScreenParams;
   PersonDetails: PersonDetailsScreenParams;
+  EditBackground: undefined;
 };
