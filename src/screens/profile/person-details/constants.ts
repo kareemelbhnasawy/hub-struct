@@ -4,32 +4,32 @@ export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
   return [
     {
       key: 'name',
-      label: 'personDetails.name',
+      label: 'profile.personDetails.name',
       value: data?.primaryInfo?.name ?? '-',
     },
     {
       key: 'birthDate',
-      label: 'personDetails.birthDate',
+      label: 'profile.personDetails.birthDate',
       value: data?.primaryInfo?.birthDate ?? '-',
     },
     {
       key: 'age',
-      label: 'personDetails.age',
+      label: 'profile.personDetails.age',
       value: data?.primaryInfo?.age ?? '-',
     },
     {
       key: 'gender',
-      label: 'personDetails.gender',
+      label: 'profile.personDetails.gender',
       value: data?.primaryInfo?.gender ?? '-',
     },
     {
       key: 'nationality',
-      label: 'personDetails.nationality',
+      label: 'profile.personDetails.nationality',
       value: data?.primaryInfo?.nationality ?? '-',
     },
     {
       key: 'nationalId',
-      label: 'personDetails.nationalId',
+      label: 'profile.personDetails.nationalId',
       value: data?.primaryInfo?.nationalId ?? '-',
     },
   ];
@@ -39,19 +39,19 @@ export const contactInfoDataHandler = (data: PersonDetailsResponse) => {
   return [
     {
       key: 'mobileNumber',
-      label: 'personDetails.mobile1',
+      label: 'profile.personDetails.mobile1',
       value: data?.contactInfo?.mobileNumber ?? '-',
       type: 'mobile',
     },
     {
       key: 'workExtension',
-      label: 'personDetails.extension',
+      label: 'profile.personDetails.extension',
       value: data?.contactInfo?.workExtension ?? '-',
       type: 'extension',
     },
     {
       key: 'address',
-      label: 'personDetails.address',
+      label: 'profile.personDetails.address',
       value: data?.contactInfo?.address ?? '-',
     },
   ];
