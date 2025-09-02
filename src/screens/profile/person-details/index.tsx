@@ -20,6 +20,7 @@ import { useNavigation } from '@/hooks';
 import { getExtensionError, getPhoneError, isPhoneValid } from './utils';
 import { formatPhoneNumber } from '@/utilities/formats';
 import { useStartFlow } from '@/network/hooks';
+import EditAddressSheet from './edit-address-sheet';
 
 const PersonDetails = () => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
@@ -38,6 +39,7 @@ const PersonDetails = () => {
   const [type, setType] = useState<'mobile' | 'extension'>('mobile');
   const { deviceId } = useDeviceId();
   const [error, setError] = useState();
+  const [addressModalVisible, setAddressModalVisible] = useState(false);
 
   const basicInfoData = basicInfoDataHandler(data);
 
@@ -134,6 +136,8 @@ const PersonDetails = () => {
         } else if (item.type === 'extension') {
           setType('extension');
           setModalVisible(true);
+        } else if (item.key === 'address') {
+          setAddressModalVisible(true);
         }
       }}>
       <Paragraph
@@ -307,6 +311,12 @@ const PersonDetails = () => {
         containerStyle={themedStyle.bottomSheetContainer}>
         {type === 'mobile' ? mobileNumberRender : extensionRender}
       </BaseSheet>
+      <EditAddressSheet
+        testId={screenTestId}
+        modalVisible={addressModalVisible}
+        setModalVisible={setAddressModalVisible}
+        defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+      />
     </Page>
   );
 };

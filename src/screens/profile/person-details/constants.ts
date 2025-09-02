@@ -41,13 +41,11 @@ export const contactInfoDataHandler = (data: PersonDetailsResponse) => {
       key: 'mobileNumber',
       label: 'personDetails.mobile1',
       value: data?.contactInfo?.mobileNumber ?? '-',
-      type: 'mobile',
     },
     {
       key: 'workExtension',
       label: 'personDetails.extension',
       value: data?.contactInfo?.workExtension ?? '-',
-      type: 'extension',
     },
     {
       key: 'address',
