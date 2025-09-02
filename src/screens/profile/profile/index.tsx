@@ -26,7 +26,7 @@ const ProfileScreen = () => {
   const [displayTitle, setDisplayTitle] = useState<string>('');
   const displayName = kunya ? `${kunya} (${name})` : name;
   const screenTestId = 'profile-screen';
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
@@ -39,9 +39,7 @@ const ProfileScreen = () => {
       title: 'profile.account',
       iconProps: {
         name: 'User',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveYellow'),
-        },
+        containerStyle: themedStyles.iconDescriptiveYellow,
       },
       onPress: handleNavigateToAccountDetails,
     },
@@ -50,9 +48,7 @@ const ProfileScreen = () => {
       title: 'profile.digitalCard',
       iconProps: {
         name: 'IdCard',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveGreen'),
-        },
+        containerStyle: themedStyles.iconDescriptiveGreen,
       },
       onPress: () => log('Work Account pressed'),
     },
@@ -61,9 +57,7 @@ const ProfileScreen = () => {
       title: 'profile.team',
       iconProps: {
         name: 'Users',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveOrange'),
-        },
+        containerStyle: themedStyles.iconDescriptiveOrange,
       },
       onPress: () => log('Team Account pressed'),
     },
@@ -72,9 +66,7 @@ const ProfileScreen = () => {
       title: 'profile.personalize',
       iconProps: {
         name: 'HousePlus',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveTeal'),
-        },
+        containerStyle: themedStyles.iconDescriptiveTeal,
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -83,9 +75,7 @@ const ProfileScreen = () => {
       title: 'profile.settings',
       iconProps: {
         name: 'Settings',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveBlue'),
-        },
+        containerStyle: themedStyles.iconDescriptiveBlue,
       },
       onPress: () => log('Settings pressed'),
     },

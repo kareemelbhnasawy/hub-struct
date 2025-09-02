@@ -22,7 +22,7 @@ import { formatPhoneNumber } from '@/utilities/formats';
 import { useStartFlow } from '@/network/hooks';
 
 const PersonDetails = () => {
-  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const screenTestId = 'person-details-screen';
   const themedStyle = getThemedStyles(styles);
   // fetch data
@@ -225,9 +225,7 @@ const PersonDetails = () => {
           name: 'User',
           size: 18,
           isCircle: true,
-          containerStyle: {
-            backgroundColor: getThemeColor('iconDescriptiveYellow'),
-          },
+          containerStyle: themedStyle.iconDescriptiveYellow,
         }}
         textProps={{
           text: 'profile.personDetails.basicInfo',
@@ -254,9 +252,7 @@ const PersonDetails = () => {
           name: 'Phone',
           size: 18,
           isCircle: true,
-          containerStyle: {
-            backgroundColor: getThemeColor('iconDescriptiveGreen'),
-          },
+          containerStyle: themedStyle.iconDescriptiveGreen,
         }}
         textProps={{
           text: 'profile.personDetails.basicInfo',
