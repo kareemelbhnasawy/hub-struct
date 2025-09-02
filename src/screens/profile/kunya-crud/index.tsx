@@ -38,10 +38,10 @@ const KunyaCrudScreen = () => {
   const [isToggleActive, setIsToggleActive] = useState(!!kunya);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const isKunyaActivated = !!kunya;
-  const { navigate } = useNavigation();
+  const { goBack } = useNavigation();
 
-  const navigateToSettings = () => {
-    navigate('Profile', {});
+  const navigateBack = () => {
+    goBack();
   };
 
   const showSuccessToast = () => {
@@ -56,7 +56,7 @@ const KunyaCrudScreen = () => {
   };
 
   const { mutate: editKunya } = useEditKunya(
-    navigateToSettings,
+    navigateBack,
     (error) => {
       log(error);
     },
@@ -64,14 +64,14 @@ const KunyaCrudScreen = () => {
   );
 
   const { mutate: deleteKunya } = useDeleteKunya(
-    navigateToSettings,
+    navigateBack,
     (error) => {
       log(error);
     },
     showSuccessToast,
   );
 
-  const handleOnSavePress = () => {
+  const onSavePress = () => {
     setKunya(kunyaValue);
     editKunya({ email: getEmail(), nickname: kunyaValue });
   };
@@ -79,6 +79,11 @@ const KunyaCrudScreen = () => {
   const handleDeleteKunya = () => {
     setKunya('');
     deleteKunya({ email: getEmail() });
+  };
+
+  const onModalBackClick = () => {
+    setIsModalVisible(false);
+    setIsToggleActive(true);
   };
 
   useEffect(() => {
@@ -96,7 +101,7 @@ const KunyaCrudScreen = () => {
       <View style={themedStyles.container}>
         <Spacer space={20} />
 
-        <GlassIcon testId={screenTestId} name="ArrowLeft" onPress={navigateToSettings}/>
+        <GlassIcon testId={screenTestId} name="ArrowLeft" onPress={navigateBack}/>
 
         <Spacer space={20} />
 
@@ -132,7 +137,6 @@ const KunyaCrudScreen = () => {
                 size: '2xs',
                 weight: 'Medium',
               }}
-              isRequired
               placeholder="ابو ألفطي"
             />
 
@@ -172,7 +176,7 @@ const KunyaCrudScreen = () => {
               disabled={!kunyaValue}
               testId={screenTestId}
               textProps={{ text: 'Save' }}
-              onPress={handleOnSavePress}
+              onPress={onSavePress}
             />
           </View>
         )}
@@ -201,7 +205,7 @@ const KunyaCrudScreen = () => {
           textProps: {
             text: 'profile.back',
           },
-          onPress: () => setIsModalVisible(false),
+          onPress: () => onModalBackClick(),
         }}
         title={''}
       />
