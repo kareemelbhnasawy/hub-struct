@@ -1,8 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {
-  ProfileScreen,
-  MyProfileScreen,
-} from '@/screens';
+import { ProfileScreen, MyProfileScreen } from '@/screens';
 import { ProfileStackParamList } from './types';
 import PersonDetails from '@/screens/profile/person-details';
 
@@ -14,7 +11,7 @@ const ProfileStack = () => {
       initialRouteName="Profile"
       screenOptions={{
         headerShown: false,
-        animation: 'slide_from_right',
+        animation: 'default',
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />

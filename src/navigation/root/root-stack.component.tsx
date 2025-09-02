@@ -11,7 +11,7 @@ const RootStack = () => {
       initialRouteName="Auth"
       screenOptions={{
         headerShown: false,
-        animation: 'slide_from_right',
+        animation: 'default',
         gestureEnabled: false,
       }}>
       <Stack.Screen
