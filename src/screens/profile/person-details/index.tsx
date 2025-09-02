@@ -160,13 +160,6 @@ const PersonDetails = () => {
 
   const mobileNumberRender = (
     <View>
-      {showForAll && (
-        <Paragraph
-          text={mobileNumber}
-          style={themedStyle.maskedNumber}
-          testId="person-details-masked-number"
-        />
-      )}
       <TextInput
         value={mobileNumber}
         onChangeText={handlePhoneChange}
