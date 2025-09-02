@@ -215,7 +215,7 @@ const PersonDetails = () => {
       hasHeader
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
-        titleProps: { text: 'personDetails.personalInfo' },
+        titleProps: { text: 'profile.personDetails.personalInfo' },
         isTitleCentered: true,
       }}>
       <Spacer space={'xl'} />
@@ -230,7 +230,7 @@ const PersonDetails = () => {
           },
         }}
         textProps={{
-          text: 'personDetails.basicInfo',
+          text: 'profile.personDetails.basicInfo',
           size: '2xs',
           weight: 'Bold',
         }}
@@ -259,7 +259,7 @@ const PersonDetails = () => {
           },
         }}
         textProps={{
-          text: 'personDetails.basicInfo',
+          text: 'profile.personDetails.basicInfo',
           size: '2xs',
           weight: 'Bold',
         }}
