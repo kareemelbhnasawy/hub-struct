@@ -14,5 +14,10 @@
   "editAddress": "Edit address",
   "contractAddress": "The address registered in the contract",
   "chooseAddress": "Choose another title from your titles in Sabil",
-  "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil."
+  "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil.",
+  "activateKunya": "Activate Kunya",
+  "activateKunyaSubtitle": "You can activate Kunya to appear in your personal account and for others",
+  "kunyaPrompt": "What is your Kunya",
+  "howKunyaAppears": "This is how it will appear in your profile",
+  "saveChanges": "Save Changes"
 }
