@@ -55,6 +55,16 @@ const styles = createThemedStyles({
       borderTopRightRadius: 16,
     },
   },
+  iconDescriptiveYellow: {
+    base: {
+      backgroundColor: 'iconDescriptiveYellow',
+    },
+  },
+  iconDescriptiveGreen: {
+    base: {
+      backgroundColor: 'iconDescriptiveGreen',
+    },
+  },
 });
 
 export default styles;

@@ -8,6 +8,31 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundBody',
     },
   },
+  iconDescriptiveYellow: {
+    base: {
+      backgroundColor: 'iconDescriptiveYellow',
+    },
+  },
+  iconDescriptiveGreen: {
+    base: {
+      backgroundColor: 'iconDescriptiveGreen',
+    },
+  },
+  iconDescriptiveOrange: {
+    base: {
+      backgroundColor: 'iconDescriptiveOrange',
+    },
+  },
+  iconDescriptiveTeal: {
+    base: {
+      backgroundColor: 'iconDescriptiveTeal',
+    },
+  },
+  iconDescriptiveBlue: {
+    base: {
+      backgroundColor: 'iconDescriptiveBlue',
+    },
+  },
 });
 
 export default styles;

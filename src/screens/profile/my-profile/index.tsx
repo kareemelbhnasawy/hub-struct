@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import styles from './styles';
 import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
-import ListItem from '../partials/profile-setting-item';
+import ProfileSettingItem from '../partials/profile-setting-item';
 import { log } from '@/utilities';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { List } from '@/components/molecules';
@@ -10,7 +10,7 @@ import { useNavigation } from '@/hooks';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const { navigate } = useNavigation();
 
@@ -21,7 +21,7 @@ const MyProfile = () => {
     index: number;
   }) => {
     return (
-      <ListItem
+      <ProfileSettingItem
         iconProps={item.iconProps}
         textProps={{
           text: item.title,
@@ -38,9 +38,7 @@ const MyProfile = () => {
       title: 'profile.personal-details',
       iconProps: {
         name: 'User',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveYellow'),
-        },
+        containerStyle: themedStyles.iconDescriptiveYellow,
       },
       onPress: () => navigate('PersonDetails', {}),
     },
@@ -49,9 +47,7 @@ const MyProfile = () => {
       title: 'profile.job-details',
       iconProps: {
         name: 'Building2',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveGreen'),
-        },
+        containerStyle: themedStyles.iconDescriptiveGreen,
       },
       onPress: () => log('job pressed'),
     },
@@ -60,9 +56,7 @@ const MyProfile = () => {
       title: 'profile.career-history',
       iconProps: {
         name: 'CalendarClock',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveTeal'),
-        },
+        containerStyle: themedStyles.iconDescriptiveTeal,
       },
       onPress: () => log('career history pressed'),
     },
@@ -71,9 +65,7 @@ const MyProfile = () => {
       title: 'profile.holidays-record',
       iconProps: {
         name: 'TreePalm',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveOrange'),
-        },
+        containerStyle: themedStyles.iconDescriptiveOrange,
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -82,9 +74,7 @@ const MyProfile = () => {
       title: 'profile.qualifications',
       iconProps: {
         name: 'FileBadge2',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveBlue'),
-        },
+        containerStyle: themedStyles.iconDescriptiveBlue,
       },
       onPress: () => log('qualifications pressed'),
     },
@@ -93,9 +83,7 @@ const MyProfile = () => {
       title: 'profile.skills',
       iconProps: {
         name: 'Medal',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveGreen'),
-        },
+        containerStyle: themedStyles.iconDescriptiveGreen,
       },
       onPress: () => log('skills pressed'),
     },
@@ -104,9 +92,7 @@ const MyProfile = () => {
       title: 'profile.custodies',
       iconProps: {
         name: 'Vault',
-        containerStyle: {
-          backgroundColor: getThemeColor('iconDescriptiveOrange'),
-        },
+        containerStyle: themedStyles.iconDescriptiveOrange,
       },
       onPress: () => log('custodies pressed'),
     },
