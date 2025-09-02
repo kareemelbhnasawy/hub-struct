@@ -17,8 +17,11 @@ const LucideIcon = ({
   isRTLMirrored = false,
   containerStyle,
   onPress,
+  color,
   ...props
 }: LucideIconProps) => {
+  const { getThemeColor } = useThemeStore();
+  const iconColor = color ? getThemeColor(color) : undefined;
   const LIcon = icons[name];
   const Wrapper = onPress ? Pressable : View;
   const { getThemedStyles } = useThemeStore();
@@ -43,12 +46,22 @@ const LucideIcon = ({
         testID={`${testId}-icon-container`}
         onPress={onPress}
         style={[appliedStyles, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}>
-        <LIcon testID={`${testId}-icon`} size={scale(size)} {...props} />
+        <LIcon
+          testID={`${testId}-icon`}
+          size={scale(size)}
+          color={iconColor}
+          {...props}
+        />
       </Wrapper>
     );
   return (
     <View style={{ transform: [{ scaleX: isRTLMirrored && isRTL ? -1 : 1 }] }}>
-      <LIcon size={scale(size)} {...props} onPress={onPress} />
+      <LIcon
+        size={scale(size)}
+        color={iconColor}
+        onPress={onPress}
+        {...props}
+      />
     </View>
   );
 };

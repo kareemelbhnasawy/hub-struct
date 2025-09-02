@@ -15,7 +15,7 @@ const PageHeader = ({
   endIcon,
   testId,
 }: PageHeaderProps) => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const prefixTestId = `${testId}-page-header`;
   const navigation = useNavigation();
@@ -27,7 +27,7 @@ const PageHeader = ({
         <LucideIcon
           testId={`${prefixTestId}-end-icon-${index}`}
           key={endIconSingleProp.name}
-          color={getThemeColor('textDefault')}
+          color={'textDefault'}
           {...endIconSingleProp}
           hasWrapper={endIcon.length <= 1}
         />
@@ -36,12 +36,12 @@ const PageHeader = ({
     return (
       <LucideIcon
         testId={`${prefixTestId}-end-icon`}
-        color={getThemeColor('textDefault')}
+        color={'textDefault'}
         {...endIcon}
         hasWrapper
       />
     );
-  }, [endIcon, getThemeColor, prefixTestId]);
+  }, [endIcon, prefixTestId]);
 
   return (
     <View testID={`${prefixTestId}-wrapper`} style={themedStyles.headerMain}>
