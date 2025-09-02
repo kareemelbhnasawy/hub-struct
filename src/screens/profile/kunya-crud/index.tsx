@@ -175,7 +175,7 @@ const KunyaCrudScreen = () => {
             <BaseButton
               disabled={!kunyaValue}
               testId={screenTestId}
-              textProps={{ text: 'Save' }}
+              textProps={{ text: 'profile.saveChanges' }}
               onPress={onSavePress}
             />
           </View>
