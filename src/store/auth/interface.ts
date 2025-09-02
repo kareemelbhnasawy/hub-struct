@@ -1,8 +1,6 @@
 interface AuthState {
   email: string;
   password: string;
-  username: string;
-  nickname: string;
   quickLoginType: string;
   invalidAttemptCount: number;
   isAccountSuspended: boolean;
@@ -17,17 +15,12 @@ interface AuthState {
     email: string;
     password: string;
   }) => void;
-  setUsername: (username: string) => void;
-  getUsername: () => string;
-  setNickname: (nickname: string) => void;
-  getNickname: () => string;
   setQuickLoginType: (type: string) => void;
   getQuickLoginType: () => string;
   resetLoginCredentials: () => void;
   getLoginCredentials: () => {
     email: string;
     password: string;
-    username: string;
   };
   resetStore: () => void;
 }

@@ -9,8 +9,6 @@ const useAuthStore = create<AuthState>()(
     (set, get) => ({
       email: '',
       password: '',
-      username: '',
-      nickname: '',
       quickLoginType: '',
       invalidAttemptCount: 0,
       isAccountSuspended: false,
@@ -26,34 +24,26 @@ const useAuthStore = create<AuthState>()(
       getPassword: () => get().password,
       setLoginCredentials: (credentials) =>
         set({ email: credentials.email, password: credentials.password }),
-      setUsername: (username) => set({ username }),
-      getUsername: () => get().username,
-      setNickname: (nickname) => set({ nickname }),
-      getNickname: () => get().nickname,
       setQuickLoginType: (quickLoginType) => set({ quickLoginType }),
       getQuickLoginType: () => get().quickLoginType,
-      resetAllCredentials: () => set({ email: '', password: '', username: '', nickname: '' }),
       resetAllUserData: () =>
         set({
           email: '',
           password: '',
-          username: '',
           quickLoginType: '',
         }),
       resetLoginCredentials: () =>
-        set({ email: '', password: '', username: '' }),
+        set({ email: '', password: '' }),
       resetStore: () =>
         set({
           email: '',
           password: '',
-          username: '',
           quickLoginType: '',
           invalidAttemptCount: 0,
         }),
       getLoginCredentials: () => ({
         email: get().email,
         password: get().password,
-        username: get().username,
       }),
     }),
     { name: STORAGE_KEYS.AUTH_STORAGE, storage: getMMKVStorage<AuthState>() },

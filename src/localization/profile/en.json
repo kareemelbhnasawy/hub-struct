@@ -15,16 +15,30 @@
   "contractAddress": "The address registered in the contract",
   "chooseAddress": "Choose another title from your titles in Sabil",
   "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil.",
-  "setPin" :{
+  "saveChanges": "Save Changes",
+  "deactivate": "Deactivate",
+  "back": "Back",
+  "kunya": {
+    "kunyaPrompt": "What is your Kunya",
+    "howKunyaAppears": "This is how it will appear in your profile",
+    "kunyaActivated": "Your Kunya has been activated successfully",
+    "kunyaUpdated": "Your Kunya has been updated successfully",
+    "kunyaDeactivated": "Your Kunya has been deactivated successfully",
+    "deactivateKunya": "Deactivate Kunya",
+    "deactivateKunyaPrompt": "Are you sure you want to deactivate your Kunya?",
+    "activateKunya": "Activate Kunya",
+    "activateKunyaSubtitle": "You can activate Kunya to appear in your personal account and for others"
+  },
+  "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",
     "avoidPatterns": "Avoid easy patterns like 123456 or 000000."
   },
-  "confirmPin" :{
+  "confirmPin": {
     "confirmTitle": "Re-enter your PIN to confirm",
     "confirmSubtitle": "To make sure the PIN you chose is correct."
   },
-  "personDetails" : {
+  "personDetails": {
     "personalInfo": "Personal information",
     "basicInfo": "Basic information",
     "name": "Name",

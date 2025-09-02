@@ -9,21 +9,22 @@ import styles from './styles';
 import { BACKGROUND_OPTIONS } from './constants';
 import useUpdateBanner from '@/network/services/profile/banner/banner.hook';
 import { useAuthStore } from '@/store/auth';
+import { useProfileStore } from '@/store/profile';
 
-const EditBackgroundScreen: React.FC = () => {
+const EditBackgroundScreen = () => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { setBannerId, getBannerId } = useProfileStore();
   const themedStyles = getThemedStyles(styles);
   const { email } = useAuthStore();
   const { goBack } = useNavigation();
 
   // Track the selected image id
-  const [selectedId, setSelectedId] = useState<string>(
-    BACKGROUND_OPTIONS[0].id,
-  );
+  const [selectedId, setSelectedId] = useState<string>(getBannerId());
 
   const [isLocked, setIsLocked] = useState(false);
 
   const onBannerSuccess = () => {
+    setBannerId(selectedId);
     ToastService.success({
       props: {
         messageProps: { text: 'profileDetails.editBackgroundSuccess' },
