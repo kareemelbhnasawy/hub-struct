@@ -9,10 +9,10 @@ import {
 } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { RootStackParamList } from '@/navigation';
-import { AppStackParamList } from '@/navigation/stacks/app/types';
-import { AuthStackParamList } from '@/navigation/stacks/auth/types';
-import { ProfileStackParamList } from '@/navigation/stacks/profile/types';
+import { RootStackParamList } from '../navigation';
+import { AppStackParamList } from '../navigation/stacks/app/types';
+import { AuthStackParamList } from '../navigation/stacks/auth/types';
+import { ProfileStackParamList } from '../navigation/stacks/profile/types';
 import { AxiosResponse } from 'axios';
 
 /** Merge all route param lists into one */

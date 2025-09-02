@@ -35,8 +35,13 @@ const styles = (borderRadius: Radius) =>
     shimmerGradient: {
       base: { width: 400, height: '100%' },
     },
-    innerBox: {
+    centerContent: {
       base: { justifyContent: 'center', alignItems: 'center' },
+    },
+    width100: {
+      base: {
+        width: '100%',
+      },
     },
   });
 
