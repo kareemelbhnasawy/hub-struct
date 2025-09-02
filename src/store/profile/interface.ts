@@ -6,7 +6,7 @@ interface ProfileState {
   status: string;
   jobTitle: string;
   department: string;
-  getFullName: () => object;
+  getFullName: () => { name: string; kunya: string };
   getName: () => string;
   getKunya: () => string;
   getAvatarUrl: () => string;

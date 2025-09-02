@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import AuthState from './interface';
+import ProfileState from './interface';
 import { persist } from 'zustand/middleware';
 import { getMMKVStorage } from '../mmkv-storage';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 
-const useProfileStore = create<AuthState>()(
+const useProfileStore = create<ProfileState>()(
   persist(
     (set, get) => ({
       name: '',
@@ -30,7 +30,7 @@ const useProfileStore = create<AuthState>()(
       setJobTitle: (title) => set({ jobTitle: title }),
       setDepartment: (department) => set({ department }),
     }),
-    { name: STORAGE_KEYS.PROFILE_STORAGE, storage: getMMKVStorage<AuthState>() },
+    { name: STORAGE_KEYS.PROFILE_STORAGE, storage: getMMKVStorage<ProfileState>() },
   ),
 );
 
