@@ -16,7 +16,9 @@
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
   "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
   "saveChanges": "حفظ التغييرات",
-  "kunya" : {
+  "deactivate": "إلغاء التفعيل",
+  "back": "رجوع",
+  "kunya": {
     "activateKunya": "تفعيل الكنية",
     "activateKunyaSubtitle": "يمكنك تفعيل الكنية لتظهر في حسابك الشخصي و للآخرين",
     "kunyaPrompt": "ما هي كنيتك",
@@ -24,17 +26,19 @@
     "kunyaActivated": "تم تفعيل كنيتك بنجاح",
     "kunyaUpdated": "تم تعديل كنيتك بنجاح",
     "kunyaDeactivated": "تم إلغاء تفعيل كنيتك بنجاح",
+    "deactivateKunya": "إلغاء تفعيل الكنية",
+    "deactivateKunyaPrompt": "هل أنت متأكد أنك تريد إلغاء تفعيل الكنية الحالية؟"
   },
-  "setPin" :{
+  "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
     "avoidPatterns": "تجنب الأنماط السهلة مثل 123456 أو 000000."
   },
-  "confirmPin" :{
+  "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
     "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته."
   },
-  "personDetails" : {
+  "personDetails": {
     "personalInfo": "البيانات الشخصية",
     "basicInfo": "البيانات الأساسية",
     "name": "الاسم",

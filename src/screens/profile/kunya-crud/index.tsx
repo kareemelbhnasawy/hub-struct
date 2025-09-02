@@ -7,6 +7,7 @@ import {
   Avatar,
   BaseButton,
   BrandToggle,
+  GlassModal,
   TextInput,
 } from '@/components/molecules';
 import { useEffect, useState } from 'react';
@@ -33,6 +34,7 @@ const KunyaCrudScreen = () => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const [isToggleActive, setIsToggleActive] = useState(!!kunya);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const isKunyaActivated = !!kunya;
   const { navigate } = useNavigation();
 
@@ -42,7 +44,9 @@ const KunyaCrudScreen = () => {
 
   const showSuccessToast = () => {
     return {
-      text: isKunyaActivated ? 'profile.kunyaUpdated' : 'profile.kunyaActivated',
+      text: isKunyaActivated
+        ? 'profile.kunya.kunyaUpdated'
+        : 'profile.kunya.kunyaActivated',
       textProps: { size: 'xl', weight: 'Medium' },
     };
   };
@@ -60,9 +64,20 @@ const KunyaCrudScreen = () => {
     editKunya({ email: getEmail(), nickname: kunyaValue });
   };
 
+  const handleDeleteKunya = () => {
+    setKunya('');
+    //integrate with delete modal
+  };
+
   useEffect(() => {
     setDisplayName(kunyaValue ? `${kunyaValue} (${name})` : name);
   }, [kunyaValue, name]);
+
+  useEffect(() => {
+    if (isKunyaActivated && !isToggleActive) {
+      setIsModalVisible(true);
+    }
+  }, [isToggleActive, isKunyaActivated]);
 
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
@@ -73,11 +88,11 @@ const KunyaCrudScreen = () => {
             <Headline
               size="2xs"
               weight="Semibold"
-              text="profile.activateKunya"
+              text="profile.kunya.activateKunya"
               testId={screenTestId}
             />
             <Paragraph
-              text="profile.activateKunyaSubtitle"
+              text="profile.kunya.activateKunyaSubtitle"
               testId={screenTestId}
             />
           </View>
@@ -96,7 +111,7 @@ const KunyaCrudScreen = () => {
               value={kunyaValue}
               onChangeValue={setKunyaValue}
               labelProps={{
-                text: 'profile.kunyaPrompt',
+                text: 'profile.kunya.kunyaPrompt',
                 size: '2xs',
                 weight: 'Medium',
               }}
@@ -108,7 +123,7 @@ const KunyaCrudScreen = () => {
 
             <View style={themedStyles.kunyaPreviewWrapper}>
               <Headline
-                text="profile.howKunyaAppears"
+                text="profile.kunya.howKunyaAppears"
                 weight="Medium"
                 size="2xs"
                 testId={screenTestId}
@@ -144,6 +159,34 @@ const KunyaCrudScreen = () => {
           </View>
         )}
       </View>
+      <GlassModal
+        visible={isModalVisible}
+        onRequestClose={() => setIsModalVisible(false)}
+        testId={screenTestId}
+        headlineProps={{
+          text: 'profile.kunya.deactivateKunya',
+          weight: 'Semibold',
+          size: 'sm',
+        }}
+        paragraphProps={{
+          text: 'profile.kunya.deactivateKunyaPrompt',
+          weight: 'Medium',
+          size: 'xl',
+        }}
+        buttonProps={{
+          textProps: {
+            text: 'profile.deactivate'
+          },
+          onPress: handleDeleteKunya
+        }}
+        secondaryButtonProps={{
+          textProps: {
+            text: 'profile.back'
+          },
+          onPress: () => setIsModalVisible(false)
+        }} title={''}        // isVisible={isModalVisible}
+        // onBackdropPress={() => setIsModalVisible(false)}
+      />
     </Page>
   );
 };
