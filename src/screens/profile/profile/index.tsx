@@ -77,7 +77,7 @@ const ProfileScreen = () => {
         name: 'Settings',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => log('Settings pressed'),
+      onPress: () => navigation.navigate('ProfileSettings'),
     },
   ];
 

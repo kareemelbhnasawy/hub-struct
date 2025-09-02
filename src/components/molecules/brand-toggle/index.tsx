@@ -8,6 +8,7 @@ const BrandToggle = ({
   testId,
   titleProps,
   descriptionProps,
+  containerStyle,
   ...toggleProps
 }: BrandToggleProps) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
@@ -41,7 +42,7 @@ const BrandToggle = ({
   return (
     <View
       testID={`${testId}-brand-toggle-container`}
-      style={themedStyles.container}>
+      style={[themedStyles.container, containerStyle]}>
       <BaseToggle
         testId={`${testId}-brand`}
         {...toggleProps}
@@ -49,24 +50,26 @@ const BrandToggle = ({
         thumbColor={getThumbColor()}
         ios_backgroundColor={getThemeColor('toggleDefaultBackground')}
       />
-      <View style={themedStyles.contentContainer}>
-        {titleProps && (
-          <Paragraph
-            testId={`${testId}-brand-toggle-title`}
-            size="xl"
-            style={themedStyles.title}
-            {...titleProps}
-          />
-        )}
-        {descriptionProps && (
-          <Paragraph
-            testId={`${testId}-brand-toggle-description`}
-            size="lg"
-            style={themedStyles.description}
-            {...descriptionProps}
-          />
-        )}
-      </View>
+      {titleProps || descriptionProps ? (
+        <View style={themedStyles.contentContainer}>
+          {titleProps && (
+            <Paragraph
+              testId={`${testId}-brand-toggle-title`}
+              size="xl"
+              style={themedStyles.title}
+              {...titleProps}
+            />
+          )}
+          {descriptionProps && (
+            <Paragraph
+              testId={`${testId}-brand-toggle-description`}
+              size="lg"
+              style={themedStyles.description}
+              {...descriptionProps}
+            />
+          )}
+        </View>
+      ) : null}
     </View>
   );
 };

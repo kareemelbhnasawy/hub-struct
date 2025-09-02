@@ -1,4 +1,4 @@
 //example of known screen params
-export type SetPinScreenParams = {
+export type ConfirmPinScreenParams = {
   pin: string;
 };

@@ -7,6 +7,11 @@ const setBio = async (data) => {
     method: API_METHODS.PUT,
     url: AUTH_URLS.SET_BIO,
     data,
+    config: {
+      showSuccessToast: () => {
+        return { text: 'تم تفعيل بصمة الوجه بنجاح' };
+      },
+    },
   });
   return res.data;
 };
