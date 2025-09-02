@@ -27,6 +27,6 @@ export interface LogoutRequest {
 }
 
 export interface LogoutResponse {
-  // Add any response fields if needed
   success: boolean;
 }
+
