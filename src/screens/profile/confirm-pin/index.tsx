@@ -1,6 +1,5 @@
 import { Headline, Spacer } from '@/components/atoms';
-import { PinCode } from '@/components/molecules';
-import Logo from '@/components/molecules/logo';
+import { PinCode, Logo } from '@/components/molecules';
 import { Page } from '@/components/templates';
 import { useNavigation } from '@/hooks';
 import useSetPin from '@/network/services/auth/set-pin/set-pin.hook';
