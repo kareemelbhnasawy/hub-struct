@@ -17,3 +17,11 @@ export interface EditKunyaRequest {
 export interface EditKunyaResponse {
   success: boolean;
 }
+
+export interface DeleteKunyaRequest {
+  email: string;
+}
+
+export interface DeleteKunyaResponse {
+  success: boolean;
+}

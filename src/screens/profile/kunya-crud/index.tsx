@@ -16,6 +16,7 @@ import useEditKunya from '@/network/services/profile/edit-kunya/edit-kunya.hook'
 import { useAuthStore } from '@/store/auth';
 import { useNavigation } from '@/hooks';
 import log from '@/utilities/log';
+import useDeleteKunya from '@/network/services/profile/delete-kunya/delete-kunya.hook';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
@@ -44,14 +45,24 @@ const KunyaCrudScreen = () => {
 
   const showSuccessToast = () => {
     return {
-      text: isKunyaActivated
-        ? 'profile.kunya.kunyaUpdated'
-        : 'profile.kunya.kunyaActivated',
+      text: isToggleActive
+        ? isKunyaActivated
+          ? 'profile.kunya.kunyaUpdated'
+          : 'profile.kunya.kunyaActivated'
+        : 'profile.kunya.kunyaDeactivated',
       textProps: { size: 'xl', weight: 'Medium' },
     };
   };
 
   const { mutate: editKunya } = useEditKunya(
+    navigateToSettings,
+    (error) => {
+      log(error);
+    },
+    showSuccessToast,
+  );
+
+  const { mutate: deleteKunya } = useDeleteKunya(
     navigateToSettings,
     (error) => {
       log(error);
@@ -66,7 +77,7 @@ const KunyaCrudScreen = () => {
 
   const handleDeleteKunya = () => {
     setKunya('');
-    //integrate with delete modal
+    deleteKunya({ email: getEmail() });
   };
 
   useEffect(() => {
@@ -152,6 +163,7 @@ const KunyaCrudScreen = () => {
             </View>
             <Spacer space={40} />
             <BaseButton
+              disabled={!kunyaValue}
               testId={screenTestId}
               textProps={{ text: 'Save' }}
               onPress={handleOnSavePress}
@@ -175,17 +187,17 @@ const KunyaCrudScreen = () => {
         }}
         buttonProps={{
           textProps: {
-            text: 'profile.deactivate'
+            text: 'profile.deactivate',
           },
-          onPress: handleDeleteKunya
+          onPress: handleDeleteKunya,
         }}
         secondaryButtonProps={{
           textProps: {
-            text: 'profile.back'
+            text: 'profile.back',
           },
-          onPress: () => setIsModalVisible(false)
-        }} title={''}        // isVisible={isModalVisible}
-        // onBackdropPress={() => setIsModalVisible(false)}
+          onPress: () => setIsModalVisible(false),
+        }}
+        title={''} 
       />
     </Page>
   );
