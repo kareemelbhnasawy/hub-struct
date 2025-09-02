@@ -14,5 +14,14 @@
   "editAddress": "Edit address",
   "contractAddress": "The address registered in the contract",
   "chooseAddress": "Choose another title from your titles in Sabil",
-  "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil."
+  "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil.",
+  "setPin" :{
+    "createTitle": "Create your PIN",
+    "chooseSixDigits": "Choose a 6-digit code.",
+    "avoidPatterns": "Avoid easy patterns like 123456 or 000000."
+  },
+  "confirmPin" :{
+    "confirmTitle": "Re-enter your PIN to confirm",
+    "confirmSubtitle": "To make sure the PIN you chose is correct."
+  }
 }
