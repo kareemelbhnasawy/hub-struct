@@ -1,4 +1,4 @@
-import { LucideIcon, Paragraph, Spacer } from '@/components/atoms';
+import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
 import {
   BaseSheet,
   BrandToggle,
@@ -114,13 +114,14 @@ const PersonDetails = () => {
     <View style={themedStyle.info}>
       <Paragraph
         text={item.label}
-        size="md"
+        size="xl"
         weight="Medium"
         testId={`basic-${item.key}-label`}
       />
-      <Paragraph
+      <Headline
         text={item.value}
         weight="Medium"
+        size="2xs"
         testId={`basic-${item.key}-value`}
       />
     </View>
@@ -142,20 +143,21 @@ const PersonDetails = () => {
       }}>
       <Paragraph
         text={item.label}
-        size="md"
+        size="xl"
         weight="Medium"
         testId={`contact-${item.key}-label`}
       />
       <View style={themedStyle.row}>
-        <Paragraph
+        <Headline
           text={item.value}
+          size="2xs"
           weight="Medium"
           testId={`contact-${item.key}-value`}
         />
         <LucideIcon
           name="ChevronRight"
           isRTLMirrored
-          size={16}
+          size={20}
           testId={`contact-${item.key}-chevron`}
         />
       </View>
