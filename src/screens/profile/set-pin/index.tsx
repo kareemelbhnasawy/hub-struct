@@ -11,9 +11,7 @@ const SetPinScreen = () => {
   return (
     <Page testId={screenTestId} hasHeader={true}>
       <Spacer space={50} />
-      <View>
-        <Logo testId={screenTestId} size="md" />
-      </View>
+      <Logo testId={screenTestId} size="md" />
       <Spacer space={24} />
       <Headline
         testId={`${screenTestId}-title`}

@@ -4,7 +4,7 @@ import { Page } from '@/components/templates';
 import { useNavigation } from '@/hooks';
 import useSetPin from '@/network/services/auth/set-pin/set-pin.hook';
 import { useAuthStore } from '@/store/auth';
-import { useState, View } from 'react';
+import { useState } from 'react';
 
 const ConfirmPinScreen = () => {
   const screenTestId = 'confirm-pin-screen';
@@ -31,9 +31,7 @@ const ConfirmPinScreen = () => {
   return (
     <Page testId={screenTestId} hasHeader={true} isLoading={isPending}>
       <Spacer space={50} />
-      <View >
-        <Logo testId={screenTestId} size="md" />
-      </View>
+      <Logo testId={screenTestId} size="md" />
       <Spacer space={24} />
       <Headline
         testId={`${screenTestId}-title`}
