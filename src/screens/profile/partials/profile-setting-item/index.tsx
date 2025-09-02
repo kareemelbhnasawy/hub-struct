@@ -3,9 +3,9 @@ import { styles } from './style';
 import { Pressable } from 'react-native';
 import { DescriptiveIcon } from '@/components/molecules';
 import { LucideIcon, Spacer } from '@/components/atoms';
-import ListItemProps from './interface';
+import ProfileSettingItemProps from './interface';
 
-const ProfileSettingItem = ({ testId, textProps, iconProps, onPress }: ListItemProps) => {
+const ProfileSettingItem = ({ testId, textProps, iconProps, onPress }: ProfileSettingItemProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
