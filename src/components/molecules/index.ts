@@ -10,4 +10,5 @@ export { default as InputContainer } from './input-container';
 export { default as TextInput } from './text-input';
 export { default as PinCode } from './pin-code';
 export { default as Tag } from './tag';
+export { default as GlassModal } from './glass-modal';
 export { default as Toast, ToastService, ToastProvider } from './toast';
