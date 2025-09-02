@@ -17,6 +17,7 @@ import { useAuthStore } from '@/store/auth';
 import { useNavigation } from '@/hooks';
 import log from '@/utilities/log';
 import useDeleteKunya from '@/network/services/profile/delete-kunya/delete-kunya.hook';
+import GlassIcon from '@/components/molecules/glass-icon';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
@@ -93,7 +94,12 @@ const KunyaCrudScreen = () => {
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={false}>
       <View style={themedStyles.container}>
-        <Spacer space={40} />
+        <Spacer space={20} />
+
+        <GlassIcon testId={screenTestId} name="ArrowLeft" onPress={navigateToSettings}/>
+
+        <Spacer space={20} />
+
         <View style={themedStyles.toggleSectionWrapper}>
           <View style={themedStyles.headlineWrapper}>
             <Headline
@@ -197,7 +203,7 @@ const KunyaCrudScreen = () => {
           },
           onPress: () => setIsModalVisible(false),
         }}
-        title={''} 
+        title={''}
       />
     </Page>
   );
