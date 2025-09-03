@@ -7,7 +7,7 @@ export const maskPhoneNumber = (value: string) => {
     return '966XXXXXXXXX';
   }
   if (value.startsWith('05')) {
-    return '05XXXXXXXXX';
+    return '05XXXXXXXX';
   }
   return value;
 };
