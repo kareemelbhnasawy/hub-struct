@@ -21,14 +21,11 @@ import { PageHeaderVariants } from '@/components/templates/page/constants';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
-  const { getFullName, getAvatarUrl, getDepartment, getJobTitle, setKunya } =
+  const { getFullName, avatarUrl, department, jobTitle, setKunya } =
     useProfileStore();
   const { getEmail } = useAuthStore();
   const { name, kunya } = getFullName();
   const [kunyaValue, setKunyaValue] = useState<string>(kunya);
-  const avatarUrl = getAvatarUrl();
-  const department = getDepartment();
-  const jobTitle = getJobTitle();
   const [displayName, setDisplayName] = useState<string>(
     kunya ? `${kunya} (${name})` : name,
   );

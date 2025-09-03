@@ -22,6 +22,7 @@ interface ProfileState {
   setStatus: (status: string) => void;
   setJobTitle: (title: string) => void;
   setDepartment: (department: string) => void;
+  setAllProfileData: (data: Partial<ProfileState>) => void;
 
 }
 export default ProfileState;

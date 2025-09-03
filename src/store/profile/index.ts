@@ -30,6 +30,7 @@ const useProfileStore = create<ProfileState>()(
       setStatus: (status) => set({ status }),
       setJobTitle: (title) => set({ jobTitle: title }),
       setDepartment: (department) => set({ department }),
+      setAllProfileData: (data: Partial<ProfileState>) => set({ ...data }),
     }),
     {
       name: STORAGE_KEYS.PROFILE_STORAGE,
