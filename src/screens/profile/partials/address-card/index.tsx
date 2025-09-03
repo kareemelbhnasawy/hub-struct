@@ -12,7 +12,7 @@ const AddressCard = ({
   isPrimaryAddress,
   isFocused,
 }: AddressCardProps) => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   return (
@@ -50,7 +50,7 @@ const AddressCard = ({
         <LucideIcon
           name="Check"
           testId={`${testId}-address-card`}
-          color={getThemeColor('foregroundSuccess')}
+          color={'foregroundSuccess'}
         />
       )}
     </View>
