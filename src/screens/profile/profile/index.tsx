@@ -156,12 +156,14 @@ const ProfileScreen = () => {
         <Spacer />
         <View style={themedStyles.titleWrapper}>
           <Headline
+            isTranslated={false}
             text={displayName}
             weight="Bold"
             size="xs"
             testId={screenTestId}
           />
           <Paragraph
+            isTranslated={false}
             text={displayTitle}
             weight="Medium"
             size="lg"
