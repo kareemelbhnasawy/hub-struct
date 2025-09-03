@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import BadgeProps from './interface';
-import { Paragraph } from '@/components/atoms';
+import { LucideIcon, Paragraph } from '@/components/atoms';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 
@@ -9,6 +9,7 @@ const Badge = ({
   variant = 'label',
   color = 'brand',
   size = 'md',
+  iconProps,
   paragraphProps,
   style,
 }: BadgeProps) => {
@@ -34,6 +35,13 @@ const Badge = ({
             ]
       }
       accessibilityRole="text">
+      {iconProps && (
+        <LucideIcon
+        testId={`${testId}-icon`}
+        size={16}
+        {...iconProps}
+        />
+      )}
       <Paragraph
         style={
           variant == 'number'

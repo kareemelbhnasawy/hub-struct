@@ -82,5 +82,13 @@
     "activateFACE_IDSuccess": "Face ID activated successfully",
     "activateTOUCH_IDSuccess": "Touch ID activated successfully",
     "activatePIN_CODESuccess": "PIN code activated successfully"
+  },
+  "members": {
+    "status": {
+      "remote": "Working from home",
+      "vacation": "Vacation",
+      "business-trip": "Business Trip",
+      "academic-vacation": "Academic Leave"
+    }
   }
 }
