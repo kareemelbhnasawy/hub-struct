@@ -10,7 +10,7 @@ const setBio = async (data) => {
     config: {
       showSuccessToast: () => {
         return {
-          text: `profile.setting.activate${data?.biometricType}Success`,
+          text: `profile.settings.activate${data?.biometricType}Success`,
         };
       },
     },
