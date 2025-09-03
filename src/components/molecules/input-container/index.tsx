@@ -18,7 +18,7 @@ const InputContainer = ({
   errorProps,
   children,
 }: PropsWithChildren<InputContainerProps>) => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
 
   const themedStyles = getThemedStyles(styles);
 
@@ -41,7 +41,7 @@ const InputContainer = ({
                 testId={`${testId}-input-label-asterisk`}
                 name="Asterisk"
                 size={14}
-                color={getThemeColor('textError')}
+                color={'textError'}
               />
             )}
           </View>

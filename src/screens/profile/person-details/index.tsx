@@ -1,4 +1,4 @@
-import { LucideIcon, Paragraph, Spacer } from '@/components/atoms';
+import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
 import {
   BaseSheet,
   BrandToggle,
@@ -20,6 +20,7 @@ import { useNavigation } from '@/hooks';
 import { getExtensionError, getPhoneError, isPhoneValid } from './utils';
 import { formatPhoneNumber } from '@/utilities/formats';
 import { useStartFlow } from '@/network/hooks';
+import EditAddressSheet from './edit-address-sheet';
 
 const PersonDetails = () => {
   const { getThemedStyles } = useThemeStore();
@@ -38,6 +39,7 @@ const PersonDetails = () => {
   const [type, setType] = useState<'mobile' | 'extension'>('mobile');
   const { deviceId } = useDeviceId();
   const [error, setError] = useState();
+  const [addressModalVisible, setAddressModalVisible] = useState(false);
 
   const basicInfoData = basicInfoDataHandler(data);
 
@@ -112,13 +114,14 @@ const PersonDetails = () => {
     <View style={themedStyle.info}>
       <Paragraph
         text={item.label}
-        size="md"
+        size="xl"
         weight="Medium"
         testId={`basic-${item.key}-label`}
       />
-      <Paragraph
+      <Headline
         text={item.value}
         weight="Medium"
+        size="2xs"
         testId={`basic-${item.key}-value`}
       />
     </View>
@@ -134,24 +137,27 @@ const PersonDetails = () => {
         } else if (item.type === 'extension') {
           setType('extension');
           setModalVisible(true);
+        } else if (item.key === 'address') {
+          setAddressModalVisible(true);
         }
       }}>
       <Paragraph
         text={item.label}
-        size="md"
+        size="xl"
         weight="Medium"
         testId={`contact-${item.key}-label`}
       />
       <View style={themedStyle.row}>
-        <Paragraph
+        <Headline
           text={item.value}
+          size="2xs"
           weight="Medium"
           testId={`contact-${item.key}-value`}
         />
         <LucideIcon
           name="ChevronRight"
           isRTLMirrored
-          size={16}
+          size={20}
           testId={`contact-${item.key}-chevron`}
         />
       </View>
@@ -303,6 +309,12 @@ const PersonDetails = () => {
         containerStyle={themedStyle.bottomSheetContainer}>
         {type === 'mobile' ? mobileNumberRender : extensionRender}
       </BaseSheet>
+      <EditAddressSheet
+        testId={screenTestId}
+        modalVisible={addressModalVisible}
+        setModalVisible={setAddressModalVisible}
+      // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+      />
     </Page>
   );
 };

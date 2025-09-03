@@ -15,6 +15,12 @@
   "contractAddress": "The address registered in the contract",
   "chooseAddress": "Choose another title from your titles in Sabil",
   "chooseAddressDesc": "Select one of your registered addresses in Sabil to update the contract. If you don't find the address you want, you can add it via Sabil.",
+  "editAddressSuccess": "Address edited successfully!",
+  "addNewAddressViaSPL": "Add a new address via SPL",
+  "noAddressesTitle": "You don't have any addresses registered in SPL",
+  "noAddressesDesc": "Please add your National Address in SPL, then choose it here so it appears in your profile.",
+  "addressesLoadErrorTitle": "Failed to load addresses",
+  "addressesLoadErrorDesc": "An error occurred while fetching addresses from SPL. Please try again later.",
   "setPin" :{
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",

@@ -1,13 +1,14 @@
 import { ListProps } from '@/components/molecules/list/interface';
 
-interface SelectionGroupProps extends ListProps<TItem> {
+interface SelectionGroupProps extends ListProps<object> {
   renderSelectedItem: (info: {
-    item: TItem;
+    item: object;
     index: number;
   }) => React.ReactElement;
   valueKey: string;
-  value?: string;
-  onChangeValue?: (arg0: string) => void;
+  value?: string | object;
+  onChangeValue?: (arg0: string | object) => void;
+  spread?: boolean;
 }
 
 export default SelectionGroupProps;

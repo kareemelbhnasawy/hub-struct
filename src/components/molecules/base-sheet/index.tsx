@@ -47,7 +47,7 @@ const BaseSheet = ({
   headerVariant = 'default',
   ...props
 }: PropsWithChildren<BaseSheetProps>) => {
-  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const sheetRef = useRef<BottomSheet>(null);
 
@@ -71,7 +71,7 @@ const BaseSheet = ({
       <LucideIcon
         testId={`${testId}-bottom-sheet-close-icon`}
         name="X"
-        color={getThemeColor('textPrimary')}
+        color="textPrimary"
       />
     </Pressable>
   );
