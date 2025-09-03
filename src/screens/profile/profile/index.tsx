@@ -84,7 +84,7 @@ const ProfileScreen = () => {
         name: 'Settings',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => navigation.navigate('KunyaCrud'),
+      onPress: () => navigation.navigate('ProfileSettings'),
     },
   ];
 
