@@ -105,7 +105,7 @@ const EditBackgroundScreen = () => {
           renderItem={renderItem}
           numColumns={2}
           keyField="id"
-          scrollEnabled={true}
+          scrollEnabled={false}
           showsVerticalScrollIndicator={false}
           columnWrapperStyle={themedStyles.columnWrapper}
         />
