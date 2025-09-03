@@ -4,6 +4,7 @@ import { ImageSourcePropType } from 'react-native';
 interface CurvedHeroProps extends Omit<MaskedViewProps, 'maskElement' | 'testID'> {
   testId: string;
   source?: ImageSourcePropType;
+  hasBackButton?: boolean;
 }
 
 export default CurvedHeroProps;

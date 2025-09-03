@@ -7,6 +7,7 @@ import { log } from '@/utilities';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { List } from '@/components/molecules';
 import { useNavigation } from '@/hooks';
+import { PageHeaderVariants } from '@/components/templates/page/constants';
 
 const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
@@ -98,7 +99,12 @@ const MyProfile = () => {
     },
   ];
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={false}>
+    <Page testId={screenTestId} hasHeader={true} isLoading={false}
+      pageHeaderVariant={PageHeaderVariants.BackWithTitle}
+      pageHeaderProps={{
+        titleProps: { text: 'profile.myProfile' },
+        isTitleCentered: true,
+      }}>
       <View style={themedStyles.container}>
         <List<ProfileSettingItemDataType>
           testId={screenTestId}

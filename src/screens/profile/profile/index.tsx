@@ -123,12 +123,13 @@ const ProfileScreen = () => {
   }, [data, isSuccess, setAllProfileData]);
 
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={isLoading}>
+    <Page testId={screenTestId} hasHeader={false} isLoading={isLoading} disableSafeAreaTop={true}>
       <View style={themedStyles.container}>
         <View>
           <CurvedHeroImage
             testId={screenTestId}
-            source={getBackgroundImageById(bannerId)}>
+            source={getBackgroundImageById(bannerId)}
+            hasBackButton={true}>
             <Avatar
               size="lg"
               image={avatarUrl ?? null}

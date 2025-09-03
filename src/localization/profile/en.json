@@ -35,7 +35,9 @@
   "noAddressesDesc": "Please add your National Address in SPL, then choose it here so it appears in your profile.",
   "addressesLoadErrorTitle": "Failed to load addresses",
   "addressesLoadErrorDesc": "An error occurred while fetching addresses from SPL. Please try again later.",
+  "myProfile": "My Profile",
   "nickname": "Nickname",
+  "emptyDataMsg": "No data available",
   "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",

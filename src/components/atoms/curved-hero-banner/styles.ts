@@ -26,6 +26,14 @@ const styles = (imageWidth: number, imageHeight: number) =>
       },
       options: { skipScale: true },
     },
+    iconWrapper: {
+      base: {
+        position: 'absolute',
+        start: 16,
+        top: 60,
+        zIndex: 1,
+      },
+    },
   });
 
 export default styles;

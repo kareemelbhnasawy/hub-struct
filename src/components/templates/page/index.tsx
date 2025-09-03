@@ -30,6 +30,7 @@ const Page = ({
   innerPageStyle,
   safeAreaStyle,
   stickyBottomContainerStyle,
+  disableSafeAreaTop = false
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -74,13 +75,16 @@ const Page = ({
     }
   }, [pageHeaderProps, pageHeaderVariant, prefixTestId]);
 
+  const Wrapper = disableSafeAreaTop ? View : SafeAreaView;
+
   return (
-    <SafeAreaView
+    <Wrapper
       testID={`${prefixTestId}-safe-area-view`}
       style={[themedStyles.safeAreaStyle, safeAreaStyle]}>
       {/* Header */}
       <StatusBar
         barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={'transparent'}
       />
       {hasHeader
         ? renderCustomHeader
@@ -133,7 +137,7 @@ const Page = ({
           {renderStickyBottom()}
         </View>
       ) : null}
-    </SafeAreaView>
+    </Wrapper>
   );
 };
 

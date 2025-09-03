@@ -5,13 +5,15 @@ import CurvedHeroProps from './interface';
 import DefaultBannerImage from '@/assets/images/riyadh.png';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
-import { useTranslate } from '@/hooks';
+import { useNavigation, useTranslate } from '@/hooks';
+import { GlassIcon } from '@/components/molecules';
 const { width: screenWidth } = Dimensions.get('window');
 
 const CurvedHeroImage = ({
   testId,
   source,
   children,
+  hasBackButton = false,
   ...props
 }: CurvedHeroProps) => {
   const imageHeight = screenWidth * 0.55;
@@ -21,6 +23,7 @@ const CurvedHeroImage = ({
   const { getThemedStyles } = useThemeStore();
   const { isRTL } = useTranslate();
   const themedStyles = getThemedStyles(styles(screenWidth, imageHeight));
+  const navigation = useNavigation();
 
   return (
     <View style={themedStyles.container}>
@@ -36,6 +39,16 @@ const CurvedHeroImage = ({
           </Svg>
         }
         {...props}>
+        {hasBackButton && (
+          <View style={themedStyles.iconWrapper}>
+            <GlassIcon
+              testId={`${testId}-back`}
+              name="ChevronLeft"
+              isRTLMirrored
+              onPress={() => navigation.goBack()}
+            />
+          </View>
+        )}
         <Image
           source={source || DefaultBannerImage}
           style={themedStyles.image}
@@ -48,4 +61,3 @@ const CurvedHeroImage = ({
 };
 
 export default CurvedHeroImage;
- 
