@@ -38,7 +38,7 @@ const PersonDetails = () => {
   const [showForAll, setShowForAll] = useState(false);
   const [type, setType] = useState<'mobile' | 'extension'>('mobile');
   const { deviceId } = useDeviceId();
-  const [error, setError] = useState();
+  const [error, setError] = useState<string | null>();
   const [addressModalVisible, setAddressModalVisible] = useState(false);
 
   const basicInfoData = basicInfoDataHandler(data);
@@ -310,6 +310,7 @@ const PersonDetails = () => {
         }}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        onClose={() => setError(undefined)}
         containerStyle={themedStyle.bottomSheetContainer}>
         {type === 'mobile' ? mobileNumberRender : extensionRender}
       </BaseSheet>
@@ -317,7 +318,7 @@ const PersonDetails = () => {
         testId={screenTestId}
         modalVisible={addressModalVisible}
         setModalVisible={setAddressModalVisible}
-      // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+        // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
       />
     </Page>
   );
