@@ -294,10 +294,14 @@ const PersonDetails = () => {
         hasSubmitButton={true}
         buttonProps={{
           textProps: { text: 'common.save' },
-          onPress: () =>
-            type === 'mobile'
-              ? mutatePhone({ mobileNumber, deviceId, isShown: showForAll })
-              : mutateExtension({ extensionNumber, deviceId }),
+          onPress: () => {
+            setModalVisible(false);
+            if (type === 'mobile') {
+              mutatePhone({ mobileNumber, deviceId, isShown: showForAll });
+            } else {
+              mutateExtension({ extensionNumber, deviceId });
+            }
+          },
           disabled:
             type === 'mobile'
               ? !isPhoneValid(mobileNumber)
