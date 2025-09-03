@@ -5,7 +5,8 @@ export type PersonDetailsScreenParams = {
 export type PersonDetailsResponse = {
   primaryInfo: {
     name: string;
-    birthDate: string;
+    birthDateHijri?: string | null;
+    birthDateGregorian?: string | null;
     age: string;
     gender: string;
     nationality: string;

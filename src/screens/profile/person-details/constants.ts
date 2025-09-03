@@ -1,6 +1,19 @@
+import { I18nManager } from 'react-native';
 import { PersonDetailsResponse } from './interface';
 
 export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
+  const greg = data?.primaryInfo?.birthDateGregorian;
+  const formattedGreg =
+    greg && !Number.isNaN(new Date(greg).getTime())
+      ? new Date(greg).toLocaleString(I18nManager.isRTL ? 'ar-EG' : 'en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      : undefined;
+
+  const toArabicDigits = (s?: string) => s?.replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[+d]) ?? s;
+  
   return [
     {
       key: 'name',
@@ -10,7 +23,10 @@ export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
     {
       key: 'birthDate',
       label: 'profile.personDetails.birthDate',
-      value: data?.primaryInfo?.birthDate ?? 'profile.emptyDataMsg',
+      value:
+        [toArabicDigits(data?.primaryInfo?.birthDateHijri), formattedGreg]
+          .filter(Boolean)
+          .join(' | ') || 'profile.emptyDataMsg',
     },
     {
       key: 'age',
