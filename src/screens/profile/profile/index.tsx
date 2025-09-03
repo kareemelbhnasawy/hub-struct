@@ -118,7 +118,8 @@ const ProfileScreen = () => {
         <View>
           <CurvedHeroImage
             testId={screenTestId}
-            source={bannerUrl ? { uri: bannerUrl } : undefined}>
+            source={bannerUrl ? { uri: bannerUrl } : undefined}
+            hasBackButton={true}>
             <Avatar
               size="lg"
               image={avatarUrl ?? null}
