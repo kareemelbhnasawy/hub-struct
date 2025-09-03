@@ -21,6 +21,7 @@
   "noAddressesDesc": "برجاء إضافة عنوانك الوطني في سبل ثم اختياره من هنا لكي يظهر في ملفك الشخصي",
   "addressesLoadErrorTitle": "تعذر تحميل العناوين",
   "addressesLoadErrorDesc": "حدث خطأ أثناء جلب بيانات العناوين من سبل. يرجى المحاولة لاحقًا.",
+  "myProfile": "ملفي الشخصي",
   "setPin" :{
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
