@@ -10,3 +10,4 @@ export { default as MyProfileScreen } from './profile/my-profile';
 export { default as PersonDetailsScreen } from './profile/person-details';
 export { default as KunyaCrudScreen } from './profile/kunya-crud';
 export { default as EditBackgroundScreen } from './profile/edit-background';
+export { default as ProfileSettingsScreen } from './profile/settings/index';

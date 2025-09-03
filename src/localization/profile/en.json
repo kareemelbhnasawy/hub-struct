@@ -3,7 +3,6 @@
   "digitalCard": "My Digital Card",
   "team": "My Team",
   "personalize": "Personalize Home Screen",
-  "settings": "Settings",
   "personal-details": "Personal Details",
   "job-details": "My Job Details",
   "career-history": "My Career History within the Ministry",
@@ -30,6 +29,13 @@
     "activateKunya": "Activate Kunya",
     "activateKunyaSubtitle": "You can activate Kunya to appear in your personal account and for others"
   },
+  "editAddressSuccess": "Address edited successfully!",
+  "addNewAddressViaSPL": "Add a new address via SPL",
+  "noAddressesTitle": "You don't have any addresses registered in SPL",
+  "noAddressesDesc": "Please add your National Address in SPL, then choose it here so it appears in your profile.",
+  "addressesLoadErrorTitle": "Failed to load addresses",
+  "addressesLoadErrorDesc": "An error occurred while fetching addresses from SPL. Please try again later.",
+  "nickname": "Nickname",
   "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",
@@ -52,5 +58,29 @@
     "mobile1": "Personal phone 1",
     "extension": "Extension",
     "address": "Registered address (in contract)"
+  },
+  "settings": {
+    "settings": "Settings",
+    "specialSettings": "Special Settings",
+    "changeBgImage": "Change Background Image",
+    "switchLang": "التبديل إلى العربية",
+    "changeLang": "التغيير إلى العربية",
+    "appRestart": "سنحتاج إلى إعادة تشغيل التطبيق لتجربة سلسة",
+    "switch": "تبديل",
+    "back": "رجوع",
+    "securitySettings": "Security Settings",
+    "activateFACE_ID": "Enable Face ID",
+    "activateTOUCH_ID": "Enable Touch ID",
+    "activatePIN_CODE": "Enable PIN Code",
+    "signOut": "Sign Out",
+    "signOutDesc": "Are you sure you want to sign out?",
+    "changeSignIn": "Change sign-in method?",
+    "changePIN_CODE_FACE_ID": "PIN code will be disabled and Face ID will be enabled. Are you sure?",
+    "changePIN_CODE_TOUCH_ID": "PIN code will be disabled and Touch ID will be enabled. Are you sure?",
+    "changeFACE_ID_PIN_CODE": "Face ID will be disabled and PIN code will be enabled. Are you sure?",
+    "changeTOUCH_ID_PIN_CODE": "Touch ID will be disabled and PIN code will be enabled. Are you sure?",
+    "activateFACE_IDSuccess": "Face ID activated successfully",
+    "activateTOUCH_IDSuccess": "Touch ID activated successfully",
+    "activatePIN_CODESuccess": "PIN code activated successfully"
   }
 }

@@ -25,12 +25,12 @@ const Toast = ({
   iconProps,
   ...viewProps
 }: ToastProps) => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const TOAST_ICON_COLORS = {
-    success: getThemeColor('backgroundSuccess'),
-    error: getThemeColor('backgroundError'),
-    info: getThemeColor('backgroundInfo'),
-    warn: getThemeColor('backgroundWarning'),
+    success: 'backgroundSuccess',
+    error: 'backgroundError',
+    info: 'backgroundInfo',
+    warn: 'backgroundWarning',
   } as const;
   const themedStyles = getThemedStyles(styles);
 
@@ -88,7 +88,7 @@ const Toast = ({
               <LucideIcon
                 testId={`${testId}-toast-close-icon`}
                 name="X"
-                color={getThemeColor('textDefault')}
+                color={'textDefault'}
                 size={20}
               />
             </Pressable>

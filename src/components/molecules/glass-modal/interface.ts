@@ -4,7 +4,6 @@ import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 import BaseButtonProps from '../base-button/interface';
 
 interface GlassModalProps extends BaseModalProps {
-  title: string;
   headlineProps?: Omit<HeadlineProps, 'testId'>;
   paragraphProps?: Omit<ParagraphProps, 'testId'>;
   buttonProps?: Omit<BaseButtonProps, 'testId'>;

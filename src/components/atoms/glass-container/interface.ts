@@ -6,6 +6,7 @@ interface GlassContainerProps {
   borderRadius?: Radius;
   containerStyle?: RNStyle;
   isContentCentered?: boolean;
+  onPress?: () => void;
 }
 
 export default GlassContainerProps;

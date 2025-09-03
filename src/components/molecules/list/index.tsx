@@ -27,7 +27,7 @@ const List = <TItem,>({
   keyField,
   ...flashListProps
 }: ListProps<TItem>) => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const keyExtractor = useCallback(
@@ -95,7 +95,7 @@ const List = <TItem,>({
           testId={`${testId}-list-empty`}
           name="ListX"
           size={52}
-          color={getThemeColor('foregroundQuinary')}
+          color={'foregroundQuinary'}
           {...componentProps?.iconProps}
         />
         <Headline
@@ -125,6 +125,7 @@ const List = <TItem,>({
         )}
       </View>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emptyComponentProps, isLoading, testId]);
 
   return (

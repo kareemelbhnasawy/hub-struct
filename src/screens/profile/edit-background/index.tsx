@@ -12,7 +12,7 @@ import { useAuthStore } from '@/store/auth';
 import { useProfileStore } from '@/store/profile';
 
 const EditBackgroundScreen = () => {
-  const { getThemedStyles, getThemeColor } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
   const { setBannerId, getBannerId } = useProfileStore();
   const themedStyles = getThemedStyles(styles);
   const { email } = useAuthStore();
@@ -69,7 +69,7 @@ const EditBackgroundScreen = () => {
               <LucideIcon
                 testId={`background-lucide-${item.id}`}
                 name="CircleCheck"
-                color={getThemeColor('backgroundSuccessLight')}
+                color={'backgroundSuccessLight'}
                 size={42}
               />
             </View>

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect } from 'react';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import Animated, {
   useSharedValue,
@@ -20,6 +20,7 @@ export const GlassContainer = ({
   borderRadius = Radius.FULL,
   containerStyle,
   isContentCentered = true,
+  onPress,
   children,
 }: PropsWithChildren<GlassContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -32,6 +33,7 @@ export const GlassContainer = ({
       -1,
       true,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -39,9 +41,10 @@ export const GlassContainer = ({
   }));
 
   return (
-    <View
+    <Pressable
       testID={`${testId}-glass-container`}
-      style={[themedStyles.container, containerStyle]}>
+      style={[themedStyles.container, containerStyle]}
+      onPress={onPress}>
       <BlurView
         testID={`${testId}-glass-container-blur`}
         style={themedStyles.absoluteFill}
@@ -72,6 +75,6 @@ export const GlassContainer = ({
         ]}>
         {children}
       </View>
-    </View>
+    </Pressable>
   );
 };

@@ -57,6 +57,9 @@ const stackMap: Record<ScreenName, StackPath> = {
   // Products: ['App', 'ShopStack'],
   // ProductDetails: ['App', 'ShopStack', 'ProductStack'],
   // Cart: ['App', 'ShopStack', 'CartStack'],
+  ProfileSettings: ['App', 'ProfileStack'],
+  SetPin: ['App', 'ProfileStack'],
+  ConfirmPin: ['App', 'ProfileStack'],
 };
 
 const getScreenStackPath = (screenName: ScreenName): StackPath => {

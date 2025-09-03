@@ -4,6 +4,8 @@ const PROFILE_URLS = {
   BANNER: 'profile/v1/banner',
   KUNYA_CRUD: 'profile/v1/nickname',
   // Add other profile-related URLs here
+  ADDRESSES: '/profile/v1/addresses',
+  EDIT_ADDRESS: '/profile/v1/address/edit',
 } as const;
 
 export default PROFILE_URLS;

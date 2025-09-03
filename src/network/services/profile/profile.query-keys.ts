@@ -4,6 +4,8 @@ const PROFILE_QUERY_KEYS = {
   UPDATE_BANNER: 'UPDATE_BANNER',
   EDIT_KUNYA: 'EDIT_KUNYA',
   DELETE_KUNYA: 'DELETE_KUNYA',
+  GET_ADDRESSES: 'GET_ADDRESSES',
+  ADDRESS_START: 'ADDRESS_START',
   // Add other profile-related query keys here
 } as const;
 
