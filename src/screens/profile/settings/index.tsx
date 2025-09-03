@@ -256,7 +256,10 @@ const ProfileSettings = () => {
     <Page
       testId={screenTestId}
       isLoading={isRemovePending || isRemovePinPending || isSetPending}
-      pageHeaderProps={{ titleProps: { text: 'profile.settings.settings' } }}>
+      pageHeaderProps={{
+        titleProps: { text: 'profile.settings.settings' },
+        isTitleCentered: true,
+      }}>
       <GlassModal
         testId={screenTestId}
         visible={langModalVisible}
