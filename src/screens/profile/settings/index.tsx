@@ -166,7 +166,7 @@ const ProfileSettings = () => {
   const personalSettings: ProfileSettingItemDataType[] = [
     {
       id: '1',
-      title: 'تغيير صورة الخلفية',
+      title: 'profile.settings.changeBgImage',
       iconProps: {
         name: 'Image',
         containerStyle: themedStyles.iconDescriptiveBlue,
@@ -175,7 +175,7 @@ const ProfileSettings = () => {
     },
     {
       id: '2',
-      title: 'الكنية',
+      title: 'profile.nickname',
       iconProps: {
         name: 'AlignVerticalJustifyStart',
         containerStyle: themedStyles.iconDescriptiveTeal,
@@ -184,7 +184,7 @@ const ProfileSettings = () => {
     },
     {
       id: '3',
-      title: 'Switch to English',
+      title: 'profile.settings.switchLang',
       iconProps: {
         name: 'Languages',
         containerStyle: themedStyles.iconDescriptiveYellow,
@@ -196,7 +196,7 @@ const ProfileSettings = () => {
   const securitySettings: ProfileSettingItemDataType[] = useMemo(() => {
     const bioRecord: ProfileSettingItemDataType = {
       id: '1',
-      title: 'تفعيل بصمة الوجه',
+      title: `profile.settings.activate${biometricType}`,
       iconProps: {
         name: bioIcon,
         containerStyle: themedStyles.iconDescriptiveTeal,
@@ -212,7 +212,7 @@ const ProfileSettings = () => {
     };
     const pinRecord: ProfileSettingItemDataType = {
       id: '2',
-      title: 'تفعيل الرمز السري',
+      title: 'profile.settings.activatePIN_CODE',
       iconProps: {
         name: 'Lock',
         containerStyle: themedStyles.iconDescriptiveYellow,
@@ -238,59 +238,82 @@ const ProfileSettings = () => {
   };
   const { mutate: logout } = useLogout(onLogoutSuccess);
 
+  const changeQuickLoginText = useMemo(() => {
+    if (quickLoginType === 'PIN_CODE') {
+      return {
+        desc: `profile.settings.change${quickLoginType}_${biometricType}`,
+        action: `profile.settings.activate${biometricType}`,
+      };
+    } else {
+      return {
+        desc: `profile.settings.change${quickLoginType}_PIN_CODE`,
+        action: 'profile.settings.activatePIN_CODE',
+      };
+    }
+  }, [quickLoginType, biometricType]);
+
   return (
     <Page
       testId={screenTestId}
       isLoading={isRemovePending || isRemovePinPending || isSetPending}
-      pageHeaderProps={{ titleProps: { text: 'Settings' } }}>
+      pageHeaderProps={{ titleProps: { text: 'profile.settings.settings' } }}>
       <GlassModal
         testId={screenTestId}
         visible={langModalVisible}
-        headlineProps={{ text: 'Change to English' }}
-        paragraphProps={{
-          text: 'We will need to restart the application for a seamless experience',
+        headlineProps={{
+          text: 'profile.settings.changeLang',
+          style: themedStyles.textAlignRight,
         }}
-        buttonProps={{ textProps: { text: 'Switch' }, onPress: toggleLanguage }}
+        paragraphProps={{
+          text: 'profile.settings.appRestart',
+          style: themedStyles.textAlignRight,
+        }}
+        buttonProps={{
+          textProps: {
+            text: 'profile.settings.switch',
+          },
+          onPress: toggleLanguage,
+        }}
         secondaryButtonProps={{
-          textProps: { text: 'Back' },
+          textProps: { text: 'profile.settings.back' },
           onPress: () => setLangModalVisible(false),
         }}
       />
       <GlassModal
         testId={screenTestId}
         visible={logoutModalVisible}
-        headlineProps={{ text: 'تسجيل خروج' }}
+        headlineProps={{ text: 'profile.settings.signOut' }}
         paragraphProps={{
-          text: 'هل انت متأكد من تسجيل الخروج ؟',
+          text: 'profile.settings.signOutDesc',
         }}
         buttonProps={{
-          textProps: { text: 'تسجيل خروج' },
+          textProps: { text: 'profile.settings.signOut' },
           onPress: () => logout({ email }),
         }}
         secondaryButtonProps={{
-          textProps: { text: 'رجوع' },
+          textProps: { text: 'common.back' },
           onPress: () => setLogoutModalVisible(false),
         }}
       />
       <GlassModal
         testId={screenTestId}
         visible={changeQuickLoginVisible}
-        headlineProps={{ text: 'تغيير طريقة الدخول؟' }}
+        headlineProps={{ text: 'profile.settings.changeSignIn' }}
         paragraphProps={{
-          text: 'سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الوجه. هل أنت متأكد؟',
+          text: changeQuickLoginText.desc,
         }}
         buttonProps={{
-          textProps: { text: 'تفعيل بصمة الوجة' },
+          textProps: { text: changeQuickLoginText.action },
           onPress: changeQuickLoginFn,
         }}
         secondaryButtonProps={{
-          textProps: { text: 'رجوع' },
+          textProps: { text: 'common.back' },
           onPress: () => setChangeQuickLoginVisible(false),
         }}
       />
 
       <Spacer space="3xl" />
-      <Headline testId={screenTestId} text="الإعدادات الخاصة" />
+      <Headline testId={screenTestId} text="profile.settings.specialSettings" />
       <List<ProfileSettingItemDataType>
         testId={screenTestId}
         data={personalSettings}
@@ -299,7 +322,10 @@ const ProfileSettings = () => {
         scrollEnabled={false}
       />
       <Spacer space="3xl" />
-      <Headline testId={screenTestId} text="إعدادات الإمان" />
+      <Headline
+        testId={screenTestId}
+        text="profile.settings.securitySettings"
+      />
       <List<ProfileSettingItemDataType>
         testId={screenTestId}
         data={securitySettings}
@@ -315,7 +341,7 @@ const ProfileSettings = () => {
           isRTLMirrored: true,
         }}
         textProps={{
-          text: 'تسجيل الخروج',
+          text: 'profile.settings.signOut',
         }}
         testId={screenTestId}
         onPress={() => setLogoutModalVisible(true)}

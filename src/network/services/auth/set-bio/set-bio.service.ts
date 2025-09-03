@@ -9,7 +9,9 @@ const setBio = async (data) => {
     data,
     config: {
       showSuccessToast: () => {
-        return { text: 'تم تفعيل بصمة الوجه بنجاح' };
+        return {
+          text: `profile.setting.activate${data?.biometricType}Success`,
+        };
       },
     },
   });

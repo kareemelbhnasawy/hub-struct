@@ -9,7 +9,7 @@ const setPin = async (data) => {
     data,
     config: {
       showSuccessToast: () => {
-        return { text: 'تم تفعيل الرمز السري PIN بنجاح' };
+        return { text: 'profile.settings.activatePIN_CODESuccess' };
       },
     },
   });

@@ -43,6 +43,11 @@ const styles = createThemedStyles({
       paddingVertical: 0,
     },
   },
+  textAlignRight: {
+    base: {
+      textAlign: 'right',
+    },
+  },
 });
 
 export default styles;

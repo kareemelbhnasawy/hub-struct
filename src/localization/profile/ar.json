@@ -3,7 +3,6 @@
   "digitalCard": "بطاقتي الرقمية",
   "team": "فريقي",
   "personalize": " تخصيص الصفحة الرئيسية",
-  "settings": "الإعدادات",
   "personal-details": "البيانات الشخصية",
   "job-details": "البيانات الوظيفية",
   "career-history": "التاريخ الوظيفي داخل الوزارة",
@@ -15,16 +14,17 @@
   "contractAddress": "العنوان المسجل في العقد",
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
   "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
-  "setPin" :{
+  "nickname": "الكنية",
+  "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
     "avoidPatterns": "تجنب الأنماط السهلة مثل 123456 أو 000000."
   },
-  "confirmPin" :{
+  "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
     "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته."
   },
-  "personDetails" : {
+  "personDetails": {
     "personalInfo": "البيانات الشخصية",
     "basicInfo": "البيانات الأساسية",
     "name": "الاسم",
@@ -37,5 +37,29 @@
     "mobile1": "هاتف شخصي ١",
     "extension": "تحويلة",
     "address": "العنوان المسجل في العقد"
+  },
+  "settings": {
+    "settings": "الإعدادات",
+    "specialSettings": "الإعدادات الخاصة",
+    "changeBgImage": "تغيير صورة الخلفية",
+    "switchLang": "Switch to English",
+    "changeLang": "Change to English",
+    "appRestart": "We will need to restart the application for a seamless experience",
+    "switch": "Switch",
+    "back": "Back",
+    "securitySettings": "إعدادات الإمان",
+    "activateFACE_ID": "تفعيل بصمة الوجه",
+    "activateTOUCH_ID": "تفعيل بصمة الإصبع",
+    "activatePIN_CODE": "تفعيل الرمز السري",
+    "signOut": "تسجيل الخروج",
+    "signOutDesc": "هل انت متأكد من تسجيل الخروج ؟",
+    "changeSignIn": "تغيير طريقة الدخول؟",
+    "changePIN_CODE_FACE_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الوجه. هل أنت متأكد؟",
+    "changePIN_CODE_TOUCH_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الإصبع. هل أنت متأكد؟",
+    "changeFACE_ID_PIN_CODE": "سيتم إلغاء بصمة الوجه تفعيل وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
+    "changeTOUCH_ID_PIN_CODE": "سيتم إلغاء بصمة الإصبع تفعيل وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
+    "activateFACE_IDSuccess": "تم تفعيل بصمة الوجه بنجاح",
+    "activateTOUCH_IDSuccess": "تم تفعيل بصمة الإصبع بنجاح",
+    "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
   }
 }

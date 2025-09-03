@@ -72,7 +72,7 @@ const ProfileScreen = () => {
     },
     {
       id: '5',
-      title: 'profile.settings',
+      title: 'profile.settings.settings',
       iconProps: {
         name: 'Settings',
         containerStyle: themedStyles.iconDescriptiveBlue,
