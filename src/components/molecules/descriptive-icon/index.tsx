@@ -8,7 +8,7 @@ const DescriptiveIcon = ({
   testId,
   iconProps,
   textProps,
-  isRow = true
+  isRow = true,
 }: DescriptiveIconProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -35,7 +35,10 @@ const DescriptiveIcon = ({
   return (
     <View
       testID={`${testId}-descriptive-icon-container`}
-      style={[wrapperAppliedStyles, isRow ? themedStyles.isRow : themedStyles.isColumn]}>
+      style={[
+        wrapperAppliedStyles,
+        isRow ? themedStyles.isRow : themedStyles.isColumn,
+      ]}>
       <LucideIcon
         testId={`${testId}-descriptive`}
         isOutline={_isOutline}

@@ -15,7 +15,7 @@ const Tag = ({
   onPress,
   containerStyle,
 }: TagProps) => {
-  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const { getThemedStyles } = useThemeStore();
 
   const themedStyles = getThemedStyles(styles);
 
@@ -48,7 +48,7 @@ const Tag = ({
           //TODO: wrap the icon add the onPress to the wrapper
           onPress={onPress}
           name={icon}
-          color={getThemeColor('tagIcon')}
+          color={'tagIcon'}
           size={getIconSize(size)}
         />
       )}

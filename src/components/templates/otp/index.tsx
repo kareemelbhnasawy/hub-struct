@@ -12,6 +12,7 @@ import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
+import { GlassIcon } from '@/components/molecules/glass-icon';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -95,13 +96,12 @@ export default function OtpConfirmationScreen({ route }: Props) {
       <Spacer space={50} />
       <View style={themedStyles.headerContainer}>
         {/* Todo: glass icon component and lucide icon rtl handler */}
-        <GlassContainer testId="icon" containerStyle={{ aspectRatio: 1 }}>
-          <LucideIcon
-            name={isRTL ? 'ChevronRight' : 'ChevronLeft'}
-            testId={''}
-            onPress={() => goBack()}
-          />
-        </GlassContainer>
+        <GlassIcon
+          testId={screenTestId}
+          name="ChevronLeft"
+          isRTLMirrored
+          onPress={() => goBack()}
+        />
         <Logo testId={screenTestId} size="md" />
       </View>
       <Spacer space={20} />

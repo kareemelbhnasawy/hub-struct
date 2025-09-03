@@ -1,12 +1,16 @@
-import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import type { SwitchProps } from 'react-native';
+import type ParagraphProps from '@/components/atoms/typography/paragraph/interface';
 import { RNStyle } from '@/types/themes';
-import { SwitchProps } from 'react-native';
 
-interface BrandToggleProps extends Omit<SwitchProps, 'testID'> {
+interface BrandToggleProps
+  extends Omit<SwitchProps, 'onValueChange' | 'style'> {
   testId: string;
+  size?: 'md' | 'lg';
+  onChangeValue?: (v: boolean) => void;
+  disabled?: boolean;
+  containerStyle?: RNStyle;
   titleProps?: Omit<ParagraphProps, 'testId'>;
   descriptionProps?: Omit<ParagraphProps, 'testId'>;
-  containerStyle?: RNStyle;
 }
 
 export default BrandToggleProps;
