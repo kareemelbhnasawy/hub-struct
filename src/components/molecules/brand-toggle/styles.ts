@@ -11,21 +11,44 @@ const styles = createThemedStyles({
   contentContainer: {
     base: {
       flex: 1,
-      marginStart: 16,
+      marginStart: 8,
       justifyContent: 'center',
     },
   },
   description: {
     base: {
-      color: 'textToggleTitle',
+      color: 'textSecondary',
       marginTop: 4,
     },
   },
   title: {
     base: {
-      color: 'textDefault',
+      color: 'textBrandPrimary',
       flex: 1,
     },
+  },
+  mdToggleWidth: {
+    base: {
+      width: 36
+    }
+  },
+
+  mdToggleHeight: {
+    base: {
+      height: 20
+    }
+  },
+
+  lgToggleWidth: {
+    base: {
+      width: 44
+    }
+  },
+
+  lgToggleHeight: {
+    base: {
+      height: 24
+    }
   },
 });
 
