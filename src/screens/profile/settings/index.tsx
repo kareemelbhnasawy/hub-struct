@@ -209,6 +209,7 @@ const ProfileSettings = () => {
             testId={`${screenTestId}-bio`}
             value={bioEnabled}
             containerStyle={themedStyles.paddingVertical0}
+            onChange={() => onQuickLoginPress(biometricType)}
           />
         </View>
       ),
@@ -227,6 +228,7 @@ const ProfileSettings = () => {
             testId={`${screenTestId}-pin`}
             value={pinEnabled}
             containerStyle={themedStyles.paddingVertical0}
+            onChange={() => onQuickLoginPress('PIN_CODE')}
           />
         </View>
       ),
