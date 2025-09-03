@@ -27,27 +27,15 @@ const styles = createThemedStyles({
       flex: 1,
     },
   },
-  mdToggleWidth: {
+  md: {
     base: {
-      width: 36
+      transform: [{ scaleX: 0.84 }, { scaleY: 0.86 }],
     }
   },
 
-  mdToggleHeight: {
+  lg: {
     base: {
-      height: 20
-    }
-  },
-
-  lgToggleWidth: {
-    base: {
-      width: 44
-    }
-  },
-
-  lgToggleHeight: {
-    base: {
-      height: 24
+      transform: [{ scaleX: 1.1 }, { scaleY: 1.2 }],
     }
   },
 });

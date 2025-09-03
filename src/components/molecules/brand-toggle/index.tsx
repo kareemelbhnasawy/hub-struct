@@ -12,7 +12,7 @@ const BrandToggle = ({
   containerStyle,
   size = 'md',
   value,
-  onValueChange,
+  onChangeValue,
   disabled,
   ...restProps
 }: BrandToggleProps) => {
@@ -34,22 +34,20 @@ const BrandToggle = ({
 
   const iosBg = getThemeColor('toggleDefaultBackground');
 
-  const wrapperW = size === 'lg' ? themedStyles.lgToggleWidth : themedStyles.mdToggleWidth;
-  const wrapperH = size === 'lg' ? themedStyles.lgToggleHeight : themedStyles.mdToggleHeight;
-
   return (
     <View
       testID={`${testId}-brand-toggle-container`}
-      style={[themedStyles.container, containerStyle, wrapperW, wrapperH]}
+      style={[themedStyles.container, containerStyle]}
     >
       <BaseToggle
         testId={`${testId}-switch`}
         value={value}
-        onValueChange={onValueChange}
+        onValueChange={onChangeValue}
         disabled={disabled}
         trackColor={trackColor}
         thumbColor={thumbColor}
         ios_backgroundColor={iosBg}
+        style={themedStyles[size]}
         {...restProps}
       />
       <View style={themedStyles.contentContainer}>
