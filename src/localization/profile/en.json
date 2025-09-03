@@ -19,6 +19,7 @@
   "deactivate": "Deactivate",
   "back": "Back",
   "kunya": {
+    "kunyaTitle": "Kunya",
     "kunyaPrompt": "What is your Kunya",
     "howKunyaAppears": "This is how it will appear in your profile",
     "kunyaActivated": "Your Kunya has been activated successfully",

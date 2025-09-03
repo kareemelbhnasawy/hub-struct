@@ -17,7 +17,7 @@ import { useAuthStore } from '@/store/auth';
 import { useNavigation } from '@/hooks';
 import log from '@/utilities/log';
 import useDeleteKunya from '@/network/services/profile/delete-kunya/delete-kunya.hook';
-import GlassIcon from '@/components/molecules/glass-icon';
+import { PageHeaderVariants } from '@/components/templates/page/constants';
 
 const KunyaCrudScreen = () => {
   const screenTestId = 'kunya-crud-screen';
@@ -97,17 +97,17 @@ const KunyaCrudScreen = () => {
   }, [isToggleActive, isKunyaActivated]);
 
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={false}>
+    <Page
+      testId={screenTestId}
+      hasHeader
+      pageHeaderVariant={PageHeaderVariants.BackWithTitle}
+      pageHeaderProps={{
+        titleProps: { text: 'profile.kunya.kunyaTitle' },
+        isTitleCentered: true,
+      }}
+      isLoading={false}>
       <View style={themedStyles.container}>
-        <Spacer space={20} />
-
-        <GlassIcon
-          testId={screenTestId}
-          name="ArrowLeft"
-          onPress={navigateBack}
-        />
-
-        <Spacer space={20} />
+        <Spacer space={40} />
 
         <View style={themedStyles.toggleSectionWrapper}>
           <View style={themedStyles.headlineWrapper}>

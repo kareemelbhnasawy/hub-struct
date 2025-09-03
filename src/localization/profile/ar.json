@@ -19,6 +19,7 @@
   "deactivate": "إلغاء التفعيل",
   "back": "رجوع",
   "kunya": {
+    "kunyaTitle": "الكنية",
     "activateKunya": "تفعيل الكنية",
     "activateKunyaSubtitle": "يمكنك تفعيل الكنية لتظهر في حسابك الشخصي و للآخرين",
     "kunyaPrompt": "ما هي كنيتك؟",
