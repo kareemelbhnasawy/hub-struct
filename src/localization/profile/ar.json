@@ -22,6 +22,7 @@
   "addressesLoadErrorDesc": "حدث خطأ أثناء جلب بيانات العناوين من سبل. يرجى المحاولة لاحقًا.",
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
+  "emptyDataMsg": "لا يوجد بيانات مسجلة",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",

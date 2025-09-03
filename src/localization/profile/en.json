@@ -22,7 +22,8 @@
   "addressesLoadErrorDesc": "An error occurred while fetching addresses from SPL. Please try again later.",
   "myProfile": "My Profile",
   "nickname": "Nickname",
-  "setPin" :{
+  "emptyDataMsg": "No data available",
+  "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",
     "avoidPatterns": "Avoid easy patterns like 123456 or 000000."
