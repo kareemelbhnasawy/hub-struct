@@ -14,14 +14,14 @@ const styles = createThemedStyles({
       justifyContent: 'space-between',
       backgroundColor: 'backgroundWhite',
       width: 60,
-    }
+    },
   },
   isRow: {
     base: {
       flexDirection: 'row',
       justifyContent: 'flex-start',
-      columnGap: 10
-    }
+      columnGap: 10,
+    },
   },
   textWrapper: {
     base: {

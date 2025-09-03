@@ -7,6 +7,13 @@ const setBio = async (data) => {
     method: API_METHODS.PUT,
     url: AUTH_URLS.SET_BIO,
     data,
+    config: {
+      showSuccessToast: () => {
+        return {
+          text: `profile.setting.activate${data?.biometricType}Success`,
+        };
+      },
+    },
   });
   return res.data;
 };

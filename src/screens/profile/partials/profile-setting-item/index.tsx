@@ -9,6 +9,8 @@ const ProfileSettingItem = ({
   testId,
   textProps,
   iconProps,
+  hasForwardIcon = true,
+  renderCustomTrailingIcon,
   onPress,
 }: ListItemProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -29,12 +31,11 @@ const ProfileSettingItem = ({
           }}
           testId={testId}
         />
-        <LucideIcon
-          testId={testId}
-          name="ChevronRight"
-          isRTLMirrored
-          size={24}
-        />
+        {hasForwardIcon && !renderCustomTrailingIcon && (
+          <LucideIcon testId={testId} name="ChevronRight" isRTLMirrored />
+        )}
+
+        {renderCustomTrailingIcon?.()}
       </Pressable>
       <Spacer space={0} isDivider />
     </>

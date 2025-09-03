@@ -21,24 +21,25 @@ const BrandToggle = ({
 
   const trackColor = useMemo(
     () => ({
-      false: getThemeColor(disabled ? 'toggleDisabledBackground' : 'toggleDefaultBackground'),
-      true: getThemeColor(disabled ? 'toggleDisabledBackground' : 'toggleSelectedBackground'),
+      false: getThemeColor(
+        disabled ? 'toggleDisabledBackground' : 'toggleDefaultBackground',
+      ),
+      true: getThemeColor(
+        disabled ? 'toggleDisabledBackground' : 'toggleSelectedBackground',
+      ),
     }),
-    [disabled, getThemeColor]
+    [disabled, getThemeColor],
   );
 
   const thumbColor =
-    Platform.OS === 'android'
-      ? getThemeColor('toggleDefaultKnob')
-      : undefined;
+    Platform.OS === 'android' ? getThemeColor('toggleDefaultKnob') : undefined;
 
   const iosBg = getThemeColor('toggleDefaultBackground');
 
   return (
     <View
       testID={`${testId}-brand-toggle-container`}
-      style={[themedStyles.container, containerStyle]}
-    >
+      style={[themedStyles.container, containerStyle]}>
       <BaseToggle
         testId={`${testId}-switch`}
         value={value}
