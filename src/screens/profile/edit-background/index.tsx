@@ -55,31 +55,27 @@ const EditBackgroundScreen = () => {
   }) => {
     const isSelected = item.id === selectedId;
     return (
-      <>
-        <View>
-          <Pressable
-            onPress={() => handleSelect(item.id)}
-            disabled={isLocked}
-            style={[
-              themedStyles.itemWrapper,
-              isSelected && themedStyles.selected,
-            ]}>
-            <ImageBackground source={item.source} style={themedStyles.image}>
-              <View style={isSelected && themedStyles.blurView}>
-                {isSelected && (
-                  <LucideIcon
-                    testId={`background-lucide-${item.id}`}
-                    name="CircleCheck"
-                    color={getThemeColor('backgroundSuccessLight')}
-                    size={42}
-                  />
-                )}
-              </View>
-            </ImageBackground>
-          </Pressable>
-        </View>
-        <Spacer space={16} />
-      </>
+      <Pressable onPress={() => handleSelect(item.id)} disabled={isLocked}>
+        <ImageBackground
+          source={item.source}
+          style={[
+            themedStyles.imageContainer,
+            isSelected && themedStyles.selected,
+          ]}
+          imageStyle={themedStyles.image}
+          resizeMode="cover">
+          {isSelected && (
+            <View style={themedStyles.blurView}>
+              <LucideIcon
+                testId={`background-lucide-${item.id}`}
+                name="CircleCheck"
+                color={getThemeColor('backgroundSuccessLight')}
+                size={42}
+              />
+            </View>
+          )}
+        </ImageBackground>
+      </Pressable>
     );
   };
 
@@ -109,8 +105,9 @@ const EditBackgroundScreen = () => {
           renderItem={renderItem}
           numColumns={2}
           keyField="id"
-          scrollEnabled={false}
-          columnWrapperStyle={themedStyles.gap}
+          scrollEnabled={true}
+          showsVerticalScrollIndicator={false}
+          columnWrapperStyle={themedStyles.columnWrapper}
         />
       </View>
     </Page>

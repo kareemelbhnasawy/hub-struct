@@ -1,4 +1,9 @@
 import { createThemedStyles } from '@/utilities';
+import { Dimensions } from 'react-native';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const HORIZONTAL_PADDING = 16;
+const CONTENT_WIDTH = SCREEN_WIDTH - HORIZONTAL_PADDING * 2;
 
 export default createThemedStyles({
   container: {
@@ -6,12 +11,17 @@ export default createThemedStyles({
       flex: 1,
     },
   },
-  itemWrapper: {
+  columnWrapper: {
     base: {
-      width: 150,
-      height: 100,
-      borderRadius: 8,
+      gap: 16,
+    },
+  },
+  imageContainer: {
+    base: {
+      width: CONTENT_WIDTH / 2.5,
+      aspectRatio: 4 / 3,
       overflow: 'hidden',
+      borderRadius: 8,
     },
   },
   image: {
@@ -26,13 +36,17 @@ export default createThemedStyles({
       borderWidth: 4,
     },
   },
-  gap: { base: { gap: 16 } },
   blurView: {
     base: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: 'alphaBlack50',
+    },
+  },
+  alignItems: {
+    base: {
+      width: '100%',
     },
   },
 });
