@@ -45,7 +45,7 @@ const LucideIcon = ({
       <Wrapper
         testID={`${testId}-icon-container`}
         onPress={onPress}
-        style={[appliedStyles, { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}>
+        style={[appliedStyles, { transform: [{ scaleX: isRTLMirrored && isRTL ? -1 : 1 }] }]}>
         <LIcon
           testID={`${testId}-icon`}
           size={scale(size)}
