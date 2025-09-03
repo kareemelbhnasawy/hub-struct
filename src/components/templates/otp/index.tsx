@@ -1,18 +1,15 @@
-/* eslint-disable */
 import { View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '@/navigation';
-import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
-import { useNavigation, useTranslate } from '@/hooks';
-import { PinCode } from '@/components/molecules';
+import { Headline, Paragraph, Spacer } from '@/components/atoms';
+import { useNavigation } from '@/hooks';
+import { GlassIcon, PinCode } from '@/components/molecules';
 import { useCountdown } from '@/hooks/use-countdown';
 import { styles } from './styles';
-import { GlassContainer } from '@/components/atoms/glass-container';
 import Logo from '@/components/molecules/logo';
 import { useThemeStore } from '@/store/theme';
 import { useStartFlow, useFinishFlow } from '@/network/hooks';
 import { useState } from 'react';
-import { GlassIcon } from '@/components/molecules/glass-icon';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 
@@ -48,8 +45,6 @@ export default function OtpConfirmationScreen({ route }: Props) {
   const themedStyles = getThemedStyles(styles);
   const [error, setError] = useState<boolean | undefined>(undefined);
 
-  const { isRTL } = useTranslate();
-
   const { formattedTime, isActive, reset } = useCountdown({
     initialSeconds: expiresIn || 120,
     onComplete: () => {
@@ -68,7 +63,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },
-    (error) => {
+    () => {
       setError(true);
     },
     showSuccessToast,

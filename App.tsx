@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { I18nManager } from 'react-native';
+import { I18nManager, StatusBar } from 'react-native';
 import { getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useCallback, useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -48,6 +48,8 @@ const App = () => {
         <PortalProvider>
           <SafeAreaProvider
             style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
+            {/* Transparent status bar */}
+            <StatusBar translucent backgroundColor="transparent" />
             <NavigationContainer
               onStateChange={handleNavigationStateChange}
               onReady={handleNavigationReady}>

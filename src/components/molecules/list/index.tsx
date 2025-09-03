@@ -125,6 +125,7 @@ const List = <TItem,>({
         )}
       </View>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [emptyComponentProps, isLoading, testId]);
 
   return (

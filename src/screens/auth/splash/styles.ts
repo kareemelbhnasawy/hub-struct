@@ -14,14 +14,14 @@ export const styles = createThemedStyles({
       position: 'absolute',
       top: 0,
       flex: 1,
-      height: scale(600),
-      width: scale(300),
+      height: '100%',
+      width: '100%',
     },
   },
   absoluteFill: {
     base: {
-      height: scale(600),
-      width: scale(300),
+      height: '100%',
+      width:'100%',
       flex: 1,
       bottom: 0,
       start: 0,

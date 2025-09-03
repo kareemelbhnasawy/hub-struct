@@ -2,12 +2,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   ProfileScreen,
   MyProfileScreen,
+  PersonDetailsScreen,
+  KunyaCrudScreen,
+  EditBackgroundScreen,
   SetPinScreen,
   ConfirmPinScreen,
+  ProfileSettingsScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
-import PersonDetails from '@/screens/profile/person-details';
-import ProfileSettings from '@/screens/profile/settings';
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
@@ -22,8 +24,10 @@ const ProfileStack = () => {
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="MyProfile" component={MyProfileScreen} />
-      <Stack.Screen name="PersonDetails" component={PersonDetails} />
-      <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+      <Stack.Screen name="PersonDetails" component={PersonDetailsScreen} />
+      <Stack.Screen name="EditBackground" component={EditBackgroundScreen} />
+      <Stack.Screen name="KunyaCrud" component={KunyaCrudScreen} />
+      <Stack.Screen name="ProfileSettings" component={ProfileSettingsScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
     </Stack.Navigator>

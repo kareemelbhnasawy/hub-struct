@@ -2,7 +2,7 @@ import styles from './styles';
 import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
 import ProfileSettingItem from '../partials/profile-setting-item';
-import { deleteKey, log } from '@/utilities';
+import { deleteKey } from '@/utilities';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { BrandToggle, GlassModal, List } from '@/components/molecules';
 import { useNavigation, useTranslate } from '@/hooks';
@@ -172,7 +172,7 @@ const ProfileSettings = () => {
         name: 'Image',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => log('photo pressed'),
+      onPress: () => navigation.navigate('EditBackground'),
     },
     {
       id: '2',
@@ -181,7 +181,7 @@ const ProfileSettings = () => {
         name: 'AlignVerticalJustifyStart',
         containerStyle: themedStyles.iconDescriptiveTeal,
       },
-      onPress: () => log('nickname pressed'),
+      onPress: () => navigation.navigate('KunyaCrud'),
     },
     {
       id: '3',

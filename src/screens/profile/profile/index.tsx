@@ -14,23 +14,30 @@ import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useProfileStore } from '@/store/profile';
+import { getBackgroundImageById } from '../edit-background/constants';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  const [avatarUrl, setAvatarUrl] = useState<string>('');
-  const [bannerUrl, setBannerUrl] = useState<string>('');
-  const [name, setName] = useState<string>('');
-  const [kunya, setKunya] = useState<string>('');
-  const [status, setStatus] = useState<string>('');
-  const [displayTitle, setDisplayTitle] = useState<string>('');
+  const {
+    setAllProfileData,
+    getFullName,
+    avatarUrl,
+    jobTitle,
+    department,
+    status,
+    bannerId,
+  } = useProfileStore();
+  const { name, kunya } = getFullName();
+  const displayTitle = `${jobTitle} - ${department}`;
   const displayName = kunya ? `${kunya} (${name})` : name;
   const screenTestId = 'profile-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
-    navigation.navigate('MyProfile');
+    navigation.navigate('MyProfile', {});
   };
 
   const listItemData: ProfileSettingItemDataType[] = [
@@ -103,14 +110,17 @@ const ProfileScreen = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setName(data?.name);
-      setKunya(data?.nickname);
-      setAvatarUrl(data?.profileImage);
-      setBannerUrl(data?.banner);
-      setStatus(data?.status.toLowerCase());
-      setDisplayTitle(`${data?.jobTitle} - ${data?.department}`);
+      setAllProfileData({
+        name: data?.name,
+        kunya: data?.nickname,
+        avatarUrl: data?.profileImage,
+        bannerId: data?.banner,
+        status: data?.status.toLowerCase(),
+        department: data?.department,
+        jobTitle: data?.jobTitle,
+      });
     }
-  }, [data, isSuccess]);
+  }, [data, isSuccess, setAllProfileData]);
 
   return (
     <Page testId={screenTestId} hasHeader={false} isLoading={isLoading} disableSafeAreaTop={true}>
@@ -118,7 +128,7 @@ const ProfileScreen = () => {
         <View>
           <CurvedHeroImage
             testId={screenTestId}
-            source={bannerUrl ? { uri: bannerUrl } : undefined}
+            source={getBackgroundImageById(bannerId)}
             hasBackButton={true}>
             <Avatar
               size="lg"
@@ -133,12 +143,14 @@ const ProfileScreen = () => {
         <Spacer />
         <View style={themedStyles.titleWrapper}>
           <Headline
+            isTranslated={false}
             text={displayName}
             weight="Bold"
             size="xs"
             testId={screenTestId}
           />
           <Paragraph
+            isTranslated={false}
             text={displayTitle}
             weight="Medium"
             size="lg"
