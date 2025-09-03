@@ -39,7 +39,7 @@ const autoScaleStyle = (
       typeof value === 'number' &&
       !options?.skipScale
     ) {
-      scaled[key] = verticalScale(value);
+      scaled[key] = value;
     } else if (
       moderateProps.includes(key) &&
       typeof value === 'number' &&

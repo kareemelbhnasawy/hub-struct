@@ -21,6 +21,7 @@ import { BiometryTypes } from 'react-native-biometrics';
 import useSetBio from '@/network/services/auth/set-bio/set-bio.hook';
 import useRemoveBio from '@/network/services/auth/remove-bio/remove-bio.hook';
 import useRemovePin from '@/network/services/auth/remove-pin/remove-pin.hook';
+import { View } from 'react-native';
 
 const ProfileSettings = () => {
   const screenTestId = 'profile-settings-screen';
@@ -203,11 +204,13 @@ const ProfileSettings = () => {
       },
       onPress: () => onQuickLoginPress(biometricType),
       renderCustomTrailingIcon: () => (
-        <BrandToggle
-          testId=""
-          value={bioEnabled}
-          containerStyle={themedStyles.paddingVertical0}
-        />
+        <View style={themedStyles.alignSelfStart}>
+          <BrandToggle
+            testId={`${screenTestId}-bio`}
+            value={bioEnabled}
+            containerStyle={themedStyles.paddingVertical0}
+          />
+        </View>
       ),
     };
     const pinRecord: ProfileSettingItemDataType = {
@@ -219,11 +222,13 @@ const ProfileSettings = () => {
       },
       onPress: () => onQuickLoginPress('PIN_CODE'),
       renderCustomTrailingIcon: () => (
-        <BrandToggle
-          testId=""
-          value={pinEnabled}
-          containerStyle={themedStyles.paddingVertical0}
-        />
+        <View style={themedStyles.alignSelfStart}>
+          <BrandToggle
+            testId={`${screenTestId}-pin`}
+            value={pinEnabled}
+            containerStyle={themedStyles.paddingVertical0}
+          />
+        </View>
       ),
     };
     if (biometricType) {
@@ -276,10 +281,12 @@ const ProfileSettings = () => {
             text: 'profile.settings.switch',
           },
           onPress: toggleLanguage,
+          containerStyle: themedStyles.round,
         }}
         secondaryButtonProps={{
           textProps: { text: 'profile.settings.back' },
           onPress: () => setLangModalVisible(false),
+          containerStyle: themedStyles.round,
         }}
       />
       <GlassModal
@@ -292,10 +299,12 @@ const ProfileSettings = () => {
         buttonProps={{
           textProps: { text: 'profile.settings.signOut' },
           onPress: () => logout({ email }),
+          containerStyle: themedStyles.round,
         }}
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
           onPress: () => setLogoutModalVisible(false),
+          containerStyle: themedStyles.round,
         }}
       />
       <GlassModal
@@ -308,10 +317,12 @@ const ProfileSettings = () => {
         buttonProps={{
           textProps: { text: changeQuickLoginText.action },
           onPress: changeQuickLoginFn,
+          containerStyle: themedStyles.round,
         }}
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
           onPress: () => setChangeQuickLoginVisible(false),
+          containerStyle: themedStyles.round,
         }}
       />
 
@@ -336,7 +347,7 @@ const ProfileSettings = () => {
         keyExtractor={(item) => item.id}
         scrollEnabled={false}
       />
-      <Spacer space="3xl" />
+      <Spacer space="6xl" />
       <ProfileSettingItem
         iconProps={{
           name: 'LogOut',

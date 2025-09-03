@@ -1,3 +1,4 @@
+import { Radius } from '@/style';
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
@@ -43,9 +44,19 @@ const styles = createThemedStyles({
       paddingVertical: 0,
     },
   },
+  alignSelfStart: {
+    base: {
+      alignSelf: 'flex-start',
+    },
+  },
   textAlignRight: {
     base: {
       textAlign: 'right',
+    },
+  },
+  round: {
+    base: {
+      borderRadius: Radius.FULL,
     },
   },
 });
