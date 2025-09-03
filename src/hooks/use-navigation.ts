@@ -50,11 +50,9 @@ const stackMap: Record<ScreenName, StackPath> = {
   Profile: ['App', 'ProfileStack'],
   MyProfile: ['App', 'ProfileStack'],
   PersonDetails: ['App', 'ProfileStack'],
-
-  // Example deeper nesting (uncomment & adjust to your app)
-  // Products: ['App', 'ShopStack'],
-  // ProductDetails: ['App', 'ShopStack', 'ProductStack'],
-  // Cart: ['App', 'ShopStack', 'CartStack'],
+  ProfileSettings: ['App', 'ProfileStack'],
+  SetPin: ['App', 'ProfileStack'],
+  ConfirmPin: ['App', 'ProfileStack'],
 };
 
 const getScreenStackPath = (screenName: ScreenName): StackPath => {

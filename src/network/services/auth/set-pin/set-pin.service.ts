@@ -7,6 +7,11 @@ const setPin = async (data) => {
     method: API_METHODS.PUT,
     url: AUTH_URLS.SET_PIN,
     data,
+    config: {
+      showSuccessToast: () => {
+        return { text: 'profile.settings.activatePIN_CODESuccess' };
+      },
+    },
   });
   return res.data;
 };
