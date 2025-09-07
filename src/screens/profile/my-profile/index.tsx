@@ -77,7 +77,7 @@ const MyProfile = () => {
         name: 'FileBadge2',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => log('qualifications pressed'),
+      onPress: () => navigate('QualificationDetails', { qualificationId: '2' }),
     },
     {
       id: '6',

@@ -6,6 +6,7 @@ const PROFILE_URLS = {
   // Add other profile-related URLs here
   ADDRESSES: '/profile/v1/addresses',
   EDIT_ADDRESS: '/profile/v1/address/edit',
+  GET_QUALIFICATION_DETAILS: '/profile/v1/qualifications'
 } as const;
 
 export default PROFILE_URLS;
