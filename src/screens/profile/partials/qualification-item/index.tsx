@@ -1,5 +1,5 @@
 import { useThemeStore } from '@/store/theme';
-import styles  from './styles';
+import styles from './styles';
 import { Pressable, View } from 'react-native';
 import { Badge } from '@/components/molecules';
 import { Headline, LucideIcon, Spacer } from '@/components/atoms';
@@ -29,9 +29,10 @@ const QualificationItem = ({
           />
           <LucideIcon
             testId={`${testId}-chevron`}
-            name="ChevronLeft"
+            name="ChevronRight"
             color="foregroundPrimary"
             size={15}
+            isRTLMirrored
           />
         </View>
         <Headline

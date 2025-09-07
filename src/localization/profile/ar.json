@@ -92,6 +92,30 @@
       "academic-vacation": "إجازة دراسية"
     }
   },
+  "qualificationDetails": {
+    "type": "النوع",
+    "schoolUniversity": "المدرسة / الجامعة",
+    "country": "الدولة",
+    "academicDegree": "الدرجة العلمية",
+    "fieldOfStudy": "مجال الدراسة",
+    "learningMethod": "طريقة التعلم",
+    "awardingBody": "هيئة المنح",
+    "qualificationDetails": "تفاصيل المؤهل",
+    "studyDetails": "تفاصيل الدراسة",
+    "status": "الحالة",
+    "studyStartDate": "تاريخ بدء الدراسة",
+    "actualEndDate": "تاريخ الانتهاء الفعلي",
+    "fees": "الرسوم",
+    "totalFees": "إجمالي الرسوم",
+    "currency": "العملة",
+    "paymentStatus": "حالة السداد",
+    "notesAttachments": "الملاحظات والمرفقات",
+    "basicQualificationInfo": "بيانات المؤهل الاساسية",
+    "commentsToApprover": "تعليقات إلى المعتمد",
+    "attachments": "مرفقات",
+    "completed": "مكتمل",
+    "inProgress": "قيد التقدم"
+  },
   "qualifications": {
     "qualificationsTitle": "المؤهلات",
     "noQualificationsTitle": "لم تقم بإضافة أي مؤهلات بعد.",

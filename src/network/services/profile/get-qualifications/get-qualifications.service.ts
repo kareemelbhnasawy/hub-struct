@@ -15,7 +15,7 @@ const getQualifications = async (): Promise<getQualificationsResponse> => {
       },
     },
   });
-  return  res.data  as getQualificationsResponse;
+  return res.data as getQualificationsResponse;
 };
 
 export default getQualifications;

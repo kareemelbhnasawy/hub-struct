@@ -3,6 +3,7 @@ import { MyProfileScreenParams } from '@/screens/profile/my-profile/interface';
 import { PersonDetailsScreenParams } from '@/screens/profile/person-details/interface';
 import { ProfileScreenParams } from '@/screens/profile/profile/interface';
 import { KunyaCrudScreenParams } from '@/screens/profile/kunya-crud/interface';
+import { QualificationDetailsScreenParams } from '@/screens/profile/qualification-details/interface';
 
 export type ProfileStackParamList = {
   Profile: ProfileScreenParams;
@@ -14,4 +15,5 @@ export type ProfileStackParamList = {
   ProfileSettings: undefined;
   SetPin: undefined;
   ConfirmPin: ConfirmPinScreenParams;
+  QualificationDetails: QualificationDetailsScreenParams;
 };

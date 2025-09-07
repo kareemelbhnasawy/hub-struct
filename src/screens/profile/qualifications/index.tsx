@@ -16,10 +16,12 @@ const QualificationsScreen = () => {
   const screenTestId = 'qualifications-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const [qualifications, setQualifications] = useState<QualificationItemDataType[]>([]);
+  const [qualifications, setQualifications] = useState<
+    QualificationItemDataType[]
+  >([]);
 
-  const handleNavigateToAccountDetails = () => {
-    navigation.navigate('MyProfile', {});
+  const handleNavigateToQualificationsDetails = (qualificationId: string) => {
+    navigation.navigate('QualificationDetails', { qualificationId });
   };
 
   const renderListItem = ({
@@ -41,19 +43,22 @@ const QualificationsScreen = () => {
   };
   const { data, isSuccess, isLoading } = useGetQualifications();
 
-useEffect(() => {
-  if (isSuccess && data) {
-    const tempQualifications = data.qualifications?.map((qualification: QualificationResponseObject) => ({
-      id: qualification.id,
-      qualificationName: qualification?.qualificationName,
-      institutionText: qualification?.issuingAuthority,
-      dateText: `${qualification?.startDate} ${qualification?.endDate ? ` - ${qualification?.endDate}` : ''} `,
-      status: qualification?.endDate ? 'completed' : 'in-progress',
-      onPress: handleNavigateToAccountDetails,
-    }));
-    setQualifications(tempQualifications);
-  }
-}, [isSuccess, data]);
+  useEffect(() => {
+    if (isSuccess && data) {
+      const tempQualifications = data.qualifications?.map(
+        (qualification: QualificationResponseObject) => ({
+          id: qualification.id,
+          qualificationName: qualification?.qualificationName,
+          institutionText: qualification?.issuingAuthority,
+          dateText: `${qualification?.startDate} ${qualification?.endDate ? ` - ${qualification?.endDate}` : ''} `,
+          status: qualification?.endDate ? 'completed' : 'in-progress',
+          onPress: () =>
+            handleNavigateToQualificationsDetails(qualification.id),
+        }),
+      );
+      setQualifications(tempQualifications);
+    }
+  }, [isSuccess, data]);
 
   return (
     <Page
@@ -64,8 +69,7 @@ useEffect(() => {
         isTitleCentered: true,
       }}
       hasHeader
-      isLoading={isLoading}
-      disableSafeAreaTop={true}>
+      isLoading={isLoading}>
       <View style={themedStyles.container}>
         <List<QualificationItemDataType>
           data={qualifications}

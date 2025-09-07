@@ -12,3 +12,4 @@ export { default as KunyaCrudScreen } from './profile/kunya-crud';
 export { default as QualificationsScreen } from './profile/qualifications';
 export { default as EditBackgroundScreen } from './profile/edit-background';
 export { default as ProfileSettingsScreen } from './profile/settings/index';
+export { default as  QualificationDetailsScreen} from './profile/qualification-details';
