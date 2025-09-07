@@ -48,7 +48,7 @@
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
-    "basicInfo": "بيانات التواصل",
+    "basicInfo": "البيانات الأساسية",
     "name": "الاسم",
     "birthDate": "تاريخ الميلاد",
     "age": "العمر",
@@ -56,9 +56,9 @@
     "nationality": "الجنسية",
     "nationalId": "رقم الهوية الوطنية",
     "contactInfo": "بيانات التواصل",
-    "mobile1": "هاتف شخصي ١",
+    "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
-    "address": "العنوان المسجل في العقد"
+    "address": "العنوان"
   },
   "settings": {
     "settings": "الإعدادات",
