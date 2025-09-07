@@ -20,7 +20,6 @@ const ProfileStack = () => {
       initialRouteName="Profile"
       screenOptions={{
         headerShown: false,
-        animation: 'default',
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />

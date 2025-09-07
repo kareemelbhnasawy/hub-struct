@@ -99,7 +99,10 @@ const MyProfile = () => {
     },
   ];
   return (
-    <Page testId={screenTestId} hasHeader={true} isLoading={false}
+    <Page
+      testId={screenTestId}
+      hasHeader={true}
+      isLoading={false}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
         titleProps: { text: 'profile.myProfile' },

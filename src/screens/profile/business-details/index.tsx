@@ -1,5 +1,4 @@
-import { Headline, MapWebView, Paragraph, Spacer } from '@/components/atoms';
-import { DescriptiveIcon, List } from '@/components/molecules';
+import { Headline, Paragraph } from '@/components/atoms';
 import { Page } from '@/components/templates';
 import { View } from 'react-native';
 import styles from './styles';
@@ -8,6 +7,7 @@ import { InfoItem, PersonDetailsResponse } from './interface';
 import { useThemeStore } from '@/store/theme';
 import { basicInfoDataHandler, contactInfoDataHandler } from './constants';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
+import { BusinessDetailsSection } from '../partials';
 
 const BusinessDetails = () => {
   const { getThemedStyles } = useThemeStore();
@@ -18,10 +18,16 @@ const BusinessDetails = () => {
     data: PersonDetailsResponse | undefined;
     isLoading: boolean;
   };
-
   const basicInfoData = basicInfoDataHandler(data);
 
   const contactInfoData = contactInfoDataHandler(data);
+
+  const latitude = data?.coordinates?.latitude
+    ? Number(data.coordinates.latitude)
+    : undefined;
+  const longitude = data?.coordinates?.longitude
+    ? Number(data.coordinates.longitude)
+    : undefined;
 
   const renderBasicInfoItem = ({ item }: { item: InfoItem }) => (
     <View style={themedStyle.info}>
@@ -51,79 +57,37 @@ const BusinessDetails = () => {
         titleProps: { text: 'profile.job-details' },
         isTitleCentered: true,
       }}>
-      <View style={themedStyle.pagePadding}>
-        <Spacer space={'xl'} />
-        <DescriptiveIcon
-          testId={`${screenTestId}-basic-info`}
-          iconProps={{
-            name: 'BriefcaseBusiness',
-            size: 18,
-            isCircle: true,
-            containerStyle: themedStyle.iconDescriptiveYellow,
-          }}
-          textProps={{
-            text: 'البيانات الوظيفية',
-            size: '2xs',
-            weight: 'Bold',
-          }}
-        />
-        <Spacer space={'xl'} />
-        {/* Card: Basic information */}
-        <List<InfoItem>
-          testId={`${screenTestId}-basic-info-list`}
-          data={basicInfoData}
-          keyField="key"
-          renderItem={renderBasicInfoItem}
-          scrollEnabled={false}
-          spacerProps={{ isDivider: true, space: 0 }}
-        />
-        <Spacer space={'4xl'} />
-        <DescriptiveIcon
-          testId={`${screenTestId}-contact-info`}
-          iconProps={{
-            name: 'Phone',
-            size: 18,
-            isCircle: true,
-            containerStyle: themedStyle.iconDescriptiveGreen,
-          }}
-          textProps={{
-            text: 'بيانات التواصل',
-            size: '2xs',
-            weight: 'Bold',
-          }}
-        />
-        <Spacer space={'xl'} />
-        {/* Card: Contact information */}
-        <List<InfoItem>
-          testId={`${screenTestId}-contact-info-list`}
-          data={contactInfoData}
-          keyField="key"
-          renderItem={renderBasicInfoItem}
-          scrollEnabled={false}
-          spacerProps={{ isDivider: true, space: 0 }}
-        />
-        <Spacer space={'4xl'} />
-        <DescriptiveIcon
-          testId={`${screenTestId}-contact-info`}
-          iconProps={{
-            name: 'MapPin',
-            size: 18,
-            isCircle: true,
-            containerStyle: themedStyle.iconDescriptiveGreen,
-          }}
-          textProps={{
-            text: 'موقع العمل',
-            size: '2xs',
-            weight: 'Bold',
-          }}
-        />
-        <Spacer space={'xl'} />
-      </View>
-      <MapWebView
+      <BusinessDetailsSection
         testId={screenTestId}
-        latitude={30.0444}
-        longitude={31.2357}
-        containerStyle={themedStyle.mapViewHeight}
+        sections={[
+          {
+            key: 'basic-info',
+            title: 'البيانات الوظيفية',
+            icon: 'BriefcaseBusiness',
+            iconContainerStyle: themedStyle.iconDescriptiveYellow,
+            data: basicInfoData,
+            renderItem: ({ item }) => renderBasicInfoItem({ item }),
+          },
+          {
+            key: 'contact-info',
+            title: 'بيانات التواصل',
+            icon: 'Phone',
+            iconContainerStyle: themedStyle.iconDescriptiveGreen,
+            data: contactInfoData,
+            renderItem: ({ item }) => renderBasicInfoItem({ item }),
+          },
+        ]}
+        map={
+          latitude &&
+          longitude && {
+            title: 'موقع العمل',
+            icon: 'MapPin',
+            iconContainerStyle: themedStyle.iconDescriptiveGreen,
+            latitude,
+            longitude,
+            containerStyle: themedStyle.mapViewHeight,
+          }
+        }
       />
     </Page>
   );

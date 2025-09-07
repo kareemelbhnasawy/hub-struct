@@ -11,7 +11,6 @@ const AppStack = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        animation: 'default',
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />

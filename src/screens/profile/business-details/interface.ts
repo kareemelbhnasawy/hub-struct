@@ -18,6 +18,22 @@ export type PersonDetailsResponse = {
   };
 };
 
+export type JobDetailsResponse = {
+  jobInfo: {
+    employeeNumber: number;
+    classificationGuide: string;
+    jobTitle: string;
+    rank: string;
+    effectiveManagement: string;
+    management: string;
+  };
+  contactInfo: {
+    emailAddress: string;
+    workExtension: string;
+    address: string;
+  };
+};
+
 export type InfoItem = {
   key: string;
   label: string;

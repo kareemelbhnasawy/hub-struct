@@ -1,59 +1,57 @@
-import { PersonDetailsResponse } from './interface';
+import { JobDetailsResponse } from './interface';
 
-export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
+export const basicInfoDataHandler = (data: JobDetailsResponse) => {
   return [
     {
       key: 'id',
       label: 'رقم الموظف',
-      value: data?.primaryInfo?.name ?? '-',
+      value: data?.jobInfo?.employeeNumber ?? 'profile.emptyDataMsg',
     },
     {
-      key: 'birthDate',
+      key: 'classificationGuide',
       label: 'الدليل التصنيفي',
-      value: new Date('1990-01-01').toLocaleString('en-GB', {
-        dateStyle: 'medium',
-      }),
+      value: data?.jobInfo?.classificationGuide ?? 'profile.emptyDataMsg',
     },
     {
-      key: 'age',
+      key: 'jobTitle',
       label: 'المنصب',
-      value: data?.primaryInfo?.age ?? '-',
+      value: data?.jobInfo?.jobTitle ?? 'profile.emptyDataMsg',
     },
     {
-      key: 'gender',
+      key: 'rank',
       label: 'المرتبة',
-      value: data?.primaryInfo?.gender ?? '-',
+      value: data?.jobInfo?.rank ?? 'profile.emptyDataMsg',
     },
     {
-      key: 'nationality',
+      key: 'effectiveManagement',
       label: 'الإدارة الفعلية',
-      value: data?.primaryInfo?.nationality ?? '-',
+      value: data?.jobInfo?.effectiveManagement ?? 'profile.emptyDataMsg',
     },
     {
-      key: 'nationalId',
+      key: 'management',
       label: 'الإدارة',
-      value: data?.primaryInfo?.nationalId ?? '-',
+      value: data?.jobInfo?.management ?? 'profile.emptyDataMsg',
     },
   ];
 };
 
-export const contactInfoDataHandler = (data: PersonDetailsResponse) => {
+export const contactInfoDataHandler = (data: JobDetailsResponse) => {
   return [
     {
-      key: 'mobileNumber',
+      key: 'emailAddress',
       label: 'البريد الالكتروني',
-      value: data?.contactInfo?.mobileNumber ?? '-',
-      type: 'mobile',
+      value: data?.contactInfo?.emailAddress ?? 'profile.emptyDataMsg',
+      type: 'email',
     },
     {
       key: 'address',
       label: 'مقر العمل',
-      value: data?.contactInfo?.address ?? '-',
+      value: data?.contactInfo?.address ?? 'profile.emptyDataMsg',
     },
     {
       key: 'workExtension',
       label: 'profile.personDetails.extension',
-      value: data?.contactInfo?.workExtension ?? '-',
+      value: data?.contactInfo?.workExtension ?? 'profile.emptyDataMsg',
       type: 'extension',
     },
   ];
