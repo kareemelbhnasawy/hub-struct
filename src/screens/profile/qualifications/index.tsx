@@ -45,10 +45,10 @@ useEffect(() => {
   if (isSuccess && data) {
     const tempQualifications = data.qualifications?.map((qualification: QualificationResponseObject) => ({
       id: qualification.id,
-      qualificationName: qualification.qualificationName,
-      institutionText: qualification.issuingAuthority,
-      dateText: `${qualification.startDate} - ${qualification.endDate}`,
-      status: 'completed',
+      qualificationName: qualification?.qualificationName,
+      institutionText: qualification?.issuingAuthority,
+      dateText: `${qualification?.startDate} ${qualification?.endDate ? ` - ${qualification?.endDate}` : ''} `,
+      status: qualification?.endDate ? 'completed' : 'in-progress',
       onPress: handleNavigateToAccountDetails,
     }));
     setQualifications(tempQualifications);
