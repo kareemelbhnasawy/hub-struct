@@ -15,7 +15,7 @@ const ConfirmPinScreen = () => {
 
   const onSuccess = () => {
     setQuickLoginType('PIN_CODE');
-    navigation.navigateTo('ProfileSettings');
+    navigation.goToExistingOrPush('ProfileSettings');
   };
   const { mutate, isPending } = useSetPin(onSuccess);
   const onConfirmPin = (value: string) => {

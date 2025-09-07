@@ -210,6 +210,33 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     return navigation.navigate(top as never, nested as never);
   };
 
+  /**
+   * If the target screen already exists in the current stack, pop back to it.
+   * Otherwise, navigate to it (push a new one).
+   */
+  const goToExistingOrPush = <K extends ScreenName>(
+    screen: K,
+    params?: CombinedParamList[K],
+  ) => {
+    const state: any = (navigation as any)?.getState?.();
+    if (state && Array.isArray(state.routes)) {
+      const targetIndex = state.routes.findIndex((r: any) => r.name === screen);
+      if (targetIndex >= 0) {
+        const popCount = state.index - targetIndex;
+        if (popCount > 0) {
+          navigation.dispatch(StackActions.pop(popCount));
+          return;
+        }
+        // Already focused target; optionally update params
+        if (params) {
+          navigation.navigate(screen as never, params as never);
+        }
+        return;
+      }
+    }
+    navigation.navigate(screen as never, params as never);
+  };
+
   const navigateToOTP = <K extends ScreenName>({
     nextScreen,
     mobile,
@@ -278,6 +305,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     getScreenStackPath,
     replaceToScreen,
     navigateToOTP,
+    goToExistingOrPush,
   };
 };
 
