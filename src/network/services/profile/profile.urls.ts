@@ -5,7 +5,6 @@ const PROFILE_URLS = {
   KUNYA_CRUD: 'profile/v1/nickname',
   ADDRESSES: '/profile/v1/addresses',
   EDIT_ADDRESS: '/profile/v1/address/edit',
-  GET_QUALIFICATION_DETAILS: '/profile/v1/qualifications',
   GET_QUALIFICATIONS: '/profile/v1/qualifications',
 } as const;
 
