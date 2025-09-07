@@ -52,11 +52,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   PersonDetails: ['App', 'ProfileStack'],
   KunyaCrud: ['App', 'ProfileStack'],
   EditBackground: ['App', 'ProfileStack'],
-
-  // Example deeper nesting (uncomment & adjust to your app)
-  // Products: ['App', 'ShopStack'],
-  // ProductDetails: ['App', 'ShopStack', 'ProductStack'],
-  // Cart: ['App', 'ShopStack', 'CartStack'],
+  BusinessDetails: ['App', 'ProfileStack'],
   ProfileSettings: ['App', 'ProfileStack'],
   SetPin: ['App', 'ProfileStack'],
   ConfirmPin: ['App', 'ProfileStack'],

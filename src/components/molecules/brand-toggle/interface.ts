@@ -11,6 +11,7 @@ interface BrandToggleProps
   containerStyle?: RNStyle;
   titleProps?: Omit<ParagraphProps, 'testId'>;
   descriptionProps?: Omit<ParagraphProps, 'testId'>;
+  loading?: boolean;
 }
 
 export default BrandToggleProps;

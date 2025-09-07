@@ -41,7 +41,7 @@ const MyProfile = () => {
         name: 'User',
         containerStyle: themedStyles.iconDescriptiveYellow,
       },
-      onPress: () => navigate('PersonDetails', {}),
+      onPress: () => navigate('PersonDetails'),
     },
     {
       id: '2',
@@ -50,7 +50,7 @@ const MyProfile = () => {
         name: 'Building2',
         containerStyle: themedStyles.iconDescriptiveGreen,
       },
-      onPress: () => log('job pressed'),
+      onPress: () => navigate('BusinessDetails'),
     },
     {
       id: '3',
