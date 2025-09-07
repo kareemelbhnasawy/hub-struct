@@ -92,5 +92,12 @@
       "business-trip": "Business Trip",
       "academic-vacation": "Academic Leave"
     }
+  },
+  "qualifications": {
+    "qualificationsTitle": "Qualifications",
+    "noQualificationsTitle": "You haven't added any qualifications yet.",
+    "noQualificationsSubtitle": "Adding qualifications helps improve your profile's visibility to others.",
+    "completed": "Completed",
+    "onGoing": "In Progress"
   }
 }
