@@ -12,11 +12,14 @@ const TeamMemberItem = ({
   memberTitle,
   memberStatus,
   avatarImage,
+  avatarStatus,
   onPress,
 }: ProfileSettingItemProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const { badgeText, badgeColor, iconName, iconColor } = getDataFromStatus(memberStatus ?? 'remote');
+  const { badgeText, badgeColor, iconName, iconColor } = getDataFromStatus(
+    memberStatus ?? 'remote',
+  );
   return (
     <>
       <Pressable style={themedStyles.listItemContainer} onPress={onPress}>
@@ -26,6 +29,7 @@ const TeamMemberItem = ({
             size="lg"
             image={avatarImage}
             name={memberName}
+            status={avatarStatus}
           />
           <View style={themedStyles.isColumn}>
             <Headline

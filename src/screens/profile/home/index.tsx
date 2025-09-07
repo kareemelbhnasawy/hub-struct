@@ -2,6 +2,7 @@
 import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
 import { useNavigation } from '@/hooks';
+import TeamMemberItemDemo from '../partials/team-member-item/demo';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -18,6 +19,7 @@ const HomeScreen = () => {
         style={styles.profileButton.base}>
         <Text style={styles.profileButtonText.base}>Go to Profile</Text>
       </Pressable>
+      <TeamMemberItemDemo />
     </View>
   );
 };
