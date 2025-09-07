@@ -3,9 +3,9 @@ const PROFILE_URLS = {
   GET_PROFILE_DETAILS: 'profile/v1/info',
   BANNER: 'profile/v1/banner',
   KUNYA_CRUD: 'profile/v1/nickname',
-  // Add other profile-related URLs here
   ADDRESSES: '/profile/v1/addresses',
   EDIT_ADDRESS: '/profile/v1/address/edit',
+  GET_QUALIFICATIONS: '/profile/v1/qualifications',
 } as const;
 
 export default PROFILE_URLS;
