@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppStackParamList } from './types';
-import { QuickLoginScreen, HomeScreen } from '@/screens';
+import { HomeScreen } from '@/screens';
 import ProfileStack from '../profile';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
@@ -11,12 +11,10 @@ const AppStack = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
-        animation: 'default',
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="ProfileStack" component={ProfileStack} />
-      <Stack.Screen name="QuickLogin" component={QuickLoginScreen} />
     </Stack.Navigator>
   );
 };

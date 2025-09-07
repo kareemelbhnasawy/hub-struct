@@ -9,3 +9,4 @@ export { default as Paragraph } from './typography/paragraph';
 export { default as Spacer } from './spacer';
 export { default as BaseModal } from './base-modal';
 export { default as BaseTextInput } from './base-text-input';
+export { default as MapWebView } from './map-web-view';

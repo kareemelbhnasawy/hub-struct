@@ -47,6 +47,7 @@
     "react-native-screens": "^4.13.1",
     "react-native-size-matters": "^0.4.2",
     "react-native-svg": "^15.12.1",
+    "react-native-webview": "^13.16.0",
     "toastify-react-native": "^7.2.3",
     "use-debounce": "^10.0.5",
     "yup": "^1.6.1",

@@ -15,43 +15,49 @@ const BrandToggle = ({
   value,
   onChangeValue,
   disabled,
+  loading,
   ...restProps
 }: BrandToggleProps) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const { isRTL } = useTranslate();
-  
+
   const trackColor = useMemo(
     () => ({
       false: getThemeColor(
-        disabled ? 'toggleDisabledBackground' : 'toggleDefaultBackground',
+        disabled || loading
+          ? 'toggleDisabledBackground'
+          : 'toggleDefaultBackground',
       ),
       true: getThemeColor(
-        disabled ? 'toggleDisabledBackground' : 'toggleSelectedBackground',
+        disabled || loading
+          ? 'toggleDisabledBackground'
+          : 'toggleSelectedBackground',
       ),
     }),
-    [disabled, getThemeColor],
+    [disabled, loading, getThemeColor],
   );
 
   const thumbColor =
     Platform.OS === 'android' ? getThemeColor('toggleDefaultKnob') : undefined;
 
   const iosBg = getThemeColor('toggleDefaultBackground');
-
-
   return (
     <View
       testID={`${testId}-brand-toggle-container`}
       style={[themedStyles.container, containerStyle]}>
       <BaseToggle
         testId={`${testId}-switch`}
-        value={value}
+        value={loading ? !value : value}
         onValueChange={onChangeValue}
         disabled={disabled}
         trackColor={trackColor}
         thumbColor={thumbColor}
         ios_backgroundColor={iosBg}
-        style={[themedStyles[size], { transform: [{ scaleX: isRTL ? -1 : 1 }] }]}
+        style={[
+          themedStyles[size],
+          { transform: [{ scaleX: isRTL ? -1 : 1 }] },
+        ]}
         {...restProps}
       />
       <View style={themedStyles.contentContainer}>

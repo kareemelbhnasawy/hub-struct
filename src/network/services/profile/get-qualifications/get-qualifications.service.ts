@@ -5,13 +5,13 @@ import PROFILE_URLS from '../profile.urls';
 import { useAuthStore } from '@/store/auth';
 
 const getQualifications = async (): Promise<getQualificationsResponse> => {
-  const email = useAuthStore.getState().email;
+  const userId = useAuthStore.getState().userId;
   const res = await createAPIRequest({
     method: API_METHODS.GET,
     url: PROFILE_URLS.GET_QUALIFICATIONS,
     config: {
       params: {
-        userId: email,
+        userId: userId,
       },
     },
   });

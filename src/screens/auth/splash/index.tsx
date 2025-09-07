@@ -47,7 +47,7 @@ const SplashScreen = () => {
         source={splashBgAnimation}
         autoPlay
         loop
-        style={themedStyles.animationBG}
+        style={themedStyles.absoluteFill}
       />
       <BlurView
         testID={`${testId}-animation-blur`}

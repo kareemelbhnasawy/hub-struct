@@ -207,8 +207,9 @@ const QualificationDetails = ({ route }: Props) => {
         qualificationData.attachments.length !== 0 ? (
           qualificationData?.attachments?.map(
             (attachment: Attachment, index: number) => (
-              <>
-                <View key={index} style={themedStyle.container}>
+              <View
+                key={attachment.fileUrl || `${attachment.fileName}-${index}`}>
+                <View style={themedStyle.container}>
                   <Image
                     source={pdfIcon}
                     style={themedStyle.pdfImg}
@@ -222,7 +223,7 @@ const QualificationDetails = ({ route }: Props) => {
                   />
                 </View>
                 <Spacer space={'xl'} isDivider />
-              </>
+              </View>
             ),
           )
         ) : (
