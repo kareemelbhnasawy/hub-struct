@@ -7,7 +7,6 @@
   "job-details": "My Job Details",
   "career-history": "My Career History within the Ministry",
   "holidays-record": "Holidays Record",
-  "qualifications": "Qualifications",
   "skills": "My Skills",
   "custodies": "Custodies",
   "editAddress": "Edit address",
@@ -116,5 +115,12 @@
     "attachments": "Attachments",
     "completed": "ِCompleted",
     "inProgress": "In Progress"
+  },
+  "qualifications": {
+    "qualificationsTitle": "Qualifications",
+    "noQualificationsTitle": "You haven't added any qualifications yet.",
+    "noQualificationsSubtitle": "Adding qualifications helps improve your profile's visibility to others.",
+    "completed": "Completed",
+    "onGoing": "In Progress"
   }
 }

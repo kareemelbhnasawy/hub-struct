@@ -7,7 +7,6 @@
   "job-details": "البيانات الوظيفية",
   "career-history": "تاريخي الوظيفي داخل الوزارة",
   "holidays-record": "أرصدة الإجازات",
-  "qualifications": "المؤهلات",
   "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
@@ -116,5 +115,12 @@
     "attachments": "مرفقات",
     "completed": "مكتمل",
     "inProgress": "قيد التقدم"
+  },
+  "qualifications": {
+    "qualificationsTitle": "المؤهلات",
+    "noQualificationsTitle": "لم تقم بإضافة أي مؤهلات بعد.",
+    "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
+    "completed": "مكتمل",
+    "onGoing": "جاري الدراسة"
   }
 }

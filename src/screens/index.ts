@@ -9,6 +9,7 @@ export { default as ConfirmPinScreen } from './profile/confirm-pin';
 export { default as MyProfileScreen } from './profile/my-profile';
 export { default as PersonDetailsScreen } from './profile/person-details';
 export { default as KunyaCrudScreen } from './profile/kunya-crud';
+export { default as QualificationsScreen } from './profile/qualifications';
 export { default as EditBackgroundScreen } from './profile/edit-background';
 export { default as ProfileSettingsScreen } from './profile/settings/index';
 export { default as  QualificationDetailsScreen} from './profile/qualification-details';
