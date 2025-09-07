@@ -1,57 +1,55 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useThemeStore } from '@/store/theme';
 import { icons } from 'lucide-react-native';
 import { styles } from './styles';
 import { LucideIcon, Paragraph } from '@/components/atoms';
-// import { useTranslate } from '@/hooks';
+import { useTranslate } from '@/hooks';
 
 export type TopTab = {
   key: string;
   label: string;
   iconName: keyof typeof icons;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ComponentType<any>;
 };
-
-type Props = {
-  tabs: TopTab[];
-};
+type Props = { tabs: TopTab[] };
 
 const Tab = createMaterialTopTabNavigator();
 
-/**
- * Material Top Tabs styled to match our design system.
- * - Uses LucideIcon for `tabBarIcon` and Paragraph for `tabBarLabel`.
- * - Applies themed colors, slim rounded indicator, and RTL-friendly layout.
- */
 const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themed = getThemedStyles(styles);
-  // const { isRTL } = useTranslate();
+  const isRTL = useTranslate();
 
   const activeColor = getThemeColor('foregroundBrandPrimary');
   const inactiveColor = getThemeColor('foregroundQuaternary');
 
   const isScrollable = tabs.length > 3;
-  const itemWidth = Dimensions.get('window').width / 3; // show max 3 tabs per screen
+  const itemWidth = Dimensions.get('window').width / 3;
+
+  // read LTR indicator shape so RTL matches exactly
+  const ind = StyleSheet.flatten(themed.indicator) || {};
+  const IND_HEIGHT = 5;
+  const IND_RADIUS = 2;
+  const IND_MH = -40;
+  const IND_BG = ind.backgroundColor ?? getThemeColor('foregroundBrandPrimary');
 
   return (
     <Tab.Navigator
       style={themed.container}
       initialLayout={{ width: Dimensions.get('window').width }}
-      // General bar styles and behavior
       screenOptions={{
         swipeEnabled: false,
         tabBarScrollEnabled: isScrollable,
         lazy: true,
         tabBarShowIcon: false,
+        animationEnabled: false,
         tabBarItemStyle: isScrollable
           ? [themed.tabItem, { width: itemWidth }]
           : themed.tabItem,
         tabBarStyle: themed.tabBar,
-        tabBarIndicatorStyle: themed.indicator,
+        tabBarIndicatorStyle: isRTL ? { height: 0 } : themed.indicator, // hide real one only in RTL
         tabBarGap: 0,
         tabBarActiveTintColor: activeColor,
         tabBarInactiveTintColor: inactiveColor,
@@ -64,30 +62,54 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
           name={tab.key}
           component={tab.component}
           options={{
-            // Custom label that includes the icon inline beside text
+            tabBarShowLabel: true,
             tabBarLabel: ({ color, focused, children }) => (
-              <View style={themed.labelRow}>
-                <LucideIcon
-                  testId={`tab-${tab.key}-icon`}
-                  name={tab.iconName}
-                  size={18}
-                  color={
-                    focused ? 'foregroundBrandPrimary' : 'foregroundQuaternary'
-                  }
-                />
-                <Paragraph
-                  testId={`tab-${tab.key}-label`}
-                  size="lg"
-                  weight={focused ? 'Bold' : 'Medium'}
-                  style={{ color }}
-                  text={
-                    (typeof children === 'string' ? children : tab.label) ??
-                    tab.label
-                  }
-                />
+              // 👇 full-width container so underline spans the whole tab
+              <View
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  alignItems: 'center',
+                }}>
+                <View style={themed.labelRow}>
+                  <LucideIcon
+                    testId={`tab-${tab.key}-icon`}
+                    name={tab.iconName}
+                    size={18}
+                    color={
+                      focused
+                        ? 'foregroundBrandPrimary'
+                        : 'foregroundQuaternary'
+                    }
+                  />
+                  <Paragraph
+                    testId={`tab-${tab.key}-label`}
+                    size="lg"
+                    weight={focused ? 'Bold' : 'Medium'}
+                    style={{ color }}
+                    text={
+                      (typeof children === 'string' ? children : tab.label) ??
+                      tab.label
+                    }
+                  />
+                </View>
+
+                {/* 👇 absolute, full-tab underline (no animation), RTL only */}
+                {isRTL && focused ? (
+                  <View
+                    style={{
+                      position: 'absolute',
+                      left: IND_MH,
+                      right: IND_MH,
+                      bottom: -13,
+                      height: IND_HEIGHT,
+                      borderRadius: IND_RADIUS,
+                      backgroundColor: IND_BG,
+                    }}
+                  />
+                ) : null}
               </View>
             ),
-            tabBarShowLabel: true,
           }}
         />
       ))}
