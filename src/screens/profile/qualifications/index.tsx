@@ -7,43 +7,47 @@ import { useNavigation } from '@/hooks';
 import { QualificationItemDataType } from '../partials/qualification-item/interface';
 import QualificationItem from '../partials/qualification-item';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
+import useGetQualifications from '@/network/services/profile/get-qualifications/get-qualifications.hook';
+import { useEffect, useState } from 'react';
+import { QualificationResponseObject } from './interface';
 
 const QualificationsScreen = () => {
   const navigation = useNavigation();
   const screenTestId = 'qualifications-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
+  const [qualifications, setQualifications] = useState<QualificationItemDataType[]>([]);
 
   const handleNavigateToAccountDetails = () => {
     navigation.navigate('MyProfile', {});
   };
 
-  const qualificationItemData: QualificationItemDataType[] = [
-    {
-      id: '1',
-      qualificationName: 'Bachelor Degree',
-      institutionText: 'German University in Cairo',
-      dateText: '2019 - 2024',
-      status: 'completed',
-      onPress: handleNavigateToAccountDetails,
-    },
-    {
-      id: '2',
-      qualificationName: 'Master Degree',
-      institutionText: 'American University in Cairo',
-      dateText: '2024 - 2026',
-      status: 'in-progress',
-      onPress: handleNavigateToAccountDetails,
-    },
-    {
-      id: '3',
-      qualificationName: 'PhD Degree',
-      institutionText: 'Harvard University',
-      dateText: '2026 - 2030',
-      status: 'completed',
-      onPress: handleNavigateToAccountDetails,
-    },
-  ];
+  // const qualificationItemData: QualificationItemDataType[] = [
+  //   {
+  //     id: '1',
+  //     qualificationName: 'Bachelor Degree',
+  //     institutionText: 'German University in Cairo',
+  //     dateText: '2019 - 2024',
+  //     status: 'completed',
+  //     onPress: handleNavigateToAccountDetails,
+  //   },
+  //   {
+  //     id: '2',
+  //     qualificationName: 'Master Degree',
+  //     institutionText: 'American University in Cairo',
+  //     dateText: '2024 - 2026',
+  //     status: 'in-progress',
+  //     onPress: handleNavigateToAccountDetails,
+  //   },
+  //   {
+  //     id: '3',
+  //     qualificationName: 'PhD Degree',
+  //     institutionText: 'Harvard University',
+  //     dateText: '2026 - 2030',
+  //     status: 'completed',
+  //     onPress: handleNavigateToAccountDetails,
+  //   },
+  // ];
 
   const renderListItem = ({
     item,
@@ -62,6 +66,21 @@ const QualificationsScreen = () => {
       />
     );
   };
+  const { data, isSuccess, isLoading } = useGetQualifications();
+
+useEffect(() => {
+  if (isSuccess && data) {
+    const tempQualifications = data.qualifications?.map((qualification: QualificationResponseObject) => ({
+      id: qualification.id,
+      qualificationName: qualification.qualificationName,
+      institutionText: qualification.issuingAuthority,
+      dateText: `${qualification.startDate} - ${qualification.endDate}`,
+      status: 'completed',
+      onPress: handleNavigateToAccountDetails,
+    }));
+    setQualifications(tempQualifications);
+  }
+}, [isSuccess, data]);
 
   return (
     <Page
@@ -72,11 +91,11 @@ const QualificationsScreen = () => {
         isTitleCentered: true,
       }}
       hasHeader
-      isLoading={false}
+      isLoading={isLoading}
       disableSafeAreaTop={true}>
       <View style={themedStyles.container}>
         <List<QualificationItemDataType>
-          data={qualificationItemData}
+          data={qualifications}
           renderItem={renderListItem}
           keyExtractor={(item) => item.id}
           testId={screenTestId}

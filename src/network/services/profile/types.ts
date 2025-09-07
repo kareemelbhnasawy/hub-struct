@@ -24,3 +24,21 @@ export interface DeleteKunyaRequest {
 export interface DeleteKunyaResponse {
   success: boolean;
 }
+
+export type QualificationResponseObject = {
+  id: string;
+  qualificationName: string;
+  issuingAuthority: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+};
+
+export interface getQualificationsRequest {
+  userId: string;
+}
+
+export interface getQualificationsResponse {
+  qualifications: QualificationResponseObject[];
+}
+
