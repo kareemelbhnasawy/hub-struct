@@ -66,7 +66,7 @@ const ProfileScreen = () => {
         name: 'Users',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
-      onPress: () => navigation.navigate('Qualifications', {}),
+      onPress: () => log('My Team pressed'),
     },
     {
       id: '4',
