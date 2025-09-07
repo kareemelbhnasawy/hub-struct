@@ -38,6 +38,9 @@ const QualificationDetails = ({ route }: Props) => {
                 weight="Medium"
                 size="2xs"
                 testId={`basic-${item.key}-value`}
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                style={themedStyle.valueText}
             />
         </View>
     );
