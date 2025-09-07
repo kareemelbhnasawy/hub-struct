@@ -22,33 +22,6 @@ const QualificationsScreen = () => {
     navigation.navigate('MyProfile', {});
   };
 
-  // const qualificationItemData: QualificationItemDataType[] = [
-  //   {
-  //     id: '1',
-  //     qualificationName: 'Bachelor Degree',
-  //     institutionText: 'German University in Cairo',
-  //     dateText: '2019 - 2024',
-  //     status: 'completed',
-  //     onPress: handleNavigateToAccountDetails,
-  //   },
-  //   {
-  //     id: '2',
-  //     qualificationName: 'Master Degree',
-  //     institutionText: 'American University in Cairo',
-  //     dateText: '2024 - 2026',
-  //     status: 'in-progress',
-  //     onPress: handleNavigateToAccountDetails,
-  //   },
-  //   {
-  //     id: '3',
-  //     qualificationName: 'PhD Degree',
-  //     institutionText: 'Harvard University',
-  //     dateText: '2026 - 2030',
-  //     status: 'completed',
-  //     onPress: handleNavigateToAccountDetails,
-  //   },
-  // ];
-
   const renderListItem = ({
     item,
   }: {
