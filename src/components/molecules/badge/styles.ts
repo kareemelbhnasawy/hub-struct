@@ -5,11 +5,13 @@ const styles = createThemedStyles({
   badgeContainer: {
     base: {
       display: 'flex',
+      flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
       paddingHorizontal: 8,
       paddingVertical: 2,
       borderWidth: 1, // Add border width
+      columnGap: 5
     },
   },
 
@@ -55,30 +57,30 @@ const styles = createThemedStyles({
   // Background color styles using theme colors
   brand: {
     base: {
-      backgroundColor: 'badgeDefaultBackground',
-      borderColor: 'textPrimary', // Add matching border color
-      color: 'textPrimary',
+      backgroundColor: 'badgeBrandTealBackground',
+      borderColor: 'badgeBrandTealForeground', // Add matching border color
+      color: 'badgeBrandTealForeground',
     },
   },
   success: {
     base: {
-      backgroundColor: 'badgeSuccessBackground',
-      borderColor: 'badgeSuccessText', // Add matching border color
-      color: 'badgeSuccessText',
+      backgroundColor: 'badgeBrandGreenBackground',
+      borderColor: 'badgeBrandGreenForeground', // Add matching border color
+      color: 'badgeBrandGreenForeground',
     },
   },
   warning: {
     base: {
-      backgroundColor: 'badgeWarningBackground',
-      borderColor: 'badgeWarningText', // Add matching border color
-      color: 'badgeWarningText',
+      backgroundColor: 'badgeBrandYellowBackground',
+      borderColor: 'badgeBrandYellowForeground', // Add matching border color
+      color: 'badgeBrandYellowForeground',
     },
   },
   error: {
     base: {
-      backgroundColor: 'badgeErrorBackground',
-      borderColor: 'badgeErrorText', // Add matching border color
-      color: 'badgeErrorText',
+      backgroundColor: 'badgeBrandOrangeBackground',
+      borderColor: 'badgeBrandOrangeForeground', // Add matching border color
+      color: 'badgeBrandOrangeForeground',
     },
   },
   gray: {

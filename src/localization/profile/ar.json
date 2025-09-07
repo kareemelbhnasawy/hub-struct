@@ -7,7 +7,6 @@
   "job-details": "البيانات الوظيفية",
   "career-history": "تاريخي الوظيفي داخل الوزارة",
   "holidays-record": "أرصدة الإجازات",
-  "qualifications": "المؤهلات",
   "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
@@ -84,5 +83,44 @@
     "activateFACE_IDSuccess": "تم تفعيل بصمة الوجه بنجاح",
     "activateTOUCH_IDSuccess": "تم تفعيل بصمة الإصبع بنجاح",
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
+  },
+  "members": {
+    "status" : {
+      "remote": "يعمل من المنزل",
+      "vacation": "إجازة",
+      "business-trip": "رحلة عمل",
+      "academic-vacation": "إجازة دراسية"
+    }
+  },
+  "qualificationDetails": {
+    "type": "النوع",
+    "schoolUniversity": "المدرسة / الجامعة",
+    "country": "الدولة",
+    "academicDegree": "الدرجة العلمية",
+    "fieldOfStudy": "مجال الدراسة",
+    "learningMethod": "طريقة التعلم",
+    "awardingBody": "هيئة المنح",
+    "qualificationDetails": "تفاصيل المؤهل",
+    "studyDetails": "تفاصيل الدراسة",
+    "status": "الحالة",
+    "studyStartDate": "تاريخ بدء الدراسة",
+    "actualEndDate": "تاريخ الانتهاء الفعلي",
+    "fees": "الرسوم",
+    "totalFees": "إجمالي الرسوم",
+    "currency": "العملة",
+    "paymentStatus": "حالة السداد",
+    "notesAttachments": "الملاحظات والمرفقات",
+    "basicQualificationInfo": "بيانات المؤهل الاساسية",
+    "commentsToApprover": "تعليقات إلى المعتمد",
+    "attachments": "مرفقات",
+    "completed": "مكتمل",
+    "inProgress": "قيد التقدم"
+  },
+  "qualifications": {
+    "qualificationsTitle": "المؤهلات",
+    "noQualificationsTitle": "لم تقم بإضافة أي مؤهلات بعد.",
+    "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
+    "completed": "مكتمل",
+    "onGoing": "جاري الدراسة"
   }
 }

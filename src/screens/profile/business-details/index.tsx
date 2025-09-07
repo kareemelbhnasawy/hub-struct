@@ -1,4 +1,4 @@
-import { Headline, Paragraph } from '@/components/atoms';
+import { Headline, Paragraph, Spacer } from '@/components/atoms';
 import { Page } from '@/components/templates';
 import { View } from 'react-native';
 import styles from './styles';
@@ -57,6 +57,7 @@ const BusinessDetails = () => {
         titleProps: { text: 'profile.job-details' },
         isTitleCentered: true,
       }}>
+      <Spacer space={8} />
       <BusinessDetailsSection
         testId={screenTestId}
         sections={[

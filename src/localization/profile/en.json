@@ -7,7 +7,6 @@
   "job-details": "My Job Details",
   "career-history": "My Career History within the Ministry",
   "holidays-record": "Holidays Record",
-  "qualifications": "Qualifications",
   "skills": "My Skills",
   "custodies": "Custodies",
   "editAddress": "Edit address",
@@ -84,5 +83,44 @@
     "activateFACE_IDSuccess": "Face ID activated successfully",
     "activateTOUCH_IDSuccess": "Touch ID activated successfully",
     "activatePIN_CODESuccess": "PIN code activated successfully"
+  },
+  "members": {
+    "status": {
+      "remote": "Working from home",
+      "vacation": "Vacation",
+      "business-trip": "Business Trip",
+      "academic-vacation": "Academic Leave"
+    }
+  },
+  "qualificationDetails": {
+    "type": "Type",
+    "schoolUniversity": "School / University",
+    "country": "Country",
+    "academicDegree": "Academic Degree",
+    "fieldOfStudy": "Field of Study",
+    "learningMethod": "Learning Method",
+    "awardingBody": "Awarding Body",
+    "qualificationDetails": "Qualification Details",
+    "studyDetails": "Study Details",
+    "status": "Status",
+    "studyStartDate": "Study Start Date",
+    "actualEndDate": "Actual End Date",
+    "fees": "Fees",
+    "totalFees": "Total Fees",
+    "currency": "Currency",
+    "paymentStatus": "Payment Status",
+    "notesAttachments": "Notes & Attachments",
+    "basicQualificationInfo": "Basic Qualification Information",
+    "commentsToApprover": "Comments to approver",
+    "attachments": "Attachments",
+    "completed": "ِCompleted",
+    "inProgress": "In Progress"
+  },
+  "qualifications": {
+    "qualificationsTitle": "Qualifications",
+    "noQualificationsTitle": "You haven't added any qualifications yet.",
+    "noQualificationsSubtitle": "Adding qualifications helps improve your profile's visibility to others.",
+    "completed": "Completed",
+    "onGoing": "In Progress"
   }
 }

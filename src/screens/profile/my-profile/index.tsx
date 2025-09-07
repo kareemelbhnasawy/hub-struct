@@ -72,12 +72,12 @@ const MyProfile = () => {
     },
     {
       id: '5',
-      title: 'profile.qualifications',
+      title: 'profile.qualifications.qualificationsTitle',
       iconProps: {
         name: 'FileBadge2',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => log('qualifications pressed'),
+      onPress: () => navigate('Qualifications'),
     },
     {
       id: '6',
