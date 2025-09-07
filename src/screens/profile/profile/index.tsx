@@ -57,7 +57,7 @@ const ProfileScreen = () => {
         name: 'IdCard',
         containerStyle: themedStyles.iconDescriptiveGreen,
       },
-      onPress: () => log('Work Account pressed'),
+      onPress: () => navigation.navigate('ProfileSettings'),
     },
     {
       id: '3',
@@ -66,7 +66,7 @@ const ProfileScreen = () => {
         name: 'Users',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
-      onPress: () => log('Team Account pressed'),
+      onPress: () => navigation.navigate('Qualifications', {}),
     },
     {
       id: '4',

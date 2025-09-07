@@ -10,6 +10,7 @@ export type ProfileStackParamList = {
   PersonDetails: PersonDetailsScreenParams;
   EditBackground: undefined;
   KunyaCrud: KunyaCrudScreenParams;
+  Qualifications: undefined;
   ProfileSettings: undefined;
   SetPin: undefined;
   ConfirmPin: ConfirmPinScreenParams;
