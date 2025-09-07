@@ -84,5 +84,13 @@
     "activateFACE_IDSuccess": "تم تفعيل بصمة الوجه بنجاح",
     "activateTOUCH_IDSuccess": "تم تفعيل بصمة الإصبع بنجاح",
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
+  },
+  "members": {
+    "status" : {
+      "remote": "يعمل من المنزل",
+      "vacation": "إجازة",
+      "business-trip": "رحلة عمل",
+      "academic-vacation": "إجازة دراسية"
+    }
   }
 }

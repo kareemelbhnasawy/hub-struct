@@ -1344,6 +1344,38 @@ export const themeColors = {
     light: COLORS['info-600'],
     dark: COLORS['info-400'],
   },
+  badgeBrandGreenBackground: {
+    light: COLORS['secondary-green-100'],
+    dark: COLORS['secondary-green-100'],
+  },
+  badgeBrandGreenForeground: {
+    light: COLORS['secondary-green-700'],
+    dark: COLORS['secondary-green-700'],
+  },
+  badgeBrandTealBackground: {
+    light: COLORS['secondary-teal-100'],
+    dark: COLORS['secondary-teal-100'],
+  },
+  badgeBrandTealForeground: {
+    light: COLORS['secondary-teal-700'],
+    dark: COLORS['secondary-teal-700'],
+  },
+  badgeBrandOrangeBackground: {
+    light: COLORS['secondary-orange-100'],
+    dark: COLORS['secondary-orange-100'],
+  },
+  badgeBrandOrangeForeground: {
+    light: COLORS['secondary-orange-700'],
+    dark: COLORS['secondary-orange-700'],
+  },
+  badgeBrandYellowBackground: {
+    light: COLORS['secondary-yellow-100'],
+    dark: COLORS['secondary-yellow-100'],
+  },
+  badgeBrandYellowForeground: {
+    light: COLORS['secondary-yellow-700'],
+    dark: COLORS['secondary-yellow-700'],
+  },
 
   // Alpha Colors
   alphaWhite5: {
