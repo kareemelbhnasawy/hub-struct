@@ -35,4 +35,8 @@ export const colorProps = [
   'backgroundColor',
   'borderColor',
   'shadowColor',
+  'borderBottomColor',
+  'borderTopColor',
+  'borderLeftColor',
+  'borderRightColor',
 ];
