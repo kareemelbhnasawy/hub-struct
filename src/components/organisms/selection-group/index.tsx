@@ -28,7 +28,8 @@ const SelectionGroup = ({
         (spread &&
           value &&
           typeof value === 'object' &&
-          arg.item[valueKey] === (value as Record<string, unknown>)[valueKey]) ||
+          arg.item[valueKey] ===
+            (value as Record<string, unknown>)[valueKey]) ||
         (!spread && arg.item[valueKey] === value)
       ) {
         return renderSelectedItem(arg);

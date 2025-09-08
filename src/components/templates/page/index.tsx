@@ -32,6 +32,7 @@ const Page = ({
   noPaddings,
   stickyBottomContainerStyle,
   disableSafeAreaTop = false,
+  includeRenderStickyBottomStyles = true,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -139,7 +140,11 @@ const Page = ({
       )}
 
       {renderStickyBottom ? (
-        <View style={[themedStyles.stickyBottom, stickyBottomContainerStyle]}>
+        <View
+          style={[
+            includeRenderStickyBottomStyles && themedStyles.stickyBottom,
+            stickyBottomContainerStyle,
+          ]}>
           {renderStickyBottom()}
         </View>
       ) : null}

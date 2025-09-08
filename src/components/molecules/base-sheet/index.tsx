@@ -6,7 +6,7 @@ import BottomSheet, {
 } from '@gorhom/bottom-sheet';
 import { styles } from './styles';
 import { Headline, LucideIcon, Spacer } from '@/components/atoms';
-import { Pressable, View } from 'react-native';
+import { Keyboard, Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
 import { PropsWithChildren, useCallback, useEffect, useRef } from 'react';
 import { Portal } from '@gorhom/portal';
@@ -14,19 +14,19 @@ import BaseButton from '../base-button';
 import { SnapPoints } from './constants';
 
 // Helper to get next larger snapPoint from SnapPoints enum
-const snapPointOrder = [
-  SnapPoints.SM,
-  SnapPoints.MD,
-  SnapPoints.LG,
-  SnapPoints.XL,
-  SnapPoints.FULL,
-];
-const getSnapPoints = (snapPoint: string | string[]) => {
-  if (Array.isArray(snapPoint)) return snapPoint;
-  const idx = snapPointOrder.indexOf(snapPoint as SnapPoints);
-  const next = snapPointOrder[Math.min(idx + 1, snapPointOrder.length - 1)];
-  return [snapPoint, next];
-};
+// const snapPointOrder = [
+//   SnapPoints.SM,
+//   SnapPoints.MD,
+//   SnapPoints.LG,
+//   SnapPoints.XL,
+//   SnapPoints.FULL,
+// ];
+// const getSnapPoints = (snapPoint: string | string[]) => {
+//   if (Array.isArray(snapPoint)) return snapPoint;
+//   const idx = snapPointOrder.indexOf(snapPoint as SnapPoints);
+//   const next = snapPointOrder[Math.min(idx + 1, snapPointOrder.length - 1)];
+//   return [snapPoint, next];
+// };
 
 const BaseSheet = ({
   testId,
@@ -36,11 +36,12 @@ const BaseSheet = ({
   children,
   snapPoints = SnapPoints.MD,
   containerStyle,
+  contentContainerStyle,
   modalVisible,
   setModalVisible,
   onClose,
   buttonProps,
-  keyboardBehavior = 'extend',
+  keyboardBehavior = 'interactive',
   keyboardBlurBehavior = 'restore',
   enableBlurKeyboardOnGesture = true,
   android_keyboardInputMode = 'adjustResize',
@@ -54,6 +55,7 @@ const BaseSheet = ({
   useEffect(() => {
     if (!modalVisible) {
       sheetRef.current?.close();
+      Keyboard.dismiss();
     } else {
       sheetRef.current?.expand();
     }
@@ -88,6 +90,7 @@ const BaseSheet = ({
     ),
     [],
   );
+
   const renderHeader = () => {
     switch (headerVariant) {
       case 'centerWithClose':
@@ -139,7 +142,7 @@ const BaseSheet = ({
     <Portal>
       <BottomSheet
         ref={sheetRef}
-        snapPoints={getSnapPoints(snapPoints)}
+        snapPoints={typeof snapPoints != 'string' ? snapPoints : [snapPoints]}
         enablePanDownToClose={true}
         enableContentPanningGesture={true}
         index={modalVisible ? 0 : -1}
@@ -153,7 +156,7 @@ const BaseSheet = ({
         {...props}>
         <BottomSheetView
           testID={`${testId}-bottom-sheet`}
-          style={themedStyles.hasVerticalGap}>
+          style={[themedStyles.bottomSheetContainer, contentContainerStyle]}>
           {renderHeader()}
           <View testID={`${testId}-bottom-sheet-body-container`}>
             {children}
@@ -161,7 +164,9 @@ const BaseSheet = ({
 
           {/* //TODO: replace with actual Button */}
           {/* //TODO: make place for 2 buttons instead of one */}
-          <View testID={`${testId}-bottom-sheet-footer-container`}>
+          <View
+            style={themedStyles.marginTopAuto}
+            testID={`${testId}-bottom-sheet-footer-container`}>
             {hasSubmitButton && (
               <BaseButton
                 testId={`${testId}-submit-btn`}

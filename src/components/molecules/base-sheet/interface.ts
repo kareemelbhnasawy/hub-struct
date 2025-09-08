@@ -13,9 +13,10 @@ interface BaseSheetProps
   hasCloseButton?: boolean;
   hasSubmitButton?: boolean;
   containerStyle?: RNStyle;
+  contentContainerStyle?: RNStyle;
   modalVisible: boolean;
   setModalVisible: (arg0: boolean) => void;
-  buttonProps?: BaseButtonProps;
+  buttonProps?: Omit<BaseButtonProps, 'testId'>;
   keyboardBehavior?: 'extend' | 'fillParent' | 'interactive';
   keyboardBlurBehavior?: 'none' | 'restore';
   enableBlurKeyboardOnGesture?: boolean;
