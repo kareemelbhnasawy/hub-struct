@@ -1,3 +1,4 @@
+import { Radius } from '@/style';
 import createThemedStyles from '@/utilities/create-themed-styles';
 
 const baseStyles = createThemedStyles({
@@ -52,6 +53,11 @@ const baseStyles = createThemedStyles({
       borderRadius: 4,
       paddingHorizontal: 12,
       gap: 5,
+    },
+  },
+  round: {
+    base: {
+      borderRadius: Radius.FULL,
     },
   },
 });

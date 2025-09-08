@@ -4,32 +4,32 @@ export const basicInfoDataHandler = (data: JobDetailsResponse) => {
   return [
     {
       key: 'id',
-      label: 'رقم الموظف',
+      label: 'profile.myJobDetails.id',
       value: data?.jobInfo?.employeeNumber ?? 'profile.emptyDataMsg',
     },
     {
       key: 'classificationGuide',
-      label: 'الدليل التصنيفي',
+      label: 'profile.myJobDetails.classificationGuide',
       value: data?.jobInfo?.classificationGuide ?? 'profile.emptyDataMsg',
     },
     {
       key: 'jobTitle',
-      label: 'المنصب',
+      label: 'profile.myJobDetails.jobTitle',
       value: data?.jobInfo?.jobTitle ?? 'profile.emptyDataMsg',
     },
     {
       key: 'rank',
-      label: 'المرتبة',
+      label: 'profile.myJobDetails.rank',
       value: data?.jobInfo?.rank ?? 'profile.emptyDataMsg',
     },
     {
       key: 'effectiveManagement',
-      label: 'الإدارة الفعلية',
+      label: 'profile.myJobDetails.effectiveManagement',
       value: data?.jobInfo?.effectiveManagement ?? 'profile.emptyDataMsg',
     },
     {
       key: 'management',
-      label: 'الإدارة',
+      label: 'profile.myJobDetails.management',
       value: data?.jobInfo?.management ?? 'profile.emptyDataMsg',
     },
   ];
@@ -39,13 +39,13 @@ export const contactInfoDataHandler = (data: JobDetailsResponse) => {
   return [
     {
       key: 'emailAddress',
-      label: 'البريد الالكتروني',
+      label: 'profile.myJobDetails.emailAddress',
       value: data?.contactInfo?.emailAddress ?? 'profile.emptyDataMsg',
       type: 'email',
     },
     {
       key: 'address',
-      label: 'مقر العمل',
+      label: 'profile.myJobDetails.address',
       value: data?.contactInfo?.address ?? 'profile.emptyDataMsg',
     },
     {

@@ -28,6 +28,8 @@ interface BaseButtonProps extends PressableProps {
   variant?: ButtonVariant;
   fullWidth?: boolean;
   containerStyle?: RNStyle;
+  isBordered?: boolean;
+  isRounded?: boolean;
 }
 
 export default BaseButtonProps;

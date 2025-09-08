@@ -12,6 +12,7 @@ interface LucideIconProps extends Omit<LucideProps, 'testID' | 'color'> {
   hasWrapper?: boolean;
   isRTLMirrored?: boolean;
   containerStyle?: RNStyle;
+  isFlipped?: boolean;
 }
 
 export default LucideIconProps;

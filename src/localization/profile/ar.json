@@ -13,13 +13,13 @@
   "contractAddress": "العنوان المسجل في العقد",
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
   "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
-  "saveChanges": "حفظ التغييرات",
+  "saveChanges": "حفظ التعديلات",
   "deactivate": "إلغاء التفعيل",
   "back": "رجوع",
   "kunya": {
     "kunyaTitle": "الكنية",
     "activateKunya": "تفعيل الكنية",
-    "activateKunyaSubtitle": "يمكنك تفعيل الكنية لتظهر في حسابك الشخصي و للآخرين",
+    "activateKunyaSubtitle": "يمكنك تفعيل الكنية لكي تظهر في حسابك الشخصي وللآخرين",
     "kunyaPrompt": "ما هي كنيتك؟",
     "howKunyaAppears": "هكذا ستظهر في ملفك الشخصي",
     "kunyaActivated": "تم تفعيل كنيتك بنجاح",
@@ -69,7 +69,7 @@
     "appRestart": "We will need to restart the application for a seamless experience",
     "switch": "Switch",
     "back": "Back",
-    "securitySettings": "إعدادات الإمان",
+    "securitySettings": "إعدادات الأمان",
     "activateFACE_ID": "تفعيل بصمة الوجه",
     "activateTOUCH_ID": "تفعيل بصمة الإصبع",
     "activatePIN_CODE": "تفعيل الرمز السري",
@@ -85,7 +85,7 @@
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
   },
   "members": {
-    "status" : {
+    "status": {
       "remote": "يعمل من المنزل",
       "vacation": "إجازة",
       "business-trip": "رحلة عمل",
@@ -120,7 +120,19 @@
     "qualificationsTitle": "المؤهلات",
     "noQualificationsTitle": "لم تقم بإضافة أي مؤهلات بعد.",
     "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
-    "completed": "مكتمل",
+    "completed": "مكتملة",
     "onGoing": "جاري الدراسة"
+  },
+  "myJobDetails": {
+    "id": "رقم الموظف",
+    "classificationGuide": "الدليل التصنيفي",
+    "jobTitle": "المنصب",
+    "rank": "المرتبة",
+    "effectiveManagement": "الإدارة الفعلية",
+    "management": "الإدارة",
+    "emailAddress": "البريد الالكتروني",
+    "address": "مقر العمل",
+    "workExtension": "التحويلة",
+    "location": "موقع العمل"
   }
 }

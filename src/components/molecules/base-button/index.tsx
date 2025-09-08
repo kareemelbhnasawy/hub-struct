@@ -22,6 +22,8 @@ const BaseButton = (props: BaseButtonProps) => {
     variant = 'primary',
     fullWidth = true,
     containerStyle,
+    isBordered = true,
+    isRounded,
     ...restProps
   } = props;
   const {
@@ -41,7 +43,7 @@ const BaseButton = (props: BaseButtonProps) => {
   const baseThemedStyles = getThemedStyles(baseStyles);
   const variantStyles = getButtonStyle(variant, danger);
   const variantThemedStyles = getThemedStyles(variantStyles);
-  const hasBorder = !disabled && !loading && !success;
+  const hasBorder = isBordered && !disabled && !loading && !success;
   return (
     <Pressable
       testID={`${testId}-button`}
@@ -57,6 +59,7 @@ const BaseButton = (props: BaseButtonProps) => {
         fullWidth && baseThemedStyles.fullWidth,
         baseThemedStyles[size],
         variantThemedStyles[state],
+        isRounded && baseThemedStyles.round,
         hasBorder ? variantThemedStyles.border : null,
         containerStyle,
       ]}

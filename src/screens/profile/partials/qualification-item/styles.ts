@@ -28,6 +28,11 @@ const styles = createThemedStyles({
       width: 24,
       aspectRatio: 1,
     }
+  },
+  chevronIconContainer: {
+    base: {
+      backgroundColor: 'backgroundSecondary',
+    }
   }
 });
 

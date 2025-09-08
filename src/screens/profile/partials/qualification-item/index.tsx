@@ -23,15 +23,17 @@ const QualificationItem = ({
         <View style={themedStyles.badgeRow}>
           <Badge
             testId={`${testId}-badge`}
-            size="md"
+            size="lg"
             color={color}
             paragraphProps={{ text: text }}
           />
           <LucideIcon
             testId={`${testId}-chevron`}
             name="ChevronRight"
-            color="foregroundPrimary"
-            size={15}
+            color="foregroundQuaternary"
+            size={20}
+            isCircle
+            containerStyle={themedStyles.chevronIconContainer}
             isRTLMirrored
           />
         </View>
