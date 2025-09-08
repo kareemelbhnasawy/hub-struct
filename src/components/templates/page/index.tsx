@@ -29,6 +29,7 @@ const Page = ({
   mainWrapperContentContainerStyle,
   innerPageStyle,
   safeAreaStyle,
+  noPaddings,
   stickyBottomContainerStyle,
   disableSafeAreaTop = false
 }: PageProps) => {
@@ -110,7 +111,7 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[themedStyles.innerPageStyle, innerPageStyle]}>
+          style={[!noPaddings && themedStyles.innerPageStyle, innerPageStyle]}>
           {children}
         </InnerPageWrapper>
         {/* Content */}

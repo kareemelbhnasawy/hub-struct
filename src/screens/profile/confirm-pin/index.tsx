@@ -11,12 +11,11 @@ const ConfirmPinScreen = () => {
   const navigation = useNavigation<'ConfirmPin'>();
   const { pin } = navigation.params;
   const [error, setError] = useState(false);
-  const { setQuickLoginType, setUsername, email } = useAuthStore();
+  const { setQuickLoginType, email } = useAuthStore();
 
   const onSuccess = () => {
-    setUsername('Daniel');
     setQuickLoginType('PIN_CODE');
-    navigation.navigateTo('ProfileSettings');
+    navigation.goToExistingOrPush('ProfileSettings');
   };
   const { mutate, isPending } = useSetPin(onSuccess);
   const onConfirmPin = (value: string) => {

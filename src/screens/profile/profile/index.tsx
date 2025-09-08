@@ -48,6 +48,10 @@ const ProfileScreen = () => {
         name: 'User',
         containerStyle: themedStyles.iconDescriptiveYellow,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: handleNavigateToAccountDetails,
     },
     {
@@ -57,7 +61,11 @@ const ProfileScreen = () => {
         name: 'IdCard',
         containerStyle: themedStyles.iconDescriptiveGreen,
       },
-      onPress: () => log('Work Account pressed'),
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
+      onPress: () => navigation.navigate('ProfileSettings'),
     },
     {
       id: '3',
@@ -66,7 +74,11 @@ const ProfileScreen = () => {
         name: 'Users',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
-      onPress: () => log('Team Account pressed'),
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
+      onPress: () => log('My Team pressed'),
     },
     {
       id: '4',
@@ -74,6 +86,10 @@ const ProfileScreen = () => {
       iconProps: {
         name: 'HousePlus',
         containerStyle: themedStyles.iconDescriptiveTeal,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -84,10 +100,13 @@ const ProfileScreen = () => {
         name: 'Settings',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => navigation.navigate('ProfileSettings'),
     },
   ];
-
   const renderListItem = ({
     item,
   }: {
@@ -123,7 +142,11 @@ const ProfileScreen = () => {
   }, [data, isSuccess, setAllProfileData]);
 
   return (
-    <Page testId={screenTestId} hasHeader={false} isLoading={isLoading} disableSafeAreaTop={true}>
+    <Page
+      testId={screenTestId}
+      hasHeader={false}
+      isLoading={isLoading}
+      disableSafeAreaTop={true}>
       <View style={themedStyles.container}>
         <View>
           <CurvedHeroImage

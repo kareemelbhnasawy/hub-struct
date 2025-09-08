@@ -6,6 +6,7 @@ const PROFILE_QUERY_KEYS = {
   DELETE_KUNYA: 'DELETE_KUNYA',
   GET_ADDRESSES: 'GET_ADDRESSES',
   ADDRESS_START: 'ADDRESS_START',
+  GET_QUALIFICATIONS: 'GET_QUALIFICATIONS',
   // Add other profile-related query keys here
 } as const;
 

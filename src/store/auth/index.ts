@@ -9,6 +9,7 @@ const useAuthStore = create<AuthState>()(
     (set, get) => ({
       email: '',
       password: '',
+      userId: '',
       quickLoginType: '',
       invalidAttemptCount: 0,
       isAccountSuspended: false,
@@ -22,6 +23,8 @@ const useAuthStore = create<AuthState>()(
       getEmail: () => get().email,
       setPassword: (password) => set({ password }),
       getPassword: () => get().password,
+      getUserId: () => get().userId,
+      setUserId: (id: string) => set({ userId: id }),
       setLoginCredentials: (credentials) =>
         set({ email: credentials.email, password: credentials.password }),
       setQuickLoginType: (quickLoginType) => set({ quickLoginType }),
@@ -32,8 +35,7 @@ const useAuthStore = create<AuthState>()(
           password: '',
           quickLoginType: '',
         }),
-      resetLoginCredentials: () =>
-        set({ email: '', password: '' }),
+      resetLoginCredentials: () => set({ email: '', password: '' }),
       resetStore: () =>
         set({
           email: '',

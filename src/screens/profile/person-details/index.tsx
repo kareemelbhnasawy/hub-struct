@@ -236,7 +236,7 @@ const PersonDetails = () => {
         textProps={{
           text: 'profile.personDetails.basicInfo',
           size: '2xs',
-          weight: 'Bold',
+          weight: 'Medium',
         }}
       />
       <Spacer space={'xl'} />
@@ -261,9 +261,9 @@ const PersonDetails = () => {
           containerStyle: themedStyle.iconDescriptiveGreen,
         }}
         textProps={{
-          text: 'profile.personDetails.basicInfo',
+          text: 'profile.personDetails.contactInfo',
           size: '2xs',
-          weight: 'Bold',
+          weight: 'Medium',
         }}
       />
       <Spacer space={'xl'} />
@@ -318,7 +318,7 @@ const PersonDetails = () => {
         testId={screenTestId}
         modalVisible={addressModalVisible}
         setModalVisible={setAddressModalVisible}
-        // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+      // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
       />
     </Page>
   );

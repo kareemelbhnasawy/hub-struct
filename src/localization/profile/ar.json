@@ -7,7 +7,6 @@
   "job-details": "البيانات الوظيفية",
   "career-history": "تاريخي الوظيفي داخل الوزارة",
   "holidays-record": "أرصدة الإجازات",
-  "qualifications": "المؤهلات",
   "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
@@ -49,7 +48,7 @@
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
-    "basicInfo": "بيانات التواصل",
+    "basicInfo": "البيانات الأساسية",
     "name": "الاسم",
     "birthDate": "تاريخ الميلاد",
     "age": "العمر",
@@ -57,9 +56,9 @@
     "nationality": "الجنسية",
     "nationalId": "رقم الهوية الوطنية",
     "contactInfo": "بيانات التواصل",
-    "mobile1": "هاتف شخصي ١",
+    "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
-    "address": "العنوان المسجل في العقد"
+    "address": "العنوان"
   },
   "settings": {
     "settings": "الإعدادات",
@@ -92,5 +91,36 @@
       "business-trip": "رحلة عمل",
       "academic-vacation": "إجازة دراسية"
     }
+  },
+  "qualificationDetails": {
+    "type": "النوع",
+    "schoolUniversity": "المدرسة / الجامعة",
+    "country": "الدولة",
+    "academicDegree": "الدرجة العلمية",
+    "fieldOfStudy": "مجال الدراسة",
+    "learningMethod": "طريقة التعلم",
+    "awardingBody": "هيئة المنح",
+    "qualificationDetails": "تفاصيل المؤهل",
+    "studyDetails": "تفاصيل الدراسة",
+    "status": "الحالة",
+    "studyStartDate": "تاريخ بدء الدراسة",
+    "actualEndDate": "تاريخ الانتهاء الفعلي",
+    "fees": "الرسوم",
+    "totalFees": "إجمالي الرسوم",
+    "currency": "العملة",
+    "paymentStatus": "حالة السداد",
+    "notesAttachments": "الملاحظات والمرفقات",
+    "basicQualificationInfo": "بيانات المؤهل الاساسية",
+    "commentsToApprover": "تعليقات إلى المعتمد",
+    "attachments": "مرفقات",
+    "completed": "مكتمل",
+    "inProgress": "قيد التقدم"
+  },
+  "qualifications": {
+    "qualificationsTitle": "المؤهلات",
+    "noQualificationsTitle": "لم تقم بإضافة أي مؤهلات بعد.",
+    "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
+    "completed": "مكتمل",
+    "onGoing": "جاري الدراسة"
   }
 }

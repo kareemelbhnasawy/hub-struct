@@ -32,6 +32,7 @@ const ProfileSettings = () => {
   const [langModalVisible, setLangModalVisible] = useState(false);
   const [logoutModalVisible, setLogoutModalVisible] = useState(false);
   const [changeQuickLoginVisible, setChangeQuickLoginVisible] = useState(false);
+  const [bioLoading, setBioLoading] = useState(false);
   const { quickLoginType, setQuickLoginType, setUsername, email } =
     useAuthStore();
   const [biometricType, setBiometricType] = useState<
@@ -58,11 +59,13 @@ const ProfileSettings = () => {
   }, [biometricType]);
 
   const onSetBioSuccess = () => {
+    setBioLoading(false);
     setQuickLoginType(biometricType || '');
     setUsername('Daniel');
   };
 
   const deleteBioKey = () => {
+    setBioLoading(false);
     deleteBioKeys();
     setQuickLoginType('');
   };
@@ -112,6 +115,7 @@ const ProfileSettings = () => {
   };
 
   const onPressBio = () => {
+    setBioLoading(true);
     if (bioEnabled) {
       mutateRemoveBio({ email });
     } else {
@@ -209,7 +213,13 @@ const ProfileSettings = () => {
             testId={`${screenTestId}-bio`}
             value={bioEnabled}
             containerStyle={themedStyles.paddingVertical0}
-            onChange={() => onQuickLoginPress(biometricType)}
+            loading={
+              changeQuickLoginVisible ||
+              bioLoading ||
+              isSetPending ||
+              isRemovePending
+            }
+            onChangeValue={() => onQuickLoginPress(biometricType)}
           />
         </View>
       ),
@@ -228,7 +238,8 @@ const ProfileSettings = () => {
             testId={`${screenTestId}-pin`}
             value={pinEnabled}
             containerStyle={themedStyles.paddingVertical0}
-            onChange={() => onQuickLoginPress('PIN_CODE')}
+            loading={changeQuickLoginVisible}
+            onChangeValue={() => onQuickLoginPress('PIN_CODE')}
           />
         </View>
       ),
@@ -237,7 +248,18 @@ const ProfileSettings = () => {
       return [bioRecord, pinRecord];
     }
     return [pinRecord];
-  }, [bioEnabled, bioIcon, pinEnabled]);
+  }, [
+    bioEnabled,
+    bioIcon,
+    bioLoading,
+    biometricType,
+    changeQuickLoginVisible,
+    isRemovePending,
+    isSetPending,
+    onQuickLoginPress,
+    pinEnabled,
+    themedStyles,
+  ]);
 
   const onLogoutSuccess = () => {
     deleteKey(STORAGE_KEYS.REFRESH_TOKEN);

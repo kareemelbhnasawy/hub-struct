@@ -1,15 +1,16 @@
 /* eslint-disable */
 import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
-import { useNavigation } from '@/hooks';
 import TeamMemberItemDemo from '../partials/team-member-item/demo';
+import { useNavigation, useTranslate } from '@/hooks';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const handleNavigateToProfile = () => {
     navigation.navigate('ProfileStack', { userId: '123' });
   };
-
+  const { changeLanguage } = useTranslate();
+  // changeLanguage('ar');
   return (
     <View style={styles.container.base}>
       <Text>This is Home</Text>

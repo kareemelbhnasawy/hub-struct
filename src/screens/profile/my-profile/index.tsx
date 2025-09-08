@@ -26,6 +26,8 @@ const MyProfile = () => {
         iconProps={item.iconProps}
         textProps={{
           text: item.title,
+          weight: 'Semibold',
+          size: '2xs'
         }}
         testId={screenTestId}
         onPress={item.onPress}
@@ -41,7 +43,11 @@ const MyProfile = () => {
         name: 'User',
         containerStyle: themedStyles.iconDescriptiveYellow,
       },
-      onPress: () => navigate('PersonDetails', {}),
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
+      onPress: () => navigate('PersonDetails'),
     },
     {
       id: '2',
@@ -50,7 +56,11 @@ const MyProfile = () => {
         name: 'Building2',
         containerStyle: themedStyles.iconDescriptiveGreen,
       },
-      onPress: () => log('job pressed'),
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
+      onPress: () => navigate('BusinessDetails'),
     },
     {
       id: '3',
@@ -58,6 +68,10 @@ const MyProfile = () => {
       iconProps: {
         name: 'CalendarClock',
         containerStyle: themedStyles.iconDescriptiveTeal,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => log('career history pressed'),
     },
@@ -68,16 +82,24 @@ const MyProfile = () => {
         name: 'TreePalm',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => log('Holidays Record pressed'),
     },
     {
       id: '5',
-      title: 'profile.qualifications',
+      title: 'profile.qualifications.qualificationsTitle',
       iconProps: {
         name: 'FileBadge2',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
-      onPress: () => log('qualifications pressed'),
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
+      onPress: () => navigate('Qualifications'),
     },
     {
       id: '6',
@@ -85,6 +107,10 @@ const MyProfile = () => {
       iconProps: {
         name: 'Medal',
         containerStyle: themedStyles.iconDescriptiveGreen,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => log('skills pressed'),
     },
@@ -95,11 +121,18 @@ const MyProfile = () => {
         name: 'Vault',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs',
+      },
       onPress: () => log('custodies pressed'),
     },
   ];
   return (
-    <Page testId={screenTestId} hasHeader={true} isLoading={false}
+    <Page
+      testId={screenTestId}
+      hasHeader={true}
+      isLoading={false}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
         titleProps: { text: 'profile.myProfile' },

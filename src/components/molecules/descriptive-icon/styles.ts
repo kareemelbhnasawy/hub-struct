@@ -34,7 +34,7 @@ const styles = createThemedStyles({
   iconText: {
     base: {
       textAlign: 'center',
-      color: 'textTitle',
+      color: 'textDefault',
     },
   },
 });

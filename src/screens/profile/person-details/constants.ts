@@ -12,8 +12,13 @@ export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
         })
       : undefined;
 
-  const toArabicDigits = (s?: string) => s?.replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[+d]) ?? s;
-  
+  const AR_DIGITS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'] as const;
+
+  const toArabicDigits = (hijriDate?: string) => {
+      if (!hijriDate) return hijriDate;
+      if (!I18nManager.isRTL) return hijriDate;
+      return hijriDate.replace(/\d/g, (d) => AR_DIGITS[parseInt(d, 10)]);
+  };  
   return [
     {
       key: 'name',
