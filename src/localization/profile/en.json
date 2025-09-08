@@ -2,7 +2,7 @@
   "account": "My Account",
   "digitalCard": "My Digital Card",
   "team": "My Team",
-  "theTeam": "Team",
+  "teamLabel": "Team",
   "personalize": "Personalize Home Screen",
   "personal-details": "Personal Details",
   "job-details": "My Job Details",
@@ -38,6 +38,7 @@
   "myProfile": "My Profile",
   "nickname": "Nickname",
   "emptyDataMsg": "No data available",
+  "notRegisteredSabil": "The address registered in the contract is not available in Sabil's data.",
   "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",
@@ -61,7 +62,7 @@
     "mobile1": "Mobile Number",
     "extension": "Work Extension Number",
     "address": "Address",
-    "address2": "Address (as per contract)"
+    "contractAddress": "Address (as per contract)"
   },
   "settings": {
     "settings": "Settings",

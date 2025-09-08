@@ -2,7 +2,7 @@
   "account": "ملفي الشخصي",
   "digitalCard": "بطاقتي الرقمية",
   "team": "فريقي",
-  "theTeam": "الفريق",
+  "teamLabel": "الفريق",
   "personalize": " تخصيص الصفحة الرئيسية",
   "personal-details": "البيانات الشخصية",
   "job-details": "البيانات الوظيفية",
@@ -38,6 +38,7 @@
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
   "emptyDataMsg": "لا يوجد بيانات مسجلة",
+  "notRegisteredSabil": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
@@ -61,7 +62,7 @@
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
     "address": "العنوان",
-    "address2": "العنوان (المسجل في العقد)"
+    "contractAddress": "العنوان (المسجل في العقد)"
   },
   "settings": {
     "settings": "الإعدادات",

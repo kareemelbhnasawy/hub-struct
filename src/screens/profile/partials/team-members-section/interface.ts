@@ -7,7 +7,7 @@ import { TeamMemberItemDataType } from '../team-member-item/interface';
 
 export type TeamStatItem = {
   id: string;
-  titleProps: ParagraphProps;
+  titleProps: Omit<ParagraphProps, 'testId'>;
   value: string | number;
   iconName: keyof typeof icons;
   intent?: StatIntent;
@@ -17,7 +17,7 @@ interface TeamMembersSectionProps {
   testId: string;
   members: TeamMemberItemDataType[];
   stats?: TeamStatItem[];
-  headerProps?: HeadlineProps; // optional header above the list
+  headerProps?: Omit<HeadlineProps, 'testId'>;
   containerStyle?: RNStyle;
   listContainerStyle?: RNStyle;
 }

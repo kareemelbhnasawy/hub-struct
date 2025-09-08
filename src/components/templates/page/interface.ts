@@ -41,4 +41,3 @@ interface PageProps {
 // THESE PROPS HAVE MORE PROPS THAN ARE USED BECAUSE A LOT OF THEM ARE TODOS
 
 export default PageProps;
- 

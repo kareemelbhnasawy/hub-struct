@@ -153,8 +153,8 @@ const TeamMemberProfileScreen = () => {
       component: PersonalTab,
     },
     {
-      key: 'profile.theTeam',
-      label: 'profile.theTeam',
+      key: 'profile.teamLabel',
+      label: 'profile.teamLabel',
       iconName: 'Network',
       component: TeamTab,
     },

@@ -20,10 +20,11 @@ export const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
-  hasVerticalGap: {
+  bottomSheetContainer: {
     base: {
       rowGap: 20,
       flex: 1,
+      height: '100%',
     },
   },
   headerCenterWithClose: {
@@ -45,6 +46,11 @@ export const styles = createThemedStyles({
     base: {
       position: 'absolute',
       end: 0,
+    },
+  },
+  marginTopAuto: {
+    base: {
+      marginTop: 'auto',
     },
   },
 });

@@ -288,7 +288,28 @@ const ProfileSettings = () => {
       pageHeaderProps={{
         titleProps: { text: 'profile.settings.settings' },
         isTitleCentered: true,
-      }}>
+      }}
+      includeRenderStickyBottomStyles={false}
+      stickyBottomContainerStyle={themedStyles.paddingH20}
+      renderStickyBottom={() => (
+        <>
+          <ProfileSettingItem
+            iconProps={{
+              name: 'LogOut',
+              containerStyle: themedStyles.iconDescriptiveTransparent,
+              isRTLMirrored: true,
+              isFlipped: true,
+            }}
+            textProps={{
+              text: 'profile.settings.signOut',
+            }}
+            testId={screenTestId}
+            onPress={() => setLogoutModalVisible(true)}
+            hasForwardIcon={false}
+          />
+          <Spacer space="xl" />
+        </>
+      )}>
       <GlassModal
         testId={screenTestId}
         visible={langModalVisible}
@@ -305,12 +326,10 @@ const ProfileSettings = () => {
             text: 'profile.settings.switch',
           },
           onPress: toggleLanguage,
-          containerStyle: themedStyles.round,
         }}
         secondaryButtonProps={{
           textProps: { text: 'profile.settings.back' },
           onPress: () => setLangModalVisible(false),
-          containerStyle: themedStyles.round,
         }}
       />
       <GlassModal
@@ -323,7 +342,6 @@ const ProfileSettings = () => {
         buttonProps={{
           textProps: { text: 'profile.settings.signOut' },
           onPress: () => logout({ email }),
-          containerStyle: themedStyles.round,
           variant: 'secondary',
           danger: true,
           isBordered: false,
@@ -331,7 +349,6 @@ const ProfileSettings = () => {
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
           onPress: () => setLogoutModalVisible(false),
-          containerStyle: themedStyles.round,
         }}
       />
       <GlassModal
@@ -344,12 +361,10 @@ const ProfileSettings = () => {
         buttonProps={{
           textProps: { text: changeQuickLoginText.action },
           onPress: changeQuickLoginFn,
-          containerStyle: themedStyles.round,
         }}
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
           onPress: () => setChangeQuickLoginVisible(false),
-          containerStyle: themedStyles.round,
         }}
       />
 
@@ -373,21 +388,6 @@ const ProfileSettings = () => {
         renderItem={renderListItem}
         keyExtractor={(item) => item.id}
         scrollEnabled={false}
-      />
-      <Spacer space="6xl" />
-      <ProfileSettingItem
-        iconProps={{
-          name: 'LogOut',
-          containerStyle: themedStyles.iconDescriptiveTransparent,
-          isRTLMirrored: true,
-          isFlipped: true,
-        }}
-        textProps={{
-          text: 'profile.settings.signOut',
-        }}
-        testId={screenTestId}
-        onPress={() => setLogoutModalVisible(true)}
-        hasForwardIcon={false}
       />
     </Page>
   );

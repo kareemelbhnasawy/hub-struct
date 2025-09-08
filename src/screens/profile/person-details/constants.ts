@@ -76,7 +76,7 @@ export const contactInfoDataHandler = (
     {
       key: 'address',
       label: contract
-        ? 'profile.personDetails.address2'
+        ? 'profile.personDetails.contractAddress'
         : 'profile.personDetails.address',
       value: data?.contactInfo?.address ?? 'profile.emptyDataMsg',
     },
