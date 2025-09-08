@@ -46,7 +46,7 @@ const styles = createThemedStyles({
   },
   valueText: {
     base: {
-      maxWidth: '50%',
+      maxWidth: '60%',
       overflow: 'hidden'
     },
   },

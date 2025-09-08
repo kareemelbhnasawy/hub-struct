@@ -19,7 +19,12 @@ const DetailsSection = ({
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
-  const defaultRenderItem = ({ item }: { item: DetailsItem; index: number }) => (
+  const defaultRenderItem = ({
+    item,
+  }: {
+    item: DetailsItem;
+    index: number;
+  }) => (
     <View style={themedStyles.row}>
       <Paragraph
         text={item.label}
@@ -32,6 +37,9 @@ const DetailsSection = ({
         weight="Medium"
         size="2xs"
         testId={`${testId}-${item.key}-value`}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+        style={themedStyles.valueText}
       />
     </View>
   );
@@ -48,8 +56,8 @@ const DetailsSection = ({
         }}
         textProps={{
           text: title,
-          size: '2xs',
-          weight: 'Bold',
+          size: 'xs',
+          weight: 'Medium',
         }}
       />
       <Spacer space={'xl'} />
@@ -66,4 +74,3 @@ const DetailsSection = ({
 };
 
 export default DetailsSection;
-

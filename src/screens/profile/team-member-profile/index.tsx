@@ -79,6 +79,7 @@ const TeamMemberProfileScreen = () => {
             textProps: { count: String(merged.length) },
           }}
         />
+        <Spacer space={16} />
       </View>
     );
   };
@@ -106,6 +107,7 @@ const TeamMemberProfileScreen = () => {
           },
         ]}
       />
+      <Spacer space={20} />
     </ScrollView>
   );
 
@@ -133,6 +135,7 @@ const TeamMemberProfileScreen = () => {
           },
         ]}
       />
+      <Spacer space={20} />
     </ScrollView>
   );
 

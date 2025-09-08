@@ -1,12 +1,12 @@
 {
-  "editPersonalPhone1": "Edit Personal Number 1",
+  "editPersonalPhone1": "Edit Mobile Number",
   "extension": "Extension",
   "mobileNumber": "Mobile Number",
   "showNumber": "Show number to everyone",
   "editExtension": "Edit Extension",
-  "editBackgroundTitle": "Edit Background Image",
+  "editBackgroundTitle": "Edit Cover Photo",
   "editBackgroundDesc": "You can choose any image from the images to be your background",
-  "editBackgroundSuccess": "Background image edited successfully",
-  "mobileSuccessfulEdit": "Your Personal Number 1 has been updated successfully!",
+  "editBackgroundSuccess": "Cover photo edited successfully",
+  "mobileSuccessfulEdit": "Your Mobile Number has been updated successfully!",
   "extensionSuccessfulEdit": "Your Extension has been updated successfully!"
 }

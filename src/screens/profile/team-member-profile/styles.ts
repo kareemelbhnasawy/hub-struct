@@ -29,6 +29,12 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundWhite',
     },
   },
+  valueText: {
+    base: {
+      maxWidth: '60%',
+      overflow: 'hidden',
+    },
+  },
 });
 
 export default styles;

@@ -18,6 +18,7 @@ const LucideIcon = ({
   containerStyle,
   onPress,
   color,
+  isFlipped,
   ...props
 }: LucideIconProps) => {
   const { getThemeColor } = useThemeStore();
@@ -37,6 +38,8 @@ const LucideIcon = ({
     containerStyle,
   ];
 
+  const defaultMirrorValue = isFlipped ? -1 : 1;
+
   // question: should we add onPress to the following condition so icon always
   // has a wrapper if it has an onPress? for better UX
 
@@ -45,7 +48,19 @@ const LucideIcon = ({
       <Wrapper
         testID={`${testId}-icon-container`}
         onPress={onPress}
-        style={[appliedStyles, { transform: [{ scaleX: isRTLMirrored && isRTL ? -1 : 1 }] }]}>
+        style={[
+          appliedStyles,
+          {
+            transform: [
+              {
+                scaleX:
+                  isRTLMirrored && isRTL
+                    ? -defaultMirrorValue
+                    : defaultMirrorValue,
+              },
+            ],
+          },
+        ]}>
         <LIcon
           testID={`${testId}-icon`}
           size={scale(size)}
@@ -55,7 +70,15 @@ const LucideIcon = ({
       </Wrapper>
     );
   return (
-    <View style={{ transform: [{ scaleX: isRTLMirrored && isRTL ? -1 : 1 }] }}>
+    <View
+      style={{
+        transform: [
+          {
+            scaleX:
+              isRTLMirrored && isRTL ? -defaultMirrorValue : defaultMirrorValue,
+          },
+        ],
+      }}>
       <LIcon
         size={scale(size)}
         color={iconColor}

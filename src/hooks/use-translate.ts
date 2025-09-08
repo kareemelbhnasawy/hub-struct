@@ -19,7 +19,6 @@ const useTranslate = () => {
     const lang = locale === 'ar' ? 'en' : 'ar';
     setString(STORAGE_KEYS.LANGUAGE, lang);
     I18nManager.forceRTL(lang === 'ar');
-    i18n.changeLanguage(lang);
     RNRestart.Restart();
   };
 

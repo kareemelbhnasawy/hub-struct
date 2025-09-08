@@ -66,18 +66,18 @@
   "settings": {
     "settings": "Settings",
     "specialSettings": "Special Settings",
-    "changeBgImage": "Change Background Image",
-    "switchLang": "التبديل إلى العربية",
-    "changeLang": "التغيير إلى العربية",
-    "appRestart": "سنحتاج إلى إعادة تشغيل التطبيق لتجربة سلسة",
+    "changeBgImage": "Change Cover Photo",
+    "switchLang": "التبديل للغة العربية",
+    "changeLang": "تغيير اللغة إلى العربية",
+    "appRestart": "سيكون من الضروري إعادة تشغيل التطبيق لضمان تجربة سلسة",
     "switch": "تبديل",
     "back": "رجوع",
     "securitySettings": "Security Settings",
     "activateFACE_ID": "Enable Face ID",
     "activateTOUCH_ID": "Enable Touch ID",
     "activatePIN_CODE": "Enable PIN Code",
-    "signOut": "Sign Out",
-    "signOutDesc": "Are you sure you want to sign out?",
+    "signOut": "Log Out",
+    "signOutDesc": "Are you sure you want to log out?",
     "changeSignIn": "Change sign-in method?",
     "changePIN_CODE_FACE_ID": "PIN code will be disabled and Face ID will be enabled. Are you sure?",
     "changePIN_CODE_TOUCH_ID": "PIN code will be disabled and Touch ID will be enabled. Are you sure?",
@@ -145,5 +145,17 @@
     "presentToday": "Present today",
     "absentToday": "Absent today",
     "membersHeader": "Team Members ({{count}})"
+  },
+  "myJobDetails": {
+    "id": "Employee Number",
+    "classificationGuide": "Classification Guide",
+    "jobTitle": "Job Title",
+    "rank": "Rank",
+    "effectiveManagement": "Effective Management",
+    "management": "Management",
+    "emailAddress": "Email Address",
+    "address": "Workplace Address",
+    "workExtension": "Extension",
+    "location": "Work Location"
   }
 }

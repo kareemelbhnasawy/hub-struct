@@ -69,7 +69,7 @@ const QualificationDetails = ({ route }: Props) => {
         },
         isTitleCentered: true,
       }}>
-      <Spacer space={'xl'} />
+      <Spacer space={24} />
 
       {/* Card: Basic information */}
       <DescriptiveIcon
@@ -83,7 +83,6 @@ const QualificationDetails = ({ route }: Props) => {
         textProps={{
           text: 'profile.qualificationDetails.basicQualificationInfo',
           size: 'xs',
-          weight: 'Bold',
         }}
       />
       <Spacer space={'xl'} />
@@ -111,8 +110,7 @@ const QualificationDetails = ({ route }: Props) => {
         }}
         textProps={{
           text: 'profile.qualificationDetails.studyDetails',
-          size: 'xs',
-          weight: 'Bold',
+          size: 'xs'
         }}
       />
       <Spacer space={'xl'} />
@@ -140,8 +138,7 @@ const QualificationDetails = ({ route }: Props) => {
         }}
         textProps={{
           text: 'profile.qualificationDetails.fees',
-          size: 'xs',
-          weight: 'Bold',
+          size: 'xs'
         }}
       />
       <Spacer space={'xl'} />
@@ -170,7 +167,6 @@ const QualificationDetails = ({ route }: Props) => {
         textProps={{
           text: 'profile.qualificationDetails.notesAttachments',
           size: 'xs',
-          weight: 'Bold',
         }}
       />
       <Spacer space={'xl'} />
@@ -204,7 +200,7 @@ const QualificationDetails = ({ route }: Props) => {
         <Spacer space={'sm'} />
 
         {qualificationData?.attachments &&
-        qualificationData.attachments.length !== 0 ? (
+          qualificationData.attachments.length !== 0 ? (
           qualificationData?.attachments?.map(
             (attachment: Attachment, index: number) => (
               <View
