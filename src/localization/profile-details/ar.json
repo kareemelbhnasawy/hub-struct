@@ -1,10 +1,10 @@
 {
-  "editPersonalPhone1": "تعديل التليفون شخصي 1",
+  "editPersonalPhone1": "تعديل التليفون الشخصي",
   "extension": "تحويلة",
   "mobileNumber": "رقم الجوال",
   "showNumber": "إظهار الرقم للجميع",
   "editExtension": "تعديل التحويلة",
-  "mobileSuccessfulEdit": "تم تعديل التليفون شخصي 1 بنجاح!",
+  "mobileSuccessfulEdit": "تم تعديل التليفون الشخصي بنجاح!",
   "extensionSuccessfulEdit": "تم تعديل التحويلة بنجاح!",
   "editBackgroundTitle": "تعديل صورة الخلفية",
   "editBackgroundDesc": "يمكنك اختيار أي صورة من الصور لتكون خلفية لك",

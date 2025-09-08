@@ -80,8 +80,9 @@ const QualificationsScreen = () => {
           emptyComponentProps={{
             iconProps: {
               name: 'GraduationCap',
-              color: 'foregroundSecondary',
+              color: 'foregroundQuinary',
               size: 100,
+              strokeWidth: 1,
             },
             headlineProps: {
               text: 'profile.qualifications.noQualificationsTitle',
