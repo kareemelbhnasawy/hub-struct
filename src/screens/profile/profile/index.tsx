@@ -48,6 +48,10 @@ const ProfileScreen = () => {
         name: 'User',
         containerStyle: themedStyles.iconDescriptiveYellow,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: handleNavigateToAccountDetails,
     },
     {
@@ -56,6 +60,10 @@ const ProfileScreen = () => {
       iconProps: {
         name: 'IdCard',
         containerStyle: themedStyles.iconDescriptiveGreen,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => navigation.navigate('ProfileSettings'),
     },
@@ -66,6 +74,10 @@ const ProfileScreen = () => {
         name: 'Users',
         containerStyle: themedStyles.iconDescriptiveOrange,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => log('My Team pressed'),
     },
     {
@@ -74,6 +86,10 @@ const ProfileScreen = () => {
       iconProps: {
         name: 'HousePlus',
         containerStyle: themedStyles.iconDescriptiveTeal,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -84,10 +100,13 @@ const ProfileScreen = () => {
         name: 'Settings',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => navigation.navigate('ProfileSettings'),
     },
   ];
-
   const renderListItem = ({
     item,
   }: {

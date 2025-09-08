@@ -26,6 +26,8 @@ const MyProfile = () => {
         iconProps={item.iconProps}
         textProps={{
           text: item.title,
+          weight: 'Semibold',
+          size: '2xs'
         }}
         testId={screenTestId}
         onPress={item.onPress}
@@ -41,6 +43,10 @@ const MyProfile = () => {
         name: 'User',
         containerStyle: themedStyles.iconDescriptiveYellow,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => navigate('PersonDetails'),
     },
     {
@@ -49,6 +55,10 @@ const MyProfile = () => {
       iconProps: {
         name: 'Building2',
         containerStyle: themedStyles.iconDescriptiveGreen,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => navigate('BusinessDetails'),
     },
@@ -59,6 +69,10 @@ const MyProfile = () => {
         name: 'CalendarClock',
         containerStyle: themedStyles.iconDescriptiveTeal,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => log('career history pressed'),
     },
     {
@@ -67,6 +81,10 @@ const MyProfile = () => {
       iconProps: {
         name: 'TreePalm',
         containerStyle: themedStyles.iconDescriptiveOrange,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -77,6 +95,10 @@ const MyProfile = () => {
         name: 'FileBadge2',
         containerStyle: themedStyles.iconDescriptiveBlue,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => navigate('Qualifications'),
     },
     {
@@ -86,6 +108,10 @@ const MyProfile = () => {
         name: 'Medal',
         containerStyle: themedStyles.iconDescriptiveGreen,
       },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs'
+      },
       onPress: () => log('skills pressed'),
     },
     {
@@ -94,6 +120,10 @@ const MyProfile = () => {
       iconProps: {
         name: 'Vault',
         containerStyle: themedStyles.iconDescriptiveOrange,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs',
       },
       onPress: () => log('custodies pressed'),
     },

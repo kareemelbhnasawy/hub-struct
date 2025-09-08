@@ -67,6 +67,7 @@ const PageHeader = ({
         {titleProps ? (
           <Headline
             testId={`${prefixTestId}-title`}
+            weight='Semibold'
             {...titleProps}
             style={[
               themedStyles.fontColor,
