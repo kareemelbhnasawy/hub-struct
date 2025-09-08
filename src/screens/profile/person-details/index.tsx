@@ -26,7 +26,7 @@ const PersonDetails = () => {
   const { getThemedStyles } = useThemeStore();
   const screenTestId = 'person-details-screen';
   const themedStyle = getThemedStyles(styles);
-  // fetch data
+
   const { data, isLoading } = useGetPersonDetails() as {
     data: PersonDetailsResponse | undefined;
     isLoading: boolean;
@@ -318,7 +318,7 @@ const PersonDetails = () => {
         testId={screenTestId}
         modalVisible={addressModalVisible}
         setModalVisible={setAddressModalVisible}
-      // defaultSelectedAddress={{ addressShortCode: 'RRRD2929' }}
+        defaultSelectedAddress={data?.contactInfo?.address}
       />
     </Page>
   );
