@@ -6,6 +6,7 @@ import { icons } from 'lucide-react-native';
 import styles from './styles';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import { useTranslate } from '@/hooks';
+import { RNStyle } from '@/types/themes';
 
 export type TopTab = {
   key: string;
@@ -14,14 +15,17 @@ export type TopTab = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ComponentType<any>;
 };
-type Props = { tabs: TopTab[] };
+type Props = { tabs: TopTab[]; contentContainerStyle?: RNStyle };
 
 const Tab = createMaterialTopTabNavigator();
 
-const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
+const CustomTopTabsWithIcon: React.FC<Props> = ({
+  tabs,
+  contentContainerStyle,
+}) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themed = getThemedStyles(styles);
-  const isRTL = useTranslate();
+  const { isRTL } = useTranslate();
 
   const activeColor = getThemeColor('foregroundBrandPrimary');
   const inactiveColor = getThemeColor('foregroundQuaternary');
@@ -53,6 +57,7 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
         tabBarInactiveTintColor: inactiveColor,
         tabBarPressColor: getThemeColor('backgroundBrandPrimaryLight'),
         tabBarPressOpacity: 0.7,
+        sceneStyle: [themed.contentContainer, contentContainerStyle],
       }}>
       {tabs.map((tab) => (
         <Tab.Screen
@@ -77,7 +82,7 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
                   <Paragraph
                     testId={`tab-${tab.key}-label`}
                     size="lg"
-                    weight={focused ? 'Bold' : 'Medium'}
+                    weight={'Medium'}
                     style={{ color }}
                     text={
                       (typeof children === 'string' ? children : tab.label) ??

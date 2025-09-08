@@ -4,7 +4,7 @@ import { Pressable, View } from 'react-native';
 import { Avatar, Badge } from '@/components/molecules';
 import { Headline, LucideIcon, Spacer } from '@/components/atoms';
 import ProfileSettingItemProps from './interface';
-import { getDataFromStatus } from './utilities';
+import { getDataFromStatus, mapAvatarStatus } from './utilities';
 
 const TeamMemberItem = ({
   testId,
@@ -12,11 +12,14 @@ const TeamMemberItem = ({
   memberTitle,
   memberStatus,
   avatarImage,
+  avatarStatus,
   onPress,
 }: ProfileSettingItemProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const { badgeText, badgeColor, iconName, iconColor } = getDataFromStatus(memberStatus ?? 'remote');
+  const { badgeText, badgeColor, iconName, iconColor } = getDataFromStatus(
+    memberStatus ?? 'remote',
+  );
   return (
     <>
       <Pressable style={themedStyles.listItemContainer} onPress={onPress}>
@@ -26,19 +29,22 @@ const TeamMemberItem = ({
             size="lg"
             image={avatarImage}
             name={memberName}
+            status={mapAvatarStatus(avatarStatus)}
           />
           <View style={themedStyles.isColumn}>
             <Headline
               testId={`${testId}-text`}
               weight="Medium"
               size="xs"
-              text={memberName}
+              isTranslated={false}
+              text={memberName ?? ''}
             />
             <Headline
               testId={`${testId}-description`}
               weight="Medium"
               size="2xs"
-              text={memberTitle}
+              isTranslated={false}
+              text={memberTitle ?? ''}
             />
           </View>
         </View>
@@ -57,8 +63,9 @@ const TeamMemberItem = ({
           )}
           <LucideIcon
             testId={`${testId}-chevron`}
-            name="ChevronLeft"
+            name="ChevronRight"
             size={20}
+            isRTLMirrored
           />
         </View>
       </Pressable>

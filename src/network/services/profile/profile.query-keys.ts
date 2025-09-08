@@ -7,6 +7,7 @@ const PROFILE_QUERY_KEYS = {
   GET_ADDRESSES: 'GET_ADDRESSES',
   ADDRESS_START: 'ADDRESS_START',
   GET_QUALIFICATIONS: 'GET_QUALIFICATIONS',
+  GET_TEAM: 'GET_TEAM',
   // Add other profile-related query keys here
 } as const;
 

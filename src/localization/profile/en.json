@@ -2,6 +2,7 @@
   "account": "My Account",
   "digitalCard": "My Digital Card",
   "team": "My Team",
+  "teamLabel": "Team",
   "personalize": "Personalize Home Screen",
   "personal-details": "Personal Details",
   "job-details": "My Job Details",
@@ -51,6 +52,7 @@
     "personalInfo": "Personal information",
     "basicInfo": "Basic information",
     "name": "Name",
+    "position": "Position",
     "birthDate": "Date of Birth",
     "age": "Age",
     "gender": "Gender",
@@ -59,7 +61,8 @@
     "contactInfo": "Contact information",
     "mobile1": "Mobile Number",
     "extension": "Work Extension Number",
-    "address": "Address"
+    "address": "Address",
+    "contractAddress": "Address (as per contract)"
   },
   "settings": {
     "settings": "Settings",
@@ -123,6 +126,26 @@
     "noQualificationsSubtitle": "Adding qualifications helps improve your profile's visibility to others.",
     "completed": "Completed",
     "onGoing": "In Progress"
+  },
+  "business": {
+    "workContact": "Work contact details",
+    "email": "Email",
+    "workExtension": "Work extension",
+    "workLocation": "Work location",
+    "jobInfo": "Job information",
+    "employeeNumber": "Employee number",
+    "classificationGuide": "Classification guide",
+    "grade": "Grade",
+    "yearsOfService": "Years of service",
+    "effectiveDepartment": "Effective department",
+    "department": "Department"
+  },
+  "myteam": {
+    "ministryEmployees": "Ministry Employees",
+    "contractEmployees": "Contract Employees",
+    "presentToday": "Present today",
+    "absentToday": "Absent today",
+    "membersHeader": "Team Members ({{count}})"
   },
   "myJobDetails": {
     "id": "Employee Number",
