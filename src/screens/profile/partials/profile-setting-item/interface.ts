@@ -20,6 +20,7 @@ export type ProfileSettingItemDataType = {
     name: keyof typeof icons;
     containerStyle?: RNStyle;
   };
+  textProps?: Partial<Omit<HeadlineProps, 'testId' | 'text'>>;
   onPress: () => void;
   hasForwardIcon?: boolean;
   renderCustomTrailingIcon?: () => ReactNode;
