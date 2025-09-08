@@ -13,6 +13,10 @@ interface StyleWithThemeColors
     | 'color'
     | 'backgroundColor'
     | 'borderColor'
+    | 'borderTopColor'
+    | 'borderBottomColor'
+    | 'borderLeftColor'
+    | 'borderRightColor'
     | 'margin'
     | 'padding'
     | 'paddingLeft'
@@ -26,6 +30,10 @@ interface StyleWithThemeColors
   backgroundColor?: ThemeColorKey;
   borderColor?: ThemeColorKey;
   shadowColor?: ThemeColorKey;
+  borderTopColor?: ThemeColorKey;
+  borderBottomColor?: ThemeColorKey;
+  borderLeftColor?: ThemeColorKey;
+  borderRightColor?: ThemeColorKey;
 }
 
 interface responsiveHandlerInputTypeOptions {
