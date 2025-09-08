@@ -4,7 +4,7 @@ const styles = createThemedStyles({
   container: {
     base: {
       flex: 1,
-      backgroundColor: 'backgroundBody',
+      backgroundColor: 'backgroundWhite',
     },
   },
   isColumn: {

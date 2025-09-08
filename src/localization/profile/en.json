@@ -122,5 +122,17 @@
     "noQualificationsSubtitle": "Adding qualifications helps improve your profile's visibility to others.",
     "completed": "Completed",
     "onGoing": "In Progress"
+  },
+  "myJobDetails": {
+    "id": "Employee Number",
+    "classificationGuide": "Classification Guide",
+    "jobTitle": "Job Title",
+    "rank": "Rank",
+    "effectiveManagement": "Effective Management",
+    "management": "Management",
+    "emailAddress": "Email Address",
+    "address": "Workplace Address",
+    "workExtension": "Extension",
+    "location": "Work Location"
   }
 }

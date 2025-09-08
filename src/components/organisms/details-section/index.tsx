@@ -48,8 +48,8 @@ const DetailsSection = ({
         }}
         textProps={{
           text: title,
-          size: '2xs',
-          weight: 'Bold',
+          size: 'xs',
+          weight: 'Medium',
         }}
       />
       <Spacer space={'xl'} />
