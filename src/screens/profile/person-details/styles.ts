@@ -80,11 +80,6 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundWarningLight',
     },
   },
-  modalContentContainer: {
-    base: {
-      height: '90%',
-    },
-  },
 });
 
 export default styles;
