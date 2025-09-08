@@ -2,7 +2,7 @@ import { createThemedStyles } from '@/utilities';
 import { Dimensions } from 'react-native';
 
 // Styles consumed by MaterialTopTabNavigator screenOptions
-const IND_HEIGHT = 5;
+const IND_HEIGHT = 3;
 const IND_RADIUS = 2;
 const IND_MH = Dimensions.get('window').width * 0.44; // IND_MH
 // const IND_MH3 = -Dimensions.get('window').width * 0.2; // IND_MH
@@ -13,9 +13,16 @@ const styles = createThemedStyles({
       width: '100%',
     },
   },
+  contentContainer: {
+    base: {
+      alignSelf: 'stretch',
+      width: '100%',
+      backgroundColor: 'backgroundWhite',
+    },
+  },
   tabBar: {
     base: {
-      backgroundColor: 'tabBarBackground',
+      // backgroundColor: 'tabBarBackground',
       elevation: 0,
       shadowOpacity: 0,
       borderBottomWidth: 1,

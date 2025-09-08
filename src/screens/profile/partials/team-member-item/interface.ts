@@ -4,7 +4,7 @@ interface TeamMemberItemProps {
   memberTitle: string;
   memberStatus?: memberStatusType;
   avatarImage?: string;
-  avatarStatus?: 'active' | 'away' | 'offline';
+  avatarStatus?: 'Online' | 'Away' | 'Offline';
   onPress: () => void;
 }
 
@@ -14,9 +14,15 @@ export type TeamMemberItemDataType = {
   memberTitle: string;
   memberStatus?: memberStatusType;
   avatarImage?: string;
-  avatarStatus?: 'active' | 'away' | 'offline';
+  avatarStatus?: 'Online' | 'Away' | 'Offline';
   onPress: () => void;
 };
 
-export type memberStatusType = 'remote' | 'vacation' | 'business-trip' | 'academic-vacation';
+export type memberStatusType =
+  | 'remote'
+  | 'vacation'
+  | 'business-trip'
+  | 'academic-vacation'
+  | 'In Vacation'
+  | 'From home';
 export default TeamMemberItemProps;

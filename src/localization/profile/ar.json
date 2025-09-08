@@ -2,6 +2,7 @@
   "account": "ملفي الشخصي",
   "digitalCard": "بطاقتي الرقمية",
   "team": "فريقي",
+  "theTeam": "الفريق",
   "personalize": " تخصيص الصفحة الرئيسية",
   "personal-details": "البيانات الشخصية",
   "job-details": "البيانات الوظيفية",
@@ -50,6 +51,7 @@
     "personalInfo": "البيانات الشخصية",
     "basicInfo": "البيانات الأساسية",
     "name": "الاسم",
+    "position": "المسمى الوظيفي",
     "birthDate": "تاريخ الميلاد",
     "age": "العمر",
     "gender": "الجنس",
@@ -58,7 +60,8 @@
     "contactInfo": "بيانات التواصل",
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
-    "address": "العنوان"
+    "address": "العنوان",
+    "address2": "العنوان (المسجل في العقد)"
   },
   "settings": {
     "settings": "الإعدادات",
@@ -85,7 +88,7 @@
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
   },
   "members": {
-    "status" : {
+    "status": {
       "remote": "يعمل من المنزل",
       "vacation": "إجازة",
       "business-trip": "رحلة عمل",
@@ -122,5 +125,25 @@
     "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
     "completed": "مكتمل",
     "onGoing": "جاري الدراسة"
+  },
+  "business": {
+    "workContact": "بيانات التواصل في العمل",
+    "email": "البريد الإلكتروني",
+    "workExtension": "تحويلة العمل",
+    "workLocation": "مقر العمل",
+    "jobInfo": "البيانات الوظيفية",
+    "employeeNumber": "رقم الموظف",
+    "classificationGuide": "الدليل التصنيفي",
+    "grade": "المرتبة",
+    "yearsOfService": "عدد سنوات الخدمة",
+    "effectiveDepartment": "الإدارة الفعلية",
+    "department": "الإدارة"
+  },
+  "myteam": {
+    "ministryEmployees": "موظفي الوزارة",
+    "contractEmployees": "موظفين متعاقدين",
+    "presentToday": "حاضرون اليوم",
+    "absentToday": "متغيب اليوم",
+    "membersHeader": "أعضاء الفريق ({{count}})"
   }
 }

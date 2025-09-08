@@ -17,7 +17,6 @@ const TeamMembersSection = ({
 }: TeamMembersSectionProps) => {
   const { getThemedStyles } = useThemeStore();
   const themed = getThemedStyles(styles);
-
   return (
     <View
       testID={`${testId}-team-section`}
@@ -42,6 +41,8 @@ const TeamMembersSection = ({
         testId={`${testId}-members`}
         data={members}
         keyField="id"
+        nestedScrollEnabled
+        keyboardShouldPersistTaps="handled"
         listContainerStyle={[themed.list, listContainerStyle]}
         renderItem={({ item }) => (
           <TeamMemberItem

@@ -5,6 +5,14 @@ import { QualificationDetailsScreenParams } from '@/screens/profile/qualificatio
 export type ProfileStackParamList = {
   Profile: undefined;
   MyProfile: undefined;
+  MyTeam: undefined;
+  TeamMemberProfile: {
+    userId: string;
+    name: string;
+    position: string;
+    avatarImage?: string | null;
+    status?: 'Online' | 'Away' | 'Offline';
+  };
   PersonDetails: undefined;
   BusinessDetails: undefined;
   ProfileSettings: undefined;

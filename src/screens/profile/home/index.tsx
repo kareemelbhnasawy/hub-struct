@@ -20,7 +20,6 @@ const HomeScreen = () => {
         style={styles.profileButton.base}>
         <Text style={styles.profileButtonText.base}>Go to Profile</Text>
       </Pressable>
-      <TeamMemberItemDemo />
     </View>
   );
 };

@@ -31,7 +31,7 @@ const Page = ({
   safeAreaStyle,
   noPaddings,
   stickyBottomContainerStyle,
-  disableSafeAreaTop = false
+  disableSafeAreaTop = false,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -111,7 +111,12 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[!noPaddings && themedStyles.innerPageStyle, innerPageStyle]}>
+          style={[
+            noPaddings
+              ? themedStyles.innerPageDefault
+              : themedStyles.innerPageStyle,
+            innerPageStyle,
+          ]}>
           {children}
         </InnerPageWrapper>
         {/* Content */}

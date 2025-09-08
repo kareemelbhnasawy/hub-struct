@@ -36,6 +36,11 @@ const styles = createThemedStyles({
       flexGrow: 1,
     },
   },
+  innerPageDefault: {
+    base: {
+      flexGrow: 1,
+    },
+  },
   stickyBottom: {
     base: {
       paddingHorizontal: 20,
