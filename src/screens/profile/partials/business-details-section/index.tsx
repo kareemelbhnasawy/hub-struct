@@ -48,7 +48,7 @@ const BusinessDetailsSection = ({
               textProps={{
                 text: map.title ?? 'موقع العمل',
                 size: '2xs',
-                weight: 'Bold',
+                weight: 'Medium',
               }}
             />
           )}
