@@ -43,7 +43,7 @@ const TeamMemberProfileScreen = () => {
   const { data: teamData, isLoading: isLoadingTeam } = useGetTeam();
   const { data: personDetails } = useGetPersonDetails(userId);
   const basicInfoData = basicPersonInfoDataHandler(personDetails);
-  const contactInfoData = contactPersonInfoDataHandler(personDetails);
+  const contactInfoData = contactPersonInfoDataHandler(personDetails, true);
   const basicBusinessInfoData = basicInfoDataHandler(personDetails);
   const contactBusinessInfoData = contactInfoDataHandler(personDetails);
   const TeamTab = () => {

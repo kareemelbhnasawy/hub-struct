@@ -12,13 +12,13 @@ export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
         })
       : undefined;
 
-  const AR_DIGITS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'] as const;
+  const AR_DIGITS = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'] as const;
 
   const toArabicDigits = (hijriDate?: string) => {
-      if (!hijriDate) return hijriDate;
-      if (!I18nManager.isRTL) return hijriDate;
-      return hijriDate.replace(/\d/g, (d) => AR_DIGITS[parseInt(d, 10)]);
-  };  
+    if (!hijriDate) return hijriDate;
+    if (!I18nManager.isRTL) return hijriDate;
+    return hijriDate.replace(/\d/g, (d) => AR_DIGITS[parseInt(d, 10)]);
+  };
   return [
     {
       key: 'name',
@@ -56,7 +56,10 @@ export const basicInfoDataHandler = (data: PersonDetailsResponse) => {
   ];
 };
 
-export const contactInfoDataHandler = (data: PersonDetailsResponse) => {
+export const contactInfoDataHandler = (
+  data: PersonDetailsResponse,
+  contract = false,
+) => {
   return [
     {
       key: 'mobileNumber',
@@ -72,7 +75,9 @@ export const contactInfoDataHandler = (data: PersonDetailsResponse) => {
     },
     {
       key: 'address',
-      label: 'profile.personDetails.address',
+      label: contract
+        ? 'profile.personDetails.address2'
+        : 'profile.personDetails.address',
       value: data?.contactInfo?.address ?? 'profile.emptyDataMsg',
     },
   ];
