@@ -26,6 +26,8 @@ const MyProfile = () => {
         iconProps={item.iconProps}
         textProps={{
           text: item.title,
+          weight: 'Semibold',
+          size: '2xs'
         }}
         testId={screenTestId}
         onPress={item.onPress}
