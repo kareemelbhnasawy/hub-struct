@@ -176,7 +176,7 @@ const PersonDetails = () => {
         labelProps={{
           text: 'profileDetails.mobileNumber',
         }}
-        placeholder="05XXXXXXXXX"
+        placeholder="05XXXXXXXX"
         errorProps={error}
         isBottomSheet={true}
         testId="demo-base-sheet-input"
