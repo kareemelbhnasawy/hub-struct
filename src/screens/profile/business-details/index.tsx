@@ -66,7 +66,7 @@ const BusinessDetails = () => {
         sections={[
           {
             key: 'basic-info',
-            title: 'البيانات الوظيفية',
+            title: 'profile.job-details',
             icon: 'BriefcaseBusiness',
             iconContainerStyle: themedStyle.iconDescriptiveYellow,
             data: basicInfoData,
@@ -74,7 +74,7 @@ const BusinessDetails = () => {
           },
           {
             key: 'contact-info',
-            title: 'بيانات التواصل',
+            title: 'profile.personDetails.contactInfo',
             icon: 'Phone',
             iconContainerStyle: themedStyle.iconDescriptiveGreen,
             data: contactInfoData,
@@ -84,7 +84,7 @@ const BusinessDetails = () => {
         map={
           latitude &&
           longitude && {
-            title: 'موقع العمل',
+            title: 'profile.myJobDetails.location',
             icon: 'MapPin',
             iconContainerStyle: themedStyle.iconDescriptiveGreen,
             latitude,

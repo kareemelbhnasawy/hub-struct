@@ -122,5 +122,17 @@
     "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
     "completed": "مكتمل",
     "onGoing": "جاري الدراسة"
+  },
+  "myJobDetails": {
+    "id": "رقم الموظف",
+    "classificationGuide": "الدليل التصنيفي",
+    "jobTitle": "المنصب",
+    "rank": "المرتبة",
+    "effectiveManagement": "الإدارة الفعلية",
+    "management": "الإدارة",
+    "emailAddress": "البريد الالكتروني",
+    "address": "مقر العمل",
+    "workExtension": "التحويلة",
+    "location": "موقع العمل"
   }
 }
