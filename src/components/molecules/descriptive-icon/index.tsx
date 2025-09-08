@@ -47,9 +47,9 @@ const DescriptiveIcon = ({
       <View style={themedStyles.textWrapper}>
         <Headline
           testId={`${testId}-descriptive-icon`}
+          size="sm"
+          weight="Medium"
           {...textProps}
-          size={textProps?.size ?? 'sm'}
-          weight={textProps?.weight ?? 'Medium'}
           style={themedStyles.iconText}
         />
       </View>
