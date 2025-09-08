@@ -324,6 +324,9 @@ const ProfileSettings = () => {
           textProps: { text: 'profile.settings.signOut' },
           onPress: () => logout({ email }),
           containerStyle: themedStyles.round,
+          variant: 'secondary',
+          danger: true,
+          isBordered: false,
         }}
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
@@ -377,6 +380,7 @@ const ProfileSettings = () => {
           name: 'LogOut',
           containerStyle: themedStyles.iconDescriptiveTransparent,
           isRTLMirrored: true,
+          isFlipped: true,
         }}
         textProps={{
           text: 'profile.settings.signOut',

@@ -57,6 +57,7 @@ const GlassModal = ({
             <>
               <BaseButton
                 testId={`${testId}-glass-modal-primary`}
+                isRounded
                 {...buttonProps}
               />
               <Spacer />
@@ -66,6 +67,7 @@ const GlassModal = ({
             <BaseButton
               testId={`${testId}-glass-modal-secondary`}
               variant="secondary"
+              isRounded
               {...secondaryButtonProps}
             />
           )}
