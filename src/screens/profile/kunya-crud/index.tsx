@@ -133,6 +133,7 @@ const KunyaCrudScreen = () => {
               testId={screenTestId}
               value={kunyaValue}
               onChangeValue={setKunyaValue}
+              isRequired
               labelProps={{
                 text: 'profile.kunya.kunyaPrompt',
                 size: '2xs',
@@ -203,6 +204,9 @@ const KunyaCrudScreen = () => {
             text: 'profile.deactivate',
           },
           onPress: handleDeleteKunya,
+          variant: 'secondary',
+          danger: true,
+          isBordered: false,
         }}
         secondaryButtonProps={{
           textProps: {
@@ -210,7 +214,6 @@ const KunyaCrudScreen = () => {
           },
           onPress: () => onModalBackClick(),
         }}
-        title={''}
       />
     </Page>
   );
