@@ -32,6 +32,8 @@ const Page = ({
   noPaddings,
   stickyBottomContainerStyle,
   disableSafeAreaTop = false,
+  includeRenderStickyBottomStyles = true,
+  isWhiteOverlay,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -111,12 +113,7 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[
-            noPaddings
-              ? themedStyles.innerPageDefault
-              : themedStyles.innerPageStyle,
-            innerPageStyle,
-          ]}>
+          style={[!noPaddings && themedStyles.innerPageStyle, innerPageStyle]}>
           {children}
         </InnerPageWrapper>
         {/* Content */}
@@ -129,7 +126,10 @@ const Page = ({
         <Portal name={`${prefixTestId}-loader-portal`}>
           <View
             testID={`${prefixTestId}-loader-wrapper`}
-            style={themedStyles.loading}>
+            style={[
+              themedStyles.loading,
+              isWhiteOverlay && themedStyles.whiteOverlay,
+            ]}>
             <ActivityIndicator
               testID={`${prefixTestId}-loader`}
               color={getThemeColor('iconPrimary')}
@@ -139,7 +139,11 @@ const Page = ({
       )}
 
       {renderStickyBottom ? (
-        <View style={[themedStyles.stickyBottom, stickyBottomContainerStyle]}>
+        <View
+          style={[
+            includeRenderStickyBottomStyles && themedStyles.stickyBottom,
+            stickyBottomContainerStyle,
+          ]}>
           {renderStickyBottom()}
         </View>
       ) : null}

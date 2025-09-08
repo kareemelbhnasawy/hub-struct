@@ -14,6 +14,7 @@ import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 import GlassContainerProps from './interface';
 import { Radius } from '@/style';
+import { isAndroid } from '@/utilities/is-os';
 
 export const GlassContainer = ({
   testId,
@@ -49,7 +50,7 @@ export const GlassContainer = ({
         testID={`${testId}-glass-container-blur`}
         style={themedStyles.absoluteFill}
         blurType="light"
-        blurAmount={1}
+        blurAmount={isAndroid() ? 10 : 2}
       />
       <MaskedView
         testID={`${testId}-glass-container-mask`}

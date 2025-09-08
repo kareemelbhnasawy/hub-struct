@@ -30,14 +30,14 @@ const styles = createThemedStyles({
       alignItems: 'center',
     },
   },
+  whiteOverlay: {
+    base: {
+      opacity: 1,
+    },
+  },
   innerPageStyle: {
     base: {
       paddingHorizontal: 20,
-      flexGrow: 1,
-    },
-  },
-  innerPageDefault: {
-    base: {
       flexGrow: 1,
     },
   },
@@ -55,3 +55,4 @@ const styles = createThemedStyles({
 });
 
 export default styles;
+ 
