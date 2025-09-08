@@ -30,18 +30,66 @@ const styles = createThemedStyles({
     },
   },
   // Color schemes
-  successBg: { base: { backgroundColor: 'backgroundBrandGreenLight' } },
-  successFg: { base: { color: 'foregroundSuccess' } },
-  errorBg: { base: { backgroundColor: 'backgroundErrorLight' } },
-  errorFg: { base: { color: 'foregroundError' } },
-  brandBg: { base: { backgroundColor: 'backgroundBrandPrimaryLight' } },
-  brandFg: { base: { color: 'foregroundBrandPrimary' } },
-  warningBg: { base: { backgroundColor: 'backgroundWarningLight' } },
-  warningFg: { base: { color: 'foregroundWarning' } },
-  infoBg: { base: { backgroundColor: 'backgroundInfoLight' } },
-  infoFg: { base: { color: 'foregroundInfo' } },
-  grayBg: { base: { backgroundColor: 'foregroundGrayLight' } },
-  grayFg: { base: { color: 'foregroundQuinary' } },
+  successBg: {
+    base: {
+      backgroundColor: 'backgroundBrandGreenLight',
+    },
+  },
+  successFg: {
+    base: {
+      color: 'foregroundSuccess',
+    },
+  },
+  errorBg: {
+    base: {
+      backgroundColor: 'backgroundErrorLight',
+    },
+  },
+  errorFg: {
+    base: {
+      color: 'foregroundError',
+    },
+  },
+  brandBg: {
+    base: {
+      backgroundColor: 'backgroundBrandPrimaryLight',
+    },
+  },
+  brandFg: {
+    base: {
+      color: 'foregroundBrandPrimary',
+    },
+  },
+  warningBg: {
+    base: {
+      backgroundColor: 'backgroundWarningLight',
+    },
+  },
+  warningFg: {
+    base: {
+      color: 'foregroundWarning',
+    },
+  },
+  infoBg: {
+    base: {
+      backgroundColor: 'backgroundInfoLight',
+    },
+  },
+  infoFg: {
+    base: {
+      color: 'foregroundInfo',
+    },
+  },
+  grayBg: {
+    base: {
+      backgroundColor: 'foregroundGrayLight',
+    },
+  },
+  grayFg: {
+    base: {
+      color: 'foregroundQuinary',
+    },
+  },
 });
 
 export default styles;

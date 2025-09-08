@@ -2,7 +2,7 @@
   "account": "ملفي الشخصي",
   "digitalCard": "بطاقتي الرقمية",
   "team": "فريقي",
-  "theTeam": "الفريق",
+  "teamLabel": "الفريق",
   "personalize": " تخصيص الصفحة الرئيسية",
   "personal-details": "البيانات الشخصية",
   "job-details": "البيانات الوظيفية",
@@ -61,7 +61,7 @@
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
     "address": "العنوان",
-    "address2": "العنوان (المسجل في العقد)"
+    "contractAddress": "العنوان (المسجل في العقد)"
   },
   "settings": {
     "settings": "الإعدادات",

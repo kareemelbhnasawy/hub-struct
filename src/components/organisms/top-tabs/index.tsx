@@ -6,6 +6,7 @@ import { icons } from 'lucide-react-native';
 import styles from './styles';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import { useTranslate } from '@/hooks';
+import { RNStyle } from '@/types/themes';
 
 export type TopTab = {
   key: string;
@@ -14,7 +15,7 @@ export type TopTab = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ComponentType<any>;
 };
-type Props = { tabs: TopTab[]; contentContainerStyle?: object };
+type Props = { tabs: TopTab[]; contentContainerStyle?: RNStyle };
 
 const Tab = createMaterialTopTabNavigator();
 

@@ -2,7 +2,7 @@
   "account": "My Account",
   "digitalCard": "My Digital Card",
   "team": "My Team",
-  "theTeam": "Team",
+  "teamLabel": "Team",
   "personalize": "Personalize Home Screen",
   "personal-details": "Personal Details",
   "job-details": "My Job Details",
@@ -61,7 +61,7 @@
     "mobile1": "Mobile Number",
     "extension": "Work Extension Number",
     "address": "Address",
-    "address2": "Address (as per contract)"
+    "contractAddress": "Address (as per contract)"
   },
   "settings": {
     "settings": "Settings",

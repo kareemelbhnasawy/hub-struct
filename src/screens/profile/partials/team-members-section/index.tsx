@@ -23,20 +23,22 @@ const TeamMembersSection = ({
       style={[themed.container, containerStyle]}>
       {!!stats?.length && (
         <View style={themed.statsRow}>
-          {stats.map((s) => (
+          {stats.map((state) => (
             <StatCard
-              key={s.id}
-              testId={`${testId}-stat-${s.id}`}
-              titleProps={s.titleProps}
-              value={s.value}
-              iconName={s.iconName}
-              intent={s.intent}
+              key={state.id}
+              testId={`${testId}-stat-${state.id}`}
+              titleProps={state.titleProps}
+              value={state.value}
+              iconName={state.iconName}
+              intent={state.intent}
               containerStyle={themed.stat}
             />
           ))}
         </View>
       )}
-      {headerProps && <Headline size="xs" weight="Bold" {...headerProps} />}
+      {headerProps && (
+        <Headline testId={''} size="xs" weight="Bold" {...headerProps} />
+      )}
       <List
         testId={`${testId}-members`}
         data={members}

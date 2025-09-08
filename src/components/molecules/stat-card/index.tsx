@@ -21,6 +21,7 @@ const StatCard = ({
   iconName,
   intent = 'brand',
   containerStyle,
+  valueProps,
 }: StatCardProps) => {
   const { getThemedStyles } = useThemeStore();
   const themed = getThemedStyles(styles);
@@ -52,6 +53,7 @@ const StatCard = ({
             size="lg"
             weight="Medium"
             text={String(value)}
+            {...valueProps}
           />
         </View>
       </View>
