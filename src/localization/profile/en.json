@@ -37,6 +37,7 @@
   "myProfile": "My Profile",
   "nickname": "Nickname",
   "emptyDataMsg": "No data available",
+  "notRegisteredSabil": "The address registered in the contract is not available in Sabil's data.",
   "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",

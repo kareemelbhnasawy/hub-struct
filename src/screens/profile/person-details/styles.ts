@@ -1,3 +1,4 @@
+import { Radius } from '@/style';
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
@@ -63,6 +64,20 @@ const styles = createThemedStyles({
   iconDescriptiveGreen: {
     base: {
       backgroundColor: 'iconDescriptiveGreen',
+    },
+  },
+  iconDescriptiveOrange: {
+    base: {
+      backgroundColor: 'backgroundBrandOrangeLight',
+    },
+  },
+  warningContainer: {
+    base: {
+      flexDirection: 'row',
+      paddingHorizontal: 8,
+      paddingVertical: 8,
+      borderRadius: Radius.SM,
+      backgroundColor: 'backgroundWarningLight',
     },
   },
 });
