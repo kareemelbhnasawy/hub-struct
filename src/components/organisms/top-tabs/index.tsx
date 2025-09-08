@@ -3,7 +3,7 @@ import { View, Dimensions, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { useThemeStore } from '@/store/theme';
 import { icons } from 'lucide-react-native';
-import { styles } from './styles';
+import styles from './styles';
 import { LucideIcon, Paragraph } from '@/components/atoms';
 import { useTranslate } from '@/hooks';
 
@@ -11,6 +11,7 @@ export type TopTab = {
   key: string;
   label: string;
   iconName: keyof typeof icons;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ComponentType<any>;
 };
 type Props = { tabs: TopTab[] };
@@ -30,9 +31,6 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
 
   // read LTR indicator shape so RTL matches exactly
   const ind = StyleSheet.flatten(themed.indicator) || {};
-  const IND_HEIGHT = 5;
-  const IND_RADIUS = 2;
-  const IND_MH = -40;
   const IND_BG = ind.backgroundColor ?? getThemeColor('foregroundBrandPrimary');
 
   return (
@@ -64,13 +62,7 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
           options={{
             tabBarShowLabel: true,
             tabBarLabel: ({ color, focused, children }) => (
-              // 👇 full-width container so underline spans the whole tab
-              <View
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  alignItems: 'center',
-                }}>
+              <View style={themed.tabLabelContainer}>
                 <View style={themed.labelRow}>
                   <LucideIcon
                     testId={`tab-${tab.key}-icon`}
@@ -97,15 +89,12 @@ const CustomTopTabsWithIcon: React.FC<Props> = ({ tabs }) => {
                 {/* 👇 absolute, full-tab underline (no animation), RTL only */}
                 {isRTL && focused ? (
                   <View
-                    style={{
-                      position: 'absolute',
-                      left: IND_MH,
-                      right: IND_MH,
-                      bottom: -13,
-                      height: IND_HEIGHT,
-                      borderRadius: IND_RADIUS,
-                      backgroundColor: IND_BG,
-                    }}
+                    style={[
+                      tabs.length < 3
+                        ? themed.rtlIndicator
+                        : themed.rtlIndicator3,
+                      { backgroundColor: IND_BG },
+                    ]}
                   />
                 ) : null}
               </View>
