@@ -1,18 +1,6 @@
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
-  headerContainer: {
-    base: {
-      paddingHorizontal: 16,
-      flexDirection: 'row',
-    },
-  },
-  justifyContent: {
-    base: {
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  },
   info: {
     base: {
       flexDirection: 'row',
@@ -20,8 +8,6 @@ const styles = createThemedStyles({
       paddingVertical: 12,
     },
   },
-
-
 });
 
 export default styles;

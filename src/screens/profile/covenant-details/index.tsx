@@ -5,32 +5,20 @@ import { useThemeStore } from '@/store/theme';
 import { List } from '@/components/molecules';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { Headline, Paragraph, Spacer } from '@/components/atoms';
+import { useRoute } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ProfileStackParamList } from '@/navigation/stacks/profile/types';
+import { covenantDetailsDataHandler, DetailRow } from './constants';
 
-type DetailRow = { id: string; label: string; value: string };
+type RouteProps = NativeStackScreenProps<ProfileStackParamList, 'CovenantDetails'>['route'];
 
 const CovenantDetails = () => {
     const screenTestId = 'covenant-details-screen';
     const { getThemedStyles } = useThemeStore();
     const themedStyle = getThemedStyles(styles);
-
-    // Mocked data
-    const rows: DetailRow[] = [
-        {
-            id: 'number',
-            label: 'profile.convenants.number',
-            value: 'test'
-        },
-        {
-            id: 'type',
-            label: 'profile.convenants.type',
-            value: 'test'
-        },
-        {
-            id: 'registeredAt',
-            label: 'profile.convenants.registeredAt',
-            value: 'test'
-        },
-    ];
+    const { params } = useRoute<RouteProps>();
+    const { covenant } = params;
+    const rows: DetailRow[] = covenantDetailsDataHandler(covenant);
 
     const renderItem = ({ item }: { item: DetailRow }) => (
 
@@ -39,13 +27,13 @@ const CovenantDetails = () => {
                 text={item.label}
                 size="xl"
                 weight="Medium"
-                testId={`basic-${item.key}-label`}
+                testId={`basic-${item.id}-label`}
             />
             <Headline
                 text={item.value}
                 weight="Medium"
                 size="2xs"
-                testId={`basic-${item.key}-value`}
+                testId={`basic-${item.id}-value`}
             />
         </View>
     );
@@ -57,7 +45,7 @@ const CovenantDetails = () => {
             isLoading={false}
             pageHeaderVariant={PageHeaderVariants.BackWithTitle}
             pageHeaderProps={{
-                titleProps: { text: 'profile.convenants.title' },
+                titleProps: { text: covenant.covenantName ?? 'profile.covenants.title' },
                 isTitleCentered: true,
             }}
         >
