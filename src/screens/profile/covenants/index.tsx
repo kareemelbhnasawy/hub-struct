@@ -3,6 +3,7 @@ import { I18nManager, View, Pressable } from 'react-native';
 import styles from './styles';
 import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
+import { useNavigation } from '@/hooks';
 import { List, TextInput } from '@/components/molecules';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
@@ -12,6 +13,7 @@ const Convenant = () => {
     const screenTestId = 'convenants-screen';
     const { getThemedStyles } = useThemeStore();
     const themedStyles = getThemedStyles(styles);
+    const { navigate } = useNavigation();
     const [search, setSearch] = useState('');
 
     const data: CovenantItem[] = [
@@ -26,7 +28,11 @@ const Convenant = () => {
     ];
 
     // Navigation to details screen
-    // const handleNavigation = (id: string) => { };
+    const handleNavigation = (id: string | undefined) => {
+        if (id) {
+            navigate('ConvenantDetails', { convenantId: id });
+        }
+    };
 
     // Filtering the data based on search input
     const filtered = useMemo(() => {
@@ -43,7 +49,7 @@ const Convenant = () => {
         <Pressable
             style={themedStyles.info}
             testID={`${screenTestId}-row-${item.id}`}
-        // onPress={() => handleNavigation(item.id)}
+            onPress={() => handleNavigation(item.id)}
         >
             <View>
                 <Headline size="xs" weight="Medium" text={item.title ?? ''} testId={`${screenTestId}-row-${item.id}-title`} />

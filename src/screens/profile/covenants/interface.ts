@@ -1,4 +1,6 @@
-
+export type ConvenantDetailsScreenParams = {
+  convenantId?: string;
+};
 
 export type CovenantItem = {
     code?: string;
