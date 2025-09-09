@@ -1,9 +1,10 @@
-export type ConvenantDetailsScreenParams = {
-  convenantId?: string;
+export type Covenant = {
+  covenantId: string | number;
+  covenantName: string;
+  covenantType?: string | null;
+  registrationDate?: string | null;
 };
 
-export type CovenantItem = {
-    code?: string;
-    id?: string;
-    title?: string;
+export type CovenantDetailsParams = {
+  covenant: Covenant;
 };
