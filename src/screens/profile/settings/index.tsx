@@ -111,6 +111,8 @@ const ProfileSettings = () => {
               });
             })
             .catch(() => setBioLoading(false));
+        } else {
+          setBioLoading(false);
         }
       })
       .catch(() => setBioLoading(false));
