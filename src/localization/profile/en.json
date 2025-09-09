@@ -77,7 +77,7 @@
     "activateFACE_ID": "Activate Face ID",
     "activateTOUCH_ID": "Activate Touch ID",
     "activatePIN_CODE": "Activate PIN Code",
-    "signOut": "Log Out",
+    "signOut": "Log out",
     "signOutDesc": "Are you sure you want to log out?",
     "changeSignIn": "Change log in method ?",
     "changePIN_CODE_FACE_ID": "PIN code will be deactivated and Face ID will be activated. Are you sure?",
@@ -158,5 +158,12 @@
     "address": "Workplace Address",
     "workExtension": "Extension",
     "location": "Work Location"
+  },
+  "convenants": {
+    "title": "Covenants",
+    "searchPlaceholder": "Search by name or covenant number",
+    "listTitle": "Covenants List",
+    "emptyTitle": "No covenants recorded",
+    "emptySubtitle": "When you receive any covenant, it will appear here."
   }
 }

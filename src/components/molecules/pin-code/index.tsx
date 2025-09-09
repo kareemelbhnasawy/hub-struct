@@ -11,8 +11,6 @@ import { styles } from './styles';
 import { Paragraph, Spacer } from '@/components/atoms';
 import headlineStyles from '@/components/atoms/typography/headline/styles';
 import { useTranslate } from '@/hooks';
-// import { getString } from '@/utilities';
-// import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 const PinCode = ({
   testId,

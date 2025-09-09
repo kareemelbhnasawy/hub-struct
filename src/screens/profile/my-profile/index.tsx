@@ -125,7 +125,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => log('custodies pressed'),
+      onPress: () => navigate('Convenant'),
     },
   ];
   return (

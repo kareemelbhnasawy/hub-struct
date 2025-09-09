@@ -54,6 +54,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   EditBackground: ['App', 'ProfileStack'],
   BusinessDetails: ['App', 'ProfileStack'],
   Qualifications: ['App', 'ProfileStack'],
+  Convenant: ['App', 'ProfileStack'],
   QualificationDetails: ['App', 'ProfileStack'],
   MyTeam: ['App', 'ProfileStack'],
   TeamMemberProfile: ['App', 'ProfileStack'],
