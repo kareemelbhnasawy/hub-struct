@@ -12,7 +12,7 @@ const onResponseReject = async (error: any): Promise<any> => {
     ToastService.error({
       props: {
         messageProps: {
-          text: error?.response?.data?.message || 'Something went wrong',
+          text: error?.response?.data?.message || 'common.errorMsg',
         },
         testId: 'api-error',
       },

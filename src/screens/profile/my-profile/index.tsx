@@ -116,7 +116,7 @@ const MyProfile = () => {
     },
     {
       id: '7',
-      title: 'profile.custodies',
+      title: 'profile.covenants.title',
       iconProps: {
         name: 'Vault',
         containerStyle: themedStyles.iconDescriptiveOrange,
@@ -125,7 +125,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('Convenant'),
+      onPress: () => navigate('Covenant'),
     },
   ];
   return (

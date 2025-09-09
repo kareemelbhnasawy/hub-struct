@@ -159,11 +159,14 @@
     "workExtension": "Extension",
     "location": "Work Location"
   },
-  "convenants": {
+  "covenants": {
     "title": "Covenants",
     "searchPlaceholder": "Search by name or covenant number",
     "listTitle": "Covenants List",
     "emptyTitle": "No covenants recorded",
-    "emptySubtitle": "When you receive any covenant, it will appear here."
+    "emptySubtitle": "When you receive any covenant, it will appear here.",
+    "number": "Covenant Number",
+    "type": "Covenant Type",
+    "registeredAt": "Registration Date"
   }
 }
