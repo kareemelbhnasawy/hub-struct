@@ -77,7 +77,7 @@
     "activateFACE_ID": "Enable Face ID",
     "activateTOUCH_ID": "Enable Touch ID",
     "activatePIN_CODE": "Enable PIN Code",
-    "signOut": "Log Out",
+    "signOut": "Log out",
     "signOutDesc": "Are you sure you want to log out?",
     "changeSignIn": "Change sign-in method?",
     "changePIN_CODE_FACE_ID": "PIN code will be disabled and Face ID will be enabled. Are you sure?",
