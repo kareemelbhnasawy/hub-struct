@@ -193,7 +193,7 @@ const ProfileSettings = () => {
       },
       renderCustomTrailingIcon: () => (
         <View style={themedStyles.kunyaContainer}>
-          <Paragraph testId="" text={kunya} size="xl" />
+          <Paragraph testId="" text={kunya} size="xl" isTranslated={false} />
           <LucideIcon name="ChevronRight" isRTLMirrored testId="" />
         </View>
       ),
