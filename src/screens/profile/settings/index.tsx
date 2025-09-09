@@ -6,7 +6,7 @@ import { deleteKey } from '@/utilities';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import { BrandToggle, GlassModal, List } from '@/components/molecules';
 import { useNavigation, useTranslate } from '@/hooks';
-import { Headline, Spacer } from '@/components/atoms';
+import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
 import { useEffect, useMemo, useState } from 'react';
 import useLogout from '@/network/services/auth/logout/logout.hook';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
@@ -22,19 +22,20 @@ import useSetBio from '@/network/services/auth/set-bio/set-bio.hook';
 import useRemoveBio from '@/network/services/auth/remove-bio/remove-bio.hook';
 import useRemovePin from '@/network/services/auth/remove-pin/remove-pin.hook';
 import { View } from 'react-native';
+import { useProfileStore } from '@/store/profile';
 
 const ProfileSettings = () => {
   const screenTestId = 'profile-settings-screen';
   const navigation = useNavigation();
   const { toggleLanguage } = useTranslate();
   const { getThemedStyles } = useThemeStore();
+  const { kunya } = useProfileStore();
   const themedStyles = getThemedStyles(styles);
   const [langModalVisible, setLangModalVisible] = useState(false);
   const [logoutModalVisible, setLogoutModalVisible] = useState(false);
   const [changeQuickLoginVisible, setChangeQuickLoginVisible] = useState(false);
   const [bioLoading, setBioLoading] = useState(false);
-  const { quickLoginType, setQuickLoginType, setUsername, email } =
-    useAuthStore();
+  const { quickLoginType, setQuickLoginType, email } = useAuthStore();
   const [biometricType, setBiometricType] = useState<
     'TOUCH_ID' | 'FACE_ID' | null
   >(null);
@@ -61,7 +62,6 @@ const ProfileSettings = () => {
   const onSetBioSuccess = () => {
     setBioLoading(false);
     setQuickLoginType(biometricType || '');
-    setUsername('Daniel');
   };
 
   const deleteBioKey = () => {
@@ -185,6 +185,13 @@ const ProfileSettings = () => {
         name: 'AlignVerticalJustifyStart',
         containerStyle: themedStyles.iconDescriptiveTeal,
       },
+      renderCustomTrailingIcon: () => (
+        <View style={themedStyles.kunyaContainer}>
+          <Paragraph testId="" text={kunya} size="xl" />
+          <LucideIcon name="ChevronRight" isRTLMirrored testId="" />
+        </View>
+      ),
+      hasForwardIcon: !kunya,
       onPress: () => navigation.navigate('KunyaCrud'),
     },
     {
@@ -307,7 +314,7 @@ const ProfileSettings = () => {
             onPress={() => setLogoutModalVisible(true)}
             hasForwardIcon={false}
           />
-          <Spacer space="xl" />
+          <Spacer space="5xl" />
         </>
       )}>
       <GlassModal
