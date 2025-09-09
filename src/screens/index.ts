@@ -14,3 +14,4 @@ export { default as ProfileSettingsScreen } from './profile/settings/index';
 export { default as PersonDetails } from './profile/person-details';
 export { default as BusinessDetails } from './profile/business-details';
 export { default as QualificationDetailsScreen } from './profile/qualification-details';
+export { default as ConvenantScreen } from './profile/covenants';
