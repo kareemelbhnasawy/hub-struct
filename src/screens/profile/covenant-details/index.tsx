@@ -34,6 +34,7 @@ const CovenantDetails = () => {
                 weight="Medium"
                 size="2xs"
                 testId={`basic-${item.id}-value`}
+                isTranslated={false}
             />
         </View>
     );

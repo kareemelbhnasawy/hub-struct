@@ -8,7 +8,7 @@ export const covenantDetailsDataHandler = (covenant?: Covenant): DetailRow[] => 
       id: 'number',
       label: 'profile.covenants.number',
       value:
-        covenant?.covenantId !== undefined && covenant?.covenantId !== null
+        covenant?.covenantId && covenant?.covenantId !== null
           ? String(covenant.covenantId)
           : 'profile.emptyDataMsg',
     },

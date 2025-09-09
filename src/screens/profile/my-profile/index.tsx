@@ -116,7 +116,7 @@ const MyProfile = () => {
     },
     {
       id: '7',
-      title: 'profile.custodies',
+      title: 'profile.covenants.title',
       iconProps: {
         name: 'Vault',
         containerStyle: themedStyles.iconDescriptiveOrange,
