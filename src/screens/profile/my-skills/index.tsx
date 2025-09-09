@@ -64,11 +64,11 @@ const MySkillsScreen = () => {
           testId={screenTestId}
           modalVisible={sheetVisibility}
           setModalVisible={setSheetVisibility}
-          titleProps={{ text: 'Add Skills' }}
+          titleProps={{ text: 'profile.skills.mySkills' }}
           headerVariant="centerWithClose"
           hasCloseButton
           snapPoints={SnapPoints.FULL}>
-          <SearchInput testId={screenTestId} placeholder="search to add" />
+          <SearchInput testId={screenTestId} placeholder="profile.skills.searchToAdd" />
           <Spacer />
           <List<SkillItemDataType>
             testId={screenTestId}
@@ -84,12 +84,12 @@ const MySkillsScreen = () => {
                 strokeWidth: 1,
               },
               headlineProps: {
-                text: 'profile.skills.noQualificationsTitle',
+                text: 'profile.skills.noSkillsYet',
                 size: 'xs',
                 weight: 'Semibold',
               },
               paragraphProps: {
-                text: 'profile.qualifications.noQualificationsSubtitle',
+                text: 'profile.skills.addSkillsPrompt',
                 size: 'xl',
                 weight: 'Regular',
               },

@@ -8,7 +8,6 @@
   "job-details": "البيانات الوظيفية",
   "career-history": "تاريخي الوظيفي داخل الوزارة",
   "holidays-record": "أرصدة الإجازات",
-  "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
   "contractAddress": "العنوان المسجل في العقد",
@@ -158,5 +157,11 @@
     "address": "مقر العمل",
     "workExtension": "التحويلة",
     "location": "موقع العمل"
+  },
+  "skills": {
+    "mySkills": "مهاراتي",
+    "searchToAdd": "ابحث لإضافة مهارة",
+    "noSkillsYet": "لم تقم باضافة اي مهارة بعد",
+    "addSkillsPrompt": "أضف مهاراتك التي ستظهر في ملفك الشخصي وتُبرز خبراتك أمام إدارتك.",
   }
 }
