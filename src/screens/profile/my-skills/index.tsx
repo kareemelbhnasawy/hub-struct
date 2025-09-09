@@ -76,6 +76,24 @@ const MySkillsScreen = () => {
             renderItem={renderListItem}
             keyField="title"
             scrollEnabled={false}
+            emptyComponentProps={{
+              iconProps: {
+                name: 'BrainCircuit',
+                color: 'foregroundQuinary',
+                size: 100,
+                strokeWidth: 1,
+              },
+              headlineProps: {
+                text: 'profile.skills.noQualificationsTitle',
+                size: 'xs',
+                weight: 'Semibold',
+              },
+              paragraphProps: {
+                text: 'profile.qualifications.noQualificationsSubtitle',
+                size: 'xl',
+                weight: 'Regular',
+              },
+            }}
           />
         </BaseSheet>
       </View>
