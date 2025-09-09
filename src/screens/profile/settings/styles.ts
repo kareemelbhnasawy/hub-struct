@@ -58,6 +58,13 @@ const styles = createThemedStyles({
       paddingHorizontal: 20,
     },
   },
+  kunyaContainer: {
+    base: {
+      flexDirection: 'row',
+      gap: 8,
+      alignItems: 'center',
+    },
+  },
 });
 
 export default styles;
