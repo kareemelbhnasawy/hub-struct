@@ -8,6 +8,11 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundWhite',
     },
   },
+  searchItemContainer: {
+    base: {
+      paddingVertical: 10
+    },
+  },
 });
 
 export default styles;
