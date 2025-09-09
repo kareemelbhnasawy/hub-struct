@@ -1,5 +1,5 @@
-import { I18nManager } from 'react-native';
 import ReactNativeBiometrics from 'react-native-biometrics';
+import getLangValue from './get-lang-value';
 
 const rnBiometrics = new ReactNativeBiometrics();
 export const getBioType = () => {
@@ -7,7 +7,10 @@ export const getBioType = () => {
 };
 
 export const bioPrompt = () => {
-  return rnBiometrics.simplePrompt({ promptMessage: 'Confirm Biometrics' });
+  return rnBiometrics.simplePrompt({
+    promptMessage: getLangValue('تأكيد البيانات الحيوية', 'Confirm Biometrics'),
+    cancelButtonText: getLangValue('إلغاء', 'Cancel'),
+  });
 };
 
 export const generateBioKeys = () => {
@@ -20,8 +23,8 @@ export const deleteBioKeys = () => {
 
 export const createBioSignature = (challenge: string) => {
   return rnBiometrics.createSignature({
-    promptMessage: I18nManager.isRTL ? 'تطبيق الوزارة' : 'Ministry application',
+    promptMessage: getLangValue('تطبيق الوزارة', 'Ministry application'),
     payload: challenge,
-    cancelButtonText: I18nManager.isRTL ? 'إلغاء' : 'Cancel',
+    cancelButtonText: getLangValue('إلغاء', 'Cancel'),
   });
 };

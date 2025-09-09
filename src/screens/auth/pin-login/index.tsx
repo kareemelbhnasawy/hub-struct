@@ -11,13 +11,15 @@ import { useAuthStore } from '@/store/auth';
 import { STORAGE_KEYS } from '@/constants/storageKeys';
 import { setString } from '@/utilities';
 import { useState } from 'react';
+import { useProfileStore } from '@/store/profile';
 
 const PinLoginScreen = () => {
   const navigation = useNavigation();
   const screenTestId = 'pin-login-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const { username, email } = useAuthStore();
+  const { email } = useAuthStore();
+  const { kunya, name } = useProfileStore();
   const [error, setError] = useState(false);
   const onSuccessPinLogin = (data) => {
     clientSetToken(data?.accessToken, false);
@@ -39,7 +41,8 @@ const PinLoginScreen = () => {
       <Paragraph testId={screenTestId} weight="Medium" text="auth.hello" />
       <Headline
         testId={`${screenTestId}-title`}
-        text={username}
+        text={kunya || name}
+        isTranslated={false}
         size="xs"
         weight="Bold"
         style={themedStyles.defaultText}
