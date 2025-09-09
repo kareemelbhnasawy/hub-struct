@@ -45,10 +45,6 @@ const ProfileStack = () => {
         name="TeamMemberProfile"
         component={TeamMemberProfileScreen}
       />
-      <Stack.Screen
-        name="QualificationDetails"
-        component={QualificationDetailsScreen}
-      />
     </Stack.Navigator>
   );
 };
