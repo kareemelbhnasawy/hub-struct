@@ -97,19 +97,23 @@ const ProfileSettings = () => {
   };
 
   const getBioKey = () => {
-    bioPrompt().then((resultObject) => {
-      const { success } = resultObject;
-      if (success) {
-        generateBioKeys().then((resultObject) => {
-          const { publicKey } = resultObject;
-          mutateSetBio({
-            email,
-            publicKey,
-            biometricType,
-          });
-        });
-      }
-    });
+    bioPrompt()
+      .then((resultObject) => {
+        const { success } = resultObject;
+        if (success) {
+          generateBioKeys()
+            .then((resultObject) => {
+              const { publicKey } = resultObject;
+              mutateSetBio({
+                email,
+                publicKey,
+                biometricType,
+              });
+            })
+            .catch(() => setBioLoading(false));
+        }
+      })
+      .catch(() => setBioLoading(false));
   };
 
   const onPressBio = () => {
