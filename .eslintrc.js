@@ -60,5 +60,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-native/no-single-element-style-arrays': 2,
     'func-style': ['error', 'expression'],
+    'react/prop-types': 'off',
   },
 };
