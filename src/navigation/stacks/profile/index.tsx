@@ -13,7 +13,8 @@ import {
   QualificationDetailsScreen,
   QualificationsScreen,
   TeamMemberProfileScreen,
-  ConvenantScreen
+  ConvenantScreen,
+  ConvenantDetailsScreen
 } from '@/screens';
 import { ProfileStackParamList } from './types';
 
@@ -41,6 +42,7 @@ const ProfileStack = () => {
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
       <Stack.Screen name="QualificationDetails" component={QualificationDetailsScreen} />
       <Stack.Screen name="Convenant" component={ConvenantScreen} />
+      <Stack.Screen name="ConvenantDetails" component={ConvenantDetailsScreen} />
       <Stack.Screen
         name="TeamMemberProfile"
         component={TeamMemberProfileScreen}
