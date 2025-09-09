@@ -22,4 +22,5 @@ export type ProfileStackParamList = {
   SetPin: undefined;
   ConfirmPin: ConfirmPinScreenParams;
   QualificationDetails: QualificationDetailsScreenParams;
+  MySkills: undefined;
 };

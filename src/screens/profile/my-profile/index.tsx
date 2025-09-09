@@ -27,7 +27,7 @@ const MyProfile = () => {
         textProps={{
           text: item.title,
           weight: 'Semibold',
-          size: '2xs'
+          size: '2xs',
         }}
         testId={screenTestId}
         onPress={item.onPress}
@@ -45,7 +45,7 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => navigate('PersonDetails'),
     },
@@ -58,7 +58,7 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => navigate('BusinessDetails'),
     },
@@ -71,7 +71,7 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => log('career history pressed'),
     },
@@ -84,7 +84,7 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => log('Holidays Record pressed'),
     },
@@ -97,7 +97,7 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => navigate('Qualifications'),
     },
@@ -110,9 +110,9 @@ const MyProfile = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
-      onPress: () => log('skills pressed'),
+      onPress: () => navigate('MySkills'),
     },
     {
       id: '7',
