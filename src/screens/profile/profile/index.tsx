@@ -1,22 +1,17 @@
 import { View } from 'react-native';
-import {
-  CurvedHeroImage,
-  Headline,
-  Paragraph,
-  Spacer,
-} from '@/components/atoms';
+import { Spacer } from '@/components/atoms';
 import styles from './styles';
 import Page from '@/components/templates/page';
-import { Avatar, List } from '@/components/molecules';
+import { List } from '@/components/molecules';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/profile-setting-item';
+import ProfileHeading from '../partials/profile-heading';
 import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
 import { useEffect } from 'react';
 import { useProfileStore } from '@/store/profile';
-import { getBackgroundImageById } from '../edit-background/constants';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
@@ -50,7 +45,7 @@ const ProfileScreen = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: handleNavigateToAccountDetails,
     },
@@ -63,7 +58,7 @@ const ProfileScreen = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => navigation.navigate('ProfileSettings'),
     },
@@ -76,9 +71,9 @@ const ProfileScreen = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
-      onPress: () => log('My Team pressed'),
+      onPress: () => navigation.navigate('MyTeam'),
     },
     {
       id: '4',
@@ -89,7 +84,7 @@ const ProfileScreen = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => log('Personalize Account pressed'),
     },
@@ -102,7 +97,7 @@ const ProfileScreen = () => {
       },
       textProps: {
         weight: 'Semibold',
-        size: '2xs'
+        size: '2xs',
       },
       onPress: () => navigation.navigate('ProfileSettings'),
     },
@@ -148,38 +143,15 @@ const ProfileScreen = () => {
       isLoading={isLoading}
       disableSafeAreaTop={true}>
       <View style={themedStyles.container}>
-        <View>
-          <CurvedHeroImage
-            testId={screenTestId}
-            source={getBackgroundImageById(bannerId)}
-            hasBackButton={true}>
-            <Avatar
-              size="lg"
-              image={avatarUrl ?? null}
-              name={name}
-              status={status}
-              testId={screenTestId}
-              containerStyle={themedStyles.avatar}
-            />
-          </CurvedHeroImage>
-        </View>
-        <Spacer />
-        <View style={themedStyles.titleWrapper}>
-          <Headline
-            isTranslated={false}
-            text={displayName}
-            weight="Bold"
-            size="xs"
-            testId={screenTestId}
-          />
-          <Paragraph
-            isTranslated={false}
-            text={displayTitle}
-            weight="Medium"
-            size="lg"
-            testId={screenTestId}
-          />
-        </View>
+        <ProfileHeading
+          testId={screenTestId}
+          bannerId={bannerId}
+          avatarUrl={avatarUrl}
+          name={name}
+          displayName={displayName}
+          displayTitle={displayTitle}
+          status={status}
+        />
         <Spacer space={15} />
 
         <List<ProfileSettingItemDataType>

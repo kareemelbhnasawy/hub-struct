@@ -7,6 +7,7 @@ import { useThemeStore } from '@/store/theme';
 import styles from './styles';
 import { useNavigation, useTranslate } from '@/hooks';
 import { GlassIcon } from '@/components/molecules';
+import { GlassContainer } from '../glass-container';
 const { width: screenWidth } = Dimensions.get('window');
 
 const CurvedHeroImage = ({
@@ -14,6 +15,7 @@ const CurvedHeroImage = ({
   source,
   children,
   hasBackButton = false,
+  customGlassComponent,
   ...props
 }: CurvedHeroProps) => {
   const imageHeight = screenWidth * 0.55;
@@ -48,6 +50,13 @@ const CurvedHeroImage = ({
               onPress={() => navigation.goBack()}
             />
           </View>
+        )}
+        {customGlassComponent && (
+          <GlassContainer
+            containerStyle={themedStyles.customIconWrapper}
+            testId={'curved-hero-cutom-glass'}>
+            {customGlassComponent}
+          </GlassContainer>
         )}
         <Image
           source={source || DefaultBannerImage}

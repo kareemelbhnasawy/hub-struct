@@ -55,6 +55,10 @@ const stackMap: Record<ScreenName, StackPath> = {
   BusinessDetails: ['App', 'ProfileStack'],
   Qualifications: ['App', 'ProfileStack'],
   Convenant: ['App', 'ProfileStack'],
+  QualificationDetails: ['App', 'ProfileStack'],
+  MyTeam: ['App', 'ProfileStack'],
+  TeamMemberProfile: ['App', 'ProfileStack'],
+
   // Example deeper nesting (uncomment & adjust to your app)
   // Products: ['App', 'ShopStack'],
   // ProductDetails: ['App', 'ShopStack', 'ProductStack'],

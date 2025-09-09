@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   ProfileScreen,
   MyProfileScreen,
+  MyTeamScreen,
   KunyaCrudScreen,
   EditBackgroundScreen,
   SetPinScreen,
@@ -11,6 +12,7 @@ import {
   BusinessDetails,
   QualificationDetailsScreen,
   QualificationsScreen,
+  TeamMemberProfileScreen,
   ConvenantScreen
 } from '@/screens';
 import { ProfileStackParamList } from './types';
@@ -24,9 +26,11 @@ const ProfileStack = () => {
       screenOptions={{
         headerShown: false,
         gestureEnabled: true,
+        animation: 'none',
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="MyProfile" component={MyProfileScreen} />
+      <Stack.Screen name="MyTeam" component={MyTeamScreen} />
       <Stack.Screen name="PersonDetails" component={PersonDetails} />
       <Stack.Screen name="BusinessDetails" component={BusinessDetails} />
       <Stack.Screen name="EditBackground" component={EditBackgroundScreen} />
@@ -37,6 +41,14 @@ const ProfileStack = () => {
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
       <Stack.Screen name="QualificationDetails" component={QualificationDetailsScreen} />
       <Stack.Screen name="Convenant" component={ConvenantScreen} />
+      <Stack.Screen
+        name="TeamMemberProfile"
+        component={TeamMemberProfileScreen}
+      />
+      <Stack.Screen
+        name="QualificationDetails"
+        component={QualificationDetailsScreen}
+      />
     </Stack.Navigator>
   );
 };

@@ -34,6 +34,14 @@ const styles = (imageWidth: number, imageHeight: number) =>
         zIndex: 1,
       },
     },
+    customIconWrapper: {
+      base: {
+        position: 'absolute',
+        end: 16,
+        top: 60,
+        zIndex: 1,
+      },
+    },
   });
 
 export default styles;

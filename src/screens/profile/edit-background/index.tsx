@@ -83,6 +83,8 @@ const EditBackgroundScreen = () => {
     <Page
       testId="edit-background-screen"
       hasHeader
+      noPaddings
+      innerPageStyle={themedStyles.pagePadding}
       isLoading={false}
       pageHeaderProps={{
         isTitleCentered: true,

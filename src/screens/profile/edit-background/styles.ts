@@ -49,4 +49,9 @@ export default createThemedStyles({
       width: '100%',
     },
   },
+  pagePadding: {
+    base: {
+      paddingHorizontal: 17,
+    },
+  },
 });

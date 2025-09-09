@@ -8,7 +8,12 @@ const styles = createThemedStyles({
       paddingVertical: 12,
     },
   },
+  valueText: {
+    base: {
+      maxWidth: '60%',
+      overflow: 'hidden',
+    },
+  },
 });
 
 export default styles;
-

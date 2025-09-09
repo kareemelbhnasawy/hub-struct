@@ -29,7 +29,7 @@ const QualificationDetails = ({ route }: Props) => {
   const screenTestId = 'qualification-details-screen';
   const themedStyle = getThemedStyles(styles);
   // fetch data
-  const { data, isLoading } = useGetQualificationDetails(
+  const { data, isFetching } = useGetQualificationDetails(
     route.params.qualificationId?.toString() || '',
   );
   const qualificationData = data as QualificationDetailsResponse;
@@ -60,7 +60,7 @@ const QualificationDetails = ({ route }: Props) => {
   return (
     <Page
       testId={screenTestId}
-      isLoading={isLoading}
+      isLoading={isFetching}
       hasHeader
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{

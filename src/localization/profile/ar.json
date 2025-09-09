@@ -2,6 +2,7 @@
   "account": "ملفي الشخصي",
   "digitalCard": "بطاقتي الرقمية",
   "team": "فريقي",
+  "teamLabel": "الفريق",
   "personalize": " تخصيص الصفحة الرئيسية",
   "personal-details": "البيانات الشخصية",
   "job-details": "البيانات الوظيفية",
@@ -37,6 +38,7 @@
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
   "emptyDataMsg": "لا يوجد بيانات مسجلة",
+  "notRegisteredSabil": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
@@ -50,6 +52,7 @@
     "personalInfo": "البيانات الشخصية",
     "basicInfo": "البيانات الأساسية",
     "name": "الاسم",
+    "position": "المسمى الوظيفي",
     "birthDate": "تاريخ الميلاد",
     "age": "العمر",
     "gender": "الجنس",
@@ -58,7 +61,8 @@
     "contactInfo": "بيانات التواصل",
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
-    "address": "العنوان"
+    "address": "العنوان",
+    "contractAddress": "العنوان (المسجل في العقد)"
   },
   "settings": {
     "settings": "الإعدادات",
@@ -122,6 +126,26 @@
     "noQualificationsSubtitle": "إضافة المؤهلات تساعد على ظهور الملف الشخصي لك لللآخرين بشكل أفضل",
     "completed": "مكتملة",
     "onGoing": "جاري الدراسة"
+  },
+  "business": {
+    "workContact": "بيانات التواصل في العمل",
+    "email": "البريد الإلكتروني",
+    "workExtension": "تحويلة العمل",
+    "workLocation": "مقر العمل",
+    "jobInfo": "البيانات الوظيفية",
+    "employeeNumber": "رقم الموظف",
+    "classificationGuide": "الدليل التصنيفي",
+    "grade": "المرتبة",
+    "yearsOfService": "عدد سنوات الخدمة",
+    "effectiveDepartment": "الإدارة الفعلية",
+    "department": "الإدارة"
+  },
+  "myteam": {
+    "ministryEmployees": "موظفي الوزارة",
+    "contractEmployees": "موظفين متعاقدين",
+    "presentToday": "حاضرون اليوم",
+    "absentToday": "متغيب اليوم",
+    "membersHeader": "أعضاء الفريق ({{count}})"
   },
   "myJobDetails": {
     "id": "رقم الموظف",

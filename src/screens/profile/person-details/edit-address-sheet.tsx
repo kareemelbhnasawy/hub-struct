@@ -1,16 +1,19 @@
-import { Spacer, Paragraph, Headline } from '@/components/atoms';
-import { BaseButton, BaseSheet } from '@/components/molecules';
+import { Spacer, Paragraph, Headline, LucideIcon } from '@/components/atoms';
+import { BaseSheet } from '@/components/molecules';
 import { SnapPoints } from '@/components/molecules/base-sheet/constants';
 import { SelectionGroup } from '@/components/organisms';
 import { openLink } from '@/utilities';
 import { AddressCard } from '../partials';
 import useGetAddresses from '@/network/services/profile/get-addresses/get-addresses.hook';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useStartFlow } from '@/network/hooks';
 import { useNavigation } from '@/hooks';
 import { useDeviceId } from '@/hooks/use-device-id';
 import PROFILE_URLS from '@/network/services/profile/profile.urls';
 import PROFILE_QUERY_KEYS from '@/network/services/profile/profile.query-keys';
+import { useThemeStore } from '@/store/theme';
+import styles from './styles';
+import { View } from 'react-native';
 
 const EditAddressSheet = ({
   testId,
@@ -21,17 +24,35 @@ const EditAddressSheet = ({
   testId: string;
   modalVisible: boolean;
   setModalVisible: (arg: boolean) => void;
-  defaultSelectedAddress?: object;
+  defaultSelectedAddress?: string;
 }) => {
   const [isError, setIsError] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState(
-    defaultSelectedAddress,
-  );
+  const [isWarning, setIsWarning] = useState(true);
+  const [selectedAddress, setSelectedAddress] = useState<{
+    addressShortCode: string;
+    addressDescription: string;
+  } | null>(null);
   const { navigateToOTP } = useNavigation();
   const { deviceId } = useDeviceId();
 
-  const { data } = useGetAddresses(() => setIsError(true));
-  const onSuccessStartExtension = (data: unknown) => {
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
+
+  const checkAddressWarnings = (res: unknown) => {
+    if (!selectedAddress)
+      res?.addresses?.forEach((address) => {
+        if (address.addressDescription === defaultSelectedAddress) {
+          setSelectedAddress(address);
+          setIsWarning(false);
+        }
+      });
+  };
+
+  const { data } = useGetAddresses(
+    (res) => checkAddressWarnings(res),
+    () => setIsError(true),
+  );
+  const onSuccessStartAddress = (data: unknown) => {
     setModalVisible(false);
     navigateToOTP({
       body: { ...selectedAddress, deviceId },
@@ -49,10 +70,16 @@ const EditAddressSheet = ({
   };
   const { mutate } = useStartFlow(
     PROFILE_URLS.EDIT_ADDRESS,
-    onSuccessStartExtension,
-    () => { },
+    onSuccessStartAddress,
+    () => {},
     PROFILE_QUERY_KEYS.ADDRESS_START,
   );
+
+  useEffect(() => {
+    if (modalVisible) {
+      setSelectedAddress(null);
+    }
+  }, [modalVisible]);
 
   return (
     <BaseSheet
@@ -60,7 +87,51 @@ const EditAddressSheet = ({
       modalVisible={modalVisible}
       setModalVisible={setModalVisible}
       snapPoints={SnapPoints.XL}
-      titleProps={{ text: 'profile.editAddress' }}>
+      enableDynamicSizing={false}
+      titleProps={{ text: 'profile.editAddress' }}
+      hasSubmitButton
+      buttonProps={{
+        textProps: { text: 'common.save' },
+        onPress: () => mutate({ ...selectedAddress, deviceId }),
+        disabled:
+          isError ||
+          !selectedAddress ||
+          selectedAddress?.addressDescription === defaultSelectedAddress,
+      }}>
+      <Spacer />
+      {isWarning && !selectedAddress && defaultSelectedAddress && (
+        <>
+          <View style={themedStyles.warningContainer}>
+            <LucideIcon
+              testId={`${testId}-edit-address`}
+              name="MapPin"
+              isCircle
+              containerStyle={themedStyles.iconDescriptiveOrange}
+            />
+            <Spacer />
+            <View>
+              <Paragraph
+                testId={`${testId}-edit-address-warning`}
+                text="profile.contractAddress"
+              />
+              <Spacer space="xs" />
+              <Headline
+                testId={`${testId}-edit-address-warning`}
+                size="xs"
+                isTranslated={false}
+                text={defaultSelectedAddress}
+              />
+            </View>
+          </View>
+          <Spacer space="xs" />
+          <Paragraph
+            testId={`${testId}-edit-address-warning`}
+            size="xl"
+            text="profile.notRegisteredSabil"
+          />
+          <Spacer space="3xl" />
+        </>
+      )}
       <Headline
         testId={`${testId}-edit-address`}
         text="profile.chooseAddress"
@@ -126,12 +197,6 @@ const EditAddressSheet = ({
             isFocused
           />
         )}
-      />
-      <Spacer space="3xl" />
-      <BaseButton
-        testId={testId}
-        textProps={{ text: 'common.save' }}
-        onPress={() => mutate({ ...selectedAddress, deviceId })}
       />
     </BaseSheet>
   );

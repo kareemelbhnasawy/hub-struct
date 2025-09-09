@@ -5,7 +5,7 @@ import { createThemedStyles } from '@/utilities';
 const styles = (size: number = DEFAULT_ICON_SIZE) =>
   createThemedStyles({
     wrapperBase: {
-      base: { width: scale(size) + 24, height: scale(size) + 24 },
+      base: { width: scale(size) + size, height: scale(size) + size },
       options: { skipScale: true },
     },
 
