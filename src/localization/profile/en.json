@@ -8,7 +8,6 @@
   "job-details": "My Job Details",
   "career-history": "My Career History within the Ministry",
   "holidays-record": "Holidays Record",
-  "skills": "My Skills",
   "custodies": "Custodies",
   "editAddress": "Edit address",
   "contractAddress": "The address registered in the contract",
@@ -158,5 +157,11 @@
     "address": "Workplace Address",
     "workExtension": "Extension",
     "location": "Work Location"
+  },
+
+  "skills": {
+    "skills": "My Skills",
+    "emptyTagsListHeadline": "You have not added any skill yet.",
+    "emptyTagsListDesc": "Add your skills that will appear on your profile and highlight your experience to your management."
   }
 }

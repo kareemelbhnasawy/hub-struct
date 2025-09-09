@@ -10,12 +10,11 @@ const styles = createThemedStyles({
   },
   tagsList: {
     base: {
-      flex: 1,
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
       flexDirection: 'row',
       flexWrap: 'wrap',
-      gap: 8,
+      columnGap: 8,
       marginVertical: 16,
     },
   },

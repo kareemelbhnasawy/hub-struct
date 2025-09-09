@@ -42,3 +42,13 @@ export interface getQualificationsResponse {
   qualifications: QualificationResponseObject[];
 }
 
+export interface SkillResponse {
+  id: number;
+  name: string;
+}
+
+export interface SkillsListResponse {
+  skills?: SkillResponse[];
+}
+
+export type SkillsListGETResponse = SkillResponse[] | null | undefined;
