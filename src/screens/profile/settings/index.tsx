@@ -33,8 +33,7 @@ const ProfileSettings = () => {
   const [logoutModalVisible, setLogoutModalVisible] = useState(false);
   const [changeQuickLoginVisible, setChangeQuickLoginVisible] = useState(false);
   const [bioLoading, setBioLoading] = useState(false);
-  const { quickLoginType, setQuickLoginType, setUsername, email } =
-    useAuthStore();
+  const { quickLoginType, setQuickLoginType, email } = useAuthStore();
   const [biometricType, setBiometricType] = useState<
     'TOUCH_ID' | 'FACE_ID' | null
   >(null);
@@ -61,7 +60,6 @@ const ProfileSettings = () => {
   const onSetBioSuccess = () => {
     setBioLoading(false);
     setQuickLoginType(biometricType || '');
-    setUsername('Daniel');
   };
 
   const deleteBioKey = () => {
