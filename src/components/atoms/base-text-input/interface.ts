@@ -6,6 +6,7 @@ interface BaseTextInputProps
   placeholderProps?: { [x: string]: string };
   onChangeValue?: (arg0: string) => void;
   inBottomSheet?: boolean;
+  disabled?: boolean;
 }
 
 export default BaseTextInputProps;

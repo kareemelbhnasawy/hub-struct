@@ -103,7 +103,7 @@ const ProfileScreen = () => {
     },
     {
       id: '6',
-      title: 'profile.skills.skills',
+      title: 'profile.skills.mySkills',
       iconProps: {
         name: 'Medal',
         containerStyle: themedStyles.iconDescriptiveBlue,

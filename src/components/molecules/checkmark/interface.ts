@@ -9,4 +9,5 @@ export interface CheckmarkProps {
   containerStyle?: RNStyle;
   onCheck?: () => void;
   onUncheck?: () => void;
+  checked?: boolean;
 }

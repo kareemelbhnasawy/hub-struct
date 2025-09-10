@@ -5,13 +5,13 @@ const styles = createThemedStyles({
     base: {
       flex: 1,
       backgroundColor: 'backgroundWhite',
-      rowGap: 20
+      rowGap: 20,
     },
   },
   searchItemContainer: {
     base: {
-      paddingVertical: 10
-    }
+      paddingVertical: 10,
+    },
   },
   tagsList: {
     base: {
@@ -28,6 +28,11 @@ const styles = createThemedStyles({
     base: {
       width: '100%',
       textAlign: 'left',
+    },
+  },
+  searchBar: {
+    base: {
+      pointerEvents: 'none',
     },
   },
 });
