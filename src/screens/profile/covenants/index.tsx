@@ -48,6 +48,7 @@ const Covenant = () => {
                     size="xs"
                     weight="Medium"
                     text={item.covenantName ?? ''}
+                    searchText={search.trim()}
                     testId={`${screenTestId}-row-${item.covenantId}-title`}
                 />
                 <Paragraph
@@ -55,6 +56,7 @@ const Covenant = () => {
                     weight="Regular"
                     style={themedStyles.colorTertiary}
                     text={item.covenantId ?? ''}
+                    searchText={search.trim()}
                     testId={`${screenTestId}-row-${item.covenantId}-code`}
                 />
             </View>
@@ -71,13 +73,15 @@ const Covenant = () => {
     const ListHeader = (
         <View style={themedStyles.container}>
             <Spacer space={26} />
-            <TextInput
-                trailingIconProps={{ name: 'Search', size: 24, color: 'textBrandPrimary' }}
-                placeholder="profile.covenants.searchPlaceholder"
-                value={search}
-                onChangeText={setSearch}
-                placeholderTextColor={themedStyles.colorTertiary.color}
-            />
+            {items.length > 0 && (
+                <TextInput
+                    trailingIconProps={{ name: 'Search', size: 24, color: 'textBrandPrimary' }}
+                    placeholder="profile.covenants.searchPlaceholder"
+                    value={search}
+                    onChangeText={setSearch}
+                    placeholderTextColor={themedStyles.colorTertiary.color}
+                />
+            )}
             <Spacer space={16} />
             {filtered.length > 0 && (
                 <View style={themedStyles.countWrapper}>
