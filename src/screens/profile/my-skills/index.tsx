@@ -52,14 +52,17 @@ const MySkillsScreen = () => {
     }
   }, [debouncedText, invalidateQuery]);
 
-  const onAddSkillSuccess = useCallback((data: PostSkillsResponse) => {
-    invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
-    wait(5000).then(() => removeTagFromNewTags(data.skillId));
-    if (!isEmpty(debouncedText)) {
-      mutateSearchSkills({ keyword: debouncedText });
-    }
-    setNewTags((prev) => [...prev, data.skillId]);
-  }, [debouncedText, invalidateQuery]);
+  const onAddSkillSuccess = useCallback(
+    (data: PostSkillsResponse) => {
+      invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
+      wait(5000).then(() => removeTagFromNewTags(data.skillId));
+      if (!isEmpty(debouncedText)) {
+        mutateSearchSkills({ keyword: debouncedText });
+      }
+      setNewTags((prev) => [...prev, data.skillId]);
+    },
+    [debouncedText, invalidateQuery],
+  );
 
   const { mutate: mutateAddSkill } = usePostSkills(onAddSkillSuccess);
   const { mutate: mutateDeleteSkill } = useDeleteSkills(onDeleteSkillSuccess);
@@ -82,7 +85,6 @@ const MySkillsScreen = () => {
       );
     }
   }, [skillsSearchData]);
-
 
   const renderListItem = ({
     item,
@@ -132,14 +134,21 @@ const MySkillsScreen = () => {
         </Pressable>
         <View>
           {skillsData && skillsData.length > 0 ? (
-            <Headline
-              testId={`${screenTestId}-skills-total-label`}
-              text={'profile.skills.totalSkills'}
-              textProps={{ count: String(skillsData.length) }}
-              size="2xs"
-              weight="Bold"
-              style={themedStyles.skillsLabel}
-            />
+            <View style={themedStyles.skillsLabelContainer}>
+              <Headline
+                testId={`${screenTestId}-skills-total-label`}
+                text={'profile.skills.totalSkills'}
+                size="2xs"
+                weight="Medium"
+                style={themedStyles.skillsLabel}
+              />
+              <Headline
+                testId={`${screenTestId}-skills-number-label`}
+                text={`(${skillsData.length})`}
+                size="2xs"
+                weight="Bold"
+              />
+            </View>
           ) : null}
 
           <TagCollection

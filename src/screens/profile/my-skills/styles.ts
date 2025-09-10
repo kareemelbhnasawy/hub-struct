@@ -26,8 +26,7 @@ const styles = createThemedStyles({
   },
   skillsLabel: {
     base: {
-      width: '100%',
-      textAlign: 'left',
+      color: 'textTertiary',
     },
   },
   searchBar: {
@@ -35,6 +34,12 @@ const styles = createThemedStyles({
       pointerEvents: 'none',
     },
   },
+  skillsLabelContainer: {
+    base: {
+      flexDirection: 'row',
+      columnGap: 4,
+    },
+  }
 });
 
 export default styles;

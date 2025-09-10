@@ -174,7 +174,7 @@
     "searchToAdd": "Search to add a skill",
     "noSkillsYet": "You haven't added any skills yet",
     "addSkillsPrompt": "Add your skills to appear in your profile and highlight your expertise to your management.",
-    "totalSkills": "Total Skills ({{count}})",
+    "totalSkills": "Total Skills",
     "postSuccess": "Skill added successfully",
     "deleteSuccess": "Skill deleted successfully",
     "addSkillError": "An error occurred while adding the skill. Please try again later.",
