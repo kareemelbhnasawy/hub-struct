@@ -9,6 +9,7 @@ interface GlassContainerProps {
   onPress?: () => void;
   blurAmountIOS?: number;
   blurAmountAndroid?: number;
+  blurOverlayColor?: string;
 }
 
 export default GlassContainerProps;

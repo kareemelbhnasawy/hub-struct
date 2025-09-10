@@ -17,7 +17,7 @@ const GlassModal = ({
   secondaryButtonProps,
   ...props
 }: GlassModalProps) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
     <BaseModal
@@ -31,7 +31,9 @@ const GlassModal = ({
           containerStyle={themedStyles.glassContainer}
           isContentCentered={false}
           borderRadius={Radius.XL}
-          blurAmountIOS={10}>
+          blurAmountIOS={10}
+          blurAmountAndroid={14}
+          blurOverlayColor={getThemeColor('alphaBlack20')}>
           <Spacer />
 
           {headlineProps && (

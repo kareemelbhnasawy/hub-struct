@@ -24,6 +24,7 @@ export const GlassContainer = ({
   onPress,
   blurAmountIOS = 2,
   blurAmountAndroid = 10,
+  blurOverlayColor,
   children,
 }: PropsWithChildren<GlassContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -56,6 +57,7 @@ export const GlassContainer = ({
         testID={`${testId}-glass-container-blur`}
         style={themedStyles.absoluteFill}
         blurType="light"
+        overlayColor={blurOverlayColor}
         blurAmount={blurAmount}
       />
       <MaskedView
