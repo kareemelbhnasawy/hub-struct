@@ -7,6 +7,8 @@ interface GlassContainerProps {
   containerStyle?: RNStyle;
   isContentCentered?: boolean;
   onPress?: () => void;
+  blurAmountIOS?: number;
+  blurAmountAndroid?: number;
 }
 
 export default GlassContainerProps;

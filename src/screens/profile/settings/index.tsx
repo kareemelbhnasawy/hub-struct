@@ -352,12 +352,9 @@ const ProfileSettings = () => {
         paragraphProps={{
           text: 'profile.settings.signOutDesc',
         }}
-        buttonProps={{
+        dangerButtonProps={{
           textProps: { text: 'profile.settings.signOut' },
           onPress: () => logout({ email }),
-          variant: 'secondary',
-          danger: true,
-          isBordered: false,
         }}
         secondaryButtonProps={{
           textProps: { text: 'common.back' },

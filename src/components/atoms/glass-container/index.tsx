@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from 'react';
+import { PropsWithChildren, useEffect, useMemo } from 'react';
 import { Pressable, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import Animated, {
@@ -22,19 +22,25 @@ export const GlassContainer = ({
   containerStyle,
   isContentCentered = true,
   onPress,
+  blurAmountIOS = 2,
+  blurAmountAndroid = 10,
   children,
 }: PropsWithChildren<GlassContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles(borderRadius));
   const translateX = useSharedValue(-200);
 
+  const blurAmount = useMemo(
+    () => (isAndroid() ? blurAmountAndroid : blurAmountIOS),
+    [blurAmountAndroid, blurAmountIOS],
+  );
+
   useEffect(() => {
     translateX.value = withRepeat(
-      withTiming(200, { duration: 6000, easing: Easing.linear }), // ✅ move easing here
+      withTiming(200, { duration: 6000, easing: Easing.linear }),
       -1,
       true,
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -50,7 +56,7 @@ export const GlassContainer = ({
         testID={`${testId}-glass-container-blur`}
         style={themedStyles.absoluteFill}
         blurType="light"
-        blurAmount={isAndroid() ? 10 : 2}
+        blurAmount={blurAmount}
       />
       <MaskedView
         testID={`${testId}-glass-container-mask`}
