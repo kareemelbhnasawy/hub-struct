@@ -169,7 +169,7 @@ const EditAddressSheet = ({
             textProps: { text: 'profile.addNewAddressViaSPL' },
             leftIcon: { name: 'ExternalLink' },
             onPress: () => {
-              openLink('https://www.google.com/');
+              openLink('https://splonline.com.sa/en/national-address-1/');
             },
           },
         }}
