@@ -11,9 +11,9 @@
   "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
-  "contractAddress": "العنوان المسجل في العقد",
+  "contractAddress": "العنوان المسجل",
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
-  "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
+  "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
   "saveChanges": "حفظ التعديلات",
   "deactivate": "إلغاء التفعيل",
   "back": "رجوع",
@@ -38,7 +38,7 @@
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
   "emptyDataMsg": "لا يوجد بيانات مسجلة",
-  "notRegisteredSabil": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
+  "notRegisteredSabil": "العنوان المسجل غير متوفر في بيانات سبل.",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
@@ -63,7 +63,7 @@
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
     "address": "العنوان",
-    "contractAddress": "العنوان (المسجل في العقد)"
+    "contractAddress": "العنوان"
   },
   "settings": {
     "settings": "الإعدادات",
