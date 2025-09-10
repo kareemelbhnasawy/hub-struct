@@ -77,6 +77,7 @@ const TextInput = ({
         value={value}
         onChangeValue={onChangeValue}
         inBottomSheet={isBottomSheet}
+        disabled={disabled}
         {...props}
       />
     </InputContainer>

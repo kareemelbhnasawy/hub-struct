@@ -3,5 +3,5 @@
   "sentOTP": "تم إرسال رمز التحقق إلى رقم الجوّال المنتهي ب ****{{phoneNumber}}",
   "didNotReceive": "لم أتلق الرمز, ",
   "resendCode": "اضغط هنا لإعادة إرساله مرة اخرى",
-  "invalidCode": "الكود غير صالح"
+  "invalidCode": "رمز ال PIN غير صحيح"
 }

@@ -45,7 +45,8 @@
   },
   "confirmPin": {
     "confirmTitle": "Re-enter your PIN to confirm",
-    "confirmSubtitle": "To make sure the PIN you chose is correct."
+    "confirmSubtitle": "To make sure the PIN you chose is correct.",
+    "pinMismatch": "The two entered codes do not match. Please try again."
   },
   "personDetails": {
     "personalInfo": "Personal information",
@@ -73,18 +74,18 @@
     "switch": "تبديل",
     "back": "رجوع",
     "securitySettings": "Security Settings",
-    "activateFACE_ID": "Enable Face ID",
-    "activateTOUCH_ID": "Enable Touch ID",
-    "activatePIN_CODE": "Enable PIN Code",
-    "signOut": "Log Out",
+    "activateFACE_ID": "Activate Face ID",
+    "activateTOUCH_ID": "Activate Fingerprint",
+    "activatePIN_CODE": "Activate PIN Code",
+    "signOut": "Log out",
     "signOutDesc": "Are you sure you want to log out?",
-    "changeSignIn": "Change sign-in method?",
-    "changePIN_CODE_FACE_ID": "PIN code will be disabled and Face ID will be enabled. Are you sure?",
-    "changePIN_CODE_TOUCH_ID": "PIN code will be disabled and Touch ID will be enabled. Are you sure?",
-    "changeFACE_ID_PIN_CODE": "Face ID will be disabled and PIN code will be enabled. Are you sure?",
-    "changeTOUCH_ID_PIN_CODE": "Touch ID will be disabled and PIN code will be enabled. Are you sure?",
+    "changeSignIn": "Change log in method ?",
+    "changePIN_CODE_FACE_ID": "PIN code will be deactivated and Face ID will be activated. Are you sure?",
+    "changePIN_CODE_TOUCH_ID": "PIN code will be deactivated and Fingerprint will be activated. Are you sure?",
+    "changeFACE_ID_PIN_CODE": "Face ID will be deactivated and PIN code will be activated. Are you sure?",
+    "changeTOUCH_ID_PIN_CODE": "Fingerprint will be deactivated and PIN code will be activated. Are you sure?",
     "activateFACE_IDSuccess": "Face ID activated successfully",
-    "activateTOUCH_IDSuccess": "Touch ID activated successfully",
+    "activateTOUCH_IDSuccess": "Fingerprint activated successfully",
     "activatePIN_CODESuccess": "PIN code activated successfully"
   },
   "members": {
@@ -157,6 +158,16 @@
     "address": "Workplace Address",
     "workExtension": "Extension",
     "location": "Work Location"
+  },
+  "covenants": {
+    "title": "Covenants",
+    "searchPlaceholder": "Search by name or covenant number",
+    "listTitle": "Covenants List",
+    "emptyTitle": "No covenants recorded",
+    "emptySubtitle": "When you receive any covenant, it will appear here.",
+    "number": "Covenant Number",
+    "type": "Covenant Type",
+    "registeredAt": "Registration Date"
   },
   "skills": {
     "mySkills": "My Skills",

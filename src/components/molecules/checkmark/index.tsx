@@ -11,11 +11,12 @@ const Checkmark = ({
   disabled,
   onCheck,
   onUncheck,
+  checked,
   containerStyle,
 }: CheckmarkProps) => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(checked);
 
   const handlePress = () => {
     if (onCheck && !isClicked) {

@@ -35,9 +35,13 @@ const styles = createThemedStyles({
       opacity: 1,
     },
   },
-  innerPageStyle: {
+  innerPageStylePaddings: {
     base: {
       paddingHorizontal: 20,
+    },
+  },
+  innerPageStyle: {
+    base: {
       flexGrow: 1,
     },
   },
@@ -55,4 +59,3 @@ const styles = createThemedStyles({
 });
 
 export default styles;
- 

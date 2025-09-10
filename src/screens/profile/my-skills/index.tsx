@@ -17,7 +17,7 @@ import useDeleteSkills from '@/network/services/profile/delete-skills/delete-ski
 import { useCustomInvalidate } from '@/network/hooks';
 import PROFILE_QUERY_KEYS from '@/network/services/profile/profile.query-keys';
 import usePostSkills from '@/network/services/profile/post-skills/post-skills.hook';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import useSearchSkills from '@/network/services/profile/search-skills/search-skills.hook';
 import { useDebounce } from 'use-debounce';
@@ -30,8 +30,10 @@ const MySkillsScreen = () => {
   const themedStyles = getThemedStyles(styles);
   const [sheetVisibility, setSheetVisibility] = useState(false);
   const [searchText, setSearchText] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
   const [newTags, setNewTags] = useState<number[]>([]);
+  const [searchResults, setSearchResults] = useState<
+    SkillItemDataType[] | undefined
+  >([]);
   const [debouncedText] = useDebounce(searchText, 500);
 
   const { invalidateQuery } = useCustomInvalidate();
@@ -69,7 +71,9 @@ const MySkillsScreen = () => {
 
   useEffect(() => {
     if (!isPending) {
-      setSearchResults(skillsSearchData?.skills);
+      setSearchResults(
+        skillsSearchData?.skills as SkillItemDataType[] | undefined,
+      );
     }
   }, [skillsSearchData]);
 
@@ -89,6 +93,7 @@ const MySkillsScreen = () => {
         onCheck={() => {
           mutateAddSkill({ skillName: item.name, skillId: Number(item.id) });
         }}
+        checked={item.checked}
         onUncheck={() => {
           mutateDeleteSkill({ skillId: Number(item.id) });
         }}
@@ -111,12 +116,14 @@ const MySkillsScreen = () => {
       disableSafeAreaTop={false}>
       <View style={themedStyles.container}>
         <Spacer space={10} />
-        <SearchInput
-          testId={screenTestId}
-          disabled
-          placeholder="profile.skills.searchToAdd"
-          onPress={() => setSheetVisibility(true)}
-        />
+        <Pressable onPress={() => setSheetVisibility(true)}>
+          <SearchInput
+            testId={screenTestId}
+            style={themedStyles.searchBar}
+            disabled
+            placeholder="profile.skills.searchToAdd"
+          />
+        </Pressable>
         <View>
           {skillsData && skillsData.length > 0 ? (
             <Headline
@@ -148,6 +155,7 @@ const MySkillsScreen = () => {
           titleProps={{ text: 'profile.skills.mySkills' }}
           headerVariant="centerWithClose"
           hasCloseButton
+          enableDynamicSizing={false}
           snapPoints={SnapPoints.FULL}>
           <SearchInput
             value={searchText}
@@ -161,7 +169,7 @@ const MySkillsScreen = () => {
             testId={screenTestId}
             data={searchResults}
             renderItem={renderListItem}
-            keyField="title"
+            keyField="name"
             scrollEnabled={false}
             emptyComponentProps={{
               iconProps: {

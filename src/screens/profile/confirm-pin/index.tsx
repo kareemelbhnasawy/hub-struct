@@ -50,7 +50,9 @@ const ConfirmPinScreen = () => {
         secureTextEntry={true}
         testId={screenTestId}
         onPinComplete={onConfirmPin}
-        errorProps={error ? { text: 'Pin mismatch' } : undefined}
+        errorProps={
+          error ? { text: 'profile.confirmPin.pinMismatch' } : undefined
+        }
       />
       <Spacer />
     </Page>

@@ -441,8 +441,8 @@ Yup.addMethod(
         // Define valid formats and their expected lengths
         const formats = {
           '05': { length: 10, regex: /^05[0-9]{8}$/ },
-          '966': { length: 12, regex: /^966[0-9]{9}$/ },
-          '+966': { length: 13, regex: /^\+966[0-9]{9}$/ },
+          // '966': { length: 12, regex: /^966[0-9]{9}$/ },
+          // '+966': { length: 13, regex: /^\+966[0-9]{9}$/ },
         };
 
         // Check if it matches any valid format

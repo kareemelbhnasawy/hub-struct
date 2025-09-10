@@ -7,6 +7,7 @@ const PROFILE_URLS = {
   EDIT_ADDRESS: '/profile/v1/address/edit',
   GET_QUALIFICATIONS: '/profile/v1/qualifications',
   GET_TEAM: '/profile/v1/team',
+  GET_COVENANTS: '/profile/v1/covenants',
   SKILLS: '/profile/v1/skills',
   SKILLS_SEARCH: '/profile/v1/skills/search',
 } as const;
