@@ -44,7 +44,7 @@ const BaseSheet = ({
   keyboardBehavior = 'interactive',
   keyboardBlurBehavior = 'restore',
   enableBlurKeyboardOnGesture = true,
-  android_keyboardInputMode = 'adjustResize',
+  android_keyboardInputMode = 'adjustPan',
   headerVariant = 'default',
   ...props
 }: PropsWithChildren<BaseSheetProps>) => {
@@ -137,6 +137,8 @@ const BaseSheet = ({
         );
     }
   };
+
+  if (!modalVisible) return null;
 
   return (
     <Portal>

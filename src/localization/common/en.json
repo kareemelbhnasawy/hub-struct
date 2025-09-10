@@ -3,5 +3,7 @@
   "defaultSubmit": "Submit",
   "save": "Save",
   "noRecords": "No Records",
-  "back": "Back"
+  "back": "Back",
+  "errorMsg": "Something went wrong, please try again later.",
+  "sessionExpired": "Session expired. Please login again."
 }

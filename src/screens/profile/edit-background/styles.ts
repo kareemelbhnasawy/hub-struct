@@ -22,6 +22,7 @@ export default createThemedStyles({
       aspectRatio: 4 / 3,
       overflow: 'hidden',
       borderRadius: 8,
+      borderWidth: 0
     },
   },
   image: {

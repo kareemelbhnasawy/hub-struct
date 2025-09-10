@@ -12,7 +12,8 @@ const onResponseReject = async (error: any): Promise<any> => {
     ToastService.error({
       props: {
         messageProps: {
-          text: error?.response?.data?.message || 'Something went wrong',
+          text: error?.response?.data?.message || 'common.errorMsg',
+          isTranslated: !error?.response?.data?.message,
         },
         testId: 'api-error',
       },
@@ -46,7 +47,7 @@ const onResponseReject = async (error: any): Promise<any> => {
         RetryQueueManager.processQueue(refreshError);
         ToastService.error({
           props: {
-            messageProps: { text: 'Session expired. Please login again.' },
+            messageProps: { text: 'common.sessionExpired' },
             testId: 'refresh-token-error',
           },
           duration: 4000,

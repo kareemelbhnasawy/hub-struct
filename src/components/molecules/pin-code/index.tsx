@@ -10,8 +10,7 @@ import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
 import { Paragraph, Spacer } from '@/components/atoms';
 import headlineStyles from '@/components/atoms/typography/headline/styles';
-// import { getString } from '@/utilities';
-// import { STORAGE_KEYS } from '@/constants/storageKeys';
+import { useTranslate } from '@/hooks';
 
 const PinCode = ({
   testId,
@@ -24,6 +23,7 @@ const PinCode = ({
   containerStyle,
 }: PinCodeProps) => {
   const { getThemedStyles } = useThemeStore();
+  const { isRTL } = useTranslate();
   const themedStyles = getThemedStyles(styles);
   const headlineThemedStyles = getThemedStyles(headlineStyles);
   const [pin, setPin] = useState('');
@@ -35,6 +35,7 @@ const PinCode = ({
       setPin('');
       focusInput(0);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorProps]);
 
   const focusInput = (index: number) => {
@@ -90,10 +91,6 @@ const PinCode = ({
     return '';
   };
 
-  // const isDirectionInverted = (): boolean => {
-  //   const locale = getString(STORAGE_KEYS.LANGUAGE);
-  //   return locale === 'ar';
-  // };
   return (
     <View style={containerStyle}>
       <FlatList
@@ -101,7 +98,7 @@ const PinCode = ({
         testID={`${testId}-pin-flatlist`}
         data={Array(pinLength).fill(null)}
         horizontal
-        // inverted={isDirectionInverted()}
+        inverted={isRTL}
         contentContainerStyle={themedStyles.pinContainer}
         renderItem={({ index }) => (
           <TextInput

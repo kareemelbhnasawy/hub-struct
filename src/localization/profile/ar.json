@@ -45,7 +45,8 @@
   },
   "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
-    "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته."
+    "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته.",
+    "pinMismatch": "الرمزان المدخلا غير متطابقان. يرجى المحاولة مرة أخرى."
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
@@ -77,7 +78,7 @@
     "activateTOUCH_ID": "تفعيل بصمة الإصبع",
     "activatePIN_CODE": "تفعيل الرمز السري",
     "signOut": "تسجيل الخروج",
-    "signOutDesc": "هل انت متأكد من تسجيل الخروج ؟",
+    "signOutDesc": "هل أنت متأكد من تسجيل الخروج ؟",
     "changeSignIn": "تغيير طريقة الدخول؟",
     "changePIN_CODE_FACE_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الوجه. هل أنت متأكد؟",
     "changePIN_CODE_TOUCH_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الإصبع. هل أنت متأكد؟",
@@ -153,10 +154,20 @@
     "rank": "المرتبة",
     "effectiveManagement": "الإدارة الفعلية",
     "management": "الإدارة",
-    "emailAddress": "البريد الالكتروني",
+    "emailAddress": "البريد الإلكتروني",
     "address": "مقر العمل",
     "workExtension": "التحويلة",
     "location": "موقع العمل"
+  },
+  "covenants": {
+    "title": "العُهَد",
+    "searchPlaceholder": "ابحث بالاسم أو رقم العهدة",
+    "listTitle": "قائمة العهد",
+    "emptyTitle": "لا توجد عهد مسجلة",
+    "emptySubtitle": "عند استلامك أي عهدة ستظهر هنا.",
+    "number": "رقم العهدة",
+    "type": "نوع العهدة",
+    "registeredAt": "تاريخ تسجيل العهدة"
   },
   "skills": {
     "mySkills": "مهاراتي",

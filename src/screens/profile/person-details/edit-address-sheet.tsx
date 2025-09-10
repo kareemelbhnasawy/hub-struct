@@ -99,7 +99,7 @@ const EditAddressSheet = ({
           selectedAddress?.addressDescription === defaultSelectedAddress,
       }}>
       <Spacer />
-      {isWarning && !selectedAddress && defaultSelectedAddress && (
+      {isWarning && defaultSelectedAddress && (
         <>
           <View style={themedStyles.warningContainer}>
             <LucideIcon
