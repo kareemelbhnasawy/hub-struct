@@ -60,7 +60,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('ProfileSettings'),
+      onPress: () => navigation.navigate('IDCard'),
     },
     {
       id: '3',

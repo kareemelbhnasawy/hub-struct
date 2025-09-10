@@ -18,3 +18,4 @@ export { default as CovenantScreen } from './profile/covenants';
 export { default as CovenantDetailsScreen } from './profile/covenant-details';
 export { default as MyTeamScreen } from './profile/my-team';
 export { default as TeamMemberProfileScreen } from './profile/team-member-profile';
+export { default as IDCardScreen } from './profile/id-card';

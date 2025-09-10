@@ -23,6 +23,9 @@ const useTranslate = () => {
   };
 
   const translate = (string: string, options?: { [string]: string }) => {
+    if (!string) {
+      return '';
+    }
     const spaceSplitStr = string.toString().split(' ');
     const res: string[] = [];
     spaceSplitStr.forEach((str) => {
