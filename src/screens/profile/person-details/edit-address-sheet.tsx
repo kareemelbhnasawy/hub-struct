@@ -71,7 +71,7 @@ const EditAddressSheet = ({
   const { mutate } = useStartFlow(
     PROFILE_URLS.EDIT_ADDRESS,
     onSuccessStartAddress,
-    () => {},
+    () => { },
     PROFILE_QUERY_KEYS.ADDRESS_START,
   );
 
@@ -127,7 +127,7 @@ const EditAddressSheet = ({
           <Paragraph
             testId={`${testId}-edit-address-warning`}
             size="xl"
-            text="profile.notRegisteredSabil"
+            text="profile.notRegisteredSplAddress"
           />
           <Spacer space="3xl" />
         </>

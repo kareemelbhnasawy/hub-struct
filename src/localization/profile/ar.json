@@ -38,7 +38,7 @@
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
   "emptyDataMsg": "لا يوجد بيانات مسجلة",
-  "notRegisteredSabil": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
+  "notRegisteredSplAddress": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
