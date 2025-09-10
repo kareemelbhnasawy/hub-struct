@@ -71,7 +71,7 @@ const EditAddressSheet = ({
   const { mutate } = useStartFlow(
     PROFILE_URLS.EDIT_ADDRESS,
     onSuccessStartAddress,
-    () => { },
+    () => {},
     PROFILE_QUERY_KEYS.ADDRESS_START,
   );
 
@@ -88,7 +88,12 @@ const EditAddressSheet = ({
       setModalVisible={setModalVisible}
       snapPoints={SnapPoints.XL}
       enableDynamicSizing={false}
-      titleProps={{ text: 'profile.editAddress' }}
+      titleProps={{
+        text: 'profile.editAddress',
+        weight: 'Medium',
+        size: 'xs',
+      }}
+      headerVariant="centerWithClose"
       hasSubmitButton
       buttonProps={{
         textProps: { text: 'common.save' },
@@ -127,23 +132,27 @@ const EditAddressSheet = ({
           <Paragraph
             testId={`${testId}-edit-address-warning`}
             size="xl"
-            text="profile.notRegisteredSplAddress"
+            text="profile.notRegisteredSabil"
           />
           <Spacer space="3xl" />
         </>
       )}
-      <Headline
-        testId={`${testId}-edit-address`}
-        text="profile.chooseAddress"
-        size="xs"
-        weight="Medium"
-      />
-      <Spacer space="xs" />
-      <Paragraph
-        testId={`${testId}-edit-address`}
-        text="profile.chooseAddressDesc"
-        size="xl"
-      />
+      {data?.addresses && data?.addresses.length > 0 && (
+        <>
+          <Headline
+            testId={`${testId}-edit-address`}
+            text="profile.chooseAddress"
+            size="xs"
+            weight="Medium"
+          />
+          <Spacer space="xs" />
+          <Paragraph
+            testId={`${testId}-edit-address`}
+            text="profile.chooseAddressDesc"
+            size="xl"
+          />
+        </>
+      )}
       <Spacer space="xl" />
       <SelectionGroup
         testId={`${testId}-edit-address`}
