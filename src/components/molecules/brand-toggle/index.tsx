@@ -4,7 +4,6 @@ import BrandToggleProps from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
 import { useMemo } from 'react';
-import { useTranslate } from '@/hooks';
 
 const BrandToggle = ({
   testId,
@@ -20,7 +19,6 @@ const BrandToggle = ({
 }: BrandToggleProps) => {
   const { getThemeColor, getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const { isRTL } = useTranslate();
 
   const trackColor = useMemo(
     () => ({
@@ -54,10 +52,7 @@ const BrandToggle = ({
         trackColor={trackColor}
         thumbColor={thumbColor}
         ios_backgroundColor={iosBg}
-        style={[
-          themedStyles[size],
-          { transform: [{ scaleX: isRTL ? -1 : 1 }] },
-        ]}
+        style={themedStyles[size]}
         {...restProps}
       />
       <View style={themedStyles.contentContainer}>

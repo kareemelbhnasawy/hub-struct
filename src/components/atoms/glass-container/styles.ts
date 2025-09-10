@@ -24,6 +24,11 @@ const styles = (borderRadius: Radius) =>
         top: 0,
       },
     },
+    overflowHidden: {
+      base: {
+        overflow: 'hidden',
+      },
+    },
     borderMask: {
       base: {
         flex: 1,

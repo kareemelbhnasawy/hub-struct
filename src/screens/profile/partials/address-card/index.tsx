@@ -35,6 +35,7 @@ const AddressCard = ({
             <Badge
               testId={`${testId}-address-card`}
               paragraphProps={{ text: 'profile.contractAddress' }}
+              color="gray"
             />
           )}
         </View>
