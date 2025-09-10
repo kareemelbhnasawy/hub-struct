@@ -113,7 +113,11 @@ const Page = ({
         {/* Content */}
         <InnerPageWrapper
           testID={`${prefixTestId}-inner-wrapper`}
-          style={[!noPaddings && themedStyles.innerPageStyle, innerPageStyle]}>
+          style={[
+            !noPaddings && themedStyles.innerPageStylePaddings,
+            themedStyles.innerPageStyle,
+            innerPageStyle,
+          ]}>
           {children}
         </InnerPageWrapper>
         {/* Content */}
