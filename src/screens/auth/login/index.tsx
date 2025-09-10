@@ -69,6 +69,7 @@ const LoginScreen = () => {
       mobile: res?.mobileNumber,
       resetAppNav: true,
       url: 'auth/v1/login',
+      hideErrorToast: (err) => err.status === 401,
       body: {
         email: email,
         password: password,
@@ -151,7 +152,7 @@ const LoginScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={false}
-      isLoading={isPendingLoginBio || isPendingChallenge}>
+      isLoading={isPendingLoginBio || isPendingChallenge || isLoading}>
       <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
       <Spacer space={20} />

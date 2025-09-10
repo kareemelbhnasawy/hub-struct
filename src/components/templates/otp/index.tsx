@@ -26,6 +26,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     body,
     expiresIn,
     showSuccessToast,
+    hideErrorToast,
     isBack,
   } = route.params;
   const screenTestId = 'otp-screen';
@@ -56,18 +57,19 @@ export default function OtpConfirmationScreen({ route }: Props) {
     reset();
   });
 
-  const { mutate: finishFlow } = useFinishFlow(
+  const { mutate: finishFlow } = useFinishFlow({
     url,
-    (data) => {
+    onSuccess: (data) => {
       //save data
       onConfirmOtp?.(data);
       navigateToNextScreen();
     },
-    () => {
+    onError: () => {
       setError(true);
     },
     showSuccessToast,
-  );
+    hideErrorToast,
+  });
 
   const handleResendCode = () => {
     startFlow(body);
