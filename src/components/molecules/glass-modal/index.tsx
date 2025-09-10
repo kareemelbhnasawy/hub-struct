@@ -3,20 +3,21 @@ import BaseModal from '@/components/atoms/base-modal';
 import { GlassContainer } from '@/components/atoms/glass-container';
 import { Headline, Paragraph, Spacer } from '@/components/atoms';
 import { Pressable } from 'react-native';
-import BaseButton from '../base-button';
 import { Radius } from '@/style';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
+import AlertButton from '../alert-button';
 
 const GlassModal = ({
   testId,
   headlineProps,
   paragraphProps,
   buttonProps,
+  dangerButtonProps,
   secondaryButtonProps,
   ...props
 }: GlassModalProps) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
     <BaseModal
@@ -29,7 +30,12 @@ const GlassModal = ({
           testId={`${testId}-modal`}
           containerStyle={themedStyles.glassContainer}
           isContentCentered={false}
-          borderRadius={Radius.LG}>
+          borderRadius={Radius.XL}
+          blurAmountIOS={10}
+          blurAmountAndroid={14}
+          blurOverlayColor={getThemeColor('alphaBlack20')}>
+          <Spacer />
+
           {headlineProps && (
             <>
               <Headline
@@ -49,27 +55,38 @@ const GlassModal = ({
                 weight="Medium"
                 {...paragraphProps}
               />
-              <Spacer space="xl" />
-            </>
-          )}
-
-          {buttonProps && (
-            <>
-              <BaseButton
-                testId={`${testId}-glass-modal-primary`}
-                isRounded
-                {...buttonProps}
-              />
               <Spacer />
             </>
           )}
+          <Spacer space="3xl" />
+          {buttonProps && (
+            <>
+              <AlertButton
+                testId={`${testId}-glass-modal-primary`}
+                {...buttonProps}
+              />
+              <Spacer space={'lg'} />
+            </>
+          )}
+          {dangerButtonProps && (
+            <>
+              <AlertButton
+                testId={`${testId}-glass-modal-secondary`}
+                variant="destructive"
+                {...dangerButtonProps}
+              />
+              <Spacer space={'lg'} />
+            </>
+          )}
           {secondaryButtonProps && (
-            <BaseButton
-              testId={`${testId}-glass-modal-secondary`}
-              variant="secondary"
-              isRounded
-              {...secondaryButtonProps}
-            />
+            <>
+              <AlertButton
+                testId={`${testId}-glass-modal-secondary`}
+                variant="secondary"
+                {...secondaryButtonProps}
+              />
+              <Spacer space={'lg'} />
+            </>
           )}
         </GlassContainer>
       </Pressable>

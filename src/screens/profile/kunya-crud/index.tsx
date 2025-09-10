@@ -199,14 +199,11 @@ const KunyaCrudScreen = () => {
           weight: 'Medium',
           size: 'xl',
         }}
-        buttonProps={{
+        dangerButtonProps={{
           textProps: {
             text: 'profile.deactivate',
           },
           onPress: handleDeleteKunya,
-          variant: 'secondary',
-          danger: true,
-          isBordered: false,
         }}
         secondaryButtonProps={{
           textProps: {
