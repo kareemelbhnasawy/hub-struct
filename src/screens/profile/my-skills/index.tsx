@@ -23,6 +23,7 @@ import useSearchSkills from '@/network/services/profile/search-skills/search-ski
 import { useDebounce } from 'use-debounce';
 import isEmpty from '@/utilities/is-empty';
 import { PostSkillsResponse } from '@/network/services/profile/types';
+import { wait } from '@/utilities';
 
 const MySkillsScreen = () => {
   const screenTestId = 'my-skills-screen';
@@ -40,6 +41,10 @@ const MySkillsScreen = () => {
 
   const { data: skillsData, isLoading } = useGetSkills();
 
+  const removeTagFromNewTags = (id: number) => {
+    setNewTags((prev) => prev.filter((tagId) => tagId !== id));
+  };
+
   const onDeleteSkillSuccess = useCallback(() => {
     invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
     if (!isEmpty(debouncedText)) {
@@ -49,10 +54,11 @@ const MySkillsScreen = () => {
 
   const onAddSkillSuccess = useCallback((data: PostSkillsResponse) => {
     invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
-    setNewTags((prev) => [...prev, data.skillId]);
+    wait(5000).then(() => removeTagFromNewTags(data.skillId));
     if (!isEmpty(debouncedText)) {
       mutateSearchSkills({ keyword: debouncedText });
     }
+    setNewTags((prev) => [...prev, data.skillId]);
   }, [debouncedText, invalidateQuery]);
 
   const { mutate: mutateAddSkill } = usePostSkills(onAddSkillSuccess);
@@ -137,7 +143,7 @@ const MySkillsScreen = () => {
           ) : null}
 
           <TagCollection
-            testId="we"
+            testId={screenTestId}
             newTags={newTags}
             data={
               skillsData?.map((val) => ({
