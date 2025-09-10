@@ -47,7 +47,7 @@
   "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
     "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته.",
-    "pinMismatch": "الرمزان المدخلا غير متطابقان. يرجى المحاولة مرة أخرى."
+    "pinMismatch": ".الرمزان غير متطابقين. أعد المحاولة"
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
