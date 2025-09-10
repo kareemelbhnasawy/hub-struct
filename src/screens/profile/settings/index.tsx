@@ -99,19 +99,25 @@ const ProfileSettings = () => {
   };
 
   const getBioKey = () => {
-    bioPrompt().then((resultObject) => {
-      const { success } = resultObject;
-      if (success) {
-        generateBioKeys().then((resultObject) => {
-          const { publicKey } = resultObject;
-          mutateSetBio({
-            email,
-            publicKey,
-            biometricType,
-          });
-        });
-      }
-    });
+    bioPrompt()
+      .then((resultObject) => {
+        const { success } = resultObject;
+        if (success) {
+          generateBioKeys()
+            .then((resultObject) => {
+              const { publicKey } = resultObject;
+              mutateSetBio({
+                email,
+                publicKey,
+                biometricType,
+              });
+            })
+            .catch(() => setBioLoading(false));
+        } else {
+          setBioLoading(false);
+        }
+      })
+      .catch(() => setBioLoading(false));
   };
 
   const onPressBio = () => {
@@ -187,7 +193,7 @@ const ProfileSettings = () => {
       },
       renderCustomTrailingIcon: () => (
         <View style={themedStyles.kunyaContainer}>
-          <Paragraph testId="" text={kunya} size="xl" />
+          <Paragraph testId="" text={kunya} size="xl" isTranslated={false} />
           <LucideIcon name="ChevronRight" isRTLMirrored testId="" />
         </View>
       ),

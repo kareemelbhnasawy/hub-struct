@@ -31,7 +31,6 @@ export const styles = createThemedStyles({
     base: {
       flex: 1,
       justifyContent: 'space-between',
-      direction: 'ltr',
     },
   },
 });

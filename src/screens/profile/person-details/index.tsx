@@ -170,7 +170,7 @@ const PersonDetails = () => {
         value={mobileNumber}
         onChangeText={handlePhoneChange}
         keyboardType="phone-pad"
-        maxLength={13}
+        maxLength={10}
         style={themedStyle.mobileInput}
         isRequired
         labelProps={{
