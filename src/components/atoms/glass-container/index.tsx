@@ -46,12 +46,14 @@ export const GlassContainer = ({
       testID={`${testId}-glass-container`}
       style={[themedStyles.container, containerStyle]}
       onPress={onPress}>
-      <BlurView
-        testID={`${testId}-glass-container-blur`}
-        style={themedStyles.absoluteFill}
-        blurType="light"
-        blurAmount={isAndroid() ? 10 : 2}
-      />
+      <View style={(themedStyles.absoluteFill, themedStyles.overflowHidden)}>
+        <BlurView
+          testID={`${testId}-glass-container-blur`}
+          style={themedStyles.absoluteFill}
+          blurType="light"
+          blurAmount={isAndroid() ? 10 : 2}
+        />
+      </View>
       <MaskedView
         testID={`${testId}-glass-container-mask`}
         style={themedStyles.absoluteFill}
