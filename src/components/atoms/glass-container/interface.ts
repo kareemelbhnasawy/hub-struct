@@ -10,6 +10,7 @@ interface GlassContainerProps {
   blurAmountIOS?: number;
   blurAmountAndroid?: number;
   blurOverlayColor?: string;
+  isModal?: boolean;
 }
 
 export default GlassContainerProps;

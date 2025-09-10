@@ -33,6 +33,7 @@ const GlassModal = ({
           borderRadius={Radius.XL}
           blurAmountIOS={10}
           blurAmountAndroid={14}
+          isModal
           blurOverlayColor={getThemeColor('alphaBlack20')}>
           <Spacer />
 

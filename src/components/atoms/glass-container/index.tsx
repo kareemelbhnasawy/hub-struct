@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useMemo } from 'react';
+import { PropsWithChildren, ReactNode, useEffect, useMemo } from 'react';
 import { Pressable, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import Animated, {
@@ -25,6 +25,7 @@ export const GlassContainer = ({
   blurAmountIOS = 2,
   blurAmountAndroid = 10,
   blurOverlayColor,
+  isModal,
   children,
 }: PropsWithChildren<GlassContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -48,20 +49,29 @@ export const GlassContainer = ({
     transform: [{ translateX: translateX.value }],
   }));
 
+  const BlurWrapper = (children: ReactNode) =>
+    isModal ? (
+      <>{children}</>
+    ) : (
+      <View style={(themedStyles.absoluteFill, themedStyles.overflowHidden)}>
+        {children}
+      </View>
+    );
+
   return (
     <Pressable
       testID={`${testId}-glass-container`}
       style={[themedStyles.container, containerStyle]}
       onPress={onPress}>
-              <View style={(themedStyles.absoluteFill, themedStyles.overflowHidden)}>
-      <BlurView
-        testID={`${testId}-glass-container-blur`}
-        style={themedStyles.absoluteFill}
-        blurType="light"
-        overlayColor={blurOverlayColor}
-        blurAmount={blurAmount}
-      />
-              </View>
+      {BlurWrapper(
+        <BlurView
+          testID={`${testId}-glass-container-blur`}
+          style={themedStyles.absoluteFill}
+          blurType="light"
+          overlayColor={blurOverlayColor}
+          blurAmount={blurAmount}
+        />,
+      )}
       <MaskedView
         testID={`${testId}-glass-container-mask`}
         style={themedStyles.absoluteFill}
