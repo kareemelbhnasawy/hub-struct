@@ -55,7 +55,7 @@ const MySkillsScreen = () => {
   const onAddSkillSuccess = useCallback(
     (data: PostSkillsResponse) => {
       invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
-      wait(5000).then(() => removeTagFromNewTags(data.skillId));
+      wait(60000).then(() => removeTagFromNewTags(data.skillId));
       if (!isEmpty(debouncedText)) {
         mutateSearchSkills({ keyword: debouncedText });
       }
