@@ -8,6 +8,11 @@ const removeBio = async (data) => {
     url: AUTH_URLS.SET_BIO,
     config: {
       data,
+      showSuccessToast: () => {
+        return {
+          text: `profile.settings.stop${data.biometricType}Success`,
+        };
+      },
     },
   });
   return res.data;

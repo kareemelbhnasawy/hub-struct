@@ -87,7 +87,16 @@
     "changeTOUCH_ID_PIN_CODE": "سيتم إلغاء بصمة الإصبع تفعيل وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
     "activateFACE_IDSuccess": "تم تفعيل بصمة الوجه بنجاح",
     "activateTOUCH_IDSuccess": "تم تفعيل بصمة الإصبع بنجاح",
-    "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
+    "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح",
+    "stopQuickFACE_ID": "إيقاف بصمة الوجه",
+    "stopQuickTOUCH_ID": "إيقاف بصمة الإصبع",
+    "stopQuickPIN_CODE": "إيقاف الرمز السري",
+    "stopQuickDescFACE_ID": "ستتوقف عن استخدام بصمة الوجه لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopQuickDescTOUCH_ID": "ستتوقف عن استخدام بصمة الإصبع لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopQuickDescPIN_CODE": "ستتوقف عن استخدام الرمز السري لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopFACE_IDSuccess": "تم إيقاف بصمة الوجه بنجاح",
+    "stopTOUCH_IDSuccess": "تم إيقاف بصمة الإصبع بنجاح",
+    "stopPIN_CODESuccess": "تم إيقاف الرمز السري بنجاح"
   },
   "members": {
     "status": {

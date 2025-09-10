@@ -87,7 +87,16 @@
     "changeTOUCH_ID_PIN_CODE": "Fingerprint will be deactivated and PIN code will be activated. Are you sure?",
     "activateFACE_IDSuccess": "Face ID activated successfully",
     "activateTOUCH_IDSuccess": "Fingerprint activated successfully",
-    "activatePIN_CODESuccess": "PIN code activated successfully"
+    "activatePIN_CODESuccess": "PIN code activated successfully",
+    "stopQuickFACE_ID": "Stop Face ID",
+    "stopQuickTOUCH_ID": "Stop Fingerprint",
+    "stopQuickPIN_CODE": "Stop PIN Code",
+    "stopQuickDescFACE_ID": "You will stop using Face ID to log in. We recommend choosing an alternative method.",
+    "stopQuickDescTOUCH_ID": "You will stop using your fingerprint to log in. We recommend choosing an alternative method.",
+    "stopQuickDescPIN_CODE": "You will stop using your PIN to log in. We recommend choosing an alternative method.",
+    "stopFACE_IDSuccess": "Face ID deactivated successfully",
+    "stopTOUCH_IDSuccess": "Fingerprint deactivated successfully",
+    "stopPIN_CODESuccess": "PIN code deactivated successfully"
   },
   "members": {
     "status": {

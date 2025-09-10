@@ -34,6 +34,8 @@ const ProfileSettings = () => {
   const [langModalVisible, setLangModalVisible] = useState(false);
   const [logoutModalVisible, setLogoutModalVisible] = useState(false);
   const [changeQuickLoginVisible, setChangeQuickLoginVisible] = useState(false);
+  const [disableQuickLoginVisible, setDisableQuickLoginVisible] =
+    useState(false);
   const [bioLoading, setBioLoading] = useState(false);
   const { quickLoginType, setQuickLoginType, email } = useAuthStore();
   const [biometricType, setBiometricType] = useState<
@@ -66,11 +68,13 @@ const ProfileSettings = () => {
 
   const deleteBioKey = () => {
     setBioLoading(false);
+    setDisableQuickLoginVisible(false);
     deleteBioKeys();
     setQuickLoginType('');
   };
 
   const deletePinKey = () => {
+    setDisableQuickLoginVisible(false);
     setQuickLoginType('');
   };
 
@@ -123,7 +127,7 @@ const ProfileSettings = () => {
   const onPressBio = () => {
     setBioLoading(true);
     if (bioEnabled) {
-      mutateRemoveBio({ email });
+      mutateRemoveBio({ email, biometricType });
     } else {
       setChangeQuickLoginVisible(false);
       getBioKey();
@@ -139,6 +143,7 @@ const ProfileSettings = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onQuickLoginPress = (type: 'PIN_CODE' | 'FACE_ID' | 'TOUCH_ID') => {
     let changeFn: () => void;
     if (type === 'PIN_CODE') {
@@ -148,6 +153,9 @@ const ProfileSettings = () => {
     }
     if (quickLoginType && quickLoginType != type) {
       setChangeQuickLoginVisible(true);
+      setChangeQuickLoginFn(() => changeFn);
+    } else if (quickLoginType === type) {
+      setDisableQuickLoginVisible(true);
       setChangeQuickLoginFn(() => changeFn);
     } else {
       changeFn();
@@ -375,6 +383,23 @@ const ProfileSettings = () => {
         secondaryButtonProps={{
           textProps: { text: 'common.back' },
           onPress: () => setChangeQuickLoginVisible(false),
+        }}
+      />
+
+      <GlassModal
+        testId={screenTestId}
+        visible={disableQuickLoginVisible}
+        headlineProps={{ text: 'profile.settings.stopQuick' + quickLoginType }}
+        paragraphProps={{
+          text: 'profile.settings.stopQuickDesc' + quickLoginType,
+        }}
+        buttonProps={{
+          textProps: { text: 'profile.settings.stopQuick' + quickLoginType },
+          onPress: changeQuickLoginFn,
+        }}
+        secondaryButtonProps={{
+          textProps: { text: 'common.back' },
+          onPress: () => setDisableQuickLoginVisible(false),
         }}
       />
 
