@@ -4,8 +4,8 @@ const styles = createThemedStyles({
   container: {
     base: {
       flex: 1,
-      alignItems: 'center',
       backgroundColor: 'backgroundWhite',
+      rowGap: 20
     },
   },
   searchItemContainer: {

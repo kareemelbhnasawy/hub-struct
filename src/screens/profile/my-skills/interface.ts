@@ -1,4 +1,4 @@
 export type SkillItemDataType = {
-  title: string;
+  name: string;
   id: string;
 };

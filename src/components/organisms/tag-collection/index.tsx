@@ -10,7 +10,7 @@ const TagCollection = ({
   emptyComponentProps,
   testId,
   tagHasIcon = true,
-  tagSize = 'md',
+  tagSize = 'lg',
   data,
   tagOnPress,
 }: TagCollectionProps) => {
@@ -32,8 +32,6 @@ const TagCollection = ({
     [componentTestId, tagHasIcon, tagOnPress, tagSize],
   );
 
-  // eslint-disable-next-line no-console
-  console.log(emptyComponentProps);
   return (
     <List<TagData>
       contentContainerStyle={themedStyles.tagsList}
@@ -41,14 +39,16 @@ const TagCollection = ({
       ItemSeparatorComponent={listSeparatorFn}
       data={data}
       testId={`${componentTestId}`}
-      emptyComponentProps={{
-        iconProps: { name: 'BrainCircuit', size: 80 },
-        headlineProps: {
-          text: 'profile.skills.emptyTagsListHeadline',
-          weight: 'Semibold',
-        },
-        paragraphProps: { text: 'profile.skills.emptyTagsListDesc' },
-      }}
+      emptyComponentProps={
+        emptyComponentProps ?? {
+          iconProps: { name: 'BrainCircuit', size: 80 },
+          headlineProps: {
+            text: 'profile.skills.noSkillsYet',
+            weight: 'Semibold',
+          },
+          paragraphProps: { text: 'profile.skills.addSkillsPrompt' },
+        }
+      }
       renderItem={renderItemFn}></List>
   );
 };
