@@ -5,6 +5,8 @@ interface BaseTextProps extends Omit<TextProps, 'testID'> {
   text: string;
   isTranslated?: boolean;
   textProps?: { [x: string]: string };
+  searchText?: string;
+  highlightStyle?: TextProps['style'];
 }
 
 export default BaseTextProps;

@@ -48,6 +48,7 @@ const Covenant = () => {
                     size="xs"
                     weight="Medium"
                     text={item.covenantName ?? ''}
+                    searchText={search.trim()}
                     testId={`${screenTestId}-row-${item.covenantId}-title`}
                 />
                 <Paragraph
@@ -55,6 +56,7 @@ const Covenant = () => {
                     weight="Regular"
                     style={themedStyles.colorTertiary}
                     text={item.covenantId ?? ''}
+                    searchText={search.trim()}
                     testId={`${screenTestId}-row-${item.covenantId}-code`}
                 />
             </View>
