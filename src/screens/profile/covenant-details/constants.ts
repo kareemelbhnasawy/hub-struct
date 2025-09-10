@@ -17,10 +17,5 @@ export const covenantDetailsDataHandler = (covenant?: Covenant): DetailRow[] => 
       label: 'profile.covenants.type',
       value: covenant?.covenantType ?? 'profile.emptyDataMsg',
     },
-    {
-      id: 'registeredAt',
-      label: 'profile.covenants.registeredAt',
-      value: covenant?.registrationDate ?? 'profile.emptyDataMsg',
-    },
   ];
 };
