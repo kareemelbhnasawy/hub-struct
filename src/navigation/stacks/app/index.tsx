@@ -12,7 +12,7 @@ const AppStack = () => {
       screenOptions={{
         headerShown: false,
         gestureEnabled: true,
-        animation: 'none',
+        animation: 'default',
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="ProfileStack" component={ProfileStack} />

@@ -12,7 +12,7 @@ const RootStack = () => {
       screenOptions={{
         headerShown: false,
         gestureEnabled: false,
-        animation: 'none',
+        animation: 'default',
       }}>
       <Stack.Screen
         name="Auth"

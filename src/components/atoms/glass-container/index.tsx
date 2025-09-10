@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useEffect } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import Animated, {
   useSharedValue,
@@ -46,12 +46,14 @@ export const GlassContainer = ({
       testID={`${testId}-glass-container`}
       style={[themedStyles.container, containerStyle]}
       onPress={onPress}>
-      <BlurView
-        testID={`${testId}-glass-container-blur`}
-        style={themedStyles.absoluteFill}
-        blurType="light"
-        blurAmount={isAndroid() ? 10 : 2}
-      />
+      <View style={(StyleSheet.absoluteFill, { overflow: 'hidden' })}>
+        <BlurView
+          testID={`${testId}-glass-container-blur`}
+          style={themedStyles.absoluteFill}
+          blurType="light"
+          blurAmount={isAndroid() ? 10 : 2}
+        />
+      </View>
       <MaskedView
         testID={`${testId}-glass-container-mask`}
         style={themedStyles.absoluteFill}

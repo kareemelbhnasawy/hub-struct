@@ -27,7 +27,7 @@ const ProfileStack = () => {
       screenOptions={{
         headerShown: false,
         gestureEnabled: true,
-        animation: 'none',
+        animation: 'default',
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="MyProfile" component={MyProfileScreen} />

@@ -13,7 +13,7 @@ const AuthStack = () => {
       //For now Global app stack options
       screenOptions={{
         headerShown: false,
-        animation: 'none',
+        animation: 'default',
         gestureEnabled: true,
       }}>
       <Stack.Screen name="Splash" component={SplashScreen} />
