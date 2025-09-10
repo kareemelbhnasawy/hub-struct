@@ -1,7 +1,7 @@
 import GlassModalProps from './interface';
 import BaseModal from '@/components/atoms/base-modal';
 import { GlassContainer } from '@/components/atoms/glass-container';
-import { Headline, Spacer } from '@/components/atoms';
+import { Headline, Paragraph, Spacer } from '@/components/atoms';
 import { Pressable } from 'react-native';
 import { Radius } from '@/style';
 import { useThemeStore } from '@/store/theme';
@@ -30,7 +30,7 @@ const GlassModal = ({
           testId={`${testId}-modal`}
           containerStyle={themedStyles.glassContainer}
           isContentCentered={false}
-          borderRadius={Radius.LG}
+          borderRadius={Radius.XL}
           blurAmountIOS={10}>
           <Spacer />
 
@@ -38,7 +38,7 @@ const GlassModal = ({
             <>
               <Headline
                 testId={`${testId}-glass-modal`}
-                size="xs"
+                size="sm"
                 weight="Semibold"
                 {...headlineProps}
               />
@@ -47,23 +47,23 @@ const GlassModal = ({
           )}
           {paragraphProps && (
             <>
-              <Headline
+              <Paragraph
                 testId={`${testId}-glass-modal`}
-                size="2xs"
+                size="xl"
                 weight="Medium"
                 {...paragraphProps}
               />
-              <Spacer space="5xl" />
+              <Spacer />
             </>
           )}
-
+          <Spacer space="3xl" />
           {buttonProps && (
             <>
               <AlertButton
                 testId={`${testId}-glass-modal-primary`}
                 {...buttonProps}
               />
-              <Spacer />
+              <Spacer space={'lg'} />
             </>
           )}
           {dangerButtonProps && (
@@ -73,7 +73,7 @@ const GlassModal = ({
                 variant="destructive"
                 {...dangerButtonProps}
               />
-              <Spacer />
+              <Spacer space={'lg'} />
             </>
           )}
           {secondaryButtonProps && (
@@ -83,7 +83,7 @@ const GlassModal = ({
                 variant="secondary"
                 {...secondaryButtonProps}
               />
-              <Spacer />
+              <Spacer space={'lg'} />
             </>
           )}
         </GlassContainer>

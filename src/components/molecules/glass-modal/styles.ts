@@ -11,9 +11,8 @@ const styles = createThemedStyles({
   },
   glassContainer: {
     base: {
-      backgroundColor: 'alphaBlack10',
+      backgroundColor: 'alphaWhite10',
       paddingHorizontal: 14,
-      paddingVertical: 14,
       width: '80%',
     },
   },
