@@ -47,6 +47,10 @@ export interface SkillResponse {
   name: string;
 }
 
+export interface PostSkillsResponse {
+  skillId: number;
+}
+
 export interface SkillsListResponse {
   skills?: SkillResponse[];
 }

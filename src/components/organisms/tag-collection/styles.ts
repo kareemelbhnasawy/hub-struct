@@ -24,6 +24,11 @@ const styles = createThemedStyles({
       textAlign: 'left',
     },
   },
+  highlightedTagContainer: {
+    base: {
+      backgroundColor: 'tagBackgroundHighlight',
+    },
+  },
 });
 
 export default styles;

@@ -22,6 +22,7 @@ import { PageHeaderVariants } from '@/components/templates/page/constants';
 import useSearchSkills from '@/network/services/profile/search-skills/search-skills.hook';
 import { useDebounce } from 'use-debounce';
 import isEmpty from '@/utilities/is-empty';
+import { PostSkillsResponse } from '@/network/services/profile/types';
 
 const MySkillsScreen = () => {
   const screenTestId = 'my-skills-screen';
@@ -30,6 +31,7 @@ const MySkillsScreen = () => {
   const [sheetVisibility, setSheetVisibility] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [newTags, setNewTags] = useState<number[]>([]);
   const [debouncedText] = useDebounce(searchText, 500);
 
   const { invalidateQuery } = useCustomInvalidate();
@@ -43,8 +45,9 @@ const MySkillsScreen = () => {
     }
   }, [debouncedText, invalidateQuery]);
 
-  const onAddSkillSuccess = useCallback(() => {
+  const onAddSkillSuccess = useCallback((data: PostSkillsResponse) => {
     invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
+    setNewTags((prev) => [...prev, data.skillId]);
     if (!isEmpty(debouncedText)) {
       mutateSearchSkills({ keyword: debouncedText });
     }
@@ -69,6 +72,7 @@ const MySkillsScreen = () => {
       setSearchResults(skillsSearchData?.skills);
     }
   }, [skillsSearchData]);
+
 
   const renderListItem = ({
     item,
@@ -127,6 +131,7 @@ const MySkillsScreen = () => {
 
           <TagCollection
             testId="we"
+            newTags={newTags}
             data={
               skillsData?.map((val) => ({
                 itemId: val.id,

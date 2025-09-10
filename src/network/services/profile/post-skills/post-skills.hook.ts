@@ -1,9 +1,10 @@
 import { useCustomMutation } from '@/network/hooks';
 import postSkills from './post-skills.service';
 import PROFILE_QUERY_KEYS from '../profile.query-keys';
+import { PostSkillsResponse } from '../types';
 
 const usePostSkills = (
-  onSuccess?: (data: unknown) => void,
+  onSuccess?: (data: PostSkillsResponse) => void,
   onError?: (error: unknown) => void,
 ) => {
   return useCustomMutation<
@@ -11,11 +12,11 @@ const usePostSkills = (
       skillId?: number;
       skillName: string;
     },
-    unknown
+    PostSkillsResponse
   >({
     mutationKey: [PROFILE_QUERY_KEYS.POST_SKILLS],
     mutationFn: postSkills,
-    onSuccess: onSuccess ?? (() => {}), // :(
+    onSuccess: onSuccess ?? (() => {}),
     onError: onError ?? (() => {}),
   });
 };

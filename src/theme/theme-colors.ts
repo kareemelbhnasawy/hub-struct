@@ -1168,6 +1168,10 @@ export const themeColors = {
     light: COLORS['success-100'],
     dark: COLORS.white,
   },
+  tagBackgroundHighlight: {
+    light: COLORS['success-200'],
+    dark: COLORS.white,
+  },
   tagBackgroundIcon: {
     light: COLORS['primary-50'],
     dark: COLORS.white,

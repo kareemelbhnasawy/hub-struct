@@ -5,6 +5,7 @@ import { TagData } from './types';
 interface TagCollectionProps {
   emptyComponentProps?: ListProps<TagData>['emptyComponentProps'];
   tagHasIcon?: boolean;
+  newTags?: number[];
   tagSize?: TagProps['size'];
   testId: string;
   data: TagData[];

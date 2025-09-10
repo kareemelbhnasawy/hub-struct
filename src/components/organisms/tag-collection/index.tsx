@@ -9,6 +9,7 @@ import { Spacer } from '@/components/atoms';
 const TagCollection = ({
   emptyComponentProps,
   testId,
+  newTags,
   tagHasIcon = true,
   tagSize = 'lg',
   data,
@@ -22,12 +23,20 @@ const TagCollection = ({
 
   const renderItemFn = useCallback(
     ({ item, index }: { item: TagData; index: number }) => (
-      <Tag
-        {...item}
-        testId={`${componentTestId}-tag-#${index}`}
-        hasIcon={tagHasIcon}
-        onPress={tagOnPress ? () => tagOnPress(item) : undefined}
-        size={tagSize}></Tag>
+      (
+        <Tag
+          {...item}
+          testId={`${componentTestId}-tag-#${index}`}
+          hasIcon={tagHasIcon}
+          onPress={tagOnPress ? () => tagOnPress(item) : undefined}
+          size={tagSize}
+          containerStyle={
+            newTags?.includes(item.itemId)
+              ? themedStyles.highlightedTagContainer
+              : undefined
+          }
+        />
+      )
     ),
     [componentTestId, tagHasIcon, tagOnPress, tagSize],
   );
