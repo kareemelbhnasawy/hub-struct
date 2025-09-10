@@ -9,6 +9,11 @@ const deleteSkills = async (data: { skillId: number }): Promise<unknown> => {
     method: API_METHODS.DELETE,
     url: PROFILE_URLS.SKILLS,
     config: {
+      showSuccessToast: () => {
+        return {
+          text: 'profile.skills.deleteSuccess',
+        };
+      },
       params: {
         email,
       },

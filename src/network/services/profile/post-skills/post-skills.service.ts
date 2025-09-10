@@ -12,10 +12,14 @@ const postSkills = async (data: {
     method: API_METHODS.POST,
     url: PROFILE_URLS.SKILLS,
     config: {
+      showSuccessToast: () => {
+        return {
+          text: 'profile.skills.postSuccess',
+        };
+      },
       params: {
         email,
       },
-      showSuccessToast: () => ({ text: 'profile.skills.postSuccess' }),
     },
     data,
   });

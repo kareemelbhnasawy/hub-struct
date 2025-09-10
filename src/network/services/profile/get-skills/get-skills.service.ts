@@ -15,6 +15,9 @@ const getSkills = async (): Promise<SkillsListGETResponse> => {
       },
     },
   });
+  if (res.status === 204) {
+    return [];
+  }
   return res.data as SkillsListGETResponse;
 };
 
