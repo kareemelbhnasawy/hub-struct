@@ -4,5 +4,6 @@
   "save": "Save",
   "noRecords": "No Records",
   "back": "Back",
-  "errorMsg": "Something went wrong, please try again later."
+  "errorMsg": "Something went wrong, please try again later.",
+  "sessionExpired": "Session expired. Please login again."
 }

@@ -46,7 +46,8 @@
   },
   "confirmPin": {
     "confirmTitle": "Re-enter your PIN to confirm",
-    "confirmSubtitle": "To make sure the PIN you chose is correct."
+    "confirmSubtitle": "To make sure the PIN you chose is correct.",
+    "pinMismatch": "The two entered codes do not match. Please try again."
   },
   "personDetails": {
     "personalInfo": "Personal information",

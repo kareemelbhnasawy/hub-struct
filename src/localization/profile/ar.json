@@ -46,7 +46,8 @@
   },
   "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
-    "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته."
+    "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته.",
+    "pinMismatch": "الرمزان المدخلا غير متطابقان. يرجى المحاولة مرة أخرى."
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
@@ -154,7 +155,7 @@
     "rank": "المرتبة",
     "effectiveManagement": "الإدارة الفعلية",
     "management": "الإدارة",
-    "emailAddress": "البريد الالكتروني",
+    "emailAddress": "البريد الإلكتروني",
     "address": "مقر العمل",
     "workExtension": "التحويلة",
     "location": "موقع العمل"
