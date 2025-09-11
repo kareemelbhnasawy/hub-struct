@@ -29,7 +29,8 @@ const Tag = ({
         containerStyle,
       ]}>
       <Paragraph
-        size="sm"
+        size="lg"
+        weight='Medium'
         testId={`${testId}-tag-label`}
         {...labelProps}
         style={[themedStyles.text, labelProps.style]}

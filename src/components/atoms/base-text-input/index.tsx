@@ -19,6 +19,7 @@ const BaseTextInput = forwardRef(
       onChangeValue,
       style,
       inBottomSheet = false,
+      disabled,
       ...textInputProps
     }: BaseTextInputProps,
     ref,
@@ -30,6 +31,7 @@ const BaseTextInput = forwardRef(
     return (
       <Comp
         ref={ref}
+        editable={!disabled}
         testID={`${testId}-base-input`}
         textAlign={isRTL ? 'right' : 'left'}
         onChangeText={onChangeValue}

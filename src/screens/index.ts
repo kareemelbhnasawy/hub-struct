@@ -16,5 +16,6 @@ export { default as BusinessDetails } from './profile/business-details';
 export { default as QualificationDetailsScreen } from './profile/qualification-details';
 export { default as CovenantScreen } from './profile/covenants';
 export { default as CovenantDetailsScreen } from './profile/covenant-details';
+export { default as MySkillsScreen } from './profile/my-skills';
 export { default as MyTeamScreen } from './profile/my-team';
 export { default as TeamMemberProfileScreen } from './profile/team-member-profile';

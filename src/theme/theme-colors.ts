@@ -1165,7 +1165,11 @@ export const themeColors = {
     dark: COLORS.white,
   },
   tagBackground: {
-    light: COLORS['primary-50'],
+    light: COLORS['success-100'],
+    dark: COLORS.white,
+  },
+  tagBackgroundHighlight: {
+    light: COLORS['success-200'],
     dark: COLORS.white,
   },
   tagBackgroundIcon: {
@@ -1177,7 +1181,7 @@ export const themeColors = {
     dark: COLORS.white,
   },
   tagBorder: {
-    light: COLORS['primary-400'],
+    light: COLORS['success-600'],
     dark: COLORS.white,
   },
 

@@ -6,3 +6,4 @@ export { default as SelectInput } from './select-input';
 export { default as DateInput } from './date-input';
 export { default as SelectionGroup } from './selection-group';
 export { default as DetailsSection } from './details-section';
+export { default as TagCollection } from './tag-collection';
