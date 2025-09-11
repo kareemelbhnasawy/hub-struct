@@ -10,6 +10,7 @@ const useTranslate = () => {
 
   const changeLanguage = (lang: string) => {
     setString(STORAGE_KEYS.LANGUAGE, lang);
+    I18nManager.isRTL = lang === 'ar';
     I18nManager.forceRTL(lang === 'ar');
     i18n.changeLanguage(lang);
     RNRestart.Restart();
@@ -18,6 +19,7 @@ const useTranslate = () => {
     const locale = getString(STORAGE_KEYS.LANGUAGE);
     const lang = locale === 'ar' ? 'en' : 'ar';
     setString(STORAGE_KEYS.LANGUAGE, lang);
+    I18nManager.isRTL = lang === 'ar';
     I18nManager.forceRTL(lang === 'ar');
     RNRestart.Restart();
   };
