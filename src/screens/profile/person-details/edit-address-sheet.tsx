@@ -88,7 +88,12 @@ const EditAddressSheet = ({
       setModalVisible={setModalVisible}
       snapPoints={SnapPoints.XL}
       enableDynamicSizing={false}
-      titleProps={{ text: 'profile.editAddress' }}
+      titleProps={{
+        text: 'profile.editAddress',
+        weight: 'Medium',
+        size: 'xs',
+      }}
+      headerVariant="centerWithClose"
       hasSubmitButton
       buttonProps={{
         textProps: { text: 'common.save' },
@@ -132,18 +137,22 @@ const EditAddressSheet = ({
           <Spacer space="3xl" />
         </>
       )}
-      <Headline
-        testId={`${testId}-edit-address`}
-        text="profile.chooseAddress"
-        size="xs"
-        weight="Medium"
-      />
-      <Spacer space="xs" />
-      <Paragraph
-        testId={`${testId}-edit-address`}
-        text="profile.chooseAddressDesc"
-        size="xl"
-      />
+      {data?.addresses && data?.addresses.length > 0 && (
+        <>
+          <Headline
+            testId={`${testId}-edit-address`}
+            text="profile.chooseAddress"
+            size="xs"
+            weight="Medium"
+          />
+          <Spacer space="xs" />
+          <Paragraph
+            testId={`${testId}-edit-address`}
+            text="profile.chooseAddressDesc"
+            size="xl"
+          />
+        </>
+      )}
       <Spacer space="xl" />
       <SelectionGroup
         testId={`${testId}-edit-address`}
@@ -160,7 +169,7 @@ const EditAddressSheet = ({
             textProps: { text: 'profile.addNewAddressViaSPL' },
             leftIcon: { name: 'ExternalLink' },
             onPress: () => {
-              openLink('https://www.google.com/');
+              openLink('https://splonline.com.sa/en/national-address-1/');
             },
           },
         }}

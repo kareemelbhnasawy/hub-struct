@@ -1,12 +1,12 @@
 export const getIconSize = (size: 'sm' | 'md' | 'lg') => {
   switch (size) {
     case 'sm':
-      return 12;
+      return 8;
     case 'md':
-      return 16;
+      return 12;
     case 'lg':
-      return 20;
+      return 14;
     default:
-      return 16;
+      return 10;
   }
 };

@@ -13,7 +13,7 @@ import { RootStackParamList } from '../navigation';
 import { AppStackParamList } from '../navigation/stacks/app/types';
 import { AuthStackParamList } from '../navigation/stacks/auth/types';
 import { ProfileStackParamList } from '../navigation/stacks/profile/types';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -59,6 +59,13 @@ const stackMap: Record<ScreenName, StackPath> = {
   QualificationDetails: ['App', 'ProfileStack'],
   MyTeam: ['App', 'ProfileStack'],
   TeamMemberProfile: ['App', 'ProfileStack'],
+  DigitalCard: ['App', 'ProfileStack'],
+  MySkills: ['App', 'ProfileStack'],
+
+  // Example deeper nesting (uncomment & adjust to your app)
+  // Products: ['App', 'ShopStack'],
+  // ProductDetails: ['App', 'ShopStack', 'ProductStack'],
+  // Cart: ['App', 'ShopStack', 'CartStack'],
   ProfileSettings: ['App', 'ProfileStack'],
   SetPin: ['App', 'ProfileStack'],
   ConfirmPin: ['App', 'ProfileStack'],
@@ -248,6 +255,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     onConfirmOtp,
     expiresIn,
     showSuccessToast,
+    hideErrorToast,
     isBack = false,
   }: {
     nextScreen: K;
@@ -262,6 +270,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
       text: string;
       textProps?: object;
     };
+    hideErrorToast?: (arg0: AxiosError) => boolean;
     isBack?: boolean;
   }) => {
     navigateTo('OTP', {
@@ -274,6 +283,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
       onConfirmOtp,
       expiresIn,
       showSuccessToast,
+      hideErrorToast,
       isBack,
     });
   };

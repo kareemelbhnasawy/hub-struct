@@ -8,6 +8,9 @@ const removePin = async (data) => {
     url: AUTH_URLS.SET_PIN,
     config: {
       data,
+      showSuccessToast: () => {
+        return { text: 'profile.settings.stopPIN_CODESuccess' };
+      },
     },
   });
   return res.data;

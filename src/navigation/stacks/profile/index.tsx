@@ -16,6 +16,8 @@ import {
   CovenantScreen,
   CovenantDetailsScreen,
   IDCardScreen,
+  MySkillsScreen,
+  DigitalCardScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
 
@@ -38,6 +40,7 @@ const ProfileStack = () => {
       <Stack.Screen name="EditBackground" component={EditBackgroundScreen} />
       <Stack.Screen name="KunyaCrud" component={KunyaCrudScreen} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+      <Stack.Screen name="MySkills" component={MySkillsScreen} />
       <Stack.Screen name="Qualifications" component={QualificationsScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />
@@ -47,6 +50,7 @@ const ProfileStack = () => {
       />
       <Stack.Screen name="Covenant" component={CovenantScreen} />
       <Stack.Screen name="CovenantDetails" component={CovenantDetailsScreen} />
+      <Stack.Screen name="DigitalCard" component={DigitalCardScreen} />
       <Stack.Screen
         name="TeamMemberProfile"
         component={TeamMemberProfileScreen}

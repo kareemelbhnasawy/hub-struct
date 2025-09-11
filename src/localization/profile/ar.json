@@ -8,12 +8,11 @@
   "job-details": "البيانات الوظيفية",
   "career-history": "تاريخي الوظيفي داخل الوزارة",
   "holidays-record": "أرصدة الإجازات",
-  "skills": "مهاراتي",
   "custodies": "العُهد",
   "editAddress": "تعديل العنوان",
-  "contractAddress": "العنوان المسجل في العقد",
+  "contractAddress": "العنوان المسجل",
   "chooseAddress": "اختر عنوان اخر من عناوينك في سبل",
-  "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل لتحديث العقد. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
+  "chooseAddressDesc": "اختر أحد عناوينك المسجلة في سبل. إذا لم تجد العنوان المطلوب، يمكنك إضافته عبر سبل.",
   "saveChanges": "حفظ التعديلات",
   "deactivate": "إلغاء التفعيل",
   "back": "رجوع",
@@ -38,7 +37,7 @@
   "myProfile": "ملفي الشخصي",
   "nickname": "الكنية",
   "emptyDataMsg": "لا يوجد بيانات مسجلة",
-  "notRegisteredSabil": "العنوان المسجل في العقد غير متوفر في بيانات سبل.",
+  "notRegisteredSabil": "العنوان المسجل غير متوفر في بيانات سبل.",
   "setPin": {
     "createTitle": "أنشئ رمزك السري (PIN)",
     "chooseSixDigits": "اختر رمزًا من ٦ أرقام.",
@@ -47,7 +46,7 @@
   "confirmPin": {
     "confirmTitle": "أعد إدخال الرمز للتأكيد",
     "confirmSubtitle": "للتأكد من صحة الرمز الذي اخترته.",
-    "pinMismatch": "الرمزان المدخلا غير متطابقان. يرجى المحاولة مرة أخرى."
+    "pinMismatch": ".الرمزان غير متطابقين. أعد المحاولة"
   },
   "personDetails": {
     "personalInfo": "البيانات الشخصية",
@@ -63,7 +62,7 @@
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
     "address": "العنوان",
-    "contractAddress": "العنوان (المسجل في العقد)"
+    "contractAddress": "العنوان"
   },
   "settings": {
     "settings": "الإعدادات",
@@ -83,11 +82,20 @@
     "changeSignIn": "تغيير طريقة الدخول؟",
     "changePIN_CODE_FACE_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الوجه. هل أنت متأكد؟",
     "changePIN_CODE_TOUCH_ID": "سيتم إلغاء تفعيل الرمز السري (PIN) وتفعيل بصمة الإصبع. هل أنت متأكد؟",
-    "changeFACE_ID_PIN_CODE": "سيتم إلغاء بصمة الوجه تفعيل وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
-    "changeTOUCH_ID_PIN_CODE": "سيتم إلغاء بصمة الإصبع تفعيل وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
+    "changeFACE_ID_PIN_CODE": "سيتم إلغاء تفعيل بصمة الوجه وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
+    "changeTOUCH_ID_PIN_CODE": "سيتم إلغاء تفعيل بصمة الإصبع وتفعيل الرمز السري (PIN). هل أنت متأكد؟",
     "activateFACE_IDSuccess": "تم تفعيل بصمة الوجه بنجاح",
     "activateTOUCH_IDSuccess": "تم تفعيل بصمة الإصبع بنجاح",
-    "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح"
+    "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح",
+    "stopQuickFACE_ID": "إيقاف بصمة الوجه",
+    "stopQuickTOUCH_ID": "إيقاف بصمة الإصبع",
+    "stopQuickPIN_CODE": "إيقاف الرمز السري",
+    "stopQuickDescFACE_ID": "ستتوقف عن استخدام بصمة الوجه لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopQuickDescTOUCH_ID": "ستتوقف عن استخدام بصمة الإصبع لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopQuickDescPIN_CODE": "ستتوقف عن استخدام الرمز السري لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
+    "stopFACE_IDSuccess": "تم إيقاف بصمة الوجه بنجاح",
+    "stopTOUCH_IDSuccess": "تم إيقاف بصمة الإصبع بنجاح",
+    "stopPIN_CODESuccess": "تم إيقاف الرمز السري بنجاح"
   },
   "members": {
     "status": {
@@ -163,11 +171,32 @@
   "covenants": {
     "title": "العُهَد",
     "searchPlaceholder": "ابحث بالاسم أو رقم العهدة",
-    "listTitle": "قائمة العهد",
+    "listTitle": "قائمة العُهَد",
     "emptyTitle": "لا توجد عهد مسجلة",
     "emptySubtitle": "عند استلامك أي عهدة ستظهر هنا.",
     "number": "رقم العهدة",
     "type": "نوع العهدة",
     "registeredAt": "تاريخ تسجيل العهدة"
+  },
+  "digitalCardDetails": {
+    "animation": "هذه البطاقة تكون صالحة عندما تكون الايقونة في وضع الحركة",
+    "share": "شارك مع الآخرين"
+  },
+  "skills": {
+    "mySkills": "مهاراتي",
+    "addSkill": "اضف مهارة",
+    "addSkillsPrompt": "أضف مهاراتك التي ستظهر في ملفك الشخصي وتُبرز خبراتك أمام إدارتك.",
+
+    "searchToAdd": "ابحث لإضافة مهارة",
+    "noSkillsYet": "لم تقم باضافة اي مهارة بعد",
+    "totalSkills": "اجمالي مهاراتك",
+    "postSuccess": "تم إضافة المهارة بنجاح",
+    "deleteSuccess": "تم حذف المهارة بنجاح",
+    "addSkillError": "حدث خطأ أثناء إضافة المهارة. يرجى المحاولة لاحقًا.",
+    "deleteSkillError": "حدث خطأ أثناء حذف المهارة. يرجى المحاولة لاحقًا.",
+    "loadingError": "حدث خطأ أثناء جلب بيانات المهارات. يرجى المحاولة لاحقًا.",
+    "searchNotFound": "لم يتم العثور على مهارات مطابقة",
+    "addPrompt": "هل تريد إضافة",
+    "addButton": "إضافة المهارة"
   }
 }

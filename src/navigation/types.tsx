@@ -1,5 +1,5 @@
 import { ScreenName } from '@/hooks/use-navigation';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 // Root stack parameter list for the super app
 export type RootStackParamList = {
@@ -18,6 +18,7 @@ export type RootStackParamList = {
       text: string;
       textProps?: object;
     };
+    hideErrorToast?: (arg0: AxiosError) => boolean;
     isBack?: boolean;
   };
 };

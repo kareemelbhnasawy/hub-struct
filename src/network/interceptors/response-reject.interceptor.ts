@@ -4,6 +4,8 @@ import clientSetToken from '../utilities/client-set-token.util';
 import RetryQueueManager from '../utilities/retry-queue.util';
 import client from '../utilities/client.util';
 import { ToastService } from '@/components/molecules/toast/toast-service';
+import { getString } from '@/utilities';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const onResponseReject = async (error: any): Promise<any> => {
@@ -22,7 +24,8 @@ const onResponseReject = async (error: any): Promise<any> => {
 
     if (
       error?.response?.status === API_UNAUTHORIZED_STATUS &&
-      !originalRequest._retry
+      !originalRequest._retry &&
+      getString(STORAGE_KEYS.REFRESH_TOKEN)
     ) {
       if (RetryQueueManager.getIsRefreshing()) {
         return new Promise((resolve, reject) => {
