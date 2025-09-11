@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { I18nManager, StatusBar } from 'react-native';
 import { getCrashlytics, log } from '@react-native-firebase/crashlytics';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useTransition } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { checkPermissions } from '@/utilities/permissions';
 import { requestNotifications } from 'react-native-permissions';
@@ -11,12 +11,20 @@ import { ToastProvider } from '@/components/molecules';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStack } from '@/navigation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useTranslate } from '@/hooks';
 
 const App = () => {
   const crashlytics = getCrashlytics();
-
+  const { locale } = useTranslate();
   useEffect(() => {
     if (crashlytics) log(crashlytics, 'App mounted.');
+    if (locale.includes('ar')) {
+      I18nManager.forceRTL(true);
+      I18nManager.isRTL = true;
+    } else {
+      I18nManager.isRTL = false;
+      I18nManager.forceRTL(false);
+    }
     checkPermissions();
     requestNotifications();
   }, [crashlytics]);
