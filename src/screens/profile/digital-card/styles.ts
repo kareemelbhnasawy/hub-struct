@@ -16,15 +16,17 @@ export const styles = createThemedStyles({
   wrapper: {
     base: {
       flex: 1,
-      borderRadius: Radius.XL,
+      borderRadius: Radius.LG,
       overflow: 'hidden',
     },
   },
   absoluteFill: {
     base: {
       ...StyleSheet.absoluteFill,
+      height: '70%',
       top: '50%',
       alignSelf: 'center',
+      overflow: 'visible',
     },
   },
   contentWrapper: {
