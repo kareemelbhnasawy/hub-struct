@@ -16,6 +16,7 @@ const InputContainer = ({
   isRequired,
   state = 'default',
   errorProps,
+  size = 'lg',
   children,
 }: PropsWithChildren<InputContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -53,6 +54,7 @@ const InputContainer = ({
         style={[
           themedStyles.inputContainer,
           themedStyles[finalState],
+          themedStyles[size],
           inputStyle,
         ]}>
         {leadingIconProps && (
