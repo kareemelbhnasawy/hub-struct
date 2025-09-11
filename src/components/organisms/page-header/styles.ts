@@ -8,7 +8,6 @@ const styles = createThemedStyles({
       justifyContent: 'space-between',
       alignItems: 'center',
       columnGap: 16,
-      backgroundColor: 'backgroundWhite',
     },
   },
   textWrapper: {

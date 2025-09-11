@@ -4,7 +4,16 @@ const styles = createThemedStyles({
   safeAreaStyle: {
     base: {
       flex: 1,
+    },
+  },
+  pageColor: {
+    base: {
       backgroundColor: 'backgroundWhite',
+    },
+  },
+  backgroundWrapper: {
+    base: {
+      flex: 1,
     },
   },
   mainWrapperViewStyle: {

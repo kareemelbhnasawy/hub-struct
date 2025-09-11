@@ -8,16 +8,9 @@ import { ToastService } from '@/components/molecules';
 const HomeScreen = () => {
   const navigation = useNavigation();
   const handleNavigateToProfile = () => {
-    ToastService.info({
-      props: {
-        messageProps: { text: 'Language is ' + locale + ' isRTL is ' + isRTL },
-        testId: '',
-      },
-    });
     navigation.navigate('ProfileStack', { userId: '123' });
   };
-  const { changeLanguage, locale, isRTL } = useTranslate();
-  console.log(locale);
+  const { changeLanguage } = useTranslate();
   // changeLanguage('ar');
   return (
     <View style={styles.container.base}>

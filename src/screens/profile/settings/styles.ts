@@ -5,7 +5,7 @@ const styles = createThemedStyles({
     base: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: 'backgroundBody',
+      // backgroundColor: 'backgroundBody',
     },
   },
   iconDescriptiveYellow: {

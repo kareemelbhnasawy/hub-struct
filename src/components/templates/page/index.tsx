@@ -13,6 +13,7 @@ import { Portal } from '@gorhom/portal';
 import styles from './styles';
 import { PageHeader } from '@/components/organisms';
 import { PageHeaderVariants } from './constants';
+import InfoBackground from '@/assets/images/background/info_bg.png';
 
 const Page = ({
   children,
@@ -34,6 +35,8 @@ const Page = ({
   disableSafeAreaTop = false,
   includeRenderStickyBottomStyles = true,
   isWhiteOverlay,
+  useInfoBackground,
+  imageStyle,
 }: PageProps) => {
   const { getThemedStyles, getThemeColor, theme } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
@@ -48,12 +51,17 @@ const Page = ({
 
   //
 
-  // INNER PAGE WRAPPER
-  const InnerPageWrapper: React.ElementType = useMemo(
-    () => (backgroundImage ? ImageBackground : View),
-    [backgroundImage],
+  // Resolve optional background image (built-in or custom)
+  const resolvedBg = useMemo(
+    () => (useInfoBackground ? InfoBackground : backgroundImage),
+    [useInfoBackground, backgroundImage],
   );
-  // INNER PAGE WRAPPER
+  // BIG WRAPPER BACKGROUND
+  const BackgroundWrapper: React.ElementType = useMemo(
+    () => (resolvedBg ? ImageBackground : View),
+    [resolvedBg],
+  );
+  // BIG WRAPPER BACKGROUND
 
   const renderHeader = useCallback(() => {
     switch (pageHeaderVariant) {
@@ -81,77 +89,79 @@ const Page = ({
   const Wrapper = disableSafeAreaTop ? View : SafeAreaView;
 
   return (
-    <Wrapper
-      testID={`${prefixTestId}-safe-area-view`}
-      style={[themedStyles.safeAreaStyle, safeAreaStyle]}>
-      {/* Header */}
-      <StatusBar
-        barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={'transparent'}
-      />
-      {hasHeader
-        ? renderCustomHeader
-          ? renderCustomHeader()
-          : renderHeader()
-        : null}
-      {/* Header */}
+    <BackgroundWrapper
+      {...(resolvedBg ? { source: resolvedBg, imageStyle } : {})}
+      style={themedStyles.backgroundWrapper}>
+      <Wrapper
+        testID={`${prefixTestId}-safe-area-view`}
+        style={[
+          themedStyles.safeAreaStyle,
+          !useInfoBackground && themedStyles.pageColor,
+          safeAreaStyle,
+        ]}>
+        {/* Header */}
+        <StatusBar
+          barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
+          backgroundColor={'transparent'}
+        />
+        {hasHeader
+          ? renderCustomHeader
+            ? renderCustomHeader()
+            : renderHeader()
+          : null}
+        {/* Header */}
 
-      {/*  */}
-
-      {/* Main Page */}
-      <PageMainWrapper
-        testID={`${prefixTestId}-main-wrapper`}
-        style={[themedStyles.mainWrapperViewStyle, mainWrapperStyle]}
-        contentContainerStyle={[
-          themedStyles.mainWrapperContentContainerStyle,
-          mainWrapperContentContainerStyle,
-        ]}
-        showsVerticalScrollIndicator={false}
-        nestedScrollEnabled>
-        {/*  */}
-
-        {/* Content */}
-        <InnerPageWrapper
-          testID={`${prefixTestId}-inner-wrapper`}
-          style={[
-            !noPaddings && themedStyles.innerPageStylePaddings,
-            themedStyles.innerPageStyle,
-            innerPageStyle,
-          ]}>
-          {children}
-        </InnerPageWrapper>
-        {/* Content */}
-
-        {/*  */}
-      </PageMainWrapper>
-      {/* Main Page */}
-
-      {isLoading && (
-        <Portal name={`${prefixTestId}-loader-portal`}>
+        {/* Main Page */}
+        <PageMainWrapper
+          testID={`${prefixTestId}-main-wrapper`}
+          style={[themedStyles.mainWrapperViewStyle, mainWrapperStyle]}
+          contentContainerStyle={[
+            themedStyles.mainWrapperContentContainerStyle,
+            mainWrapperContentContainerStyle,
+          ]}
+          showsVerticalScrollIndicator={false}
+          nestedScrollEnabled>
+          {/* Content */}
           <View
-            testID={`${prefixTestId}-loader-wrapper`}
+            testID={`${prefixTestId}-inner-wrapper`}
             style={[
-              themedStyles.loading,
-              isWhiteOverlay && themedStyles.whiteOverlay,
+              !noPaddings && themedStyles.innerPageStylePaddings,
+              themedStyles.innerPageStyle,
+              innerPageStyle,
             ]}>
-            <ActivityIndicator
-              testID={`${prefixTestId}-loader`}
-              color={getThemeColor('iconPrimary')}
-            />
+            {children}
           </View>
-        </Portal>
-      )}
+          {/* Content */}
+        </PageMainWrapper>
+        {/* Main Page */}
 
-      {renderStickyBottom ? (
-        <View
-          style={[
-            includeRenderStickyBottomStyles && themedStyles.stickyBottom,
-            stickyBottomContainerStyle,
-          ]}>
-          {renderStickyBottom()}
-        </View>
-      ) : null}
-    </Wrapper>
+        {isLoading && (
+          <Portal name={`${prefixTestId}-loader-portal`}>
+            <View
+              testID={`${prefixTestId}-loader-wrapper`}
+              style={[
+                themedStyles.loading,
+                isWhiteOverlay && themedStyles.whiteOverlay,
+              ]}>
+              <ActivityIndicator
+                testID={`${prefixTestId}-loader`}
+                color={getThemeColor('iconPrimary')}
+              />
+            </View>
+          </Portal>
+        )}
+
+        {renderStickyBottom ? (
+          <View
+            style={[
+              includeRenderStickyBottomStyles && themedStyles.stickyBottom,
+              stickyBottomContainerStyle,
+            ]}>
+            {renderStickyBottom()}
+          </View>
+        ) : null}
+      </Wrapper>
+    </BackgroundWrapper>
   );
 };
 

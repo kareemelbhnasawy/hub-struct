@@ -137,7 +137,8 @@ const MyProfile = () => {
       pageHeaderProps={{
         titleProps: { text: 'profile.myProfile' },
         isTitleCentered: true,
-      }}>
+      }}
+      useInfoBackground={true}>
       <View style={themedStyles.container}>
         <List<ProfileSettingItemDataType>
           testId={screenTestId}

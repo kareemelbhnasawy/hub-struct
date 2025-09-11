@@ -26,6 +26,8 @@ interface PageProps {
   isLoading?: boolean;
   backgroundImage?: ImageSourcePropType;
   imageStyle?: RNStyle;
+  /** If true, use the stock Info background image */
+  useInfoBackground?: boolean;
   renderFloatingActionButton?: () => React.ReactNode;
   floatingActionButtonContainerStyle?: RNStyle;
   dimOnPressFAB?: boolean;
