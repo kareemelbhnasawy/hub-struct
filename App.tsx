@@ -15,7 +15,7 @@ import { useTranslate } from '@/hooks';
 
 const App = () => {
   const crashlytics = getCrashlytics();
-  const { locale } = useTranslate();
+  const { locale, isRTL } = useTranslate();
   useEffect(() => {
     if (crashlytics) log(crashlytics, 'App mounted.');
     if (locale.includes('ar')) {
@@ -54,8 +54,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView>
         <PortalProvider>
-          <SafeAreaProvider
-            style={{ direction: I18nManager.isRTL ? 'rtl' : 'ltr' }}>
+          <SafeAreaProvider style={{ direction: isRTL ? 'rtl' : 'ltr' }}>
             {/* Transparent status bar */}
             <StatusBar translucent backgroundColor="transparent" />
             <NavigationContainer
