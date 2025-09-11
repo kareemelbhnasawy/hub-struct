@@ -38,7 +38,7 @@
   "myProfile": "My Profile",
   "nickname": "Nickname",
   "emptyDataMsg": "No data available",
-  "notRegisteredSabil": "The address registered is not available in SPL's data.",
+  "notRegisteredSabil": "The address registered is not available in SPL records.",
   "setPin": {
     "createTitle": "Create your PIN",
     "chooseSixDigits": "Choose a 6-digit code.",
