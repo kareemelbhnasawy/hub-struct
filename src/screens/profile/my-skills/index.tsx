@@ -111,6 +111,63 @@ const MySkillsScreen = () => {
     );
   };
 
+  const handleAddNewSkill = (skillName: string) => {
+    mutateAddSkill({ skillName });
+    setSearchText('');
+  };
+
+  const renderNoTagFoundComponent = () => {
+    return {
+      iconProps: {
+        name: 'SearchX',
+        color: 'foregroundQuinary',
+        size: 100,
+        strokeWidth: 1,
+      },
+      headlineProps: {
+        text: 'profile.skills.searchNotFound',
+        size: 'xs',
+        weight: 'Semibold',
+      },
+      paragraphProps: {
+        text: 'profile.skills.addPrompt',
+        size: 'lg',
+        weight: 'Regular',
+        children: (
+          <Paragraph
+            testId={`${screenTestId}-bold-skill-name`}
+            text={` ${searchText}`}
+            size="lg"
+            weight="Bold"
+          />
+        ),
+      },
+      buttonProps: {
+        textProps: { text: 'profile.skills.addButton' },
+        size: 'md',
+        variant: 'secondary',
+        leftIcon: { name: 'CirclePlus', size: 16 },
+        onPress: () => handleAddNewSkill(searchText),
+      },
+    };
+  };
+
+  const renderEmptySearchTextComponent = () => {
+    return {
+      iconProps: {
+        name: 'Search',
+        color: 'foregroundQuinary',
+        size: 100,
+        strokeWidth: 1,
+      },
+      headlineProps: {
+        text: 'profile.skills.searchToAdd',
+        size: 'xs',
+        weight: 'Semibold',
+      },
+    };
+  };
+
   return (
     <Page
       testId={screenTestId}
@@ -148,7 +205,7 @@ const MySkillsScreen = () => {
                 testId={`${screenTestId}-skills-number-label`}
                 text={`(${skillsData.length})`}
                 size="2xs"
-                weight="Bold"
+                weight="Medium"
               />
             </View>
           ) : null}
@@ -189,39 +246,11 @@ const MySkillsScreen = () => {
             renderItem={renderListItem}
             keyField="name"
             scrollEnabled={false}
-            emptyComponentProps={{
-              iconProps: {
-                name: 'SearchX',
-                color: 'foregroundQuinary',
-                size: 100,
-                strokeWidth: 1,
-              },
-              headlineProps: {
-                text: 'profile.skills.searchNotFound',
-                size: 'xs',
-                weight: 'Semibold',
-              },
-              paragraphProps: {
-                text: 'profile.skills.addPrompt',
-                size: 'lg',
-                weight: 'Regular',
-                children: (
-                  <Paragraph
-                    testId={`${screenTestId}-bold-skill-name`}
-                    text={` ${searchText}`}
-                    size="lg"
-                    weight="Bold"
-                  />
-                ),
-              },
-              buttonProps: {
-                textProps: { text: 'profile.skills.addButton' },
-                size: 'md',
-                variant: 'secondary',
-                leftIcon: { name: 'CirclePlus', size: 16 },
-                onPress: () => mutateAddSkill({ skillName: searchText }),
-              },
-            }}
+            emptyComponentProps={
+              searchText.length > 0
+                ? renderNoTagFoundComponent()
+                : renderEmptySearchTextComponent()
+            }
           />
         </BaseSheet>
       </View>
