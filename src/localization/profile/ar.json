@@ -171,6 +171,7 @@
   },
   "skills": {
     "mySkills": "مهاراتي",
+    "addSkill": "اضف مهارة",
     "searchToAdd": "ابحث لإضافة مهارة",
     "noSkillsYet": "لم تقم باضافة اي مهارة بعد",
     "totalSkills": "اجمالي مهاراتك",

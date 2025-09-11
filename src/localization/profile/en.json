@@ -171,6 +171,7 @@
   },
   "skills": {
     "mySkills": "My Skills",
+    "addSkill": "Add Skill",
     "searchToAdd": "Search to add a skill",
     "noSkillsYet": "You haven't added any skills yet",
     "totalSkills": "Total Skills",
