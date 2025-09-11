@@ -178,5 +178,9 @@
     "number": "Covenant Number",
     "type": "Covenant Type",
     "registeredAt": "Registration Date"
+  },
+  "digitalCardDetails": {
+    "animation": "This card is valid when the icon is in motion",
+    "share": "Share with others"
   }
 }
