@@ -6,7 +6,7 @@ import { List } from '@/components/molecules';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/profile-setting-item';
 import ProfileHeading from '../partials/profile-heading';
-import { log } from '@/utilities';
+import { getString, log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
@@ -148,6 +148,17 @@ const ProfileScreen = () => {
       });
     }
   }, [data, isSuccess, setAllProfileData]);
+
+  /**
+   * this code will be kept for documentation purposes
+   * on how to check a notification that came while
+   * the app was closed or in a background state.
+   */
+  useEffect(() => {
+    const fcmNotification = getString('FCM_NOTIFICATION');
+    // eslint-disable-next-line no-console
+    console.log('fcm notification storage?: ', fcmNotification);
+  }, []);
 
   return (
     <Page

@@ -1,12 +1,12 @@
 /* eslint-disable */
 import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
-import TeamMemberItemDemo from '../partials/team-member-item/demo';
 import { useNavigation, useTranslate } from '@/hooks';
 import { ToastService } from '@/components/molecules';
+import { getAnalytics, logEvent } from '@react-native-firebase/analytics';
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const { navigateTo } = useNavigation();
   const handleNavigateToProfile = () => {
     ToastService.info({
       props: {
@@ -14,10 +14,11 @@ const HomeScreen = () => {
         testId: '',
       },
     });
-    navigation.navigate('ProfileStack', { userId: '123' });
+    navigateTo('ProfileStack', { userId: '123' });
   };
   const { changeLanguage, locale, isRTL } = useTranslate();
   console.log(locale);
+
   // changeLanguage('ar');
   return (
     <View style={styles.container.base}>
@@ -27,6 +28,17 @@ const HomeScreen = () => {
         onPress={handleNavigateToProfile}
         style={styles.profileButton.base}>
         <Text style={styles.profileButtonText.base}>Go to Profile</Text>
+      </Pressable>
+
+      <Pressable
+        onPress={async () => {
+          console.log('app', analytics.app);
+          logEvent(analytics, 'CustomProfileEvent', {
+            key1: 'value 1',
+            key2: 'value22',
+          }).then((val) => console.log('logged!', val));
+        }}>
+        <Text style={styles.profileButtonText.base}>SEND CUSTOM EVENT!</Text>
       </Pressable>
     </View>
   );

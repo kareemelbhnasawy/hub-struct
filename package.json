@@ -15,6 +15,7 @@
     "@gorhom/bottom-sheet": "^5.1.8",
     "@gorhom/portal": "^1.0.14",
     "@react-native-community/blur": "^4.4.1",
+    "@react-native-firebase/analytics": "^23.0.0",
     "@react-native-firebase/app": "^23.0.0",
     "@react-native-firebase/crashlytics": "^23.0.0",
     "@react-native-firebase/messaging": "^23.0.0",

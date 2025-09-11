@@ -14,6 +14,7 @@ import { AppStackParamList } from '../navigation/stacks/app/types';
 import { AuthStackParamList } from '../navigation/stacks/auth/types';
 import { ProfileStackParamList } from '../navigation/stacks/profile/types';
 import { AxiosError, AxiosResponse } from 'axios';
+import { getAnalytics, logEvent } from '@react-native-firebase/analytics';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -23,6 +24,11 @@ type CombinedParamList = RootStackParamList &
 
 /** All valid screen names across the app */
 export type ScreenName = keyof CombinedParamList;
+
+/**
+ * Add any route that should be ignored in analytics here.
+ */
+const ANALYTICS_IGNORED_ROUTES: ScreenName[] = [];
 
 /**
  * Describe the parent-navigator path for each screen.
@@ -104,6 +110,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
   const navigation = useRNNavigation<
     NavigationProp<CombinedParamList, TRoute>
   >() as NativeStackNavigationProp<CombinedParamList, TRoute>;
+  const analytics = getAnalytics();
 
   const route = useRNRoute<RouteProp<CombinedParamList, TRoute>>();
 
@@ -111,7 +118,12 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
   const navigateTo = <K extends ScreenName>(
     screen: K,
     params?: CombinedParamList[K],
-  ) => navigation.navigate(screen as never, params as never);
+  ) => {
+    console.log('navigating to: ', screen);
+    if (!(screen in ANALYTICS_IGNORED_ROUTES))
+      logEvent(analytics, 'screen_navigate', { ...params, screenName: screen });
+    navigation.navigate(screen as never, params as never);
+  };
 
   const pushTo = <K extends ScreenName>(
     screen: K,

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { I18nManager, StatusBar } from 'react-native';
+import { Alert, I18nManager, StatusBar } from 'react-native';
 import { getCrashlytics, log } from '@react-native-firebase/crashlytics';
 import { useCallback, useEffect, useTransition } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RootStack } from '@/navigation';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useTranslate } from '@/hooks';
+import messaging from '@react-native-firebase/messaging';
 
 const App = () => {
   const crashlytics = getCrashlytics();
@@ -28,6 +29,15 @@ const App = () => {
     checkPermissions();
     requestNotifications();
   }, [crashlytics]);
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async (remoteMessage) => {
+      // Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      console.log('foreground handler notifications: ', remoteMessage);
+    });
+
+    return unsubscribe;
+  }, []);
 
   const handleNavigationStateChange = useCallback(
     (state: any) => {
