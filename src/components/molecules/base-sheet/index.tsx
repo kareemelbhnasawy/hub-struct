@@ -73,7 +73,7 @@ const BaseSheet = ({
       <LucideIcon
         testId={`${testId}-bottom-sheet-close-icon`}
         name="X"
-        color="textPrimary"
+        color="foregroundQuaternary"
       />
     </Pressable>
   );
@@ -155,6 +155,8 @@ const BaseSheet = ({
         keyboardBlurBehavior={keyboardBlurBehavior}
         enableBlurKeyboardOnGesture={enableBlurKeyboardOnGesture}
         android_keyboardInputMode={android_keyboardInputMode}
+        // eslint-disable-next-line react-native/no-inline-styles
+        handleIndicatorStyle={{ backgroundColor: '#CFCFCF' }}
         {...props}>
         <BottomSheetView
           testID={`${testId}-bottom-sheet`}

@@ -290,8 +290,8 @@ const PersonDetails = () => {
             type === 'mobile'
               ? 'profileDetails.editPersonalPhone1'
               : 'profileDetails.editExtension',
-          size: 'md',
-          weight: 'Semibold',
+          size: 'xs',
+          weight: 'Medium',
         }}
         // onClose={() => setError(undefined)}
         hasCloseButton={true}
