@@ -1,15 +1,17 @@
-import { Spacer } from '@/components/atoms';
+import { BaseModal, Spacer } from '@/components/atoms';
 import { Page } from '@/components/templates';
 import useGetPersonDetails from '@/network/services/profile/get-person-details/get-person-details.hook';
 import { useThemeStore } from '@/store/theme';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { Button, Pressable, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
+import styles from './styles';
 
 const IDCardScreen = () => {
   const screenTestId = 'id-card-screen';
   const { data, isPending } = useGetPersonDetails();
-  const { getThemeColor } = useThemeStore();
-
+  const { getThemeColor, getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
   const vcard = useMemo(() => {
     const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
     if (data?.primaryInfo?.name) {
@@ -52,6 +54,7 @@ const IDCardScreen = () => {
     lines.push('END:VCARD');
     return lines.join('\n');
   }, [data]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <Page
@@ -62,14 +65,33 @@ const IDCardScreen = () => {
         isTitleCentered: true,
       }}>
       <Spacer space={50} />
-      <QRCode
-        size={300}
-        color={getThemeColor('borderBlack')}
-        backgroundColor={getThemeColor('borderWhite')}
-        value={vcard}
-        // logoMargin={5}
-        // logo={require('@/assets/images/HRSD-Logo.png')}
+      <Button
+        title="Show QR Code"
+        onPress={() => setModalVisible(!modalVisible)}
       />
+
+      <BaseModal
+        testId={''}
+        visible={modalVisible}
+        transparent
+        animationType="fade">
+        <Pressable
+          style={themedStyles.backdrop}
+          onPress={() => setModalVisible(false)}>
+          <View style={themedStyles.qrCodeContainer}>
+            <View style={themedStyles.qrCodeInnerContainer}>
+              <QRCode
+                size={180}
+                color={getThemeColor('borderBlack')}
+                backgroundColor={getThemeColor('borderWhite')}
+                value={vcard}
+                // logoMargin={5}
+                // logo={require('@/assets/images/HRSD-Logo.png')}
+              />
+            </View>
+          </View>
+        </Pressable>
+      </BaseModal>
     </Page>
   );
 };
