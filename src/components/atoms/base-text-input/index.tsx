@@ -36,10 +36,10 @@ const BaseTextInput = forwardRef(
         textAlign={isRTL ? 'right' : 'left'}
         onChangeText={onChangeValue}
         style={[
-          style,
           { fontFamily: getFont(fontWeights.Medium) },
           themedStyles.xs,
           themedStyles.Medium,
+          style,
         ]}
         {...textInputProps}
         placeholder={

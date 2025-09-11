@@ -38,7 +38,7 @@ const styles = createThemedStyles({
   },
   focused: {
     base: {
-      borderColor: 'borderPrimary',
+      borderColor: 'borderBrandPrimary',
     },
   },
   disabled: {
@@ -66,7 +66,7 @@ const styles = createThemedStyles({
     base: {
       color: 'textDefault',
     },
-  }
+  },
 });
 
 export default styles;

@@ -45,7 +45,7 @@ const InputContainer = ({
               />
             )}
           </View>
-          <Spacer testId={`${testId}-input-label`} />
+          <Spacer testId={`${testId}-input-label`} space={5} />
         </>
       ) : null}
       <Pressable
@@ -71,7 +71,7 @@ const InputContainer = ({
       </Pressable>
       {errorProps ? (
         <>
-          <Spacer space="sm" />
+          <Spacer space={4} />
           <Paragraph
             testId={`${testId}-input-error-string`}
             style={themedStyles.errorColor}
