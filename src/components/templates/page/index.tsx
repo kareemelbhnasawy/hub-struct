@@ -90,6 +90,7 @@ const Page = ({
 
   return (
     <BackgroundWrapper
+      testId={`${prefixTestId}-background-wrapper`}
       {...(resolvedBg ? { source: resolvedBg, imageStyle } : {})}
       style={themedStyles.backgroundWrapper}>
       <Wrapper
