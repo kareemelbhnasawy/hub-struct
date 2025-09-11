@@ -8,7 +8,6 @@
   "job-details": "My Job Details",
   "career-history": "My Career History within the Ministry",
   "holidays-record": "Holidays Record",
-  "skills": "My Skills",
   "custodies": "Custodies",
   "editAddress": "Edit address",
   "contractAddress": "The registered address",
@@ -182,5 +181,21 @@
   "digitalCardDetails": {
     "animation": "This card is valid when the icon is in motion",
     "share": "Share with others"
+  },
+  "skills": {
+    "mySkills": "My Skills",
+    "addSkill": "Add Skill",
+    "addSkillsPrompt": "Add your skills to appear in your profile and highlight your expertise to your management.",
+    "searchToAdd": "Search to add a skill",
+    "noSkillsYet": "You haven't added any skills yet",
+    "totalSkills": "Total Skills",
+    "postSuccess": "Skill added successfully",
+    "deleteSuccess": "Skill deleted successfully",
+    "addSkillError": "An error occurred while adding the skill. Please try again later.",
+    "deleteSkillError": "An error occurred while deleting the skill. Please try again later.",
+    "loadingError": "An error occurred while fetching skills data. Please try again later.",
+    "searchNotFound": "No matching skills found",
+    "addPrompt": "Do you want to add ",
+    "addButton": "Add Skill"
   }
 }

@@ -35,7 +35,7 @@ const styles = createThemedStyles({
     base: {
       height: 36,
       borderRadius: 10,
-      paddingVertical: 10,
+      paddingVertical: 6,
       paddingHorizontal: 20,
     },
   },

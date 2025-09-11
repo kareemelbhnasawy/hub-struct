@@ -23,8 +23,8 @@ export const styles = createThemedStyles({
   absoluteFill: {
     base: {
       ...StyleSheet.absoluteFill,
-      height: '50%',
       top: '50%',
+      alignSelf: 'center',
     },
   },
   contentWrapper: {

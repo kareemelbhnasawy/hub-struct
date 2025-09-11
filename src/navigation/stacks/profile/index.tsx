@@ -15,9 +15,10 @@ import {
   TeamMemberProfileScreen,
   CovenantScreen,
   CovenantDetailsScreen,
+  MySkillsScreen,
+  DigitalCardScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
-import DigitalCardScreen from '@/screens/profile/digital-card';
 
 const Stack = createNativeStackNavigator<ProfileStackParamList>();
 
@@ -38,6 +39,7 @@ const ProfileStack = () => {
       <Stack.Screen name="EditBackground" component={EditBackgroundScreen} />
       <Stack.Screen name="KunyaCrud" component={KunyaCrudScreen} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+      <Stack.Screen name="MySkills" component={MySkillsScreen} />
       <Stack.Screen name="Qualifications" component={QualificationsScreen} />
       <Stack.Screen name="SetPin" component={SetPinScreen} />
       <Stack.Screen name="ConfirmPin" component={ConfirmPinScreen} />

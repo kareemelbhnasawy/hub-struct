@@ -34,6 +34,7 @@ const DigitalCardScreen = () => {
             source={splashBgAnimation}
             autoPlay={false}
             loop={false}
+            resizeMode="cover"
             style={themedStyles.absoluteFill}
           />
           <BlurView

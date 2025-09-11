@@ -26,4 +26,5 @@ export type ProfileStackParamList = {
   Covenant: undefined;
   CovenantDetails: CovenantDetailsParams;
   DigitalCard: undefined;
+  MySkills: undefined;
 };
