@@ -90,6 +90,13 @@ const styles = createThemedStyles({
       color: 'badgeDefaultText',
     },
   },
+  'warning-outline': {
+    base: {
+      backgroundColor: 'backgroundWhite',
+      borderColor: 'badgeBorderWarning',
+      color: 'badgeTextWarning',
+    },
+  }
 });
 
 export default styles;

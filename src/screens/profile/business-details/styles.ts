@@ -79,6 +79,7 @@ const styles = createThemedStyles({
     base: {
       maxWidth: '60%',
       overflow: 'hidden',
+      color: 'textBrandPrimary',
     },
   },
 });
