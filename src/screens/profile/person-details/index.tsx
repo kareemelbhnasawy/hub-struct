@@ -281,6 +281,7 @@ const PersonDetails = () => {
       <BaseSheet
         testId="demo-base-sheet"
         headerVariant="centerWithClose"
+        enableDynamicSizing={false}
         titleProps={{
           text:
             type === 'mobile'
