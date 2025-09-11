@@ -67,17 +67,9 @@ const TagCollection = ({
             weight: 'Semibold',
           },
           paragraphProps: {
-            text: 'profile.skills.addSkills',
+            text: 'profile.skills.addSkillsPrompt',
             size: 'sm',
             weight: 'Regular',
-            children: (
-              <Paragraph
-                testId={`${testId}-bold-skill-name`}
-                text="poo"
-                size='sm'
-                weight="Medium"
-              />
-            ),
           },
         }
       }

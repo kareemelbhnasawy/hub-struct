@@ -172,6 +172,7 @@
   "skills": {
     "mySkills": "My Skills",
     "addSkill": "Add Skill",
+    "addSkillsPrompt": "Add your skills to appear in your profile and highlight your expertise to your management.",
     "searchToAdd": "Search to add a skill",
     "noSkillsYet": "You haven't added any skills yet",
     "totalSkills": "Total Skills",
