@@ -4,11 +4,12 @@ import { List, Tag } from '@/components/molecules';
 import { TagData } from './types';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
-import { Spacer } from '@/components/atoms';
+import { Paragraph, Spacer } from '@/components/atoms';
 
 const TagCollection = ({
   emptyComponentProps,
   testId,
+  isLoading,
   newTags,
   tagHasIcon = true,
   tagSize = 'lg',
@@ -41,9 +42,9 @@ const TagCollection = ({
   );
 
   useEffect(() => {
-    if(newTags && newTags.length > 0) {
-      const updatedData = data.filter(item => !newTags.includes(item.itemId));
-      const newTagData = data.filter(item => newTags.includes(item.itemId));
+    if (newTags && newTags.length > 0) {
+      const updatedData = data.filter((item) => !newTags.includes(item.itemId));
+      const newTagData = data.filter((item) => newTags.includes(item.itemId));
       setCombinedData([...newTagData, ...updatedData]);
     } else {
       setCombinedData(data);
@@ -53,6 +54,7 @@ const TagCollection = ({
   return (
     <List<TagData>
       contentContainerStyle={themedStyles.tagsList}
+      isLoading={isLoading}
       scrollEnabled={false} // yes this is a non-scroll list, idk.
       ItemSeparatorComponent={listSeparatorFn}
       data={combinedData}
@@ -64,7 +66,19 @@ const TagCollection = ({
             text: 'profile.skills.noSkillsYet',
             weight: 'Semibold',
           },
-          paragraphProps: { text: 'profile.skills.addSkillsPrompt' },
+          paragraphProps: {
+            text: 'profile.skills.addSkills',
+            size: 'sm',
+            weight: 'Regular',
+            children: (
+              <Paragraph
+                testId={`${testId}-bold-skill-name`}
+                text="poo"
+                size='sm'
+                weight="Medium"
+              />
+            ),
+          },
         }
       }
       renderItem={renderItemFn}></List>

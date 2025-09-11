@@ -6,6 +6,7 @@ interface TagCollectionProps {
   emptyComponentProps?: ListProps<TagData>['emptyComponentProps'];
   tagHasIcon?: boolean;
   newTags?: number[];
+  isLoading?: boolean;
   tagSize?: TagProps['size'];
   testId: string;
   data: TagData[];

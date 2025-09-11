@@ -5,7 +5,7 @@ import { BaseSheet } from '@/components/molecules';
 import { useEffect, useState } from 'react';
 import { SnapPoints } from '@/components/molecules/base-sheet/constants';
 import { SearchInput } from '@/components/organisms';
-import { Spacer } from '@/components/atoms';
+import { Paragraph, Spacer } from '@/components/atoms';
 import { List } from '@/components/molecules';
 import { SkillItemDataType } from './interface';
 import Checkmark from '@/components/molecules/checkmark';
@@ -64,8 +64,10 @@ const MySkillsScreen = () => {
     [debouncedText, invalidateQuery],
   );
 
-  const { mutate: mutateAddSkill } = usePostSkills(onAddSkillSuccess);
-  const { mutate: mutateDeleteSkill } = useDeleteSkills(onDeleteSkillSuccess);
+  const { mutate: mutateAddSkill, isPending: isPendingPost } =
+    usePostSkills(onAddSkillSuccess);
+  const { mutate: mutateDeleteSkill, isPending: isPendingDelete } =
+    useDeleteSkills(onDeleteSkillSuccess);
   const {
     mutate: mutateSearchSkills,
     data: skillsSearchData,
@@ -113,7 +115,7 @@ const MySkillsScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={true}
-      isLoading={isLoading}
+      isLoading={isLoading || isPendingDelete}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
         titleProps: {
@@ -183,6 +185,7 @@ const MySkillsScreen = () => {
           <List<SkillItemDataType>
             testId={screenTestId}
             data={searchResults}
+            isLoading={isPendingPost}
             renderItem={renderListItem}
             keyField="name"
             scrollEnabled={false}
@@ -200,9 +203,16 @@ const MySkillsScreen = () => {
               },
               paragraphProps: {
                 text: 'profile.skills.addPrompt',
-                textProps: { skill: debouncedText },
-                size: 'xl',
+                size: 'lg',
                 weight: 'Regular',
+                children: (
+                  <Paragraph
+                    testId={`${screenTestId}-bold-skill-name`}
+                    text={` ${searchText}`}
+                    size="lg"
+                    weight="Bold"
+                  />
+                ),
               },
               buttonProps: {
                 textProps: { text: 'profile.skills.addButton' },

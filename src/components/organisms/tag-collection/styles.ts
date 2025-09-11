@@ -18,12 +18,6 @@ const styles = createThemedStyles({
       marginVertical: 16,
     },
   },
-  skillsLabel: {
-    base: {
-      width: '100%',
-      textAlign: 'left',
-    },
-  },
   highlightedTagContainer: {
     base: {
       backgroundColor: 'tagBackgroundHighlight',
