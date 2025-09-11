@@ -30,6 +30,7 @@ const TextInput = ({
   disabled,
   errorProps,
   isBottomSheet = false,
+  size,
   ...props
 }: TextInputProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -57,6 +58,7 @@ const TextInput = ({
       leadingIconProps={leadingIconProps}
       trailingIconProps={trailingIconProps}
       inputStyle={style}
+      size={size}
       state={getState()}
       errorProps={errorProps}
       onPressContainer={() => {

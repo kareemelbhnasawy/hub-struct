@@ -14,4 +14,5 @@ export interface InputContainerProps {
   onPressContainer?: () => void;
   state?: 'default' | 'hover' | 'pressed' | 'focused' | 'disabled' | 'error';
   errorProps?: Omit<ParagraphProps, 'testId'>;
+  size?: 'sm' | 'md' | 'lg';
 }

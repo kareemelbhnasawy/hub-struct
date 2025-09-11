@@ -26,6 +26,7 @@ const DateInput = ({
   disabled,
   placeholder,
   placeholderProps,
+  size,
   ...props
 }: DateInputProps) => {
   const { getThemedStyles } = useThemeStore();
@@ -54,6 +55,7 @@ const DateInput = ({
       leadingIconProps={leadingIconProps}
       inputStyle={style}
       state={getState()}
+      size={size}
       onPressContainer={() => {
         // TODO: Open Modal
       }}>

@@ -13,10 +13,24 @@ const styles = createThemedStyles({
       borderRadius: 12,
       borderWidth: 1,
       paddingHorizontal: 16,
-      paddingVertical: 12,
       flexDirection: 'row',
       alignItems: 'center',
       columnGap: 8,
+    },
+  },
+  lg: {
+    base: {
+      paddingVertical: 12,
+    },
+  },
+  md: {
+    base: {
+      paddingVertical: 8,
+    },
+  },
+  sm: {
+    base: {
+      paddingVertical: 4,
     },
   },
   default: {
@@ -38,7 +52,7 @@ const styles = createThemedStyles({
   },
   focused: {
     base: {
-      borderColor: 'borderPrimary',
+      borderColor: 'borderBrandPrimary',
     },
   },
   disabled: {
@@ -66,7 +80,7 @@ const styles = createThemedStyles({
     base: {
       color: 'textDefault',
     },
-  }
+  },
 });
 
 export default styles;

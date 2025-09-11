@@ -6,6 +6,7 @@ import { DEFAULT_ICON_SIZE } from './constants';
 import { scale } from '@/store/theme/utils';
 import { useThemeStore } from '@/store/theme';
 import { useTranslate } from '@/hooks';
+import { useMemo } from 'react';
 
 const LucideIcon = ({
   testId,
@@ -19,6 +20,7 @@ const LucideIcon = ({
   onPress,
   color,
   isFlipped,
+  strokeWidth,
   ...props
 }: LucideIconProps) => {
   const { getThemeColor } = useThemeStore();
@@ -40,6 +42,12 @@ const LucideIcon = ({
 
   const defaultMirrorValue = isFlipped ? -1 : 1;
 
+  const thinIcons = ['ChevronLeft', 'ChevronRight'];
+
+  const strokeWidthFinal = useMemo(
+    () => (strokeWidth || thinIcons.includes(name) ? 1.5 : 1.7),
+    [name, strokeWidth, thinIcons],
+  );
   // question: should we add onPress to the following condition so icon always
   // has a wrapper if it has an onPress? for better UX
 
@@ -65,6 +73,7 @@ const LucideIcon = ({
           testID={`${testId}-icon`}
           size={scale(size)}
           color={iconColor}
+          strokeWidth={strokeWidthFinal}
           {...props}
         />
       </Wrapper>
@@ -83,6 +92,7 @@ const LucideIcon = ({
         size={scale(size)}
         color={iconColor}
         onPress={onPress}
+        strokeWidth={strokeWidthFinal}
         {...props}
       />
     </View>

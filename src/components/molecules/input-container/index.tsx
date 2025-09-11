@@ -16,6 +16,7 @@ const InputContainer = ({
   isRequired,
   state = 'default',
   errorProps,
+  size = 'lg',
   children,
 }: PropsWithChildren<InputContainerProps>) => {
   const { getThemedStyles } = useThemeStore();
@@ -45,7 +46,7 @@ const InputContainer = ({
               />
             )}
           </View>
-          <Spacer testId={`${testId}-input-label`} />
+          <Spacer testId={`${testId}-input-label`} space={5} />
         </>
       ) : null}
       <Pressable
@@ -53,6 +54,7 @@ const InputContainer = ({
         style={[
           themedStyles.inputContainer,
           themedStyles[finalState],
+          themedStyles[size],
           inputStyle,
         ]}>
         {leadingIconProps && (
@@ -71,7 +73,7 @@ const InputContainer = ({
       </Pressable>
       {errorProps ? (
         <>
-          <Spacer space="sm" />
+          <Spacer space={4} />
           <Paragraph
             testId={`${testId}-input-error-string`}
             style={themedStyles.errorColor}
