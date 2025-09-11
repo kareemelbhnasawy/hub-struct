@@ -24,7 +24,7 @@ const DigitalCardScreen = () => {
       testId={`${testId}`}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
-        titleProps: { text: 'بطاقتي الرقمية' },
+        titleProps: { text: 'profile.digitalCard' },
         isTitleCentered: true,
       }}>
       <Spacer space={16} />
