@@ -60,26 +60,28 @@ const BrandToggle = ({
         ]}
         {...restProps}
       />
-      <View style={themedStyles.contentContainer}>
-        {titleProps && (
-          <Paragraph
-            testId={`${testId}-brand-toggle-title`}
-            size={size}
-            weight="Semibold"
-            style={themedStyles.title}
-            {...titleProps}
-          />
-        )}
-        {descriptionProps && (
-          <Paragraph
-            testId={`${testId}-brand-toggle-description`}
-            size={size}
-            style={themedStyles.description}
-            weight="Regular"
-            {...descriptionProps}
-          />
-        )}
-      </View>
+      {(!!titleProps || !!descriptionProps) && (
+        <View style={themedStyles.contentContainer}>
+          {titleProps && (
+            <Paragraph
+              testId={`${testId}-brand-toggle-title`}
+              size={size}
+              weight="Semibold"
+              style={themedStyles.title}
+              {...titleProps}
+            />
+          )}
+          {descriptionProps && (
+            <Paragraph
+              testId={`${testId}-brand-toggle-description`}
+              size={size}
+              style={themedStyles.description}
+              weight="Regular"
+              {...descriptionProps}
+            />
+          )}
+        </View>
+      )}
     </View>
   );
 };
