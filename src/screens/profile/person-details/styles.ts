@@ -80,6 +80,11 @@ const styles = createThemedStyles({
       backgroundColor: 'backgroundWarningLight',
     },
   },
+  textBrandPrimary: {
+    base: {
+      color: 'textBrandPrimary',
+    },
+  },
 });
 
 export default styles;

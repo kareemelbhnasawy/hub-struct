@@ -57,6 +57,7 @@ const QualificationItem = ({
             text={institutionText}
             size="2xs"
             weight="Medium"
+          style={themedStyles.textPrimaryParagraph}
           />
         </View>
         <View style={themedStyles.detailsRow}>
@@ -73,6 +74,7 @@ const QualificationItem = ({
             text={dateText}
             size="2xs"
             weight="Medium"
+          style={themedStyles.textPrimaryParagraph}
           />
         </View>
       </Pressable>

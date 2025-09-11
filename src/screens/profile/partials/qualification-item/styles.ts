@@ -19,7 +19,7 @@ const styles = createThemedStyles({
   detailsRow: {
     base: {
       flexDirection: 'row',
-      columnGap: 10
+      columnGap: 10,
     },
   },
   iconContainer: {
@@ -27,14 +27,18 @@ const styles = createThemedStyles({
       backgroundColor: 'badgeBrandOrangeBackground',
       width: 24,
       aspectRatio: 1,
-    }
+    },
   },
   chevronIconContainer: {
     base: {
       backgroundColor: 'backgroundSecondary',
-    }
-  }
+    },
+  },
+  textPrimaryParagraph: {
+    base: {
+      color: 'textPrimaryParagraph',
+    },
+  },
 });
-
 
 export default styles;

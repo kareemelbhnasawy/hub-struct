@@ -11,7 +11,7 @@ export const getBadgeDataFromStatus = (
       };
     case 'in-progress':
       return {
-        color: 'warning',
+        color: 'warning-outline',
         text: 'profile.qualifications.onGoing',
       };
     case 'dropped':

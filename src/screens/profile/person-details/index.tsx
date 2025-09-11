@@ -123,6 +123,7 @@ const PersonDetails = () => {
         weight="Medium"
         size="2xs"
         testId={`basic-${item.key}-value`}
+        style={themedStyle.textBrandPrimary}
       />
     </View>
   );
@@ -153,12 +154,14 @@ const PersonDetails = () => {
           size="2xs"
           weight="Medium"
           testId={`contact-${item.key}-value`}
+          style={themedStyle.textBrandPrimary}
         />
         <LucideIcon
           name="ChevronRight"
           isRTLMirrored
           size={20}
           testId={`contact-${item.key}-chevron`}
+          style={themedStyle.textBrandPrimary}
         />
       </View>
     </Pressable>
