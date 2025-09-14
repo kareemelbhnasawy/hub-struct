@@ -32,6 +32,7 @@ const SearchInput = ({
       onChangeValue={setInternalValue}
       trailingIconProps={{
         name: value ? 'X' : 'Search',
+        color: 'textTertiary',
         onPress: clearSearchValue,
       }}
       {...textInputProps}

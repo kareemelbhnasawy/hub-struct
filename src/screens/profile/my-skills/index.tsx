@@ -76,7 +76,7 @@ const MySkillsScreen = () => {
   useEffect(() => {
     if (searchText && searchText.length > 0) {
       mutateSearchSkills({ keyword: searchText });
-    }
+    } else setSearchResults([]);
   }, [searchText, mutateSearchSkills]);
 
   useEffect(() => {
@@ -186,7 +186,6 @@ const MySkillsScreen = () => {
           <SearchInput
             testId={screenTestId}
             style={themedStyles.searchBar}
-            disabled
             placeholder="profile.skills.searchToAdd"
           />
         </Pressable>
