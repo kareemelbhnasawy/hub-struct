@@ -3,7 +3,7 @@ import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
 import { useNavigation, useTranslate } from '@/hooks';
 import { ToastService } from '@/components/molecules';
-import { getAnalytics, logEvent } from '@react-native-firebase/analytics';
+import logUserAction from '@/utilities/log-user-action';
 
 const HomeScreen = () => {
   const { navigateTo } = useNavigation();
@@ -32,8 +32,7 @@ const HomeScreen = () => {
 
       <Pressable
         onPress={async () => {
-          console.log('app', analytics.app);
-          logEvent(analytics, 'CustomProfileEvent', {
+          logUserAction('CustomProfileEvent', {
             key1: 'value 1',
             key2: 'value22',
           }).then((val) => console.log('logged!', val));
