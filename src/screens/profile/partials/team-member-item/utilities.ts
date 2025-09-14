@@ -72,8 +72,6 @@ const getBadgeColor = (status: memberStatusType): BadgeColor => {
       return 'brand';
     case 'From home':
       return 'brand';
-    case 'vacation':
-      return 'warning';
     case 'In Vacation':
       return 'warning';
 
@@ -90,7 +88,7 @@ const getIconName = (status: memberStatusType): keyof typeof icons => {
   switch (status) {
     case 'remote':
       return 'House';
-    case 'vacation':
+    case 'In Vacation':
       return 'TreePalm';
     case 'business-trip':
       return 'Plane';
