@@ -5,7 +5,7 @@ const SearchInput = ({ ...textInputProps }: SearchTextInputProps) => {
   // TODO: Add debounce logic here
   return (
     <TextInput
-      size="md"
+      size="sm"
       trailingIconProps={{ name: 'Search' }}
       {...textInputProps}
     />
