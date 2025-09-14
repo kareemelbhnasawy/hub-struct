@@ -23,6 +23,11 @@ const styles = createThemedStyles({
       backgroundColor: 'tagBackgroundHighlight',
     },
   },
+  primaryParagraph: {
+    base: {
+      color: 'textPrimaryParagraph',
+    }
+  }
 });
 
 export default styles;

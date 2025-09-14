@@ -44,6 +44,11 @@ const styles = createThemedStyles({
     base: {
       paddingHorizontal: 16,
     },
+  },
+  secondaryParagraph: {
+    base: {
+      color: 'textPrimaryParagraph',
+    }
   }
 });
 

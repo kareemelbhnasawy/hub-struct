@@ -121,7 +121,7 @@ const MySkillsScreen = () => {
       iconProps: {
         name: 'SearchX',
         color: 'foregroundQuinary',
-        size: 100,
+        size: 50,
         strokeWidth: 1,
       },
       headlineProps: {
@@ -133,6 +133,7 @@ const MySkillsScreen = () => {
         text: 'profile.skills.addPrompt',
         size: 'lg',
         weight: 'Regular',
+        style: themedStyles.secondaryParagraph,
         children: (
           <Paragraph
             testId={`${screenTestId}-bold-skill-name`}
@@ -157,7 +158,7 @@ const MySkillsScreen = () => {
       iconProps: {
         name: 'Search',
         color: 'foregroundQuinary',
-        size: 100,
+        size: 50,
         strokeWidth: 1,
       },
       headlineProps: {
