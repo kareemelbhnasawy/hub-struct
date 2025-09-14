@@ -187,7 +187,6 @@ const MySkillsScreen = () => {
           <SearchInput
             testId={screenTestId}
             style={themedStyles.searchBar}
-            disabled
             placeholder="profile.skills.searchToAdd"
           />
         </Pressable>
@@ -237,6 +236,7 @@ const MySkillsScreen = () => {
             debounceDelay={800}
             testId={screenTestId}
             placeholder="profile.skills.searchToAdd"
+            onClearButtonPress={() => setSearchText('')}
           />
           <Spacer />
           <List<SkillItemDataType>
