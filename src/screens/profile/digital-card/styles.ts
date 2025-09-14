@@ -39,6 +39,7 @@ export const styles = createThemedStyles({
   iconAnimationText: {
     base: {
       color: 'textSecondaryParagraph',
+      flex: 1,
     },
   },
   backdrop: {
@@ -64,6 +65,13 @@ export const styles = createThemedStyles({
       paddingHorizontal: 20,
       borderColor: 'foregroundSenary',
       borderRadius: Radius.MD,
+    },
+  },
+  row: { base: { flexDirection: 'row', alignItems: 'center' } },
+  identityAnimation: {
+    base: {
+      width: 50,
+      height: 50,
     },
   },
 });

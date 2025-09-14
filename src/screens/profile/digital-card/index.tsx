@@ -3,6 +3,7 @@ import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
 import LottieView from 'lottie-react-native';
 import splashBgAnimation from '@/assets/animations/splash-bg-animation.json';
+import identityAnimation from '@/assets/animations/identity_verification_pending.json';
 import { BlurView } from '@react-native-community/blur';
 import Logo from '@/components/molecules/logo';
 import { Page } from '@/components/templates';
@@ -114,13 +115,21 @@ const DigitalCardScreen = () => {
         </View>
       </View>
       <Spacer space={7} />
-      <Paragraph
-        text={'profile.digitalCardDetails.animation'}
-        testId={`${testId}-animation`}
-        size="xl"
-        weight="Medium"
-        style={themedStyles.iconAnimationText}
-      />
+      <View style={themedStyles.row}>
+        <LottieView
+          source={identityAnimation}
+          autoPlay
+          loop
+          style={themedStyles.identityAnimation}
+        />
+        <Paragraph
+          text={'profile.digitalCardDetails.animation'}
+          testId={`${testId}-animation`}
+          size="xl"
+          weight="Medium"
+          style={themedStyles.iconAnimationText}
+        />
+      </View>
       <Spacer space={7} />
       <BaseButton
         variant="secondary"
