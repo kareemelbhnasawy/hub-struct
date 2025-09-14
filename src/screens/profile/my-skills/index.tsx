@@ -172,6 +172,7 @@ const MySkillsScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={true}
+      noPaddings
       isLoading={isLoading || isPendingDelete}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
@@ -180,6 +181,7 @@ const MySkillsScreen = () => {
         },
         isTitleCentered: true,
       }}
+      innerPageStyle={themedStyles.skillsContainer}
       disableSafeAreaTop={false}>
       <View style={themedStyles.container}>
         <Spacer space={10} />
