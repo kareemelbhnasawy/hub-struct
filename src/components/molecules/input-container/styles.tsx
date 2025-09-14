@@ -20,17 +20,17 @@ const styles = createThemedStyles({
   },
   lg: {
     base: {
-      paddingVertical: 12,
+      paddingVertical: 16,
     },
   },
   md: {
     base: {
-      paddingVertical: 8,
+      paddingVertical: 12,
     },
   },
   sm: {
     base: {
-      paddingVertical: 4,
+      paddingVertical: 8,
     },
   },
   default: {

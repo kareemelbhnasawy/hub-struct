@@ -39,6 +39,7 @@ const BaseTextInput = forwardRef(
           { fontFamily: getFont(fontWeights.Medium) },
           themedStyles.xs,
           themedStyles.Medium,
+          themedStyles.baseTextInput,
           style,
         ]}
         {...textInputProps}
