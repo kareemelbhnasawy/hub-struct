@@ -40,7 +40,6 @@ const styles = createThemedStyles({
       marginTop: 8,
       marginBottom: 16,
       fontSize: 18,
-      borderColor: 'borderBrandPrimary',
     },
   },
   maskedNumber: {
