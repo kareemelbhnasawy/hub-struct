@@ -228,7 +228,12 @@ const MySkillsScreen = () => {
           testId={screenTestId}
           modalVisible={sheetVisibility}
           setModalVisible={setSheetVisibility}
-          titleProps={{ text: 'profile.skills.addSkill' }}
+          titleProps={{
+            text: 'profile.skills.addSkill',
+            size: 'sm',
+            weight: 'Semibold',
+            style: themedStyles.skillsLabel,
+          }}
           headerVariant="centerWithClose"
           hasCloseButton
           enableDynamicSizing={false}
