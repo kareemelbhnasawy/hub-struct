@@ -23,4 +23,9 @@ export const styles = createThemedStyles({
       flexDirection: 'column',
     },
   },
+  textForegroundSecondary: {
+    base: {
+      color: 'textTertiary',
+    },
+  },
 });
