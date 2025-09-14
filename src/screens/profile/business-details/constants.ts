@@ -35,7 +35,10 @@ export const basicInfoDataHandler = (data: JobDetailsResponse) => {
   ];
 };
 
-export const contactInfoDataHandler = (data: JobDetailsResponse) => {
+export const contactInfoDataHandler = (
+  data: JobDetailsResponse,
+  team = false,
+) => {
   return [
     {
       key: 'emailAddress',
@@ -50,7 +53,9 @@ export const contactInfoDataHandler = (data: JobDetailsResponse) => {
     },
     {
       key: 'workExtension',
-      label: 'profile.personDetails.extension',
+      label: team
+        ? 'profile.personDetails.workExtension'
+        : 'profile.personDetails.extension',
       value: data?.contactInfo?.workExtension ?? 'profile.emptyDataMsg',
       type: 'extension',
     },

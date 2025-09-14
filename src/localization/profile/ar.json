@@ -59,8 +59,10 @@
     "nationality": "الجنسية",
     "nationalId": "رقم الهوية الوطنية",
     "contactInfo": "بيانات التواصل",
+    "teamContactInfo": "بيانات التواصل الشخصية",
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
+    "workExtension": "تحويلة العمل",
     "address": "العنوان",
     "contractAddress": "العنوان"
   },
