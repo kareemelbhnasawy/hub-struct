@@ -19,27 +19,31 @@ messaging().setBackgroundMessageHandler(async (remoteMessage) => {
 
 // Check if app was launched in the background and conditionally render null if so
 function HeadlessCheck() {
-  if (isIOS())
-    messaging()
-      .getIsHeadless()
-      .then((isHeadless) => {
-        // do sth with isHeadless
-        if (isHeadless) {
-          // App has been launched in the background by iOS, ignore
-          return null;
-        }
+  // if (isIOS())
+  //   messaging()
+  //     .getIsHeadless()
+  //     .then((isHeadless) => {
+  //       // do sth with isHeadless
+  //       if (isHeadless) {
+  //         console.log('entered');
+  //         // App has been launched in the background by iOS, ignore
+  //         return null;
+  //       }
+  //       console.log('entered 2');
 
-        // Render the app component on foreground launch
-        return <App />;
-      })
-      .catch((error) => {
-        console.error(
-          ('ERROR ON FETCHING FIREBASE MESSAGING HEADLESS\nCheck firebase notifications/messaging configurations',
-          error),
-        );
-        return <App />; // return App anyways to prevent notifications from crashing the whole app.
-      });
-  else return <App />;
+  //       // Render the app component on foreground launch
+  //       return <App />;
+  //     })
+  //     .catch((error) => {
+  //       console.error(
+  //         ('ERROR ON FETCHING FIREBASE MESSAGING HEADLESS\nCheck firebase notifications/messaging configurations',
+  //         error),
+  //       );
+  //       return <App />; // return App anyways to prevent notifications from crashing the whole app.
+  //     });
+  // else return <App />;
+
+  return <App />;
 }
 
 AppRegistry.registerComponent(appName, () => HeadlessCheck);
