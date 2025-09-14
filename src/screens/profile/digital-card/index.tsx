@@ -24,6 +24,8 @@ const DigitalCardScreen = () => {
   const { isRTL, translate } = useTranslate();
   const { data, isPending } = useGetPersonDetails();
   const { data: headerData, isPending: isHeaderPending } = useProfileHeader();
+  const [modalVisible, setModalVisible] = useState(false);
+
   const vcard = useMemo(() => {
     const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
     if (data?.primaryInfo?.name) {
@@ -36,6 +38,9 @@ const DigitalCardScreen = () => {
     }
     if (data?.primaryInfo?.gender) {
       lines.push(`GENDER:${data?.primaryInfo?.gender.substring(0, 1)}`);
+    }
+    if (headerData?.profileImage) {
+      lines.push(`PHOTO;VALUE=URI:${headerData?.profileImage}`);
     }
     const notes = [];
     if (data?.jobInfo?.jobTitle) {
@@ -79,8 +84,6 @@ const DigitalCardScreen = () => {
     lines.push('END:VCARD');
     return lines.join('\n');
   }, [data, translate]);
-  const [modalVisible, setModalVisible] = useState(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <Page
