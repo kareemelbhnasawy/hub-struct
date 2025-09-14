@@ -18,13 +18,8 @@ const App = () => {
   const { locale, isRTL } = useTranslate();
   useEffect(() => {
     if (crashlytics) log(crashlytics, 'App mounted.');
-    if (locale.includes('ar')) {
-      I18nManager.forceRTL(true);
-      I18nManager.isRTL = true;
-    } else {
-      I18nManager.isRTL = false;
-      I18nManager.forceRTL(false);
-    }
+    I18nManager.forceRTL(locale.includes('ar'));
+    I18nManager.isRTL = locale.includes('ar');
     checkPermissions();
     requestNotifications();
   }, [crashlytics]);
