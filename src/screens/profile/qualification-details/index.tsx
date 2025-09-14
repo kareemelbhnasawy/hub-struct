@@ -44,6 +44,7 @@ const QualificationDetails = ({ route }: Props) => {
         size="xl"
         weight="Medium"
         testId={`basic-${item.key}-label`}
+        style={themedStyle.labelText}
       />
       <Headline
         text={item.value}
@@ -110,7 +111,7 @@ const QualificationDetails = ({ route }: Props) => {
         }}
         textProps={{
           text: 'profile.qualificationDetails.studyDetails',
-          size: 'xs'
+          size: 'xs',
         }}
       />
       <Spacer space={'xl'} />
@@ -138,7 +139,7 @@ const QualificationDetails = ({ route }: Props) => {
         }}
         textProps={{
           text: 'profile.qualificationDetails.fees',
-          size: 'xs'
+          size: 'xs',
         }}
       />
       <Spacer space={'xl'} />
@@ -200,7 +201,7 @@ const QualificationDetails = ({ route }: Props) => {
         <Spacer space={'sm'} />
 
         {qualificationData?.attachments &&
-          qualificationData.attachments.length !== 0 ? (
+        qualificationData.attachments.length !== 0 ? (
           qualificationData?.attachments?.map(
             (attachment: Attachment, index: number) => (
               <View
