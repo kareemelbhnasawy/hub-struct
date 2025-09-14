@@ -174,7 +174,6 @@ const PersonDetails = () => {
         onChangeText={handlePhoneChange}
         keyboardType="phone-pad"
         maxLength={10}
-        style={themedStyle.mobileInput}
         isRequired
         labelProps={{
           text: 'profileDetails.mobileNumber',
@@ -204,7 +203,6 @@ const PersonDetails = () => {
         keyboardType="number-pad"
         maxLength={4}
         isRequired
-        style={themedStyle.mobileInput}
         labelProps={{
           text: 'profileDetails.extension',
         }}
