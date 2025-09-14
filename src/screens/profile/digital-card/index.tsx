@@ -20,11 +20,14 @@ const DigitalCardScreen = () => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const testId = 'digital-card-screen';
-  const { jobTitle, name } = useProfileStore();
+  const { name } = useProfileStore();
   const { isRTL, translate } = useTranslate();
   const { data, isPending } = useGetPersonDetails();
   const { data: headerData, isPending: isHeaderPending } = useProfileHeader();
   const [modalVisible, setModalVisible] = useState(false);
+  const displayTitle = useMemo(() => {
+    return `${headerData?.jobTitle} - ${headerData?.department}`;
+  }, [headerData]);
 
   const vcard = useMemo(() => {
     const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
@@ -50,11 +53,11 @@ const DigitalCardScreen = () => {
         data?.jobInfo?.jobTitle,
       );
     }
-    if (data?.jobInfo?.management) {
-      lines.push(`ORG:${data?.jobInfo?.management}`);
+    if (headerData?.department) {
+      lines.push(`ORG:${headerData?.department}`);
       notes.push(
         translate('profile.myJobDetails.management'),
-        data?.jobInfo?.management,
+        headerData?.department,
       );
     }
     if (data?.contactInfo?.workExtension) {
@@ -118,14 +121,14 @@ const DigitalCardScreen = () => {
                 testId={`${testId}-name`}
               />
               <Headline
-                text={jobTitle}
+                text={displayTitle}
                 isTranslated={false}
                 testId={`${testId}-job-title`}
                 size="xs"
                 weight="Medium"
               />
               <Spacer space={24} />
-              <Logo testId={`${testId}-logo`} size="md" />
+              <Logo testId={`${testId}-logo`} size="sm" />
               <Spacer space={24} />
             </View>
           </View>
