@@ -1,16 +1,35 @@
 import { createThemedStyles } from '@/utilities';
-import { StyleSheet } from 'react-native';
 import { Radius, SHADOWS } from '@/style';
 
 export const styles = createThemedStyles({
+  cardViewContainer: {
+    base: {
+      flex: 1,
+      borderWidth: 1,
+      borderColor: 'borderSecondary',
+      borderRadius: Radius.LG,
+      ...SHADOWS.sm,
+    },
+  },
   cardContainer: {
     base: {
       borderRadius: Radius.LG,
-      backgroundColor: 'backgroundWhite',
+      // backgroundColor: 'backgroundWhite',
       flex: 1,
-      // Cross-platform shadow/elevation,
+      overflow: 'hidden',
 
-      ...SHADOWS.md,
+      // Cross-platform shadow/elevation,
+    },
+  },
+  imageBackground: {
+    base: {
+      position: 'absolute',
+      top: '50%',
+      left: -2,
+      flex: 1,
+      height: '52%',
+      width: '102%',
+      borderRadius: Radius.LG,
     },
   },
   wrapper: {
@@ -20,12 +39,13 @@ export const styles = createThemedStyles({
       overflow: 'hidden',
     },
   },
-  absoluteFill: {
+  digitalCardCut: {
     base: {
-      ...StyleSheet.absoluteFill,
-      height: '70%',
-      top: '50%',
-      alignSelf: 'center',
+      // ...StyleSheet.absoluteFill,
+      height: '50%',
+      width: 200,
+      top: '65%',
+      // alignSelf: 'center',
       overflow: 'visible',
     },
   },

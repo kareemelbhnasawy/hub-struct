@@ -1,10 +1,8 @@
-import { Pressable, View } from 'react-native';
+import { Image, ImageBackground, Pressable, View } from 'react-native';
 import { useThemeStore } from '@/store/theme';
 import { styles } from './styles';
 import LottieView from 'lottie-react-native';
-import splashBgAnimation from '@/assets/animations/splash-bg-animation.json';
 import identityAnimation from '@/assets/animations/identity_verification_pending.json';
-import { BlurView } from '@react-native-community/blur';
 import Logo from '@/components/molecules/logo';
 import { Page } from '@/components/templates';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
@@ -14,13 +12,16 @@ import { useProfileStore } from '@/store/profile';
 import useGetPersonDetails from '@/network/services/profile/get-person-details/get-person-details.hook';
 import { useMemo, useState } from 'react';
 import QRCode from 'react-native-qrcode-svg';
+import DefaultBannerImage from '@/assets/images/riyadh.png';
+import DigitalCardCut from '@/assets/images/image-cuts/digital-card-cut.png';
+import { useTranslate } from '@/hooks';
 
 const DigitalCardScreen = () => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   const testId = 'digital-card-screen';
   const { jobTitle, name } = useProfileStore();
-
+  const { isRTL, translate } = useTranslate();
   const { data, isPending } = useGetPersonDetails();
   const vcard = useMemo(() => {
     const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
@@ -38,11 +39,24 @@ const DigitalCardScreen = () => {
     const notes = [];
     if (data?.jobInfo?.jobTitle) {
       lines.push(`TITLE:${data?.jobInfo?.jobTitle}`);
-      notes.push(data?.jobInfo?.jobTitle);
+      notes.push(
+        translate('profile.myJobDetails.jobTitle'),
+        data?.jobInfo?.jobTitle,
+      );
     }
     if (data?.jobInfo?.management) {
       lines.push(`ORG:${data?.jobInfo?.management}`);
-      notes.push(data?.jobInfo?.management);
+      notes.push(
+        translate('profile.myJobDetails.management'),
+        data?.jobInfo?.management,
+      );
+    }
+    if (data?.contactInfo?.workExtension) {
+      lines.push(`Extension:${data?.contactInfo?.workExtension}`);
+      notes.push(
+        translate('profile.personDetails.extension'),
+        data?.contactInfo?.workExtension,
+      );
     }
     if (notes.length) {
       lines.push(`NOTE;CHARSET=UTF-8:${notes.join('\\n')}`);
@@ -63,7 +77,7 @@ const DigitalCardScreen = () => {
     }
     lines.push('END:VCARD');
     return lines.join('\n');
-  }, [data]);
+  }, [data, translate]);
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
@@ -77,42 +91,41 @@ const DigitalCardScreen = () => {
         isTitleCentered: true,
       }}>
       <Spacer space={16} />
-      <View style={themedStyles.cardContainer}>
-        <View testID={`${testId}-wrapper`} style={themedStyles.wrapper}>
-          <LottieView
-            source={splashBgAnimation}
-            autoPlay={false}
-            loop={false}
-            resizeMode="cover"
-            style={themedStyles.absoluteFill}
-          />
-          <BlurView
-            testID={`${testId}-animation-blur`}
-            style={themedStyles.absoluteFill}
-            blurType="light"
-            blurAmount={50}
-          />
+      <View style={themedStyles.cardViewContainer}>
+        <ImageBackground
+          style={themedStyles.cardContainer}
+          source={DefaultBannerImage}>
+          <View testID={`${testId}-wrapper`} style={themedStyles.wrapper}>
+            <Image
+              source={DigitalCardCut}
+              style={[
+                themedStyles.imageBackground,
+                { transform: [{ scaleX: !isRTL ? -1 : 1 }] },
+              ]}
+              resizeMode="cover"
+            />
 
-          <View style={themedStyles.contentWrapper}>
-            <Headline
-              text={name}
-              isTranslated={false}
-              size="md"
-              weight="Semibold"
-              testId={`${testId}-name`}
-            />
-            <Headline
-              text={jobTitle}
-              isTranslated={false}
-              testId={`${testId}-job-title`}
-              size="xs"
-              weight="Medium"
-            />
-            <Spacer space={24} />
-            <Logo testId={`${testId}-logo`} size="md" />
-            <Spacer space={24} />
+            <View style={themedStyles.contentWrapper}>
+              <Headline
+                text={name}
+                isTranslated={false}
+                size="md"
+                weight="Semibold"
+                testId={`${testId}-name`}
+              />
+              <Headline
+                text={jobTitle}
+                isTranslated={false}
+                testId={`${testId}-job-title`}
+                size="xs"
+                weight="Medium"
+              />
+              <Spacer space={24} />
+              <Logo testId={`${testId}-logo`} size="md" />
+              <Spacer space={24} />
+            </View>
           </View>
-        </View>
+        </ImageBackground>
       </View>
       <Spacer space={7} />
       <View style={themedStyles.row}>
