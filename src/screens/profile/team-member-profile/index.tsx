@@ -45,7 +45,7 @@ const TeamMemberProfileScreen = () => {
   const basicInfoData = basicPersonInfoDataHandler(personDetails);
   const contactInfoData = contactPersonInfoDataHandler(personDetails, true);
   const basicBusinessInfoData = basicInfoDataHandler(personDetails);
-  const contactBusinessInfoData = contactInfoDataHandler(personDetails);
+  const contactBusinessInfoData = contactInfoDataHandler(personDetails, true);
   const TeamTab = () => {
     const merged = [
       ...(teamData?.ministryEmployees ?? []),
@@ -100,7 +100,7 @@ const TeamMemberProfileScreen = () => {
           },
           {
             key: 'personal-contact',
-            title: 'profile.personDetails.contactInfo',
+            title: 'profile.personDetails.teamContactInfo',
             icon: 'Phone',
             iconContainerStyle: themedStyles.iconDescriptiveGreen,
             data: contactInfoData,
@@ -143,13 +143,13 @@ const TeamMemberProfileScreen = () => {
     {
       key: 'profile.job-details',
       label: 'profile.job-details',
-      iconName: 'Building',
+      iconName: 'IdCard',
       component: BusinessTab,
     },
     {
       key: 'profile.personal-details',
       label: 'profile.personal-details',
-      iconName: 'User',
+      iconName: 'CircleUser',
       component: PersonalTab,
     },
     {

@@ -16,7 +16,7 @@ const InputContainer = ({
   isRequired,
   state = 'default',
   errorProps,
-  size = 'lg',
+  size = 'md',
   children,
 }: PropsWithChildren<InputContainerProps>) => {
   const { getThemedStyles } = useThemeStore();

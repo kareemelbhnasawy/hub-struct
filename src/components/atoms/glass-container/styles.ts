@@ -9,7 +9,7 @@ const styles = (borderRadius: Radius) =>
         paddingVertical: 12,
         borderRadius: borderRadius,
         overflow: 'hidden',
-        backgroundColor: 'alphaBlack10',
+        backgroundColor: 'alphaWhite30',
         justifyContent: 'center',
         alignItems: 'center',
         ...SHADOWS.md,

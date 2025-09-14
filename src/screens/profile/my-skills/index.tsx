@@ -20,7 +20,6 @@ import usePostSkills from '@/network/services/profile/post-skills/post-skills.ho
 import { Pressable, View } from 'react-native';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import useSearchSkills from '@/network/services/profile/search-skills/search-skills.hook';
-import { useDebounce } from 'use-debounce';
 import isEmpty from '@/utilities/is-empty';
 import { PostSkillsResponse } from '@/network/services/profile/types';
 import { wait } from '@/utilities';
@@ -35,7 +34,7 @@ const MySkillsScreen = () => {
   const [searchResults, setSearchResults] = useState<
     SkillItemDataType[] | undefined
   >([]);
-  const [debouncedText] = useDebounce(searchText, 500);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
 
   const { invalidateQuery } = useCustomInvalidate();
 
@@ -47,21 +46,21 @@ const MySkillsScreen = () => {
 
   const onDeleteSkillSuccess = useCallback(() => {
     invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
-    if (!isEmpty(debouncedText)) {
-      mutateSearchSkills({ keyword: debouncedText });
+    if (!isEmpty(searchText)) {
+      mutateSearchSkills({ keyword: searchText });
     }
-  }, [debouncedText, invalidateQuery]);
+  }, [searchText, invalidateQuery]);
 
   const onAddSkillSuccess = useCallback(
     (data: PostSkillsResponse) => {
       invalidateQuery(PROFILE_QUERY_KEYS.GET_SKILLS);
       wait(60000).then(() => removeTagFromNewTags(data.skillId));
-      if (!isEmpty(debouncedText)) {
-        mutateSearchSkills({ keyword: debouncedText });
+      if (!isEmpty(searchText)) {
+        mutateSearchSkills({ keyword: searchText });
       }
       setNewTags((prev) => [...prev, data.skillId]);
     },
-    [debouncedText, invalidateQuery],
+    [searchText, invalidateQuery],
   );
 
   const { mutate: mutateAddSkill, isPending: isPendingPost } =
@@ -75,10 +74,10 @@ const MySkillsScreen = () => {
   } = useSearchSkills();
 
   useEffect(() => {
-    if (debouncedText && debouncedText.length > 0) {
-      mutateSearchSkills({ keyword: debouncedText });
-    }
-  }, [debouncedText, mutateSearchSkills]);
+    if (searchText && searchText.length > 0) {
+      mutateSearchSkills({ keyword: searchText });
+    } else setSearchResults([]);
+  }, [searchText, mutateSearchSkills]);
 
   useEffect(() => {
     if (!isPending) {
@@ -190,7 +189,6 @@ const MySkillsScreen = () => {
           <SearchInput
             testId={screenTestId}
             style={themedStyles.searchBar}
-            disabled
             placeholder="profile.skills.searchToAdd"
           />
         </Pressable>
@@ -242,7 +240,8 @@ const MySkillsScreen = () => {
           <SearchInput
             value={searchText}
             onChangeValue={(text) => setSearchText(text)}
-            debounceDelay={800}
+            debounceDelay={500}
+            setSearchLoading={setIsSearchLoading}
             testId={screenTestId}
             placeholder="profile.skills.searchToAdd"
           />
@@ -250,7 +249,7 @@ const MySkillsScreen = () => {
           <List<SkillItemDataType>
             testId={screenTestId}
             data={searchResults}
-            isLoading={isPendingPost}
+            isLoading={isPendingPost || isSearchLoading}
             renderItem={renderListItem}
             keyField="name"
             scrollEnabled={false}

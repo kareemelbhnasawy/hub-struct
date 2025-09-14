@@ -25,5 +25,7 @@ export type ProfileStackParamList = {
   QualificationDetails: QualificationDetailsScreenParams;
   Covenant: undefined;
   CovenantDetails: CovenantDetailsParams;
+  IDCard: undefined;
+  DigitalCard: undefined;
   MySkills: undefined;
 };

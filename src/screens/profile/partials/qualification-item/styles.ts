@@ -39,6 +39,11 @@ const styles = createThemedStyles({
       color: 'textPrimaryParagraph',
     },
   },
+  textDefaultParagraph: {
+    base: {
+      color: 'textDefault',
+    },
+  },
 });
 
 export default styles;
