@@ -85,6 +85,7 @@ const Covenant = () => {
           value={search}
           onChangeValue={setSearch}
           placeholderTextColor={themedStyles.colorTertiary.color}
+          debounceDelay={0}
         />
       )}
       <Spacer space={16} />
