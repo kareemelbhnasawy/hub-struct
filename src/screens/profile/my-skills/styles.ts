@@ -39,6 +39,16 @@ const styles = createThemedStyles({
       flexDirection: 'row',
       columnGap: 4,
     },
+  },
+  skillsContainer:{
+    base: {
+      paddingHorizontal: 16,
+    },
+  },
+  secondaryParagraph: {
+    base: {
+      color: 'textPrimaryParagraph',
+    }
   }
 });
 

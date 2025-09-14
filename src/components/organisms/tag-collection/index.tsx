@@ -70,6 +70,7 @@ const TagCollection = ({
             text: 'profile.skills.addSkillsPrompt',
             size: 'sm',
             weight: 'Regular',
+            style: themedStyles.primaryParagraph,
           },
         }
       }

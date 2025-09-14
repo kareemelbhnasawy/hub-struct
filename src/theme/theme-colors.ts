@@ -371,6 +371,10 @@ export const themeColors = {
     light: COLORS['secondary-teal-700'],
     dark: COLORS['secondary-teal-500'],
   },
+  textLabelVibrant: {
+    light: COLORS['secondary-dark-gray-950'],
+    dark: COLORS['secondary-dark-gray-950'],
+  },
 
   textError: {
     light: COLORS['error-700'],

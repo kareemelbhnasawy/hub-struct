@@ -120,7 +120,7 @@ const MySkillsScreen = () => {
       iconProps: {
         name: 'SearchX',
         color: 'foregroundQuinary',
-        size: 100,
+        size: 50,
         strokeWidth: 1,
       },
       headlineProps: {
@@ -132,6 +132,7 @@ const MySkillsScreen = () => {
         text: 'profile.skills.addPrompt',
         size: 'lg',
         weight: 'Regular',
+        style: themedStyles.secondaryParagraph,
         children: (
           <Paragraph
             testId={`${screenTestId}-bold-skill-name`}
@@ -156,7 +157,7 @@ const MySkillsScreen = () => {
       iconProps: {
         name: 'Search',
         color: 'foregroundQuinary',
-        size: 100,
+        size: 50,
         strokeWidth: 1,
       },
       headlineProps: {
@@ -171,6 +172,7 @@ const MySkillsScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={true}
+      noPaddings
       isLoading={isLoading || isPendingDelete}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
@@ -179,6 +181,7 @@ const MySkillsScreen = () => {
         },
         isTitleCentered: true,
       }}
+      innerPageStyle={themedStyles.skillsContainer}
       disableSafeAreaTop={false}>
       <View style={themedStyles.container}>
         <Spacer space={10} />
@@ -224,7 +227,12 @@ const MySkillsScreen = () => {
           testId={screenTestId}
           modalVisible={sheetVisibility}
           setModalVisible={setSheetVisibility}
-          titleProps={{ text: 'profile.skills.addSkill' }}
+          titleProps={{
+            text: 'profile.skills.addSkill',
+            size: 'sm',
+            weight: 'Semibold',
+            style: themedStyles.skillsLabel,
+          }}
           headerVariant="centerWithClose"
           hasCloseButton
           enableDynamicSizing={false}
