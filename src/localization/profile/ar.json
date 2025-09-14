@@ -89,7 +89,7 @@
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح",
     "stopQuickFACE_ID": "إيقاف بصمة الوجه",
     "stopQuickTOUCH_ID": "إيقاف بصمة الإصبع",
-    "stopQuickPIN_CODE": "إيقاف الرمز السري",
+    "stopQuickPIN_CODE": "إيقاف الرمز السري؟",
     "stopQuickDescFACE_ID": "ستتوقف عن استخدام بصمة الوجه لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
     "stopQuickDescTOUCH_ID": "ستتوقف عن استخدام بصمة الإصبع لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
     "stopQuickDescPIN_CODE": "ستتوقف عن استخدام الرمز السري لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
