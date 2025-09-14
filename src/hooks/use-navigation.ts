@@ -28,7 +28,9 @@ export type ScreenName = keyof CombinedParamList;
 /**
  * Add any route that should be ignored in analytics here.
  */
-const ANALYTICS_IGNORED_ROUTES: ScreenName[] = [];
+const ANALYTICS_ENABLED_ROUTES: Partial<Record<ScreenName, string>> = {
+  ProfileStack: 'Profile Main Screen',
+};
 
 /**
  * Describe the parent-navigator path for each screen.
@@ -120,8 +122,14 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     params?: CombinedParamList[K],
   ) => {
     console.log('navigating to: ', screen);
-    if (!(screen in ANALYTICS_IGNORED_ROUTES))
-      logEvent(analytics, 'screen_navigate', { ...params, screenName: screen });
+    const screenBusinessName = ANALYTICS_ENABLED_ROUTES[screen];
+    if (screenBusinessName) {
+      logEvent(analytics, 'screen_navigate', {
+        ...params,
+        screen_dev_name: screen,
+        screen_name: screenBusinessName,
+      });
+    }
     navigation.navigate(screen as never, params as never);
   };
 
