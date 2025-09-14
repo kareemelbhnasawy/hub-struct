@@ -1,4 +1,3 @@
-import { Radius } from '@/style';
 import { createThemedStyles } from '@/utilities';
 
 const styles = createThemedStyles({
@@ -11,7 +10,7 @@ const styles = createThemedStyles({
   },
   checkmark: {
     base:{
-      borderRadius: Radius.SM,
+      borderRadius: 7,
       borderWidth: 1,
       borderColor: 'borderPrimary',
       width: 20,
