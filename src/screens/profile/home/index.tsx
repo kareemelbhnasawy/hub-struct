@@ -3,7 +3,7 @@ import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
 import { useNavigation, useTranslate } from '@/hooks';
 import { ToastService } from '@/components/molecules';
-import logUserAction from '@/utilities/log-user-action';
+import { logUserAction } from '@/utilities';
 
 const HomeScreen = () => {
   const { navigateTo } = useNavigation();
