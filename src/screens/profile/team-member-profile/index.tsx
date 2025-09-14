@@ -143,13 +143,13 @@ const TeamMemberProfileScreen = () => {
     {
       key: 'profile.job-details',
       label: 'profile.job-details',
-      iconName: 'Building',
+      iconName: 'IdCard',
       component: BusinessTab,
     },
     {
       key: 'profile.personal-details',
       label: 'profile.personal-details',
-      iconName: 'User',
+      iconName: 'CircleUser',
       component: PersonalTab,
     },
     {
