@@ -12,9 +12,9 @@ import { useProfileStore } from '@/store/profile';
 import useGetPersonDetails from '@/network/services/profile/get-person-details/get-person-details.hook';
 import { useMemo, useState } from 'react';
 import QRCode from 'react-native-qrcode-svg';
-import DefaultBannerImage from '@/assets/images/riyadh.png';
 import DigitalCardCut from '@/assets/images/image-cuts/digital-card-cut.png';
 import { useTranslate } from '@/hooks';
+import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
 
 const DigitalCardScreen = () => {
   const { getThemedStyles, getThemeColor } = useThemeStore();
@@ -23,6 +23,7 @@ const DigitalCardScreen = () => {
   const { jobTitle, name } = useProfileStore();
   const { isRTL, translate } = useTranslate();
   const { data, isPending } = useGetPersonDetails();
+  const { data: headerData, isPending: isHeaderPending } = useProfileHeader();
   const vcard = useMemo(() => {
     const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
     if (data?.primaryInfo?.name) {
@@ -84,7 +85,7 @@ const DigitalCardScreen = () => {
   return (
     <Page
       testId={`${testId}`}
-      isLoading={isPending}
+      isLoading={isPending || isHeaderPending}
       pageHeaderVariant={PageHeaderVariants.BackWithTitle}
       pageHeaderProps={{
         titleProps: { text: 'profile.digitalCard' },
@@ -94,7 +95,7 @@ const DigitalCardScreen = () => {
       <View style={themedStyles.cardViewContainer}>
         <ImageBackground
           style={themedStyles.cardContainer}
-          source={DefaultBannerImage}>
+          source={{ uri: headerData?.profileImage }}>
           <View testID={`${testId}-wrapper`} style={themedStyles.wrapper}>
             <Image
               source={DigitalCardCut}
