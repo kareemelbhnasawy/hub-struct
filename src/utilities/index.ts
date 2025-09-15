@@ -20,4 +20,4 @@ export { default as getFont } from './get-font';
 export { isAndroid, isIOS } from './is-os';
 export { openLink } from './open-link';
 export { default as getLangValue } from './get-lang-value';
-export { default as logUserAction } from './log-user-action';
+export { default as logAppEvent } from './log-user-action';

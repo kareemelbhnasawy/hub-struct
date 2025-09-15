@@ -13,7 +13,7 @@ const MyProfile = () => {
   const screenTestId = 'my-profile-screen';
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  const { navigate } = useNavigation();
+  const { navigateTo } = useNavigation();
 
   const renderListItem = ({
     item,
@@ -47,7 +47,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('PersonDetails'),
+      onPress: () => navigateTo('PersonDetails'),
     },
     {
       id: '2',
@@ -60,7 +60,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('BusinessDetails'),
+      onPress: () => navigateTo('BusinessDetails'),
     },
     {
       id: '3',
@@ -99,7 +99,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('Qualifications'),
+      onPress: () => navigateTo('Qualifications'),
     },
     {
       id: '6',
@@ -112,7 +112,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('MySkills'),
+      onPress: () => navigateTo('MySkills'),
     },
     {
       id: '7',
@@ -125,7 +125,7 @@ const MyProfile = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigate('Covenant'),
+      onPress: () => navigateTo('Covenant'),
     },
   ];
   return (

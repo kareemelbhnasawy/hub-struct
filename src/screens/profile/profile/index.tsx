@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { useProfileStore } from '@/store/profile';
 
 const ProfileScreen = () => {
-  const navigation = useNavigation();
+  const { navigateTo } = useNavigation();
   const {
     setAllProfileData,
     getFullName,
@@ -32,7 +32,7 @@ const ProfileScreen = () => {
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
-    navigation.navigate('MyProfile', {});
+    navigateTo('MyProfile');
   };
 
   const listItemData: ProfileSettingItemDataType[] = [
@@ -60,7 +60,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('ProfileSettings'),
+      onPress: () => navigateTo('ProfileSettings'),
     },
     {
       id: '3',
@@ -73,7 +73,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('MyTeam'),
+      onPress: () => navigateTo('MyTeam'),
     },
     {
       id: '4',
@@ -99,7 +99,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('ProfileSettings'),
+      onPress: () => navigateTo('ProfileSettings'),
     },
     {
       id: '6',
@@ -112,7 +112,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('MySkills'),
+      onPress: () => navigateTo('MySkills'),
     },
   ];
   const renderListItem = ({

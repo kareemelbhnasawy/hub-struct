@@ -14,7 +14,7 @@ import { AppStackParamList } from '../navigation/stacks/app/types';
 import { AuthStackParamList } from '../navigation/stacks/auth/types';
 import { ProfileStackParamList } from '../navigation/stacks/profile/types';
 import { AxiosError, AxiosResponse } from 'axios';
-import { getAnalytics, logEvent } from '@react-native-firebase/analytics';
+import { logAppEvent } from '@/utilities';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -29,7 +29,14 @@ export type ScreenName = keyof CombinedParamList;
  * Add any route that should be ignored in analytics here.
  */
 const ANALYTICS_ENABLED_ROUTES: Partial<Record<ScreenName, string>> = {
-  ProfileStack: 'Profile Main Screen',
+  // My Account Screens //
+  PersonDetails: 'Personal Details Screen',
+  BusinessDetails: 'Business Details Screen',
+  Qualifications: 'Qualification Screen',
+  MySkills: 'My Skills Screen',
+  Covenant: 'Covenant Screen',
+  // My Account Screens //
+  MyTeam: 'My Team Screen',
 };
 
 /**
@@ -112,7 +119,6 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
   const navigation = useRNNavigation<
     NavigationProp<CombinedParamList, TRoute>
   >() as NativeStackNavigationProp<CombinedParamList, TRoute>;
-  const analytics = getAnalytics();
 
   const route = useRNRoute<RouteProp<CombinedParamList, TRoute>>();
 
@@ -124,10 +130,13 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     console.log('navigating to: ', screen);
     const screenBusinessName = ANALYTICS_ENABLED_ROUTES[screen];
     if (screenBusinessName) {
-      logEvent(analytics, 'screen_navigate', {
-        ...params,
-        screen_dev_name: screen,
-        screen_name: screenBusinessName,
+      logAppEvent({
+        eventName: 'screen_navigate',
+        eventParams: {
+          ...params,
+          screen_dev_name: screen,
+          screen_name: screenBusinessName,
+        },
       });
     }
     navigation.navigate(screen as never, params as never);
