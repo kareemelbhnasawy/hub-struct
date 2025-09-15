@@ -18,7 +18,7 @@ const logAppEvent = ({
 }) => {
   const validNameRegex = /^[a-z0-9]+(?:_[a-z0-9]+)*$/;
 
-  if (validNameRegex.test(eventName))
+  if (!validNameRegex.test(eventName))
     console.error(
       `Invalid event name (${eventName}) but the event was fired anyways.\n Please use a proper format e.g. (change_address)`,
     );
