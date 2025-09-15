@@ -65,7 +65,9 @@ const PersonDetails = () => {
       url: 'profile/v1/mobile-number/edit',
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: showPhoneToast,
+      config: {
+        showSuccessToast: showPhoneToast,
+      },
       isBack: true,
     });
   };
@@ -77,7 +79,9 @@ const PersonDetails = () => {
       url: 'profile/v1/extension-number/edit',
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: showExtensionToast,
+      config: {
+        showSuccessToast: showExtensionToast,
+      },
       isBack: true,
     });
   };

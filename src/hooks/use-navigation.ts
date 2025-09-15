@@ -15,6 +15,7 @@ import { AuthStackParamList } from '../navigation/stacks/auth/types';
 import { ProfileStackParamList } from '../navigation/stacks/profile/types';
 import { AxiosError, AxiosResponse } from 'axios';
 import { logAppEvent } from '@/utilities';
+import { Config } from '@/network/types/api-method-args-with-extras.type';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -281,8 +282,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     body,
     onConfirmOtp,
     expiresIn,
-    showSuccessToast,
-    hideErrorToast,
+    config,
     isBack = false,
   }: {
     nextScreen: K;
@@ -293,11 +293,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     body: object;
     onConfirmOtp?: (res: unknown) => void;
     expiresIn?: number; // in seconds
-    showSuccessToast?: (arg0: AxiosResponse) => {
-      text: string;
-      textProps?: object;
-    };
-    hideErrorToast?: (arg0: AxiosError) => boolean;
+    config: Config;
     isBack?: boolean;
   }) => {
     navigateTo('OTP', {
@@ -309,8 +305,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
       body,
       onConfirmOtp,
       expiresIn,
-      showSuccessToast,
-      hideErrorToast,
+      config,
       isBack,
     });
   };

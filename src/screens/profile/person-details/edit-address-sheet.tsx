@@ -43,7 +43,6 @@ const EditAddressSheet = ({
       res?.addresses?.forEach((address) => {
         if (address.addressDescription === defaultSelectedAddress) {
           setSelectedAddress(address);
-          logAppEvent({ eventName: 'change_address' });
           setIsWarning(false);
         }
       });
@@ -61,10 +60,13 @@ const EditAddressSheet = ({
       url: PROFILE_URLS.EDIT_ADDRESS,
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: () => {
-        return {
-          text: 'profile.editAddressSuccess',
-        };
+      config: {
+        showSuccessToast: () => {
+          logAppEvent({ eventName: 'change_address' });
+          return {
+            text: 'profile.editAddressSuccess',
+          };
+        },
       },
       isBack: true,
     });

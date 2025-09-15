@@ -25,8 +25,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     onConfirmOtp,
     body,
     expiresIn,
-    showSuccessToast,
-    hideErrorToast,
+    config,
     isBack,
   } = route.params;
   const screenTestId = 'otp-screen';
@@ -67,8 +66,7 @@ export default function OtpConfirmationScreen({ route }: Props) {
     onError: () => {
       setError(true);
     },
-    showSuccessToast,
-    hideErrorToast,
+    config,
   });
 
   const handleResendCode = () => {
