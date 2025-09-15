@@ -130,7 +130,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     screen: K,
     params?: CombinedParamList[K],
   ) => {
-    console.log('navigating to: ', screen);
+    // console.log('navigating to: ', screen);
     const screenBusinessName = ANALYTICS_ENABLED_ROUTES[screen];
     if (screenBusinessName) {
       logAppEvent({

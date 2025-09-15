@@ -6,7 +6,7 @@ import { List } from '@/components/molecules';
 import { useThemeStore } from '@/store/theme';
 import ListItem from '../partials/profile-setting-item';
 import ProfileHeading from '../partials/profile-heading';
-import { getString, log } from '@/utilities';
+import { log } from '@/utilities';
 import { useNavigation } from '@/hooks';
 import { ProfileSettingItemDataType } from '../partials/profile-setting-item/interface';
 import useProfileHeader from '@/network/services/profile/profile-header/profile-header.hook';
@@ -155,9 +155,10 @@ const ProfileScreen = () => {
    * the app was closed or in a background state.
    */
   useEffect(() => {
-    const fcmNotification = getString('FCM_NOTIFICATION');
+    // TODO: implement actual background to foreground handling
+    // const fcmNotification = getString('FCM_NOTIFICATION');
     // eslint-disable-next-line no-console
-    console.log('fcm notification storage?: ', fcmNotification);
+    // console.log('fcm notification storage?: ', fcmNotification);
   }, []);
 
   return (

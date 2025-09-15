@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async (remoteMessage) => {
       // Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-      console.log('foreground handler notifications: ', remoteMessage);
+      // console.log('foreground handler notifications: ', remoteMessage);
     });
 
     return unsubscribe;

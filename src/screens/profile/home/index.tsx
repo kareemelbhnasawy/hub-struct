@@ -1,22 +1,12 @@
 import { Pressable, Text, View } from 'react-native';
 import styles from './styles';
-import { useNavigation, useTranslate } from '@/hooks';
-import { ToastService } from '@/components/molecules';
+import { useNavigation } from '@/hooks';
 
 const HomeScreen = () => {
   const { navigateTo } = useNavigation();
-  const handleNavigateToProfile = () => {
-    ToastService.info({
-      props: {
-        messageProps: { text: 'Language is ' + locale + ' isRTL is ' + isRTL },
-        testId: '',
-      },
-    });
+  const handleNavigateToProfile = () =>
     navigateTo('ProfileStack', { userId: '123' });
-  };
-  const { locale, isRTL } = useTranslate();
 
-  // changeLanguage('ar');
   return (
     <View style={styles.container.base}>
       <Text>This is Home</Text>
