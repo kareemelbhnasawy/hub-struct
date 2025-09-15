@@ -2,7 +2,7 @@ import { Spacer, Paragraph, Headline, LucideIcon } from '@/components/atoms';
 import { BaseSheet } from '@/components/molecules';
 import { SnapPoints } from '@/components/molecules/base-sheet/constants';
 import { SelectionGroup } from '@/components/organisms';
-import { openLink } from '@/utilities';
+import { logAppEvent, openLink } from '@/utilities';
 import { AddressCard } from '../partials';
 import useGetAddresses from '@/network/services/profile/get-addresses/get-addresses.hook';
 import { useEffect, useState } from 'react';
@@ -60,10 +60,13 @@ const EditAddressSheet = ({
       url: PROFILE_URLS.EDIT_ADDRESS,
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: () => {
-        return {
-          text: 'profile.editAddressSuccess',
-        };
+      config: {
+        showSuccessToast: () => {
+          logAppEvent({ eventName: 'change_address' });
+          return {
+            text: 'profile.editAddressSuccess',
+          };
+        },
       },
       isBack: true,
     });

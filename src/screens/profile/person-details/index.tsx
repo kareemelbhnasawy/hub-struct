@@ -21,6 +21,7 @@ import { getExtensionError, getPhoneError, isPhoneValid } from './utils';
 import { formatPhoneNumber } from '@/utilities/formats';
 import { useStartFlow } from '@/network/hooks';
 import EditAddressSheet from './edit-address-sheet';
+import { logAppEvent } from '@/utilities';
 
 const PersonDetails = () => {
   const { getThemedStyles } = useThemeStore();
@@ -64,7 +65,9 @@ const PersonDetails = () => {
       url: 'profile/v1/mobile-number/edit',
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: showPhoneToast,
+      config: {
+        showSuccessToast: showPhoneToast,
+      },
       isBack: true,
     });
   };
@@ -76,7 +79,9 @@ const PersonDetails = () => {
       url: 'profile/v1/extension-number/edit',
       expiresIn: data?.expiresIn,
       mobile: data?.mobileNumber,
-      showSuccessToast: showExtensionToast,
+      config: {
+        showSuccessToast: showExtensionToast,
+      },
       isBack: true,
     });
   };
@@ -300,15 +305,16 @@ const PersonDetails = () => {
             setModalVisible(false);
             if (type === 'mobile') {
               mutatePhone({ mobileNumber, deviceId, isShown: showForAll });
+              logAppEvent({ eventName: 'change_phone_number' });
             } else {
               mutateExtension({ extensionNumber, deviceId });
+              logAppEvent({ eventName: 'change_extension' });
             }
           },
           disabled:
             type === 'mobile'
               ? !isPhoneValid(mobileNumber)
               : extensionNumber.length < 1,
-          testId: 'demo-base-sheet-button',
         }}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}

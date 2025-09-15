@@ -69,7 +69,12 @@ const LoginScreen = () => {
       mobile: res?.mobileNumber,
       resetAppNav: true,
       url: 'auth/v1/login',
-      hideErrorToast: (err) => err.status === 401,
+      config: {
+        hideErrorToast: (err) => err.status === 401,
+        analyticEvent: {
+          eventName: 'login_with_otp',
+        },
+      },
       body: {
         email: email,
         password: password,

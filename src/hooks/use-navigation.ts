@@ -14,6 +14,8 @@ import { AppStackParamList } from '../navigation/stacks/app/types';
 import { AuthStackParamList } from '../navigation/stacks/auth/types';
 import { ProfileStackParamList } from '../navigation/stacks/profile/types';
 import { AxiosError, AxiosResponse } from 'axios';
+import { logAppEvent } from '@/utilities';
+import { Config } from '@/network/types/api-method-args-with-extras.type';
 
 /** Merge all route param lists into one */
 type CombinedParamList = RootStackParamList &
@@ -23,6 +25,20 @@ type CombinedParamList = RootStackParamList &
 
 /** All valid screen names across the app */
 export type ScreenName = keyof CombinedParamList;
+
+/**
+ * Add any route that should be ignored in analytics here.
+ */
+const ANALYTICS_ENABLED_ROUTES: Partial<Record<ScreenName, string>> = {
+  // My Account Screens //
+  PersonDetails: 'Personal Details Screen',
+  BusinessDetails: 'Business Details Screen',
+  Qualifications: 'Qualification Screen',
+  MySkills: 'My Skills Screen',
+  Covenant: 'Covenant Screen',
+  // My Account Screens //
+  MyTeam: 'My Team Screen',
+};
 
 /**
  * Describe the parent-navigator path for each screen.
@@ -113,7 +129,21 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
   const navigateTo = <K extends ScreenName>(
     screen: K,
     params?: CombinedParamList[K],
-  ) => navigation.navigate(screen as never, params as never);
+  ) => {
+    // console.log('navigating to: ', screen);
+    const screenBusinessName = ANALYTICS_ENABLED_ROUTES[screen];
+    if (screenBusinessName) {
+      logAppEvent({
+        eventName: 'screen_navigate',
+        eventParams: {
+          ...params,
+          screen_dev_name: screen,
+          screen_name: screenBusinessName,
+        },
+      });
+    }
+    navigation.navigate(screen as never, params as never);
+  };
 
   const pushTo = <K extends ScreenName>(
     screen: K,
@@ -254,8 +284,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     body,
     onConfirmOtp,
     expiresIn,
-    showSuccessToast,
-    hideErrorToast,
+    config,
     isBack = false,
   }: {
     nextScreen: K;
@@ -266,11 +295,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
     body: object;
     onConfirmOtp?: (res: unknown) => void;
     expiresIn?: number; // in seconds
-    showSuccessToast?: (arg0: AxiosResponse) => {
-      text: string;
-      textProps?: object;
-    };
-    hideErrorToast?: (arg0: AxiosError) => boolean;
+    config: Config;
     isBack?: boolean;
   }) => {
     navigateTo('OTP', {
@@ -282,8 +307,7 @@ const useNavigation = <TRoute extends ScreenName = ScreenName>() => {
       body,
       onConfirmOtp,
       expiresIn,
-      showSuccessToast,
-      hideErrorToast,
+      config,
       isBack,
     });
   };

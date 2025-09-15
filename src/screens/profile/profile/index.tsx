@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { useProfileStore } from '@/store/profile';
 
 const ProfileScreen = () => {
-  const navigation = useNavigation();
+  const { navigateTo } = useNavigation();
   const {
     setAllProfileData,
     getFullName,
@@ -32,7 +32,7 @@ const ProfileScreen = () => {
   const themedStyles = getThemedStyles(styles);
 
   const handleNavigateToAccountDetails = () => {
-    navigation.navigate('MyProfile', {});
+    navigateTo('MyProfile');
   };
 
   const listItemData: ProfileSettingItemDataType[] = [
@@ -60,7 +60,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('DigitalCard'),
+      onPress: () => navigateTo('DigitalCard'),
     },
     {
       id: '3',
@@ -73,7 +73,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('MyTeam'),
+      onPress: () => navigateTo('MyTeam'),
     },
     {
       id: '4',
@@ -99,7 +99,20 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigation.navigate('ProfileSettings'),
+      onPress: () => navigateTo('ProfileSettings'),
+    },
+    {
+      id: '6',
+      title: 'profile.skills.mySkills',
+      iconProps: {
+        name: 'Medal',
+        containerStyle: themedStyles.iconDescriptiveBlue,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs',
+      },
+      onPress: () => navigateTo('MySkills'),
     },
   ];
   const renderListItem = ({
@@ -135,6 +148,18 @@ const ProfileScreen = () => {
       });
     }
   }, [data, isSuccess, setAllProfileData]);
+
+  /**
+   * this code will be kept for documentation purposes
+   * on how to check a notification that came while
+   * the app was closed or in a background state.
+   */
+  useEffect(() => {
+    // TODO: implement actual background to foreground handling
+    // const fcmNotification = getString('FCM_NOTIFICATION');
+    // eslint-disable-next-line no-console
+    // console.log('fcm notification storage?: ', fcmNotification);
+  }, []);
 
   return (
     <Page
