@@ -128,6 +128,7 @@ const PersonDetails = () => {
         weight="Medium"
         size="2xs"
         testId={`basic-${item.key}-value`}
+        style={themedStyle.textBrandPrimary}
       />
     </View>
   );
@@ -158,12 +159,14 @@ const PersonDetails = () => {
           size="2xs"
           weight="Medium"
           testId={`contact-${item.key}-value`}
+          style={themedStyle.textBrandPrimary}
         />
         <LucideIcon
           name="ChevronRight"
           isRTLMirrored
           size={20}
           testId={`contact-${item.key}-chevron`}
+          style={themedStyle.textBrandPrimary}
         />
       </View>
     </Pressable>
@@ -176,7 +179,6 @@ const PersonDetails = () => {
         onChangeText={handlePhoneChange}
         keyboardType="phone-pad"
         maxLength={10}
-        style={themedStyle.mobileInput}
         isRequired
         labelProps={{
           text: 'profileDetails.mobileNumber',
@@ -206,7 +208,6 @@ const PersonDetails = () => {
         keyboardType="number-pad"
         maxLength={4}
         isRequired
-        style={themedStyle.mobileInput}
         labelProps={{
           text: 'profileDetails.extension',
         }}
@@ -292,8 +293,8 @@ const PersonDetails = () => {
             type === 'mobile'
               ? 'profileDetails.editPersonalPhone1'
               : 'profileDetails.editExtension',
-          size: 'md',
-          weight: 'Semibold',
+          size: 'xs',
+          weight: 'Medium',
         }}
         // onClose={() => setError(undefined)}
         hasCloseButton={true}

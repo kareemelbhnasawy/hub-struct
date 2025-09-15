@@ -41,13 +41,19 @@ const styles = createThemedStyles({
     base: {
       width: 20,
       height: 20,
-      overflow: 'hidden'
+      overflow: 'hidden',
     },
   },
   valueText: {
     base: {
       maxWidth: '60%',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      color: 'textBrandPrimary',
+    },
+  },
+  labelText: {
+    base: {
+      color: 'textSecondary',
     },
   },
 });

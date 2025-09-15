@@ -4,7 +4,7 @@ const styles = createThemedStyles({
   wrapper: {
     base: {
       display: 'flex',
-      backgroundColor: 'backgroundWhite',
+      // backgroundColor: 'backgroundWhite',
       alignItems: 'center',
     },
   },

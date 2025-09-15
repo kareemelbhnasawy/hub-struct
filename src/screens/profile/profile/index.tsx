@@ -60,7 +60,7 @@ const ProfileScreen = () => {
         weight: 'Semibold',
         size: '2xs',
       },
-      onPress: () => navigateTo('ProfileSettings'),
+      onPress: () => navigateTo('DigitalCard'),
     },
     {
       id: '3',
@@ -165,7 +165,8 @@ const ProfileScreen = () => {
       testId={screenTestId}
       hasHeader={false}
       isLoading={isLoading}
-      disableSafeAreaTop={true}>
+      disableSafeAreaTop={true}
+      useInfoBackground={true}>
       <View style={themedStyles.container}>
         <ProfileHeading
           testId={screenTestId}

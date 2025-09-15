@@ -59,8 +59,10 @@
     "nationality": "Nationality",
     "nationalId": "ID Number",
     "contactInfo": "Contact information",
+    "teamContactInfo": "Personal contact information",
     "mobile1": "Mobile Number",
     "extension": "Work Extension Number",
+    "workExtension": "Work Extension Number",
     "address": "Address",
     "contractAddress": "Address"
   },
@@ -177,6 +179,10 @@
     "number": "Covenant Number",
     "type": "Covenant Type",
     "registeredAt": "Registration Date"
+  },
+  "digitalCardDetails": {
+    "animation": "This card is valid when the icon is in motion",
+    "share": "Share with others"
   },
   "skills": {
     "mySkills": "My Skills",

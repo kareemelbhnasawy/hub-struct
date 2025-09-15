@@ -4,7 +4,7 @@ import { List, Tag } from '@/components/molecules';
 import { TagData } from './types';
 import { useThemeStore } from '@/store/theme';
 import styles from './styles';
-import { Paragraph, Spacer } from '@/components/atoms';
+import { Spacer } from '@/components/atoms';
 
 const TagCollection = ({
   emptyComponentProps,
@@ -70,6 +70,7 @@ const TagCollection = ({
             text: 'profile.skills.addSkillsPrompt',
             size: 'sm',
             weight: 'Regular',
+            style: themedStyles.primaryParagraph,
           },
         }
       }

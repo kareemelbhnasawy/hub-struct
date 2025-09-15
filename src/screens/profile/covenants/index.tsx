@@ -4,7 +4,7 @@ import styles from './styles';
 import Page from '@/components/templates/page';
 import { useThemeStore } from '@/store/theme';
 import { useNavigation } from '@/hooks';
-import { List, TextInput } from '@/components/molecules';
+import { List } from '@/components/molecules';
 import { PageHeaderVariants } from '@/components/templates/page/constants';
 import { Headline, LucideIcon, Paragraph, Spacer } from '@/components/atoms';
 import type {
@@ -12,6 +12,7 @@ import type {
   CovenantDetailsParams,
 } from './interface';
 import useGetCovenants from '@/network/services/profile/get-covenants/get-covenants.hook';
+import { SearchInput } from '@/components/organisms';
 
 const Covenant = () => {
   const screenTestId = 'covenants-screen';
@@ -78,16 +79,13 @@ const Covenant = () => {
     <View style={themedStyles.container}>
       <Spacer space={26} />
       {items.length > 0 && (
-        <TextInput
-          trailingIconProps={{
-            name: 'Search',
-            size: 24,
-            color: 'textBrandPrimary',
-          }}
+        <SearchInput
+          testId={screenTestId}
           placeholder="profile.covenants.searchPlaceholder"
           value={search}
-          onChangeText={setSearch}
+          onChangeValue={setSearch}
           placeholderTextColor={themedStyles.colorTertiary.color}
+          debounceDelay={0}
         />
       )}
       <Spacer space={16} />

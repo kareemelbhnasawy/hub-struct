@@ -310,6 +310,7 @@ const ProfileSettings = () => {
         titleProps: { text: 'profile.settings.settings' },
         isTitleCentered: true,
       }}
+      useInfoBackground={true}
       includeRenderStickyBottomStyles={false}
       stickyBottomContainerStyle={themedStyles.paddingH20}
       renderStickyBottom={() => (

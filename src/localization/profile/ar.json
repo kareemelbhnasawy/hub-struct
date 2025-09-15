@@ -59,8 +59,10 @@
     "nationality": "الجنسية",
     "nationalId": "رقم الهوية الوطنية",
     "contactInfo": "بيانات التواصل",
+    "teamContactInfo": "بيانات التواصل الشخصية",
     "mobile1": "تليفون شخصي",
     "extension": "تحويلة",
+    "workExtension": "تحويلة العمل",
     "address": "العنوان",
     "contractAddress": "العنوان"
   },
@@ -89,7 +91,7 @@
     "activatePIN_CODESuccess": "تم تفعيل الرمز السري PIN بنجاح",
     "stopQuickFACE_ID": "إيقاف بصمة الوجه",
     "stopQuickTOUCH_ID": "إيقاف بصمة الإصبع",
-    "stopQuickPIN_CODE": "إيقاف الرمز السري",
+    "stopQuickPIN_CODE": "إيقاف الرمز السري؟",
     "stopQuickDescFACE_ID": "ستتوقف عن استخدام بصمة الوجه لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
     "stopQuickDescTOUCH_ID": "ستتوقف عن استخدام بصمة الإصبع لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
     "stopQuickDescPIN_CODE": "ستتوقف عن استخدام الرمز السري لتسجيل الدخول. ننصح باختيار طريقة بديلة.",
@@ -178,20 +180,23 @@
     "type": "نوع العهدة",
     "registeredAt": "تاريخ تسجيل العهدة"
   },
+  "digitalCardDetails": {
+    "animation": "هذه البطاقة تكون صالحة عندما تكون الايقونة في وضع الحركة",
+    "share": "شارك مع الآخرين"
+  },
   "skills": {
     "mySkills": "مهاراتي",
     "addSkill": "اضف مهارة",
     "addSkillsPrompt": "أضف مهاراتك التي ستظهر في ملفك الشخصي وتُبرز خبراتك أمام إدارتك.",
-
     "searchToAdd": "ابحث لإضافة مهارة",
-    "noSkillsYet": "لم تقم باضافة اي مهارة بعد",
-    "totalSkills": "اجمالي مهاراتك",
+    "noSkillsYet": "لم تقم بإضافة أي مهارة بعد",
+    "totalSkills": "إجمالي مهاراتك",
     "postSuccess": "تم إضافة المهارة بنجاح",
     "deleteSuccess": "تم حذف المهارة بنجاح",
     "addSkillError": "حدث خطأ أثناء إضافة المهارة. يرجى المحاولة لاحقًا.",
     "deleteSkillError": "حدث خطأ أثناء حذف المهارة. يرجى المحاولة لاحقًا.",
     "loadingError": "حدث خطأ أثناء جلب بيانات المهارات. يرجى المحاولة لاحقًا.",
-    "searchNotFound": "لم يتم العثور على مهارات مطابقة",
+    "searchNotFound": "لم يتم العثور على مهارة مطابقة",
     "addPrompt": "هل تريد إضافة",
     "addButton": "إضافة المهارة"
   }

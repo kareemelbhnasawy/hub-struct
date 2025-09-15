@@ -142,6 +142,11 @@ const styles = createThemedStyles({
       lineHeight: 24,
     },
   },
+  baseTextInput: {
+    base: {
+      padding: 0,
+    },
+  },
 });
 
 export default styles;

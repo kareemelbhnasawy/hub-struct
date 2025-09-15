@@ -4,7 +4,7 @@ export const styles = createThemedStyles({
   containerWrapper: {
     base: {
       backgroundColor: 'alphaBlack90',
-      paddingVertical: 15,
+      paddingBottom: 15,
       paddingHorizontal: 10,
       display: 'flex',
       flexDirection: 'column',
@@ -45,7 +45,7 @@ export const styles = createThemedStyles({
   closeButtonAbsolute: {
     base: {
       position: 'absolute',
-      end: 0,
+      start: 0,
     },
   },
   marginTopAuto: {

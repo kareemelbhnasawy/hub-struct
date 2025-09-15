@@ -45,6 +45,7 @@ const TeamMemberItem = ({
               size="2xs"
               isTranslated={false}
               text={memberTitle ?? ''}
+              style={themedStyles.textForegroundSecondary}
             />
           </View>
         </View>

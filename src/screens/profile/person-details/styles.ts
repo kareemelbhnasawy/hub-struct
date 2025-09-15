@@ -32,16 +32,6 @@ const styles = createThemedStyles({
       flexDirection: 'row',
     },
   },
-  mobileInput: {
-    base: {
-      borderWidth: 1,
-      borderRadius: 8,
-      padding: 12,
-      marginTop: 8,
-      marginBottom: 16,
-      fontSize: 18,
-    },
-  },
   maskedNumber: {
     base: {
       marginBottom: 8,
@@ -78,6 +68,11 @@ const styles = createThemedStyles({
       paddingVertical: 8,
       borderRadius: Radius.SM,
       backgroundColor: 'backgroundWarningLight',
+    },
+  },
+  textBrandPrimary: {
+    base: {
+      color: 'textBrandPrimary',
     },
   },
 });

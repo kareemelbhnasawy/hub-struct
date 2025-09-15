@@ -75,6 +75,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   QualificationDetails: ['App', 'ProfileStack'],
   MyTeam: ['App', 'ProfileStack'],
   TeamMemberProfile: ['App', 'ProfileStack'],
+  DigitalCard: ['App', 'ProfileStack'],
   MySkills: ['App', 'ProfileStack'],
 
   // Example deeper nesting (uncomment & adjust to your app)
@@ -84,6 +85,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   ProfileSettings: ['App', 'ProfileStack'],
   SetPin: ['App', 'ProfileStack'],
   ConfirmPin: ['App', 'ProfileStack'],
+  IDCard: ['App', 'ProfileStack'],
 };
 
 const getScreenStackPath = (screenName: ScreenName): StackPath => {
