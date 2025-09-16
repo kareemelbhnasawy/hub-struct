@@ -235,6 +235,11 @@ const styles = createThemedStyles({
       gap: 8,
     },
   },
+  scrollArea: {
+    base: {
+      maxHeight: 340,
+    },
+  },
   gridFlex: {
     base: {
       flexDirection: 'row',

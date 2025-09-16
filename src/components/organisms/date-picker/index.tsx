@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
 import DatePickerProps, {
   CalendarType,
   DatePickerValue,
@@ -344,75 +344,55 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   const renderMonths = () => {
     const monthIndex = getMonthIndex(visibleDate, calendarType);
-    const currentYear =
+    const centerYear =
       calendarType === 'hijri'
         ? moment(visibleDate).iYear()
         : moment(visibleDate).year();
-    const nextYearDate = addYears(visibleDate, 1, calendarType);
-    const nextYear =
-      calendarType === 'hijri'
-        ? moment(nextYearDate).iYear()
-        : moment(nextYearDate).year();
-
-    type MonthRowItem =
-      | { kind: 'header'; year: number }
-      | { kind: 'month'; label: string; idx: number; year: number };
-
-    const items: MonthRowItem[] = [];
-    items.push({ kind: 'header', year: currentYear });
-    months.forEach((m, idx) =>
-      items.push({ kind: 'month', label: m, idx, year: currentYear }),
-    );
-    // append first 3 months of next year for design parity
-    items.push({ kind: 'header', year: nextYear });
-    months
-      .slice(0, 3)
-      .forEach((m, idx) =>
-        items.push({ kind: 'month', label: m, idx, year: nextYear }),
-      );
+    const range = 10; // years above/below to render for scrolling
+    const years = Array.from({ length: range * 2 + 1 }, (_, i) => centerYear - range + i);
 
     return (
-      <View style={themed.gridContainer}>
-        <View style={themed.gridFlex}>
-          {items.map((it, pos) => {
-            if (it.kind === 'header') {
-              return (
-                <View key={`y-${it.year}-${pos}`} style={themed.yearHeading}>
-                  <Paragraph
-                    testId={`${testId}-months-year-${it.year}`}
-                    isTranslated={false}
-                    size="md"
-                    weight="Semibold"
-                    text={`${it.year}`}
-                  />
-                </View>
-              );
-            }
-            const active = it.year === currentYear && it.idx === monthIndex;
-            return (
-              <Pressable
-                key={`m-${it.year}-${it.idx}`}
-                onPress={() => {
-                  let d = setYear(visibleDate, it.year, calendarType);
-                  d = setMonth(d, it.idx, calendarType);
-                  setVisibleDate(d);
-                  setViewMode('calendar');
-                }}
-                style={[themed.monthItem, active && themed.selectedPill]}
-                accessibilityRole="button">
-                <Paragraph
-                  testId={`${testId}-month-${it.idx}-${it.year}`}
-                  isTranslated={false}
-                  size="md"
-                  weight="Semibold"
-                  style={active ? themed.selectedPillText : undefined}
-                  text={it.label}
-                />
-              </Pressable>
-            );
-          })}
-        </View>
-      </View>
+      <ScrollView style={themed.scrollArea} contentContainerStyle={themed.gridContainer}>
+        {years.map((year) => (
+          <View key={`year-${year}`}>
+            <View style={themed.yearHeading}>
+              <Paragraph
+                testId={`${testId}-months-year-${year}`}
+                isTranslated={false}
+                size="md"
+                weight="Semibold"
+                text={`${year}`}
+              />
+            </View>
+            <View style={themed.gridFlex}>
+              {months.map((m, idx) => {
+                const active = year === centerYear && idx === monthIndex;
+                return (
+                  <Pressable
+                    key={`m-${year}-${idx}`}
+                    onPress={() => {
+                      let d = setYear(visibleDate, year, calendarType);
+                      d = setMonth(d, idx, calendarType);
+                      setVisibleDate(d);
+                      setViewMode('calendar');
+                    }}
+                    style={[themed.monthItem, active && themed.selectedPill]}
+                    accessibilityRole="button">
+                    <Paragraph
+                      testId={`${testId}-month-${idx}-${year}`}
+                      isTranslated={false}
+                      size="md"
+                      weight="Semibold"
+                      style={active ? themed.selectedPillText : undefined}
+                      text={m}
+                    />
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     );
   };
 
@@ -422,12 +402,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
       calendarType === 'hijri'
         ? moment(visibleDate).iYear()
         : moment(visibleDate).year();
+    const span = 40; // render many years to allow scrolling
     const years: number[] = [];
-    // 18 items to fill 6 rows × 3 cols, avoids a missing middle slot
-    for (let y = centerYear - 8; y <= centerYear + 9; y++) years.push(y);
+    for (let y = centerYear - span; y <= centerYear + span; y++) years.push(y);
     const activeYear = centerYear;
     return (
-      <View style={themed.gridContainer}>
+      <ScrollView style={themed.scrollArea} contentContainerStyle={themed.gridContainer}>
         <View style={themed.gridFlex}>
           {years.map((y) => {
             const active = y === activeYear;
@@ -452,7 +432,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
             );
           })}
         </View>
-      </View>
+      </ScrollView>
     );
   };
 
