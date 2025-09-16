@@ -1,20 +1,32 @@
 import { View } from 'react-native';
 import { Headline, Paragraph, Spacer } from '@/components/atoms';
-import ParagraphProps from '@/components/atoms/typography/paragraph/interface';
+import { useThemeStore } from '@/store/theme';
+import { styles } from './styles';
+import FormInfoCardProps from './interface';
 
 const FormInfoCard = ({
+  testId,
   labelProps,
   value,
-}: {
-  labelProps: Omit<ParagraphProps, 'testId'>;
-  value: string;
-}) => {
+}: FormInfoCardProps) => {
+  const { getThemedStyles } = useThemeStore();
+  const themedStyles = getThemedStyles(styles);
   return (
     <>
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Paragraph testId={''} {...labelProps} />
-        <Headline testId={''} text={value} isTranslated={false} />
+      <View style={themedStyles.listItemContainer}>
+        <Paragraph testId={`${testId}-label`}
+          size='xl'
+          weight='Medium'
+          color='textSecondary'
+          {...labelProps}
+        />
+        <Headline testId={`${testId}-value`}
+          text={value}
+          isTranslated={false}
+          size='2xs'
+          weight='Medium'
+          color='textBrandPrimary'
+        />
       </View>
       <Spacer space={0} isDivider />
     </>
