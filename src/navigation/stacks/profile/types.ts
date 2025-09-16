@@ -24,6 +24,7 @@ export type ProfileStackParamList = {
   ConfirmPin: ConfirmPinScreenParams;
   QualificationDetails: QualificationDetailsScreenParams;
   Covenant: undefined;
+  TEMP_PAGE: undefined;
   CovenantDetails: CovenantDetailsParams;
   IDCard: undefined;
   DigitalCard: undefined;

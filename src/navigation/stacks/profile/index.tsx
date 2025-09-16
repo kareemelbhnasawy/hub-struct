@@ -18,6 +18,7 @@ import {
   IDCardScreen,
   MySkillsScreen,
   DigitalCardScreen,
+  TempPageScreen,
 } from '@/screens';
 import { ProfileStackParamList } from './types';
 
@@ -56,6 +57,7 @@ const ProfileStack = () => {
         component={TeamMemberProfileScreen}
       />
       <Stack.Screen name="IDCard" component={IDCardScreen} />
+      <Stack.Screen name="TEMP_PAGE" component={TempPageScreen} />
     </Stack.Navigator>
   );
 };

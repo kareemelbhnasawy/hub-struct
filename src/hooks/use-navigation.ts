@@ -71,6 +71,7 @@ const stackMap: Record<ScreenName, StackPath> = {
   BusinessDetails: ['App', 'ProfileStack'],
   Qualifications: ['App', 'ProfileStack'],
   Covenant: ['App', 'ProfileStack'],
+  TEMP_PAGE: ['App', 'ProfileStack'],
   CovenantDetails: ['App', 'ProfileStack'],
   QualificationDetails: ['App', 'ProfileStack'],
   MyTeam: ['App', 'ProfileStack'],

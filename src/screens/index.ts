@@ -21,3 +21,4 @@ export { default as MyTeamScreen } from './profile/my-team';
 export { default as TeamMemberProfileScreen } from './profile/team-member-profile';
 export { default as IDCardScreen } from './profile/id-card';
 export { default as DigitalCardScreen } from './profile/digital-card';
+export { default as TempPageScreen } from './profile/temp-page';

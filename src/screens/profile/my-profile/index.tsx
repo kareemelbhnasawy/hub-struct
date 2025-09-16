@@ -127,6 +127,19 @@ const MyProfile = () => {
       },
       onPress: () => navigateTo('Covenant'),
     },
+    {
+      id: '8',
+      title: 'TEMPORARY PAGE, REMOVE BEFORE PUSH',
+      iconProps: {
+        name: 'Timer',
+        containerStyle: themedStyles.iconDescriptiveOrange,
+      },
+      textProps: {
+        weight: 'Semibold',
+        size: '2xs',
+      },
+      onPress: () => navigateTo('TEMP_PAGE'),
+    },
   ];
   return (
     <Page
