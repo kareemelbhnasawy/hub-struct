@@ -23,7 +23,7 @@ const ServiceItem = ({
                         text={serviceName}
                         size="xs"
                         weight="Semibold"
-                        style={themedStyles.textBrandTealParagraph}
+                        color='textBrandTeal'
                     />
                     <Spacer space={'xs'} />
                     <Paragraph
@@ -31,7 +31,7 @@ const ServiceItem = ({
                         text={serviceDescription}
                         size="xl"
                         weight="Regular"
-                        style={themedStyles.textDefaultParagraph}
+                        color='textDefault'
                     />
                 </View>
                 {hasForwardIcon && !renderCustomTrailingIcon && (
@@ -44,7 +44,7 @@ const ServiceItem = ({
                 )}
                 {renderCustomTrailingIcon?.()}
             </Pressable>
-            <Spacer space={0} isDivider />
+            <Spacer isDivider />
         </>
     );
 };

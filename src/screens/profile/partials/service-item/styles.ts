@@ -10,15 +10,5 @@ export const styles = createThemedStyles({
       paddingVertical: 16,
       width: '100%',
     },
-  },
-  textBrandTealParagraph: {
-    base: { 
-        color: 'textBrandTeal' 
-    }
-  },
-  textDefaultParagraph: {
-    base: { 
-        color: 'textDefault' 
-    }
-  },
+  }
 });
