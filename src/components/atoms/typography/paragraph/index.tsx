@@ -10,9 +10,10 @@ const Paragraph = ({
   testId,
   size = 'md',
   weight = 'Regular',
+  color = 'textPrimary',
   ...props
 }: ParagraphProps) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
   return (
     <BaseText
@@ -22,6 +23,7 @@ const Paragraph = ({
         themedStyles.paragraph,
         themedStyles[size],
         themedStyles[weight],
+        { color: getThemeColor(color) },
         props.style,
       ]} // add style here to allow for appending styles without breaking previous ones
     />

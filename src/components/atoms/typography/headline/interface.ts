@@ -1,3 +1,4 @@
+import { ThemeColorKey } from '@/theme/theme-colors';
 import BaseTextProps from '../../base-text/interface';
 
 interface HeadlineProps extends BaseTextProps {
@@ -10,6 +11,7 @@ interface HeadlineProps extends BaseTextProps {
   | 'Semibold'
   | 'Bold'
   | 'Title';
+  color?: ThemeColorKey;
 }
 
 export default HeadlineProps;

@@ -10,9 +10,10 @@ const Headline = ({
   testId,
   size = 'md',
   weight = 'Regular',
+  color = 'textPrimary',
   ...props
 }: HeadlineProps) => {
-  const { getThemedStyles } = useThemeStore();
+  const { getThemedStyles, getThemeColor } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
 
   return (
@@ -23,6 +24,7 @@ const Headline = ({
         themedStyles.headline,
         themedStyles[size],
         themedStyles[weight],
+        { color: getThemeColor(color) },
         props.style,
       ]} // add style here to allow for appending styles without breaking previous ones
     />
