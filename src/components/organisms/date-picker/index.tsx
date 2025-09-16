@@ -130,18 +130,22 @@ const DatePicker: React.FC<DatePickerProps> = ({
   const [internalRange, setInternalRange] = useState<RangeValue>({
     startDate: null,
     endDate: null,
-  });
+  } as RangeValue);
 
   const currentValue: DatePickerValue | undefined =
     value ?? (mode === 'single' ? internalSingle : internalRange);
 
   const asRange = (v?: DatePickerValue | null): RangeValue => {
-    if (!v || typeof v === 'string')
-      return { startDate: null, endDate: null } as unknown as RangeValue;
-    if (v instanceof Date)
-      return { startDate: null, endDate: null } as unknown as RangeValue;
-    if ((v as any).startDate !== undefined) return v as RangeValue;
-    return { startDate: null, endDate: null } as RangeValue;
+    if (!v || typeof v === 'string') {
+      return { startDate: null, endDate: null };
+    }
+    if (v instanceof Date) {
+      return { startDate: v, endDate: null };
+    }
+    if ('startDate' in v) {
+      return v as RangeValue;
+    }
+    return { startDate: null, endDate: null };
   };
 
   const commitValue = (next: DatePickerValue) => {
@@ -170,16 +174,31 @@ const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   const handleDayPress = (d: Date) => {
+    const newDate = toStart(d);
+
     if (mode === 'single') {
-      commitValue(toStart(d));
+      commitValue(newDate);
       return;
     }
+
     const current = asRange(currentValue);
+
     if (!current?.startDate || (current.startDate && current.endDate)) {
-      commitValue({ startDate: toStart(d), endDate: null });
-    } else if (current.startDate && !current.endDate) {
-      const sorted = sortRange(current.startDate, toStart(d));
-      commitValue(sorted);
+      // Start new range selection
+      commitValue({ startDate: newDate, endDate: null } as RangeValue);
+    } else {
+      // Complete the range selection
+      if (moment(newDate).isSame(current.startDate, 'day')) {
+        // If clicking same date, clear selection
+        commitValue({ startDate: null, endDate: null } as RangeValue);
+      } else {
+        // Sort the dates to ensure startDate is always before endDate
+        const sorted = sortRange(current.startDate, newDate);
+        commitValue({
+          startDate: sorted.start,
+          endDate: sorted.end,
+        } as RangeValue);
+      }
     }
   };
 
@@ -230,6 +249,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
                   isSameDay(cell.date, selectedRange.endDate);
                 const inMid =
                   mode === 'range' &&
+                  selectedRange?.startDate &&
+                  selectedRange?.endDate &&
                   isInRange(
                     cell.date,
                     selectedRange.startDate,
@@ -245,37 +266,42 @@ const DatePicker: React.FC<DatePickerProps> = ({
                     key={`c-${cIdx}`}
                     onPress={() => {
                       if (isDisabled) return;
-                      // Commit selection first, then adjust visible month if needed
                       handleDayPress(cell.date);
                       if (!cell.isCurrentMonth) gotoMonthOf(cell.date);
                     }}
                     style={themed.cellBase}
                     accessibilityRole="button">
-                    {/* range shade */}
-                    {inMid && !isStart && !isEnd ? (
-                      <View style={[themed.rangeMid]} />
-                    ) : null}
-
-                    {/* start cap */}
-                    {isStart && selectedRange.endDate ? (
+                    {inMid && !isStart && !isEnd && (
+                      <View style={themed.rangeMid} />
+                    )}
+                    {isStart && (
                       <View
-                        style={[
-                          isRTL ? themed.rangeHalfLeft : themed.rangeHalfRight,
-                          isRTL ? themed.startCap : themed.endCap,
-                        ]}
+                        style={{
+                          ...(isRTL
+                            ? themed.rangeHalfLeft
+                            : themed.rangeHalfRight),
+                          ...(isRTL ? themed.startCap : themed.endCap),
+                          ...(selectedRange.endDate &&
+                            (isRTL
+                              ? themed.rangeHalfRight
+                              : themed.rangeHalfLeft)),
+                        }}
                       />
-                    ) : null}
-                    {/* end cap */}
-                    {isEnd && selectedRange.startDate ? (
+                    )}
+                    {isEnd && (
                       <View
-                        style={[
-                          isRTL ? themed.rangeHalfRight : themed.rangeHalfLeft,
-                          isRTL ? themed.endCap : themed.startCap,
-                        ]}
+                        style={{
+                          ...(isRTL
+                            ? themed.rangeHalfRight
+                            : themed.rangeHalfLeft),
+                          ...(isRTL ? themed.endCap : themed.startCap),
+                          ...(selectedRange.startDate &&
+                            (isRTL
+                              ? themed.rangeHalfLeft
+                              : themed.rangeHalfRight)),
+                        }}
                       />
-                    ) : null}
-
-                    {/* circle selection */}
+                    )}
                     {isSelected || isStart || isEnd ? (
                       <View style={themed.selectedCircle}>
                         <Paragraph
@@ -289,18 +315,19 @@ const DatePicker: React.FC<DatePickerProps> = ({
                       </View>
                     ) : (
                       <View
-                        style={[
-                          isToday ? themed.todayOutline : null,
-                          { padding: 8, borderRadius: 18 },
-                        ]}>
+                        style={{
+                          ...(isToday && themed.todayOutline),
+                          padding: 8,
+                          borderRadius: 18,
+                        }}>
                         <Paragraph
                           testId={`${testId}-day-${cell.label}`}
                           size="md"
                           isTranslated={false}
-                          style={[
-                            themed.cellText,
-                            (isMuted || isDisabled) && themed.cellMuted,
-                          ]}
+                          style={{
+                            ...themed.cellText,
+                            ...(isMuted || isDisabled ? themed.cellMuted : {}),
+                          }}
                           text={String(cell.label)}
                         />
                       </View>
@@ -333,12 +360,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
     const items: MonthRowItem[] = [];
     items.push({ kind: 'header', year: currentYear });
-    months.forEach((m, idx) => items.push({ kind: 'month', label: m, idx, year: currentYear }));
+    months.forEach((m, idx) =>
+      items.push({ kind: 'month', label: m, idx, year: currentYear }),
+    );
     // append first 3 months of next year for design parity
     items.push({ kind: 'header', year: nextYear });
-    months.slice(0, 3).forEach((m, idx) =>
-      items.push({ kind: 'month', label: m, idx, year: nextYear }),
-    );
+    months
+      .slice(0, 3)
+      .forEach((m, idx) =>
+        items.push({ kind: 'month', label: m, idx, year: nextYear }),
+      );
 
     return (
       <View style={themed.gridContainer}>
@@ -455,8 +486,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
               )
             }
             accessibilityRole="button">
-            <View
-              style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+            <View>
               <Paragraph
                 testId={`${testId}-title`}
                 size="lg"

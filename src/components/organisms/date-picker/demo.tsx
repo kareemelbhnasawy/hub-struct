@@ -127,7 +127,7 @@ const DatePickerDemo = () => {
           mode="range"
           type="hijri"
           variant="small"
-          initial={{ startDate: null, endDate: null }}
+          initial={{ startDate: today, endDate: in5 }}
         />
       </View>
     </ScrollView>
