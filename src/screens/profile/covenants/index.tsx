@@ -55,6 +55,7 @@ const Covenant = () => {
           text={item.covenantName ?? ''}
           searchText={search.trim()}
           testId={`${screenTestId}-row-${item.covenantId}-title`}
+          color='textBrandPrimary'
         />
         <Paragraph
           size="xl"
@@ -151,13 +152,13 @@ const Covenant = () => {
           paragraphProps:
             data && data.covenants && data.covenants.length == 0
               ? {
-                  text: 'profile.covenants.emptySubtitle',
-                  size: 'xl',
-                  weight: 'Regular',
-                }
+                text: 'profile.covenants.emptySubtitle',
+                size: 'xl',
+                weight: 'Regular',
+              }
               : {
-                  text: '',
-                },
+                text: '',
+              },
         }}
       />
     </Page>

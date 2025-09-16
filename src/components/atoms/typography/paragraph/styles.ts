@@ -5,7 +5,6 @@ import { getFont } from '@/utilities';
 const styles = createThemedStyles({
   paragraph: {
     base: {
-      color: 'textPrimary',
       textAlign: 'left',
     },
   },

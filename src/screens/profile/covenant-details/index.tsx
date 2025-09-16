@@ -28,6 +28,7 @@ const CovenantDetails = () => {
                 size="xl"
                 weight="Medium"
                 testId={`basic-${item.id}-label`}
+                color='textSecondary'
             />
             <Headline
                 text={item.value}
@@ -35,6 +36,7 @@ const CovenantDetails = () => {
                 size="2xs"
                 testId={`basic-${item.id}-value`}
                 isTranslated={false}
+                color='textBrandPrimary'
             />
         </View>
     );

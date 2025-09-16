@@ -101,19 +101,6 @@ const ProfileScreen = () => {
       },
       onPress: () => navigateTo('ProfileSettings'),
     },
-    {
-      id: '6',
-      title: 'profile.skills.mySkills',
-      iconProps: {
-        name: 'Medal',
-        containerStyle: themedStyles.iconDescriptiveBlue,
-      },
-      textProps: {
-        weight: 'Semibold',
-        size: '2xs',
-      },
-      onPress: () => navigateTo('MySkills'),
-    },
   ];
   const renderListItem = ({
     item,
