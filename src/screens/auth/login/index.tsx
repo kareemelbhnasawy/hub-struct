@@ -118,7 +118,10 @@ const LoginScreen = () => {
     // setItem('loginCount', { state: loginCountAsString });
   };
 
-  const { mutate: login } = useLoginStart(onLoginSuccess, onLoginError);
+  const { mutate: login, isPending } = useLoginStart(
+    onLoginSuccess,
+    onLoginError,
+  );
 
   const onSubmit = (values: FormikValues) => {
     setEmail(values.mail);
@@ -157,7 +160,9 @@ const LoginScreen = () => {
     <Page
       testId={screenTestId}
       hasHeader={false}
-      isLoading={isPendingLoginBio || isPendingChallenge || isLoading}>
+      isLoading={
+        isPending || isPendingLoginBio || isPendingChallenge || isLoading
+      }>
       <Spacer space={50} />
       <Logo testId={screenTestId} size="md" />
       <Spacer space={20} />
