@@ -1,0 +1,283 @@
+import { Radius } from '@/style';
+import { createThemedStyles } from '@/utilities';
+
+// Calendar visual styles tuned to match brand components
+const styles = createThemedStyles({
+  container: {
+    base: {
+      backgroundColor: 'backgroundWhite',
+      borderRadius: Radius.MD,
+      borderWidth: 1,
+      borderColor: 'borderSecondary',
+      padding: 12,
+      gap: 8,
+    },
+  },
+  headerRow: {
+    base: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      rowGap: 8,
+      marginBottom: 8,
+    },
+  },
+  headerLeft: {
+    base: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      flex: 1,
+      minWidth: '40%',
+    },
+  },
+  headerTitle: {
+    base: {
+      color: 'foregroundPrimary',
+    },
+  },
+  headerActions: {
+    base: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      flexShrink: 1,
+    },
+  },
+
+  // Segmented toggle
+  segContainerLarge: {
+    base: {
+      backgroundColor: 'backgroundNeutral50',
+      borderRadius: 24,
+      padding: 4,
+      flexDirection: 'row',
+      gap: 4,
+      alignSelf: 'flex-end',
+    },
+  },
+  segContainerSmall: {
+    base: {
+      backgroundColor: 'backgroundNeutral50',
+      borderRadius: 16,
+      padding: 3,
+      flexDirection: 'row',
+      gap: 4,
+      alignSelf: 'flex-end',
+    },
+  },
+  segItemLarge: {
+    base: {
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+      borderRadius: 20,
+      backgroundColor: 'transparent',
+    },
+  },
+  segItemSmall: {
+    base: {
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+      borderRadius: 14,
+      backgroundColor: 'transparent',
+    },
+  },
+  segItemActive: {
+    base: {
+      backgroundColor: 'backgroundBrandPrimary',
+    },
+  },
+  segTextLarge: {
+    base: {
+      color: 'foregroundQuaternary',
+    },
+  },
+  segTextSmall: {
+    base: {
+      color: 'foregroundQuaternary',
+    },
+  },
+  segTextActive: {
+    base: {
+      color: 'foregroundWhite',
+    },
+  },
+
+  weekHeader: {
+    base: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 2,
+      marginBottom: 8,
+    },
+  },
+  weekDay: {
+    base: {
+      width: '14.2857%',
+      alignItems: 'center',
+      color: 'foregroundQuaternary',
+      textAlign: 'center',
+    },
+  },
+
+  grid: {
+    base: {
+      rowGap: 6,
+    },
+  },
+  row: {
+    base: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+  },
+  cellBase: {
+    base: {
+      width: '14.2857%',
+      aspectRatio: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 18,
+      position: 'relative',
+    },
+  },
+  cellText: {
+    base: {
+      color: 'foregroundPrimary',
+      textAlign: 'center',
+    },
+  },
+  cellMuted: {
+    base: {
+      opacity: 0.4,
+    },
+  },
+  todayOutline: {
+    base: {
+      borderWidth: 1.5,
+      borderColor: 'borderSecondary',
+      },
+  },
+  selectedDot: {
+    base: {
+      backgroundColor: 'backgroundBrandPrimary',
+    },
+  },
+  rangeMid: {
+    base: {
+      backgroundColor: 'backgroundNeutral100',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '16%',
+      bottom: '16%',
+      zIndex: 0,
+    },
+  },
+  rangeHalfLeft: {
+    base: {
+      backgroundColor: 'backgroundNeutral100',
+      position: 'absolute',
+      left: 0,
+      right: '50%',
+      top: '16%',
+      bottom: '16%',
+      zIndex: 0,
+    },
+  },
+  rangeHalfRight: {
+    base: {
+      backgroundColor: 'backgroundNeutral100',
+      position: 'absolute',
+      left: '50%',
+      right: 0,
+      top: '16%',
+      bottom: '16%',
+      zIndex: 0,
+    },
+  },
+  startCap: {
+    base: {
+      borderTopLeftRadius: 18,
+      borderBottomLeftRadius: 18,
+    },
+  },
+  endCap: {
+    base: {
+      borderTopRightRadius: 18,
+      borderBottomRightRadius: 18,
+    },
+  },
+  selectedCircle: {
+    base: {
+      width: '68%',
+      height: '68%',
+      borderRadius: 999,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'backgroundBrandPrimary',
+      zIndex: 1,
+    },
+  },
+  selectedText: {
+    base: {
+      color: 'foregroundWhite',
+    },
+  },
+
+  // Month / Year grid
+  gridContainer: {
+    base: {
+      paddingTop: 2,
+      paddingBottom: 8,
+      gap: 8,
+    },
+  },
+  gridFlex: {
+    base: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: 8,
+      justifyContent: 'space-between',
+    },
+  },
+  monthItem: {
+    base: {
+      width: '31%',
+      paddingVertical: 12,
+      alignItems: 'center',
+      borderRadius: Radius.SM,
+      backgroundColor: 'backgroundNeutral50',
+    },
+  },
+  yearItem: {
+    base: {
+      width: '31%',
+      paddingVertical: 12,
+      alignItems: 'center',
+      borderRadius: Radius.SM,
+      backgroundColor: 'backgroundNeutral50',
+    },
+  },
+  yearHeading: {
+    base: {
+      width: '100%',
+      alignItems: 'center',
+      marginVertical: 4,
+    },
+  },
+  selectedPill: {
+    base: {
+      backgroundColor: 'backgroundBrandPrimary',
+    },
+  },
+  selectedPillText: {
+    base: {
+      color: 'foregroundWhite',
+    },
+  },
+});
+
+export default styles;
