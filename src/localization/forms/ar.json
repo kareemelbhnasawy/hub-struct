@@ -1,0 +1,9 @@
+{
+  "successScreen": {
+    "requestSent": "تم إرسال طلبك بنجاح",
+    "requestNumber": "رقم الطلب:",
+    "requestUnderReview": "سيتم مراجعة طلبك و يمكنك متابعة طلباتك من خلال صندوق الوارد.",
+    "followRequest": "تتبع الطلب",
+    "services": "الخدمات"
+  }
+}

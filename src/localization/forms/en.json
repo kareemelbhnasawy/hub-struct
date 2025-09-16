@@ -1,0 +1,9 @@
+{
+  "successScreen": {
+    "requestSent": "Your request has been sent successfully",
+    "requestNumber": "Request Number:",
+    "requestUnderReview": "Your request is under review and you can track your requests through the inbox.",
+    "followRequest": "Follow Request",
+    "services": "Services"
+  }
+}
