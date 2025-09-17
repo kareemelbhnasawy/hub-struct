@@ -71,8 +71,8 @@ const Segmented = ({
             accessibilityRole="button">
             <Paragraph
               testId={`seg-${opt.key}`}
-              size={variant === 'large' ? 'md' : 'sm'}
-              weight="Semibold"
+              size={variant === 'large' ? 'lg' : 'sm'}
+              weight="Medium"
               style={[textStyle, active && themed.segTextActive]}
               isTranslated={false}
               text={opt.label}
@@ -315,10 +315,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
                       </View>
                     ) : (
                       <View
-                        style={[
-                          themed.normalOutline,
-                          isToday && themed.todayOutline,
-                        ]}>
+                        style={
+                          isToday ? themed.todayCircle : themed.normalOutline
+                        }>
                         <Paragraph
                           testId={`${testId}-day-${cell.label}`}
                           size="md"
@@ -493,7 +492,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
           </Pressable>
         </View>
         <View style={themed.headerActions}>
-          {viewMode === 'calendar' && (
+          {viewMode === 'calendar' && false && (
             <>
               <LucideIcon
                 testId={`${testId}-prev`}

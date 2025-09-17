@@ -49,8 +49,8 @@ const styles = createThemedStyles({
   // Segmented toggle
   segContainerLarge: {
     base: {
-      backgroundColor: 'backgroundNeutral50',
-      borderRadius: 24,
+      backgroundColor: 'backgroundQuaternary',
+      borderRadius: 12,
       padding: 4,
       flexDirection: 'row',
       gap: 4,
@@ -59,9 +59,9 @@ const styles = createThemedStyles({
   },
   segContainerSmall: {
     base: {
-      backgroundColor: 'backgroundNeutral50',
-      borderRadius: 16,
-      padding: 3,
+      backgroundColor: 'backgroundQuaternary',
+      borderRadius: 8,
+      padding: 4,
       flexDirection: 'row',
       gap: 4,
       alignSelf: 'flex-end',
@@ -69,17 +69,17 @@ const styles = createThemedStyles({
   },
   segItemLarge: {
     base: {
-      paddingHorizontal: 12,
+      paddingHorizontal: 16,
       paddingVertical: 8,
-      borderRadius: 20,
+      borderRadius: 12,
       backgroundColor: 'transparent',
     },
   },
   segItemSmall: {
     base: {
-      paddingHorizontal: 10,
+      paddingHorizontal: 16,
       paddingVertical: 6,
-      borderRadius: 14,
+      borderRadius: 8,
       backgroundColor: 'transparent',
     },
   },
@@ -160,11 +160,27 @@ const styles = createThemedStyles({
       borderColor: 'foregroundBrandPrimary',
     },
   },
+  todayCircle: {
+    base: {
+      width: '68%',
+      height: '68%',
+      borderRadius: Radius.FULL,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 2,
+      borderColor: 'foregroundBrandPrimary',
+      backgroundColor: 'transparent',
+      zIndex: 1,
+    },
+  },
   normalOutline: {
     base: {
-      paddingVertical: 8,
-      paddingHorizontal: 8,
+      width: '68%',
+      height: '68%',
+      alignItems: 'center',
+      justifyContent: 'center',
       borderRadius: Radius.FULL,
+      backgroundColor: 'transparent',
     },
   },
   selectedDot: {
@@ -174,7 +190,7 @@ const styles = createThemedStyles({
   },
   rangeMid: {
     base: {
-      backgroundColor: 'backgroundNeutral100',
+      backgroundColor: 'backgroundQuaternary',
       position: 'absolute',
       left: 0,
       right: 0,
@@ -185,7 +201,7 @@ const styles = createThemedStyles({
   },
   rangeHalfLeft: {
     base: {
-      backgroundColor: 'backgroundNeutral100',
+      backgroundColor: 'backgroundQuaternary',
       position: 'absolute',
       left: 0,
       right: '25%',
@@ -196,7 +212,7 @@ const styles = createThemedStyles({
   },
   rangeHalfRight: {
     base: {
-      backgroundColor: 'backgroundNeutral100',
+      backgroundColor: 'backgroundQuaternary',
       position: 'absolute',
       left: '25%',
       right: 0,
@@ -261,7 +277,7 @@ const styles = createThemedStyles({
       paddingVertical: 12,
       alignItems: 'center',
       borderRadius: Radius.SM,
-      backgroundColor: 'backgroundNeutral50',
+      backgroundColor: 'transparent',
     },
   },
   yearItem: {
@@ -270,7 +286,7 @@ const styles = createThemedStyles({
       paddingVertical: 12,
       alignItems: 'center',
       borderRadius: Radius.SM,
-      backgroundColor: 'backgroundNeutral50',
+      backgroundColor: 'transparent',
     },
   },
   yearHeading: {
