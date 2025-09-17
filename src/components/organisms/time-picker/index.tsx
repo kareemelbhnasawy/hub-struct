@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import { View, Pressable } from 'react-native';
-import InfiniteWheelPicker from 'react-native-infinite-wheel-picker';
+import { WheelPicker } from 'react-native-infinite-wheel-picker';
 import TimePickerProps, { TimeValue } from './interface';
 import styles from './styles';
 import { useThemeStore } from '@/store/theme';
