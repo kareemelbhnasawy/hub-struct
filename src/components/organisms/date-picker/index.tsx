@@ -143,7 +143,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
       return { startDate: v, endDate: null };
     }
     if ('startDate' in v) {
-      return v as RangeValue;
+      return v;
     }
     return { startDate: null, endDate: null };
   };
@@ -315,11 +315,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
                       </View>
                     ) : (
                       <View
-                        style={{
-                          ...(isToday && themed.todayOutline),
-                          padding: 8,
-                          borderRadius: 18,
-                        }}>
+                        style={[
+                          themed.normalOutline,
+                          isToday && themed.todayOutline,
+                        ]}>
                         <Paragraph
                           testId={`${testId}-day-${cell.label}`}
                           size="md"
@@ -349,10 +348,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
         ? moment(visibleDate).iYear()
         : moment(visibleDate).year();
     const range = 10; // years above/below to render for scrolling
-    const years = Array.from({ length: range * 2 + 1 }, (_, i) => centerYear - range + i);
+    const years = Array.from(
+      { length: range * 2 + 1 },
+      (_, i) => centerYear - range + i,
+    );
 
     return (
-      <ScrollView style={themed.scrollArea} contentContainerStyle={themed.gridContainer}>
+      <ScrollView
+        style={themed.scrollArea}
+        contentContainerStyle={themed.gridContainer}
+        nestedScrollEnabled>
         {years.map((year) => (
           <View key={`year-${year}`}>
             <View style={themed.yearHeading}>
@@ -407,7 +412,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
     for (let y = centerYear - span; y <= centerYear + span; y++) years.push(y);
     const activeYear = centerYear;
     return (
-      <ScrollView style={themed.scrollArea} contentContainerStyle={themed.gridContainer}>
+      <ScrollView
+        style={themed.scrollArea}
+        contentContainerStyle={themed.gridContainer}
+        nestedScrollEnabled>
         <View style={themed.gridFlex}>
           {years.map((y) => {
             const active = y === activeYear;
@@ -485,20 +493,24 @@ const DatePicker: React.FC<DatePickerProps> = ({
           </Pressable>
         </View>
         <View style={themed.headerActions}>
-          <LucideIcon
-            testId={`${testId}-prev`}
-            name={'ChevronLeft'}
-            isRTLMirrored
-            onPress={goPrevHeader}
-            color="foregroundQuaternary"
-          />
-          <LucideIcon
-            testId={`${testId}-next`}
-            name={'ChevronRight'}
-            isRTLMirrored
-            onPress={goNextHeader}
-            color="foregroundQuaternary"
-          />
+          {viewMode === 'calendar' && (
+            <>
+              <LucideIcon
+                testId={`${testId}-prev`}
+                name={'ChevronLeft'}
+                isRTLMirrored
+                onPress={goPrevHeader}
+                color="foregroundQuaternary"
+              />
+              <LucideIcon
+                testId={`${testId}-next`}
+                name={'ChevronRight'}
+                isRTLMirrored
+                onPress={goNextHeader}
+                color="foregroundQuaternary"
+              />
+            </>
+          )}
 
           <Segmented
             value={calendarType}

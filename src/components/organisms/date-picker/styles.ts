@@ -156,9 +156,16 @@ const styles = createThemedStyles({
   },
   todayOutline: {
     base: {
-      borderWidth: 1.5,
-      borderColor: 'borderSecondary',
-      },
+      borderWidth: 2,
+      borderColor: 'foregroundBrandPrimary',
+    },
+  },
+  normalOutline: {
+    base: {
+      paddingVertical: 8,
+      paddingHorizontal: 8,
+      borderRadius: Radius.FULL,
+    },
   },
   selectedDot: {
     base: {
