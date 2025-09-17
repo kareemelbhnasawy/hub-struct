@@ -91,53 +91,6 @@ const TimePicker = ({
     [value, onChangeValue],
   );
 
-  const renderWheelItem = useCallback(
-    (item: string, index: number, isSelected: boolean) => {
-      // Calculate distance from selected item to determine styling
-      const middleIndex = Math.floor(60 / 2); // Assuming 60 items visible
-      const distance = Math.abs(index - middleIndex);
-
-      let textSize: 'lg' | 'md' | 'sm' | 'xs';
-      let textWeight: 'Medium' | 'Regular' = 'Medium';
-      let textColor: 'textPrimary' | 'textTertiary' = 'textTertiary';
-
-      if (isSelected) {
-        textSize = 'lg';
-        textColor = 'textPrimary';
-      } else if (distance === 1) {
-        textSize = 'md';
-      } else if (distance === 2) {
-        textSize = 'sm';
-      } else {
-        textSize = 'xs';
-      }
-
-      return (
-        <View style={themedStyles.wheelPickerItem}>
-          <Headline
-            testId={`${testId}-wheel-item-${item}`}
-            text={item}
-            size={textSize}
-            weight={textWeight}
-            color={textColor}
-          />
-        </View>
-      );
-    },
-    [testId, themedStyles],
-  );
-
-  const renderSelectedBackground = useCallback(
-    () => (
-      <View
-        style={[
-          themedStyles.selectedItemBackground,
-          { backgroundColor: getThemeColor('backgroundBrandPrimaryLight') },
-        ]}
-      />
-    ),
-    [themedStyles, getThemeColor],
-  );
 
   return (
     <>
