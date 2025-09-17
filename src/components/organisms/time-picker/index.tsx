@@ -151,8 +151,7 @@ const TimePicker = ({
         hasCloseButton={true}
         {...modalProps}>
         <View style={themedStyles.timePickerContainer}>
-          {/* Selected item background overlay */}
-          {renderSelectedBackground()}
+          {/* Selected row is styled via selectedLayoutStyle on WheelPicker */}
 
           {showHours && (
             <>
