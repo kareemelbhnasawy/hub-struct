@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import DatePickerProps, {
   CalendarType,
@@ -90,7 +90,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
   calendarType: calendarTypeProp = 'gregorian',
   labelVariant = 'large',
   value,
-  onChange,
+  onChangeValue: onChange,
+  format = 'DD/MM/YYYY',
+  hijriLabel = true,
   onCalendarTypeChange,
   minDate,
   maxDate,
@@ -148,8 +150,74 @@ const DatePicker: React.FC<DatePickerProps> = ({
     return { startDate: null, endDate: null };
   };
 
+  // --- Scroll anchoring for Months/Years views ---
+  const monthsRef = useRef<ScrollView | null>(null);
+  const [monthsBlockH, setMonthsBlockH] = useState<number | null>(null);
+  const [monthsScrollH, setMonthsScrollH] = useState<number | null>(null);
+  useEffect(() => {
+    if (viewMode !== 'months') return;
+    if (!monthsBlockH || !monthsScrollH) return;
+    const centerYear =
+      calendarType === 'hijri'
+        ? moment(visibleDate).iYear()
+        : moment(visibleDate).year();
+    const range = 10;
+    const years = Array.from(
+      { length: range * 2 + 1 },
+      (_, i) => centerYear - range + i,
+    );
+    const idx = years.indexOf(centerYear);
+    const y = Math.max(
+      0,
+      idx * monthsBlockH - (monthsScrollH - monthsBlockH) / 2,
+    );
+    monthsRef.current?.scrollTo({ y, animated: false });
+  }, [viewMode, monthsBlockH, monthsScrollH, visibleDate, calendarType]);
+
+  const yearsRef = useRef<ScrollView | null>(null);
+  const [yearItemH, setYearItemH] = useState<number | null>(null);
+  const [yearsScrollH, setYearsScrollH] = useState<number | null>(null);
+  useEffect(() => {
+    if (viewMode !== 'years') return;
+    if (!yearItemH || !yearsScrollH) return;
+    const span = 40; // see years range below
+    const index = span; // center index in the generated array
+    const rowIdx = Math.floor(index / 3);
+    const GAP = 8; // matches gridFlex gap
+    const rowH = yearItemH + GAP;
+    const y = Math.max(0, rowIdx * rowH - (yearsScrollH - rowH) / 2);
+    yearsRef.current?.scrollTo({ y, animated: false });
+  }, [viewMode, yearItemH, yearsScrollH]);
+
   const commitValue = (next: DatePickerValue) => {
-    if (onChange) onChange(next);
+    const fmtFor = (d: Date) => {
+      if (calendarType === 'hijri' && hijriLabel) {
+        let f = format;
+        f = f
+          .replace(/YYYY/g, 'iYYYY')
+          .replace(/MMMM/g, 'iMMMM')
+          .replace(/MMM/g, 'iMMM')
+          .replace(/MM/g, 'iMM')
+          .replace(/DD/g, 'iDD')
+          .replace(/D/g, 'iD')
+          .replace(/M/g, 'iM');
+        return moment(d).format(f);
+      }
+      return moment(d).format(format);
+    };
+
+    let label = '';
+    if (mode === 'single') {
+      const d = next as SingleValue;
+      label = d ? fmtFor(d) : '';
+    } else {
+      const r = asRange(next as RangeValue);
+      if (r.startDate && r.endDate)
+        label = `${fmtFor(r.startDate)} - ${fmtFor(r.endDate)}`;
+      else if (r.startDate) label = fmtFor(r.startDate);
+    }
+
+    if (onChange) onChange({ value: next, label });
     if (!value) {
       if (mode === 'single') setInternalSingle(next as SingleValue);
       else setInternalRange(next as RangeValue);
@@ -354,11 +422,18 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
     return (
       <ScrollView
+        ref={(r) => (monthsRef.current = r)}
         style={themed.scrollArea}
         contentContainerStyle={themed.gridContainer}
-        nestedScrollEnabled>
+        nestedScrollEnabled
+        onLayout={(e) => setMonthsScrollH(e.nativeEvent.layout.height)}>
         {years.map((year) => (
-          <View key={`year-${year}`}>
+          <View
+            key={`year-${year}`}
+            onLayout={(e) => {
+              if (year === years[0] && !monthsBlockH)
+                setMonthsBlockH(e.nativeEvent.layout.height);
+            }}>
             <View style={themed.yearHeading}>
               <Paragraph
                 testId={`${testId}-months-year-${year}`}
@@ -412,15 +487,21 @@ const DatePicker: React.FC<DatePickerProps> = ({
     const activeYear = centerYear;
     return (
       <ScrollView
+        ref={(r) => (yearsRef.current = r)}
         style={themed.scrollArea}
         contentContainerStyle={themed.gridContainer}
-        nestedScrollEnabled>
+        nestedScrollEnabled
+        onLayout={(e) => setYearsScrollH(e.nativeEvent.layout.height)}>
         <View style={themed.gridFlex}>
-          {years.map((y) => {
+          {years.map((y, idx) => {
             const active = y === activeYear;
             return (
               <Pressable
                 key={`y-${y}`}
+                onLayout={(e) => {
+                  if (idx === 0 && !yearItemH)
+                    setYearItemH(e.nativeEvent.layout.height);
+                }}
                 onPress={() => {
                   setVisibleDate(setYear(visibleDate, y, calendarType));
                   setViewMode('months');

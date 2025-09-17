@@ -72,7 +72,7 @@ const Sample = ({
         calendarType={type}
         labelVariant={variant}
         value={val}
-        onChange={setVal}
+        onChangeValue={(res) => setVal(res.value)}
       />
     </View>
   );

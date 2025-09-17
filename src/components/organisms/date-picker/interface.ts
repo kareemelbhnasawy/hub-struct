@@ -19,7 +19,12 @@ interface DatePickerProps {
   calendarType?: CalendarType; // gregorian | hijri
   labelVariant?: LabelVariant; // large | small
   value?: DatePickerValue;
-  onChange?: (value: DatePickerValue) => void;
+  // Emits the selected value with a formatted label
+  onChangeValue?: (result: { value: DatePickerValue; label: string }) => void;
+  // Date format for label. Defaults to 'DD/MM/YYYY'.
+  format?: string;
+  // If true (default), label is formatted in Hijri when calendarType is 'hijri'
+  hijriLabel?: boolean;
   onCalendarTypeChange?: (type: CalendarType) => void;
   minDate?: Date;
   maxDate?: Date;
@@ -28,4 +33,3 @@ interface DatePickerProps {
 }
 
 export default DatePickerProps;
-
