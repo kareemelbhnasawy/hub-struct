@@ -158,26 +158,23 @@ const TimePicker = ({
             <>
               <View style={themedStyles.wheelContainer}>
                 <View style={themedStyles.wheelPickerWrapper}>
-                  <InfiniteWheelPicker
+                  <WheelPicker
                     data={hours}
-                    selectedIndex={value?.hour || 9}
-                    onSelectedChange={(index) =>
-                      handleTimeChange('hour', hours[index])
-                    }
-                    itemHeight={36}
-                    itemTextStyle={{
-                      fontFamily: 'HRSD Gov',
+                    initialSelectedIndex={value?.hour ?? 9}
+                    selectedIndex={value?.hour}
+                    onChangeValue={(index, val) => handleTimeChange('hour', String(val))}
+                    elementHeight={36}
+                    restElements={3}
+                    containerStyle={{ height: 36 * (3 * 2 + 1) }}
+                    selectedLayoutStyle={{
+                      backgroundColor: getThemeColor('backgroundBrandPrimaryLight'),
+                      borderRadius: 8,
+                      height: 36,
+                    }}
+                    elementTextStyle={{
                       fontSize: 24,
                       color: getThemeColor('textTertiary'),
                     }}
-                    selectedItemTextStyle={{
-                      fontFamily: 'HRSD Gov',
-                      fontSize: 32,
-                      fontWeight: '500',
-                      color: getThemeColor('textPrimary'),
-                    }}
-                    containerStyle={{ height: 200 }}
-                    renderItem={renderWheelItem}
                   />
                 </View>
               </View>
