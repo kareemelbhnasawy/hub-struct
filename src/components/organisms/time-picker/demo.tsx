@@ -24,9 +24,13 @@ const styles = createThemedStyles({
 const TimePickerDemo = () => {
   const { getThemedStyles } = useThemeStore();
   const themedStyles = getThemedStyles(styles);
-  
+
   const [time1, setTime1] = useState<TimeValue | undefined>();
-  const [time2, setTime2] = useState<TimeValue>({ hour: 9, minute: 30, second: 0 });
+  const [time2, setTime2] = useState<TimeValue>({
+    hour: 9,
+    minute: 30,
+    second: 0,
+  });
   const [minutesSeconds, setMinutesSeconds] = useState<TimeValue | undefined>();
 
   return (
@@ -38,9 +42,9 @@ const TimePickerDemo = () => {
         weight="Bold"
         color="textPrimary"
       />
-      
+
       <Spacer testId="spacer-1" space={30} />
-      
+
       {/* Basic time picker */}
       <View style={themedStyles.demoSection}>
         <Headline
@@ -53,7 +57,7 @@ const TimePickerDemo = () => {
         <Spacer testId="spacer-2" space={10} />
         <TimePicker
           testId="time-picker-1"
-          labelProps={{ text: "Select Time" }}
+          labelProps={{ text: 'Select Time' }}
           placeholder="Choose a time"
           value={time1}
           onChangeValue={setTime1}
@@ -73,7 +77,7 @@ const TimePickerDemo = () => {
         <Spacer testId="spacer-3" space={10} />
         <TimePicker
           testId="time-picker-2"
-          labelProps={{ text: "Meeting Time" }}
+          labelProps={{ text: 'Meeting Time' }}
           placeholder="Select meeting time"
           value={time2}
           onChangeValue={setTime2}
@@ -92,7 +96,7 @@ const TimePickerDemo = () => {
         <Spacer testId="spacer-4" space={10} />
         <TimePicker
           testId="time-picker-3"
-          labelProps={{ text: "Duration" }}
+          labelProps={{ text: 'Duration' }}
           placeholder="Select duration"
           value={minutesSeconds}
           onChangeValue={setMinutesSeconds}
@@ -114,7 +118,7 @@ const TimePickerDemo = () => {
         <Spacer testId="spacer-5" space={10} />
         <TimePicker
           testId="time-picker-4"
-          labelProps={{ text: "Disabled Field" }}
+          labelProps={{ text: 'Disabled Field' }}
           placeholder="Cannot select"
           disabled={true}
         />
