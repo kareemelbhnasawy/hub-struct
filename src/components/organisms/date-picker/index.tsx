@@ -274,7 +274,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                     {inMid && !isStart && !isEnd && (
                       <View style={themed.rangeMid} />
                     )}
-                    {isStart && (
+                    {isStart && selectedRange?.endDate && (
                       <View
                         style={{
                           ...(isRTL
