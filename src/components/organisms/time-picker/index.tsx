@@ -91,7 +91,6 @@ const TimePicker = ({
     [value, onChangeValue],
   );
 
-
   return (
     <>
       <BaseSheet
@@ -114,12 +113,16 @@ const TimePicker = ({
                     data={hours}
                     initialSelectedIndex={value?.hour ?? 9}
                     selectedIndex={value?.hour}
-                    onChangeValue={(index, val) => handleTimeChange('hour', String(val))}
+                    onChangeValue={(index, val) =>
+                      handleTimeChange('hour', String(val))
+                    }
                     elementHeight={36}
                     restElements={3}
                     containerStyle={{ height: 36 * (3 * 2 + 1) }}
                     selectedLayoutStyle={{
-                      backgroundColor: getThemeColor('backgroundBrandPrimaryLight'),
+                      backgroundColor: getThemeColor(
+                        'backgroundBrandPrimaryLight',
+                      ),
                       borderRadius: 8,
                       height: 36,
                     }}
@@ -153,12 +156,16 @@ const TimePicker = ({
                     data={minutes}
                     initialSelectedIndex={value?.minute ?? 30}
                     selectedIndex={value?.minute}
-                    onChangeValue={(index, val) => handleTimeChange('minute', String(val))}
+                    onChangeValue={(index, val) =>
+                      handleTimeChange('minute', String(val))
+                    }
                     elementHeight={36}
                     restElements={3}
                     containerStyle={{ height: 36 * (3 * 2 + 1) }}
                     selectedLayoutStyle={{
-                      backgroundColor: getThemeColor('backgroundBrandPrimaryLight'),
+                      backgroundColor: getThemeColor(
+                        'backgroundBrandPrimaryLight',
+                      ),
                       borderRadius: 8,
                       height: 36,
                     }}
@@ -191,12 +198,16 @@ const TimePicker = ({
                   data={seconds}
                   initialSelectedIndex={value?.second ?? 0}
                   selectedIndex={value?.second}
-                  onChangeValue={(index, val) => handleTimeChange('second', String(val))}
+                  onChangeValue={(index, val) =>
+                    handleTimeChange('second', String(val))
+                  }
                   elementHeight={36}
                   restElements={3}
                   containerStyle={{ height: 36 * (3 * 2 + 1) }}
                   selectedLayoutStyle={{
-                    backgroundColor: getThemeColor('backgroundBrandPrimaryLight'),
+                    backgroundColor: getThemeColor(
+                      'backgroundBrandPrimaryLight',
+                    ),
                     borderRadius: 8,
                     height: 36,
                   }}
